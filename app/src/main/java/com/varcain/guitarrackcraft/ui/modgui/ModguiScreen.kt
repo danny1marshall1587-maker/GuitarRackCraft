@@ -464,7 +464,49 @@ private fun buildAssetLoader(
                 }
                 if (sharedResult != null) return@addPathHandler sharedResult
             }
-            val file = File(baseDir, relativePath)
+            if (relativePath == "_shared/jquery.min.js" || relativePath == "jquery.min.js") {
+                val jqueryBytes = try {
+                    context.assets.open("jquery.min.js").use { it.readBytes() }
+                } catch (_: Exception) { null }
+                if (jqueryBytes != null) {
+                    return@addPathHandler WebResourceResponse("application/javascript", "UTF-8", jqueryBytes.inputStream())
+                }
+            }
+            if (relativePath == "_plugin_script.js") {
+                val scriptCandidates = listOf(
+                    File(baseDir, "modgui/script.js"),
+                    File(baseDir, "script.js")
+                )
+                val scriptFile = scriptCandidates.firstOrNull { it.exists() }
+                val jsContent = if (scriptFile != null) {
+                    try {
+                        val raw = scriptFile.readText(Charsets.UTF_8).trim()
+                        "try { window._modPluginRawScript = (" + raw + "); } catch(e) { console.error('Error compiling plugin script.js:', e); window._modPluginRawScript = null; }"
+                    } catch (e: Exception) {
+                        "window._modPluginRawScript = null;"
+                    }
+                } else {
+                    "window._modPluginRawScript = null;"
+                }
+                return@addPathHandler WebResourceResponse("application/javascript", "UTF-8", jsContent.toByteArray(Charsets.UTF_8).inputStream())
+            }
+            var file = File(baseDir, relativePath)
+            if (!file.exists() && relativePath.endsWith(".css")) {
+                val candidates = listOf(
+                    File(baseDir, "modgui/stylesheet.css"),
+                    File(baseDir, "stylesheet.css"),
+                    File(baseDir, relativePath.substringBeforeLast('/', "") + "/stylesheet.css"),
+                    File(baseDir, relativePath.replace(Regex("""stylesheet-.+\.css$"""), "stylesheet.css")),
+                    File(baseDir, "modgui/" + relativePath.substringAfterLast('/'))
+                )
+                file = candidates.firstOrNull { it.exists() } ?: file
+            }
+            if (!file.exists()) {
+                val modguiSub = File(baseDir, "modgui/$relativePath")
+                if (modguiSub.exists()) {
+                    file = modguiSub
+                }
+            }
             if (!file.exists()) return@addPathHandler null
             if (!file.canonicalPath.startsWith(baseDir.canonicalPath)) return@addPathHandler null
             val isIconTemplate = relativePath == iconTemplate
@@ -631,6 +673,10 @@ private fun buildAssetLoader(
                         <meta charset="UTF-8">
                         $viewportMeta
                         <link rel="stylesheet" href="$cssName">
+                        <link rel="stylesheet" href="stylesheet.css">
+                        <link rel="stylesheet" href="modgui/stylesheet.css">
+                        <script src="https://modgui.app/_shared/jquery.min.js"></script>
+                        <script src="https://modgui.app/_plugin_script.js"></script>
                         <style>
                         /* Disable Android WebView tap highlight and text selection */
                         * { -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
@@ -648,6 +694,12 @@ private fun buildAssetLoader(
                         .mod-pedal .mod-light::after { content: ''; width: 14px; height: 14px; border-radius: 50%; display: block; }
                         .mod-pedal .mod-light.on::after  { background: radial-gradient(circle at 35% 35%, #ff6060, #cc0000); box-shadow: 0 0 6px 2px rgba(200,0,0,0.7); }
                         .mod-pedal .mod-light.off::after { background: radial-gradient(circle at 35% 35%, #552222, #331111); }
+                        /* Custom knobs & buttons interactive touch rules */
+                        .custom-knob-dial, .knob-rotor, button, .ycv-bat-switch, .friedman-bat-switch, .ycv-channel-button, .channel-btn, .ycv-deck-selector, .deck-selector, .ycv-mod-switch-pill {
+                            touch-action: none;
+                            -webkit-tap-highlight-color: transparent;
+                            cursor: pointer;
+                        }
                         </style>
                         $scaleStyle
                         </head>

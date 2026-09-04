@@ -1,0 +1,272 @@
+/* Cyber Klon — Authentic Klon Centaur Champagne Gold for MODEP / MOD-UI */
+
+.klon-pedal {
+    position: absolute;
+    width: 340px;
+    height: 530px;
+    background: radial-gradient(circle at 50% 20%, #c9a64e 0%, #a68430 60%, #523f0f 100%);
+    border-radius: 24px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.95), 
+                inset 0 1px 3px rgba(255, 230, 160, 0.6), 
+                inset 0 -4px 8px rgba(0, 0, 0, 0.95);
+    border: 3px solid #dfbd68;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.klon-pedal .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    cursor: move;
+    z-index: 20;
+}
+
+.klon-pedal .mod-plugin-brand {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.klon-pedal .mod-plugin-brand h1 {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #4a1f0f;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    margin: 0;
+}
+
+.klon-pedal .mod-plugin-name {
+    text-align: center;
+    border-bottom: 1.5px solid rgba(74, 31, 15, 0.4);
+    padding-bottom: 3px;
+    margin: 1px 24px 6px 24px;
+}
+
+.klon-pedal .mod-plugin-name h1 {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    color: #3b1406;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+    margin: 0;
+}
+
+/* ========================================================
+   SECTION HEADERS & ROW WRAPPERS
+======================================================== */
+.klon-pedal .knob-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 18px 2px 18px;
+}
+
+.klon-pedal .knob-section-header .section-title {
+    font-size: 7.5px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    background: rgba(74, 31, 15, 0.85);
+    padding: 1px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(223, 189, 104, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.klon-pedal .mod-control-group {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 10px;
+    margin-bottom: 4px;
+}
+
+.klon-pedal .mod-control-group.row-3 {
+    justify-content: center;
+    gap: 22px;
+}
+
+.klon-pedal .mod-control-group.row-2 {
+    justify-content: center;
+    gap: 40px;
+}
+
+/* ========================================================
+   ROTARY KNOBS & LABELS
+======================================================== */
+.klon-pedal .mod-knob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 66px;
+    margin: 0;
+    position: relative;
+}
+
+.klon-pedal .custom-knob-dial {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #4a1f0f 0%, #290e04 70%, #0d0401 100%);
+    border: 2px solid #dfbd68;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 
+                inset 0 1px 3px rgba(255, 230, 160, 0.4), 
+                inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+}
+
+.klon-pedal .custom-knob-dial:hover {
+    border-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 
+                0 0 8px rgba(223, 189, 104, 0.6), 
+                inset 0 1px 3px rgba(255, 240, 200, 0.7);
+}
+
+.klon-pedal .custom-knob-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 16px;
+    background: #ffd700;
+    border-radius: 1.5px;
+    box-shadow: 0 0 6px #ffaa00;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+}
+
+/* ========================================================
+   CUSTOM TOGGLE SWITCHES
+======================================================== */
+.klon-pedal .custom-toggle-switch {
+    width: 44px;
+    height: 48px;
+    border-radius: 8px;
+    background: radial-gradient(circle at 50% 30%, #523f0f 0%, #261c04 100%);
+    border: 2px solid #dfbd68;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 230, 160, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease;
+}
+
+.klon-pedal .custom-toggle-switch:hover {
+    border-color: #ffffff;
+}
+
+.klon-pedal .custom-toggle-switch .switch-slot {
+    width: 24px;
+    height: 24px;
+    background: #120c02;
+    border-radius: 50%;
+    border: 1.5px solid #664d12;
+    position: relative;
+}
+
+.klon-pedal .custom-toggle-switch .switch-lever {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 18px;
+    background: linear-gradient(180deg, #f0f0f0 0%, #707070 100%);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    transform: translate(-50%, -50%) rotate(-25deg);
+    transition: transform 0.15s ease-in-out;
+}
+
+.klon-pedal .custom-toggle-switch.on .switch-lever {
+    transform: translate(-50%, -50%) rotate(25deg);
+    background: linear-gradient(180deg, #ffffff 0%, #dfbd68 100%);
+}
+
+.klon-pedal .custom-toggle-switch .switch-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #330800;
+    border: 1px solid #661500;
+    margin-top: 3px;
+    transition: all 0.15s ease;
+}
+
+.klon-pedal .custom-toggle-switch .switch-led.lit {
+    background: #ff2200;
+    box-shadow: 0 0 8px #ff2200, 0 0 14px #cc0000;
+    border-color: #ff9988;
+}
+
+.klon-pedal .mod-knob-title {
+    font-size: 7.5px;
+    font-weight: 900;
+    color: #3b1406;
+    letter-spacing: 0.8px;
+    margin-top: 3px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* ========================================================
+   BYPASS LIGHT & FOOTSWITCH
+======================================================== */
+.klon-pedal .mod-light {
+    position: absolute;
+    bottom: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #240800;
+    border: 2px solid #661800;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.klon-pedal .mod-light.on,
+.klon-pedal.mod-pedal-on .mod-light {
+    background-color: #ff2200;
+    box-shadow: 0 0 14px #ff2200, 0 0 25px #cc0000, inset 0 1px 2px #ffffff;
+    border-color: #ff9988;
+}
+
+.klon-pedal .mod-footswitch {
+    position: absolute !important;
+    bottom: 12px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 66px !important;
+    height: 66px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 132px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.klon-pedal .mod-footswitch.on {
+    background-position-y: top !important;
+}

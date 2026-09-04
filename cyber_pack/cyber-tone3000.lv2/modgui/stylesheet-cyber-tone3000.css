@@ -1,0 +1,538 @@
+/* ==========================================================================
+   CYBER AUDIO - TONE3000 MOD-UI STYLESHEET
+   Sleek Dark Titanium & Neon Cyan Boutique Pedal Styling
+   ========================================================================== */
+
+.tone3000-pedal {
+    background: #0d121c !important;
+    border: 2px solid #00d2ff !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75), 0 0 20px rgba(0, 210, 255, 0.25) !important;
+    border-radius: 14px !important;
+    width: 252px !important;
+    min-height: 440px !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+}
+
+.tone3000-pedal .mod-plugin-brand h1 {
+    color: #7b92a8 !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    margin-top: 10px !important;
+}
+
+.tone3000-pedal .mod-plugin-name h1 {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    letter-spacing: 1.5px !important;
+    text-align: center !important;
+    text-shadow: 0 0 8px rgba(0, 210, 255, 0.5) !important;
+    margin-top: 2px !important;
+}
+
+/* OLED Screen */
+.tone3000-pedal .t3k-oled-screen {
+    margin: 10px 14px 8px 14px;
+    background: #060910;
+    border: 1px solid #1e2c3e;
+    border-radius: 8px;
+    padding: 6px 8px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.tone3000-pedal .t3k-oled-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+}
+
+.tone3000-pedal .t3k-oled-badge {
+    font-size: 8px;
+    font-weight: 800;
+    color: #00d2ff;
+    letter-spacing: 1px;
+}
+
+.tone3000-pedal .t3k-oled-cat {
+    font-size: 8px;
+    font-weight: 700;
+    color: #5d748c;
+    background: rgba(255,255,255,0.05);
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+.tone3000-pedal .t3k-oled-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.tone3000-pedal .t3k-oled-arrow {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid #28394e;
+    color: #00d2ff;
+    font-size: 16px;
+    line-height: 1;
+    width: 22px;
+    height: 26px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    user-select: none;
+}
+
+.tone3000-pedal .t3k-oled-arrow:hover {
+    background: #00d2ff;
+    color: #060910;
+}
+
+.tone3000-pedal .t3k-oled-text {
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+}
+
+.tone3000-pedal .t3k-oled-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tone3000-pedal .t3k-oled-sub {
+    font-size: 9px;
+    color: #00d2ff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.85;
+}
+
+/* Open Cloud Trigger Button */
+.tone3000-pedal .t3k-cloud-trigger-wrap {
+    margin: 4px 14px 8px 14px;
+}
+
+.tone3000-pedal .t3k-cloud-trigger-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #0d263b, #093755);
+    border: 1px solid #00d2ff;
+    color: #00f0ff;
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    padding: 7px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 210, 255, 0.2);
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.tone3000-pedal .t3k-cloud-trigger-btn:hover {
+    background: #00d2ff;
+    color: #06111a;
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.6);
+}
+
+.tone3000-pedal .t3k-cloud-btn-icon {
+    font-size: 11px;
+    margin-right: 4px;
+}
+
+/* Control Rows */
+.tone3000-pedal .mod-control-group {
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tone3000-pedal .mod-knob {
+    text-align: center;
+    position: relative;
+    width: 60px;
+}
+
+.tone3000-pedal .mod-knob-title {
+    display: block;
+    color: #92a7bf;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* Footswitch & LED */
+.tone3000-pedal .mod-light {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+}
+
+.tone3000-pedal .mod-footswitch {
+    margin: 10px auto 14px auto;
+}
+
+/* Full-Screen Glassmorphism Modal Injected by Pedal */
+.t3k-overlay-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 9, 15, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #ffffff;
+}
+
+.t3k-modal-window {
+    width: 100%;
+    max-width: 1020px;
+    background: #111724;
+    border: 1px solid rgba(0, 210, 255, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.85), 0 0 40px rgba(0, 210, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.t3k-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: #161e2f;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.t3k-modal-title-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.t3k-modal-logo {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+.t3k-modal-logo span { color: #00d2ff; }
+
+.t3k-modal-cloud-status {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #00f0ff;
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.t3k-close-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.t3k-close-btn:hover {
+    background: rgba(255, 60, 60, 0.2);
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+.t3k-signal-chain-bar {
+    padding: 16px 24px;
+    background: #0d121c;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.t3k-chain-title {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #7b92a8;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.t3k-chain-blocks-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.t3k-chain-block {
+    background: #182232;
+    border: 1px solid #2d3f59;
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 140px;
+}
+
+.t3k-chain-block.active {
+    border-color: #00d2ff;
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.3);
+    background: #1a273b;
+}
+
+.t3k-block-badge {
+    font-size: 8px;
+    font-weight: 800;
+    color: #00d2ff;
+    letter-spacing: 1px;
+}
+
+.t3k-block-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.t3k-chain-arrow {
+    color: #435b78;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.t3k-browser-controls {
+    padding: 16px 24px 8px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.t3k-search-input-box {
+    position: relative;
+    width: 100%;
+}
+
+.t3k-search-input {
+    width: 100%;
+    background: #0d121c;
+    border: 1px solid #253346;
+    border-radius: 8px;
+    padding: 10px 14px 10px 38px;
+    color: #fff;
+    font-size: 13px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.t3k-search-input:focus {
+    border-color: #00d2ff;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+}
+
+.t3k-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #5c7491;
+    font-size: 14px;
+}
+
+.t3k-filter-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.t3k-pill {
+    background: #172130;
+    border: 1px solid #25344a;
+    color: #92a7bf;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.t3k-pill:hover, .t3k-pill.active {
+    background: #00d2ff;
+    border-color: #00d2ff;
+    color: #08101a;
+    font-weight: 700;
+}
+
+.t3k-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+    padding: 12px 24px 24px 24px;
+}
+
+.t3k-tone-card {
+    background: #141c2b;
+    border: 1px solid #25354d;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.t3k-tone-card:hover {
+    border-color: #00d2ff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4), 0 0 10px rgba(0, 210, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.t3k-tone-card.current-active {
+    border-color: #00f0ff;
+    background: #172438;
+    box-shadow: 0 0 14px rgba(0, 240, 255, 0.3);
+}
+
+.t3k-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.t3k-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+}
+
+.t3k-card-badge {
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #00d2ff;
+    background: rgba(0, 210, 255, 0.12);
+    border: 1px solid rgba(0, 210, 255, 0.25);
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.t3k-card-desc {
+    font-size: 11px;
+    color: #8fa5bd;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.t3k-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 10px;
+}
+
+.t3k-card-author {
+    font-size: 9.5px;
+    color: #5c7491;
+    font-weight: 600;
+}
+
+.t3k-card-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.t3k-btn-preview {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.t3k-btn-preview:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+}
+
+.t3k-btn-load {
+    background: #00d2ff;
+    border: none;
+    color: #06111a;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.t3k-btn-load:hover {
+    background: #33dcff;
+    box-shadow: 0 0 10px #00d2ff;
+}
+
+.t3k-btn-load.loaded {
+    background: #22c55e;
+    color: #ffffff;
+}
+
+/* Fix drag-handle capture: buttons and screen must sit above mod-drag-handle */
+.tone3000-pedal .t3k-oled-screen,
+.tone3000-pedal .t3k-oled-screen *,
+.tone3000-pedal .t3k-cloud-trigger-wrap,
+.tone3000-pedal .t3k-cloud-trigger-btn,
+.tone3000-pedal .t3k-oled-arrow {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+.tone3000-pedal .t3k-cloud-trigger-btn {
+    cursor: pointer !important;
+}

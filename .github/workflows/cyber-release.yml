@@ -9,6 +9,7 @@ on:
       - 'cmake/targets/cyber_audio.cmake'
       - '.github/workflows/cyber-release.yml'
       - 'vsthost_lib/build.gradle.kts'
+      - 'app/**'
 
 permissions:
   contents: write

@@ -1,0 +1,204 @@
+/* Smart Fizz Killer Stylesheet for MODEP / MOD-UI */
+
+.smart-fizz-pedal {
+    position: absolute;
+    width: 340px;
+    height: 520px;
+    background: radial-gradient(circle at 50% 20%, #2a1a0a 0%, #1c0e05 60%, #100803 100%);
+    border-radius: 24px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.95), 
+                inset 0 1px 3px rgba(205, 127, 50, 0.5), 
+                inset 0 -4px 8px rgba(0, 0, 0, 0.95);
+    border: 3px solid #b87333;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.smart-fizz-pedal .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    cursor: move;
+    z-index: 20;
+}
+
+.smart-fizz-pedal .mod-plugin-brand {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.smart-fizz-pedal .mod-plugin-brand h1 {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #c9a96e;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(201, 169, 110, 0.6);
+    margin: 0;
+}
+
+.smart-fizz-pedal .mod-plugin-name {
+    text-align: center;
+    border-bottom: 1.5px solid rgba(205, 127, 50, 0.35);
+    padding-bottom: 3px;
+    margin: 1px 24px 6px 24px;
+}
+
+.smart-fizz-pedal .mod-plugin-name h1 {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    color: #f5d6a8;
+    text-shadow: 0 0 12px rgba(205, 127, 50, 0.8), 0 0 20px rgba(201, 169, 110, 0.5);
+    margin: 0;
+}
+
+/* ========================================================
+   SECTION HEADERS & ROW WRAPPERS
+======================================================== */
+.smart-fizz-pedal .knob-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 18px 2px 18px;
+}
+
+.smart-fizz-pedal .knob-section-header .section-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #c9a96e;
+    text-transform: uppercase;
+    background: rgba(42, 26, 10, 0.8);
+    padding: 1px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(205, 127, 50, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.smart-fizz-pedal .mod-control-group {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 10px;
+    margin-bottom: 4px;
+}
+
+.smart-fizz-pedal .mod-control-group.row-4 {
+    justify-content: space-around;
+}
+
+.smart-fizz-pedal .mod-control-group.row-3 {
+    justify-content: center;
+    gap: 22px;
+}
+
+/* ========================================================
+   ROTARY KNOBS & LABELS
+======================================================== */
+.smart-fizz-pedal .mod-knob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 68px;
+    margin: 0;
+    position: relative;
+}
+
+.smart-fizz-pedal .custom-knob-dial {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #3a2211 0%, #1a0d05 70%, #0c0602 100%);
+    border: 2px solid #cd7f32;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 
+                inset 0 1px 3px rgba(230, 160, 90, 0.4), 
+                inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+}
+
+.smart-fizz-pedal .custom-knob-dial:hover {
+    border-color: #e59850;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 
+                0 0 8px rgba(205, 127, 50, 0.5), 
+                inset 0 1px 3px rgba(255, 200, 140, 0.6);
+}
+
+.smart-fizz-pedal .custom-knob-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 16px;
+    background: #e59850;
+    border-radius: 1.5px;
+    box-shadow: 0 0 5px #cd7f32;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+}
+
+.smart-fizz-pedal .mod-knob-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #cd7f32;
+    letter-spacing: 0.8px;
+    margin-top: 3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* ========================================================
+   BYPASS LIGHT & FOOTSWITCH
+======================================================== */
+.smart-fizz-pedal .mod-light {
+    position: absolute;
+    bottom: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #241402;
+    border: 2px solid #6b3e12;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.smart-fizz-pedal .mod-light.on,
+.smart-fizz-pedal.mod-pedal-on .mod-light {
+    background-color: #ff9933;
+    box-shadow: 0 0 14px #ff9933, 0 0 25px #cc6600, inset 0 1px 2px #ffffff;
+    border-color: #ffcc99;
+}
+
+.smart-fizz-pedal .mod-footswitch {
+    position: absolute !important;
+    bottom: 12px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 66px !important;
+    height: 66px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 132px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.smart-fizz-pedal .mod-footswitch.on {
+    background-position-y: top !important;
+}

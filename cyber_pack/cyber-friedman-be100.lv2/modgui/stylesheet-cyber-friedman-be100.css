@@ -1,0 +1,424 @@
+/* ==========================================================================
+   Cyber Friedman BE-100 - Hot-Rodded British Amp Head Styling
+   Black Levant Tolex with Brushed Gold Anodized Faceplate and Red Jewel
+   ========================================================================== */
+
+.friedman-amp-head {
+    width: 960px !important;
+    height: 290px !important;
+    background: #0f1216 !important;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(26, 32, 40, 0.5) 0%, rgba(8, 10, 14, 0.95) 100%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 4px);
+    border: 3px solid #1e242c;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.15);
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.friedman-lip-top {
+    height: 12px;
+    background: linear-gradient(180deg, #2b333c 0%, #151a20 100%);
+    border-bottom: 2px solid #000;
+}
+
+.friedman-faceplate {
+    flex: 1;
+    margin: 10px 18px 6px 18px;
+    background: linear-gradient(180deg, #fef08a 0%, #eab308 20%, #ca8a04 80%, #a16207 100%);
+    border: 2px solid #713f12;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    position: relative;
+}
+
+.friedman-left-flank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 140px;
+}
+
+.friedman-jewel-holder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #475569 0%, #0f172a 100%);
+    border: 2px solid #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.friedman-jewel.red {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fca5a5 0%, #dc2626 60%, #7f1d1d 100%);
+    box-shadow: 0 0 12px #dc2626, 0 0 22px rgba(220, 38, 38, 0.75);
+}
+
+.friedman-branding {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.friedman-brand-title {
+    font-family: 'Arial Black', Impact, sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.friedman-model-title {
+    font-size: 11px;
+    font-weight: 900;
+    color: #451a03;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.friedman-separator {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(180deg, transparent 0%, #854d0e 20%, #713f12 80%, transparent 100%);
+}
+
+.friedman-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.friedman-sec-header {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #451a03;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.25);
+    padding-bottom: 2px;
+}
+
+.friedman-controls-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+/* 3D Vintage Marshall / Friedman Skirted Knobs */
+.friedman-knob-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 48px;
+}
+
+.friedman-dial.custom-knob-dial {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #1e2024 0%, #0d0f12 70%, #2a313a 100%);
+    border: 2px solid #334155;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.friedman-dial.custom-knob-dial:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.friedman-dial-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #fef08a 0%, #eab308 50%, #854d0e 100%);
+    border: 1px solid #713f12;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9), 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.friedman-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 19px;
+    background: #ffffff;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.friedman-lbl {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* Button & Mode Cluster */
+.friedman-btn-cluster {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.friedman-mode-btn {
+    background: #1e293b;
+    border: 2px solid #475569;
+    border-radius: 5px;
+    color: #cbd5e1;
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 8.5px;
+    font-weight: 800;
+    transition: all 0.15s ease;
+}
+
+.friedman-mode-btn.active {
+    background: #7f1d1d;
+    border-color: #ef4444;
+    color: #ffffff;
+}
+
+.friedman-led {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #475569;
+}
+
+.friedman-mode-btn.active .friedman-led.red {
+    background: #fca5a5;
+    box-shadow: 0 0 8px #ef4444, 0 0 12px #ef4444;
+}
+
+.friedman-mode-btn.active .friedman-led.amber {
+    background: #fef08a;
+    box-shadow: 0 0 8px #f59e0b, 0 0 12px #f59e0b;
+}
+
+/* Switches Cluster */
+.friedman-switches-cluster {
+    display: flex;
+    gap: 8px;
+    padding: 0 4px;
+}
+
+.friedman-toggle-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 40px;
+}
+
+.friedman-bat-switch {
+    width: 18px;
+    height: 36px;
+    background: #0f172a;
+    border: 2px solid #64748b;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.friedman-bat-handle {
+    width: 8px;
+    height: 15px;
+    background: linear-gradient(180deg, #f8fafc 0%, #94a3b8 100%);
+    border-radius: 2px;
+    border: 1px solid #475569;
+    position: absolute;
+    left: 4px;
+    top: 17px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    transition: top 0.15s ease, background 0.15s ease;
+}
+
+.friedman-bat-switch.on .friedman-bat-handle {
+    top: 2px;
+    background: linear-gradient(180deg, #fef08a 0%, #f59e0b 100%);
+    box-shadow: 0 0 6px #f59e0b;
+}
+
+.friedman-sw-lbl {
+    font-size: 8px;
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Bottom Deck */
+.friedman-bottom-deck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background: #0d1013;
+    border-top: 1px solid #1e252e;
+}
+
+.friedman-deck-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.friedman-deck-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #94a3b8;
+    letter-spacing: 1.2px;
+}
+
+.friedman-cab-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.friedman-deck-selector {
+    background: #1e293b;
+    border: 1.5px solid #475569;
+    border-radius: 6px;
+    color: #eab308;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.friedman-deck-selector:hover {
+    background: #334155;
+    border-color: #eab308;
+    color: #ffffff;
+}
+
+.friedman-knob-unit.mini {
+    width: 38px !important;
+    gap: 2px !important;
+}
+
+.friedman-dial.mini-dial {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.friedman-dial-cap.mini-cap {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.friedman-dial .knob-rotor.mini-rotor {
+    height: 14px !important;
+    width: 2.5px !important;
+}
+
+.friedman-lbl.mini-lbl {
+    font-size: 7.5px !important;
+    color: #cbd5e1 !important;
+}
+
+.friedman-mod-switch-pill {
+    background: #1e293b;
+    border: 1.5px solid #475569;
+    border-radius: 5px;
+    color: #94a3b8;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.friedman-mod-switch-pill:hover {
+    border-color: #ef4444;
+    color: #ffffff;
+}
+
+.friedman-mod-switch-pill.active {
+    background: #b91c1c;
+    border-color: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.friedman-amp-head .mod-pedal-input {
+    position: absolute !important;
+    left: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+.friedman-amp-head .mod-pedal-output {
+    position: absolute !important;
+    right: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+
+/* Drag Handle */
+.friedman-amp-head .mod-drag-handle {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 10 !important;
+    cursor: move !important;
+}
+
+/* Ensure all knobs and controls sit above drag handle and receive all mouse events */
+.friedman-amp-head .custom-knob-dial,
+.friedman-amp-head button,
+.friedman-amp-head select,
+.friedman-amp-head input,
+.friedman-amp-head [class*="-faceplate"],
+.friedman-amp-head [class*="-bottom-deck"],
+.friedman-amp-head [class*="-deck-selector"],
+.friedman-amp-head [class*="-mod-switch-pill"],
+.friedman-amp-head [class*="-ch-btn"],
+.friedman-amp-head [class*="-bat-switch"] {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}

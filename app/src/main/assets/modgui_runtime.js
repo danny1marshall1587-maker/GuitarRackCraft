@@ -8,12 +8,124 @@
     var activeKnob = null;
     var startY = 0, startVal = 0, activeMeta = null, activeSymbol = null;
 
-    // Prevent all default touch behavior on the entire page to avoid
-    // scroll/zoom stealing events from knob drags
+    var activeCustomDial = null;
+    var dialStartY = 0, dialStartVal = 0, dialMeta = null, dialSymbol = null;
+
+    // Prevent scrolling when actively dragging any knob or dial
     document.addEventListener('touchmove', function(e) {
-        if (activeKnob) e.preventDefault();
+        if (activeKnob || activeCustomDial) e.preventDefault();
     }, {passive: false});
 
+    // Claim touch and disallow Android Compose parent scroll from intercepting controls
+    document.addEventListener('touchstart', function(e) {
+        var t = e.target;
+        if (t && t.closest('.custom-knob-dial, .mod-knob, .knob-rotor, .mod-control-group, button, .ycv-bat-switch, .friedman-bat-switch, .ycv-deck-selector, .deck-selector, .ycv-mod-switch-pill, .ycv-channel-button, .channel-btn, .mod-footswitch, canvas')) {
+            if (typeof AndroidHost !== 'undefined' && typeof AndroidHost.setKnobActive === 'function') {
+                AndroidHost.setKnobActive(true);
+            }
+        }
+    }, { passive: true });
+
+    document.addEventListener('touchend', function() {
+        if (!activeKnob && !activeCustomDial) {
+            if (typeof AndroidHost !== 'undefined' && typeof AndroidHost.setKnobActive === 'function') {
+                AndroidHost.setKnobActive(false);
+            }
+        }
+    });
+    document.addEventListener('touchcancel', function() {
+        if (!activeKnob && !activeCustomDial) {
+            if (typeof AndroidHost !== 'undefined' && typeof AndroidHost.setKnobActive === 'function') {
+                AndroidHost.setKnobActive(false);
+            }
+        }
+    });
+
+    function dispatchPluginChangeEvent(sym, val) {
+        if (window._modPluginFn) {
+            var $pedal = (typeof jQuery !== 'undefined') ? jQuery('.mod-pedal') : null;
+            var chgEv = {
+                type: 'change',
+                symbol: sym,
+                value: val,
+                icon: $pedal,
+                set_port_value: function(s, v) { AndroidHost.setParameter(s, parseFloat(v)); }
+            };
+            try {
+                window._modPluginFn(chgEv, window._modPluginFuncs);
+                if (window._modPluginEvent && typeof window._modPluginEvent.handle_event === 'function') {
+                    window._modPluginEvent.handle_event(sym, val);
+                }
+            } catch(e) {}
+        }
+    }
+
+    function setCustomDialValue(dial, val, fireEvents) {
+        var min = parseFloat(dial.getAttribute('data-min'));
+        var max = parseFloat(dial.getAttribute('data-max'));
+        if (isNaN(min)) min = dial._modMeta ? dial._modMeta.min : 0;
+        if (isNaN(max)) max = dial._modMeta ? dial._modMeta.max : 10;
+        val = Math.max(min, Math.min(max, val));
+        dial._currentVal = val;
+        var norm = (max > min) ? (val - min) / (max - min) : 0;
+        var deg = -140 + norm * 280;
+        var rotor = dial.querySelector('.knob-rotor');
+        if (rotor) {
+            rotor.style.transform = 'translate(-50%, -100%) rotate(' + deg + 'deg)';
+        }
+        var sym = dial.getAttribute('data-symbol') || dial._modSymbol;
+        if (sym) {
+            var hiddenInput = document.querySelector('.mod-knob-image[mod-port-symbol="' + sym + '"]');
+            if (hiddenInput) {
+                hiddenInput.value = val;
+            }
+            if (fireEvents) {
+                AndroidHost.setParameter(sym, val);
+                dispatchPluginChangeEvent(sym, val);
+            }
+        }
+    }
+
+    // 1. Initialize all custom rotary dials (.custom-knob-dial)
+    document.querySelectorAll('.custom-knob-dial').forEach(function(dial) {
+        var sym = dial.getAttribute('data-symbol');
+        if (!sym) {
+            var parent = dial.parentElement;
+            if (parent) {
+                var hidden = parent.querySelector('[mod-port-symbol]');
+                if (hidden) sym = hidden.getAttribute('mod-port-symbol');
+            }
+        }
+        if (!sym) return;
+        dial._modSymbol = sym;
+        var meta = portMap[sym] || {
+            min: parseFloat(dial.getAttribute('data-min')) || 0,
+            max: parseFloat(dial.getAttribute('data-max')) || 10,
+            default: parseFloat(dial.getAttribute('data-default')) || 5
+        };
+        dial._modMeta = meta;
+
+        var val = AndroidHost.getParameter(sym);
+        if (val === 0 && meta['default'] !== 0) val = meta['default'];
+        setCustomDialValue(dial, val, false);
+
+        function onDialStart(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var pt = e.touches ? e.touches[0] : e;
+            activeCustomDial = dial;
+            dialStartY = pt.clientY;
+            dialStartVal = (typeof dial._currentVal !== 'undefined') ? dial._currentVal : (meta['default'] || 0);
+            dialMeta = meta;
+            dialSymbol = sym;
+            if (typeof AndroidHost.setKnobActive === 'function') AndroidHost.setKnobActive(true);
+        }
+
+        dial.addEventListener('touchstart', onDialStart, {passive: false});
+        dial.addEventListener('mousedown', onDialStart);
+    });
+
+    // 2. Initialize standard MOD input control ports
     document.querySelectorAll('[mod-role="input-control-port"]').forEach(function(el) {
         var symbol = el.getAttribute('mod-port-symbol');
         if (!symbol || !portMap[symbol]) return;
@@ -30,7 +142,6 @@
         if (isCustomSelect && meta.scalePoints && meta.scalePoints.length > 0) {
             var selected = el.querySelector('.mod-enumerated-selected');
             var list = el.querySelector('.mod-enumerated-list');
-            // Find label for current value
             function labelForValue(v) {
                 var best = meta.scalePoints[0];
                 for (var i = 0; i < meta.scalePoints.length; i++) {
@@ -40,7 +151,6 @@
                 return best.label;
             }
             if (selected) selected.textContent = labelForValue(value);
-            // Populate list
             if (list) {
                 list.innerHTML = '';
                 meta.scalePoints.forEach(function(sp) {
@@ -53,11 +163,11 @@
                         list.style.display = 'none';
                         el.style.overflow = '';
                         AndroidHost.setParameter(symbol, sp.value);
+                        dispatchPluginChangeEvent(symbol, sp.value);
                     });
                     list.appendChild(div);
                 });
             }
-            // Toggle list on click — expand toward where there is more room
             if (selected && list) {
                 selected.style.cursor = 'pointer';
                 list.style.position = 'absolute';
@@ -70,10 +180,8 @@
                         el.style.overflow = '';
                         return;
                     }
-                    // Allow list to overflow the container
                     el.style.overflow = 'visible';
                     list.style.display = 'block';
-                    // Measure room above vs below in CSS pixels (accounting for transform scale)
                     var selRect = selected.getBoundingClientRect();
                     var scale = selRect.height / (selected.offsetHeight || 1);
                     if (scale < 0.01) scale = 1;
@@ -91,26 +199,19 @@
                     }
                 });
             }
-            // Refresh handler
             el._modIsSelect = true;
             el._modUpdateSelect = function() {
                 if (selected) selected.textContent = labelForValue(el._modValue);
             };
-            return; // skip knob/toggle handling
+            return;
         }
 
-        // Detect toggle from CSS class (mod-on-off-image, mod-switch-image)
-        // even if the LV2 port doesn't have lv2:toggled property.
-        // Some plugins use lv2:integer + lv2:enumeration with 0/1 range instead.
-        // Use a local flag — don't mutate meta.toggle since the bypass detector
-        // uses it to find the actual bypass port.
         var isToggleElement = meta.toggle ||
                               el.classList.contains('mod-on-off-image') ||
                               el.classList.contains('mod-switch-image') ||
                               el.getAttribute('mod-widget') === 'switch';
         el._modIsToggle = isToggleElement;
 
-        // Prevent browser from treating touches as scroll/pan
         el.style.touchAction = 'none';
         el.style.userSelect = 'none';
         el.style.webkitUserSelect = 'none';
@@ -123,7 +224,6 @@
         }
 
         if (isToggleElement) {
-            // Toggle port: click to switch on/off
             updateToggleVisual(el);
             function onToggle(e) {
                 e.preventDefault();
@@ -132,6 +232,7 @@
                 el._modValue = newVal;
                 updateToggleVisual(el);
                 AndroidHost.setParameter(symbol, newVal);
+                dispatchPluginChangeEvent(symbol, newVal);
             }
             el.addEventListener('click', onToggle);
             if (parentKnob && parentKnob !== el) {
@@ -163,8 +264,19 @@
         }
     });
 
-    // Global move/end handlers (always attached, check activeKnob)
+    // Global move/end handlers
     function onMove(e) {
+        if (activeCustomDial) {
+            e.preventDefault();
+            var pt = e.touches ? e.touches[0] : e;
+            var dy = dialStartY - pt.clientY;
+            var range = dialMeta.max - dialMeta.min;
+            var newVal = dialStartVal + (dy / 140.0) * range;
+            newVal = Math.max(dialMeta.min, Math.min(dialMeta.max, newVal));
+            newVal = Math.round(newVal * 100) / 100;
+            setCustomDialValue(activeCustomDial, newVal, true);
+            return;
+        }
         if (!activeKnob) return;
         e.preventDefault();
         var pt = e.touches ? e.touches[0] : e;
@@ -175,13 +287,22 @@
         activeKnob._modValue = newVal;
         updateKnobVisual(activeKnob);
         AndroidHost.setParameter(activeSymbol, newVal);
+        dispatchPluginChangeEvent(activeSymbol, newVal);
     }
 
     function onEnd(e) {
-        if (activeKnob && typeof AndroidHost.setKnobActive === 'function') AndroidHost.setKnobActive(false);
-        activeKnob = null;
-        activeMeta = null;
-        activeSymbol = null;
+        if (activeCustomDial) {
+            if (typeof AndroidHost.setKnobActive === 'function') AndroidHost.setKnobActive(false);
+            activeCustomDial = null;
+            dialMeta = null;
+            dialSymbol = null;
+        }
+        if (activeKnob) {
+            if (typeof AndroidHost.setKnobActive === 'function') AndroidHost.setKnobActive(false);
+            activeKnob = null;
+            activeMeta = null;
+            activeSymbol = null;
+        }
     }
 
     document.addEventListener('touchmove', onMove, {passive: false});
@@ -206,12 +327,27 @@
                 }
             }
         });
-        // Also refresh bypass
+        document.querySelectorAll('.custom-knob-dial').forEach(function(dial) {
+            var sym = dial._modSymbol || dial.getAttribute('data-symbol');
+            if (!sym) return;
+            var currentHostVal = AndroidHost.getParameter(sym);
+            if (typeof dial._currentVal === 'undefined' || Math.abs(currentHostVal - dial._currentVal) > 0.0001) {
+                setCustomDialValue(dial, currentHostVal, false);
+            }
+        });
+        if (window._modPluginFn) {
+            ports.forEach(function(p) {
+                var hostVal = AndroidHost.getParameter(p.symbol);
+                if (typeof p._lastReportedVal === 'undefined' || Math.abs(hostVal - p._lastReportedVal) > 0.0001) {
+                    p._lastReportedVal = hostVal;
+                    dispatchPluginChangeEvent(p.symbol, hostVal);
+                }
+            });
+        }
         if (typeof window._modRefreshBypass === 'function') window._modRefreshBypass();
     };
 
-    // Bypass footswitch — find the toggle port (lv2:enabled / lv2:toggled)
-    // and wire the footswitch to it
+    // Bypass footswitch
     var bypassPort = null;
     ports.forEach(function(p) {
         if (p.toggle) bypassPort = p;
@@ -235,6 +371,7 @@
             updateBypassVisual();
             if (bypassPort) {
                 AndroidHost.setParameter(bypassPort.symbol, enabled ? bypassPort.max : bypassPort.min);
+                dispatchPluginChangeEvent(bypassPort.symbol, enabled ? bypassPort.max : bypassPort.min);
             }
         });
         window._modRefreshBypass = function() {
@@ -250,18 +387,13 @@
 
     function updateToggleVisual(el) {
         var isOn = el._modValue > 0.5;
-        // For mod-on-off-image sprite: on = second frame, off = first frame
-        // Sprites are horizontal strips; each frame is one element-width wide.
-        // Preserve original vertical position (typically 0px) from the stylesheet.
         if (el.classList.contains('mod-on-off-image')) {
             var cs = window.getComputedStyle(el);
             var w = el.offsetWidth || parseInt(cs.width) || 60;
-            // Parse current Y position to preserve it (default to 0px)
             var bgPos = cs.backgroundPosition || '0px 0px';
             var yPos = bgPos.split(/\s+/)[1] || '0px';
             el.style.backgroundPosition = (isOn ? -w : 0) + 'px ' + yPos;
         }
-        // For elements using on/off CSS classes (mod-switch-image, flipsw, etc.)
         el.classList.toggle('on', isOn);
         el.classList.toggle('off', !isOn);
     }
@@ -271,7 +403,6 @@
         var norm = (el._modValue - meta.min) / (meta.max - meta.min);
         norm = Math.max(0, Math.min(1, norm));
 
-        // Rotation-based knobs (e.g. AIDA-X): mod-widget-rotation="270"
         var rotRange = el.getAttribute('mod-widget-rotation');
         if (rotRange) {
             var range = parseFloat(rotRange) || 270;
@@ -283,32 +414,21 @@
         var cs = window.getComputedStyle(el);
         var w = el.offsetWidth || parseInt(cs.width) || 64;
 
-        // Detect actual frame count from sprite background-size rather than using
-        // the hardcoded default — sprites vary per plugin (e.g. NAM has 50 frames).
-        // background-size may be "NNNpx HHHpx" (explicit width) or "auto HHHpx"
-        // (auto width, explicit height). parseInt("auto ...") → NaN, causing the
-        // fallback 65-frame assumption — which pushes switch sprites (2-5 frames)
-        // far off-screen and makes them invisible. Resolve "auto" width from the
-        // image's natural dimensions instead (already cached by the browser).
         var bgSize = cs.backgroundSize || '';
         var bgParts = bgSize.trim().split(/\s+/);
         var bgW = parseInt(bgParts[0]);
         if (isNaN(bgW)) {
-            // Cache resolved sprite width on the element to avoid repeated work.
             if (!el._modSpriteW) {
                 var urlMatch = (cs.backgroundImage || '').match(/url\(['"]?([^'")\s]+)['"]?\)/);
                 if (urlMatch) {
                     var spriteImg = new Image();
                     spriteImg.onload = function() {
-                        // Deferred: image was not yet loaded at init time.
-                        // Re-run once loaded so the initial frame renders correctly.
                         var bph = parseInt(bgParts[1]) || el.offsetHeight || w;
                         el._modSpriteW = spriteImg.naturalWidth * (bph / spriteImg.naturalHeight);
                         updateKnobVisual(el);
                     };
                     spriteImg.src = urlMatch[1];
                     if (spriteImg.complete && spriteImg.naturalWidth > 0) {
-                        // Already cached — resolve synchronously and cancel deferred handler.
                         spriteImg.onload = null;
                         var targetH = parseInt(bgParts[1]) || el.offsetHeight || w;
                         el._modSpriteW = spriteImg.naturalWidth * (targetH / spriteImg.naturalHeight);
@@ -318,13 +438,11 @@
             bgW = el._modSpriteW || (KNOB_FRAMES * w);
         }
         var frames = Math.max(1, Math.round(bgW / w));
-
         var frame = Math.round(norm * (frames - 1));
         el.style.backgroundPosition = (-frame * w) + 'px center';
     }
 
-    // Path parameter (model selector) support — e.g. NAM model selector
-    // Toggle the model list when clicking the selected-value area
+    // Path parameter support (NAM model selector)
     document.querySelectorAll('[mod-widget="custom-select-path"]').forEach(function(el) {
         var selected = el.querySelector('.mod-enumerated-selected');
         var list = el.querySelector('.mod-enumerated-list');
@@ -333,8 +451,6 @@
             selected.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                // If no models loaded (list only has the "..." browse entry or is empty),
-                // open file picker directly instead of showing the dropdown
                 var modelCount = list.querySelectorAll('[mod-role="enumeration-option"]').length;
                 if (modelCount === 0) {
                     AndroidHost.requestFilePicker();
@@ -344,17 +460,16 @@
             });
         }
     });
-    // Close list when clicking outside
+
     document.addEventListener('click', function() {
         document.querySelectorAll('.mod-enumerated-list').forEach(function(listEl) {
             listEl.style.display = 'none';
         });
-        // Restore overflow on enumerated containers
         document.querySelectorAll('.mod-enumerated').forEach(function(enumEl) {
             enumEl.style.overflow = '';
         });
     });
-    // Allow scrolling inside the model list by preventing parent from stealing touches
+
     document.querySelectorAll('.mod-enumerated-list').forEach(function(el) {
         el.addEventListener('touchstart', function(e) {
             e.stopPropagation();
@@ -368,13 +483,10 @@
         });
     });
 
-    // Called from Android to populate the model list
-    // modelsJson: '[{"name":"Model A","path":"/data/.../model_a.nam"}, ...]'
     window._modSetModelList = function(modelsJson) {
         var models = JSON.parse(modelsJson);
         document.querySelectorAll('.mod-enumerated-list').forEach(function(listEl) {
             listEl.innerHTML = '';
-            // "..." browse entry
             var browseDiv = document.createElement('div');
             browseDiv.textContent = '\u2026';
             browseDiv.style.fontWeight = 'bold';
@@ -384,7 +496,6 @@
                 AndroidHost.requestFilePicker();
             });
             listEl.appendChild(browseDiv);
-            // Model entries
             models.forEach(function(m) {
                 var div = document.createElement('div');
                 div.textContent = m.name;
@@ -393,13 +504,11 @@
                 div.addEventListener('click', function(e) {
                     e.stopPropagation();
                     listEl.style.display = 'none';
-                    // Update selected display
                     var parent = listEl.closest('[mod-widget="custom-select-path"]');
                     if (parent) {
                         var sel = parent.querySelector('.mod-enumerated-selected');
                         if (sel) sel.textContent = m.name;
                     }
-                    // Mark selected
                     listEl.querySelectorAll('div').forEach(function(d) { d.classList.remove('selected'); });
                     div.classList.add('selected');
                     AndroidHost.selectModelPath(m.path);
@@ -409,10 +518,52 @@
         });
     };
 
-    // Called from Android to update the display text for the active model
     window._modSetPathDisplay = function(displayName) {
         document.querySelectorAll('[mod-role="input-parameter-value"]').forEach(function(el) {
             el.textContent = displayName;
         });
     };
+
+    // 3. Initialize plugin's script.js if present
+    if (typeof window._modPluginRawScript === 'function') {
+        var jsPorts = [];
+        ports.forEach(function(p) {
+            var v = AndroidHost.getParameter(p.symbol);
+            if (v === 0 && p['default'] !== 0) v = p['default'];
+            p._lastReportedVal = v;
+            jsPorts.push({ symbol: p.symbol, value: v });
+            if (typeof jQuery !== 'undefined') {
+                jQuery('.mod-knob-image[mod-port-symbol="' + p.symbol + '"]').val(v);
+            }
+        });
+
+        var jsFuncs = {
+            set_port_value: function(symbol, value) {
+                AndroidHost.setParameter(symbol, parseFloat(value));
+            }
+        };
+
+        var $pedal = (typeof jQuery !== 'undefined') ? jQuery('.mod-pedal') : null;
+        if (!$pedal || !$pedal.length) $pedal = (typeof jQuery !== 'undefined') ? jQuery(document.body) : null;
+
+        var startEvent = {
+            type: 'start',
+            icon: $pedal,
+            ports: jsPorts,
+            api_version: 3,
+            set_port_value: function(symbol, value) {
+                AndroidHost.setParameter(symbol, parseFloat(value));
+            }
+        };
+
+        try {
+            window._modPluginRawScript(startEvent, jsFuncs);
+        } catch(e) {
+            console.error("Error executing plugin script.js start event:", e);
+        }
+
+        window._modPluginFn = window._modPluginRawScript;
+        window._modPluginEvent = startEvent;
+        window._modPluginFuncs = jsFuncs;
+    }
 })();

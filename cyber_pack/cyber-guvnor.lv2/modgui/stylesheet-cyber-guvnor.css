@@ -1,0 +1,280 @@
+/* Cyber Guv'nor — Vintage British Black & Gold Pedal for MODEP / MOD-UI */
+
+.guvnor-pedal {
+    position: absolute;
+    width: 350px;
+    height: 530px;
+    background: radial-gradient(circle at 50% 20%, #201a12 0%, #120e0a 60%, #060503 100%);
+    border-radius: 24px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.95), 
+                inset 0 1px 3px rgba(212, 175, 55, 0.5), 
+                inset 0 -4px 8px rgba(0, 0, 0, 0.95);
+    border: 3px solid #b8972e;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.guvnor-pedal .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    cursor: move;
+    z-index: 20;
+}
+
+.guvnor-pedal .mod-plugin-brand {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.guvnor-pedal .mod-plugin-brand h1 {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #e5c158;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(229, 193, 88, 0.6);
+    margin: 0;
+}
+
+.guvnor-pedal .mod-plugin-name {
+    text-align: center;
+    border-bottom: 1.5px solid rgba(212, 175, 55, 0.35);
+    padding-bottom: 3px;
+    margin: 1px 24px 6px 24px;
+}
+
+.guvnor-pedal .mod-plugin-name h1 {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    color: #fff0b8;
+    text-shadow: 0 0 12px rgba(229, 193, 88, 0.8), 0 0 20px rgba(212, 175, 55, 0.5);
+    margin: 0;
+}
+
+/* ========================================================
+   SECTION HEADERS & ROW WRAPPERS
+======================================================== */
+.guvnor-pedal .knob-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 18px 2px 18px;
+}
+
+.guvnor-pedal .knob-section-header .section-title {
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #e5c158;
+    text-transform: uppercase;
+    background: rgba(32, 26, 18, 0.85);
+    padding: 1px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.guvnor-pedal .mod-control-group {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 6px;
+    margin-bottom: 4px;
+}
+
+.guvnor-pedal .mod-control-group.row-5 {
+    justify-content: space-around;
+}
+
+.guvnor-pedal .mod-control-group.row-3 {
+    justify-content: center;
+    gap: 22px;
+}
+
+.guvnor-pedal .mod-control-group.row-2 {
+    justify-content: center;
+    gap: 40px;
+}
+
+/* ========================================================
+   ROTARY KNOBS & LABELS
+======================================================== */
+.guvnor-pedal .mod-knob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    margin: 0;
+    position: relative;
+}
+
+.guvnor-pedal .mod-control-group.row-5 .mod-knob {
+    width: 58px;
+}
+
+.guvnor-pedal .custom-knob-dial {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #2a2012 0%, #171008 70%, #080603 100%);
+    border: 2px solid #b8972e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 
+                inset 0 1px 3px rgba(240, 200, 90, 0.4), 
+                inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+}
+
+.guvnor-pedal .custom-knob-dial:hover {
+    border-color: #ffd700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 
+                0 0 8px rgba(212, 175, 55, 0.6), 
+                inset 0 1px 3px rgba(255, 225, 120, 0.7);
+}
+
+.guvnor-pedal .custom-knob-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 15px;
+    background: #ffd700;
+    border-radius: 1.5px;
+    box-shadow: 0 0 6px #ffaa00;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+}
+
+/* ========================================================
+   CUSTOM TOGGLE SWITCHES
+======================================================== */
+.guvnor-pedal .custom-toggle-switch {
+    width: 44px;
+    height: 48px;
+    border-radius: 8px;
+    background: radial-gradient(circle at 50% 30%, #2a1f10 0%, #120c06 100%);
+    border: 2px solid #8c6e1e;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(212, 175, 55, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease;
+}
+
+.guvnor-pedal .custom-toggle-switch:hover {
+    border-color: #ffd700;
+}
+
+.guvnor-pedal .custom-toggle-switch .switch-slot {
+    width: 24px;
+    height: 24px;
+    background: #080502;
+    border-radius: 50%;
+    border: 1.5px solid #4a3810;
+    position: relative;
+}
+
+.guvnor-pedal .custom-toggle-switch .switch-lever {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 18px;
+    background: linear-gradient(180deg, #f0f0f0 0%, #707070 100%);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    transform: translate(-50%, -50%) rotate(-25deg);
+    transition: transform 0.15s ease-in-out;
+}
+
+.guvnor-pedal .custom-toggle-switch.on .switch-lever {
+    transform: translate(-50%, -50%) rotate(25deg);
+    background: linear-gradient(180deg, #ffffff 0%, #b8972e 100%);
+}
+
+.guvnor-pedal .custom-toggle-switch .switch-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #330808;
+    border: 1px solid #661111;
+    margin-top: 3px;
+    transition: all 0.15s ease;
+}
+
+.guvnor-pedal .custom-toggle-switch .switch-led.lit {
+    background: #ff2200;
+    box-shadow: 0 0 8px #ff2200, 0 0 14px #cc0000;
+    border-color: #ff9988;
+}
+
+.guvnor-pedal .mod-knob-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #e5c158;
+    letter-spacing: 0.8px;
+    margin-top: 3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* ========================================================
+   BYPASS LIGHT & FOOTSWITCH
+======================================================== */
+.guvnor-pedal .mod-light {
+    position: absolute;
+    bottom: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #240808;
+    border: 2px solid #6b1414;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.guvnor-pedal .mod-light.on,
+.guvnor-pedal.mod-pedal-on .mod-light {
+    background-color: #ff2200;
+    box-shadow: 0 0 14px #ff2200, 0 0 25px #cc0000, inset 0 1px 2px #ffffff;
+    border-color: #ff9988;
+}
+
+.guvnor-pedal .mod-footswitch {
+    position: absolute !important;
+    bottom: 12px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 66px !important;
+    height: 66px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 132px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.guvnor-pedal .mod-footswitch.on {
+    background-position-y: top !important;
+}

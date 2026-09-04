@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Cyber Fender 5F6-A Tweed Bassman (1959) - Lacquered Tweed Styling
+   ========================================================================== */
+
+.bassman-amp-head {
+    width: 960px !important;
+    height: 290px !important;
+    background: #d4a373 !important;
+    background-image: 
+        repeating-linear-gradient(45deg, #b08968 0px, #b08968 3px, #e6ccb2 3px, #e6ccb2 6px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 3px, transparent 3px, transparent 6px);
+    border: 3px solid #7f4f24;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.bassman-tweed-lip {
+    height: 12px;
+    background: linear-gradient(180deg, #936639 0%, #582f0e 100%);
+    border-bottom: 2px solid #000;
+}
+
+.bassman-faceplate {
+    flex: 1;
+    margin: 10px 18px 6px 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 15%, #cbd5e1 50%, #94a3b8 85%, #64748b 100%);
+    border: 2px solid #475569;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.95), 0 4px 12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 14px;
+    position: relative;
+}
+
+.bassman-left-flank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 145px;
+}
+
+.bassman-jewel-holder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #475569 0%, #0f172a 100%);
+    border: 2px solid #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.bassman-jewel.red {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fca5a5 0%, #dc2626 60%, #7f1d1d 100%);
+    box-shadow: 0 0 12px #dc2626, 0 0 22px rgba(220, 38, 38, 0.75);
+}
+
+.bassman-branding {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.bassman-brand-title {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    font-size: 32px;
+    color: #000000;
+    line-height: 1;
+}
+
+.bassman-model-title {
+    font-size: 9.5px;
+    font-weight: 900;
+    color: #334155;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.bassman-separator {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(180deg, transparent 0%, #64748b 20%, #475569 80%, transparent 100%);
+}
+
+.bassman-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.bassman-sec-header {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #1e293b;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.25);
+    padding-bottom: 2px;
+}
+
+.bassman-controls-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.bassman-knob-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 48px;
+}
+
+/* Vintage Chickenhead Oxblood Knobs */
+.bassman-dial.custom-knob-dial {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #450a0a 0%, #2b0808 70%, #1a0505 100%);
+    border: 2px solid #7f1d1d;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 200, 200, 0.3);
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bassman-dial.custom-knob-dial:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.bassman-dial-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #ffffff 0%, #cbd5e1 60%, #94a3b8 100%);
+    border: 1px solid #475569;
+}
+
+.bassman-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3.5px;
+    height: 19px;
+    background: #fef08a;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(254, 240, 138, 0.9);
+}
+
+.bassman-lbl {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.bassman-toggle-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.bassman-mod-switch-pill {
+    background: #1e293b;
+    border: 1.5px solid #475569;
+    border-radius: 5px;
+    color: #cbd5e1;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.bassman-mod-switch-pill:hover {
+    border-color: #f59e0b;
+    color: #ffffff;
+}
+
+.bassman-mod-switch-pill.active {
+    background: #b45309;
+    border-color: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* Bottom Deck */
+.bassman-bottom-deck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background: #43281c;
+    border-top: 1px solid #7f4f24;
+}
+
+.bassman-deck-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bassman-deck-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #e6ccb2;
+    letter-spacing: 1.2px;
+}
+
+.bassman-cab-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bassman-deck-selector {
+    background: #2b110a;
+    border: 1.5px solid #7f4f24;
+    border-radius: 6px;
+    color: #fef08a;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.bassman-deck-selector:hover {
+    background: #7f4f24;
+    border-color: #f59e0b;
+    color: #ffffff;
+}
+
+.bassman-knob-unit.mini {
+    width: 38px !important;
+    gap: 2px !important;
+}
+
+.bassman-dial.mini-dial {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.bassman-dial-cap.mini-cap {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.bassman-dial .knob-rotor.mini-rotor {
+    height: 14px !important;
+    width: 2.5px !important;
+}
+
+.bassman-lbl.mini-lbl {
+    font-size: 7.5px !important;
+    color: #fde68a !important;
+}
+
+.bassman-amp-head .mod-pedal-input {
+    position: absolute !important;
+    left: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+.bassman-amp-head .mod-pedal-output {
+    position: absolute !important;
+    right: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+
+/* Drag Handle */
+.bassman-amp-head .mod-drag-handle {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 10 !important;
+    cursor: move !important;
+}
+
+/* Ensure all knobs and controls sit above drag handle and receive all mouse events */
+.bassman-amp-head .custom-knob-dial,
+.bassman-amp-head button,
+.bassman-amp-head select,
+.bassman-amp-head input,
+.bassman-amp-head [class*="-faceplate"],
+.bassman-amp-head [class*="-bottom-deck"],
+.bassman-amp-head [class*="-deck-selector"],
+.bassman-amp-head [class*="-mod-switch-pill"],
+.bassman-amp-head [class*="-ch-btn"],
+.bassman-amp-head [class*="-bat-switch"] {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}

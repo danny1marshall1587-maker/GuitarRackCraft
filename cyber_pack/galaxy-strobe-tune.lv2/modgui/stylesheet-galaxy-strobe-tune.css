@@ -1,0 +1,318 @@
+/* Galaxy Strobe Tuner 200% Square Stompbox Stylesheet for MODEP / MOD-UI */
+
+.galaxy-strobe-pedal {
+    position: absolute;
+    width: 450px !important;
+    height: 470px !important;
+    background: radial-gradient(circle at 50% 25%, #0e1e30 0%, #060e17 60%, #020508 100%);
+    border-radius: 28px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.95), inset 0 2px 4px rgba(0, 229, 255, 0.45), inset 0 -5px 10px rgba(0, 0, 0, 0.95);
+    border: 3.5px solid #1b4468;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.galaxy-strobe-pedal .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    cursor: move;
+    z-index: 20;
+}
+
+.galaxy-strobe-pedal .mod-plugin-brand {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.galaxy-strobe-pedal .mod-plugin-brand h1 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #ff007f;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 0, 127, 0.7);
+    margin: 0;
+}
+
+.galaxy-strobe-pedal .mod-plugin-name {
+    text-align: center;
+    border-bottom: 1.5px solid rgba(0, 229, 255, 0.3);
+    padding-bottom: 4px;
+    margin: 2px 40px 6px 40px;
+}
+
+.galaxy-strobe-pedal .mod-plugin-name h1 {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #00e5ff;
+    text-shadow: 0 0 16px rgba(0, 229, 255, 0.95);
+    margin: 0;
+}
+
+/* ========================================================
+   MASSIVE 200% STROBE DISPLAY VIEWPORT
+======================================================== */
+.galaxy-strobe-pedal .mod-tuner-display {
+    position: relative;
+    width: 410px;
+    height: 255px;
+    margin: 2px auto 8px auto;
+    background: #020710;
+    border-radius: 18px;
+    border: 2.5px solid #005f73;
+    box-shadow: inset 0 0 28px rgba(0, 229, 255, 0.4), 0 4px 15px rgba(0,0,0,0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Live AGC Signal Meter */
+.galaxy-strobe-pedal .signal-meter-container {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.galaxy-strobe-pedal .signal-meter-label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #00a8cc;
+}
+
+.galaxy-strobe-pedal .signal-meter-track {
+    flex: 1;
+    height: 7px;
+    background: rgba(0, 30, 45, 0.9);
+    border: 1px solid #005f73;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.galaxy-strobe-pedal .signal-meter-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00e5ff 0%, #00ff66 70%, #ff007f 100%);
+    box-shadow: 0 0 8px #00e5ff;
+    transition: width 0.08s ease-out;
+}
+
+.galaxy-strobe-pedal .signal-status-tag {
+    font-size: 9px;
+    font-weight: 800;
+    color: #00e5ff;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Strobe Canvas Wrap */
+.galaxy-strobe-pedal .strobe-canvas-wrap {
+    position: relative;
+    width: 185px;
+    height: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.galaxy-strobe-pedal .strobe-laser-canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.galaxy-strobe-pedal .note-display-overlay {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.galaxy-strobe-pedal .note-letter {
+    font-size: 74px;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 0 25px #00e5ff, 0 0 50px rgba(0, 229, 255, 1);
+    line-height: 1;
+    margin: 0;
+}
+
+.galaxy-strobe-pedal .cents-text {
+    font-size: 18px;
+    font-weight: 800;
+    color: #00e5ff;
+    margin: 2px 0 0 0;
+    letter-spacing: 0.8px;
+}
+
+/* Cents Scale Bar */
+.galaxy-strobe-pedal .cents-scale-bar {
+    width: 86%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    position: relative;
+}
+
+.galaxy-strobe-pedal .scale-mark {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #00a8cc;
+}
+
+.galaxy-strobe-pedal .scale-center-indicator {
+    position: relative;
+    flex: 1;
+    height: 4px;
+    background: rgba(0, 95, 115, 0.7);
+    margin: 0 10px;
+    border-radius: 2px;
+}
+
+.galaxy-strobe-pedal .scale-needle {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 12px;
+    background: #00e5ff;
+    border-radius: 2px;
+    box-shadow: 0 0 8px #00e5ff;
+    transition: left 0.08s ease-out, background-color 0.15s ease;
+}
+
+.galaxy-strobe-pedal .lock-indicator.locked ~ .cents-scale-bar .scale-needle {
+    background: #00ff66;
+    box-shadow: 0 0 10px #00ff66;
+}
+
+/* In-Tune Lock Indicator */
+.galaxy-strobe-pedal .lock-indicator {
+    position: absolute;
+    bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+}
+
+.galaxy-strobe-pedal .lock-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #003311;
+    border: 1.5px solid #006622;
+    transition: all 0.15s ease;
+}
+
+.galaxy-strobe-pedal .lock-indicator.locked .lock-dot {
+    background-color: #00ff66;
+    box-shadow: 0 0 14px #00ff66, 0 0 25px #00ff66;
+    border-color: #b3ffcc;
+}
+
+.galaxy-strobe-pedal .lock-text {
+    font-size: 9.5px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #00aa44;
+}
+
+.galaxy-strobe-pedal .lock-indicator.locked .lock-text {
+    color: #00ff66;
+    text-shadow: 0 0 12px #00ff66;
+}
+
+/* ========================================================
+   CONTROLS & FOOTSWITCH
+======================================================== */
+.galaxy-strobe-pedal .mod-control-group {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 12px;
+    margin: 6px 0 !important;
+    position: relative;
+    z-index: 30;
+}
+
+.galaxy-strobe-pedal .mod-knob,
+.galaxy-strobe-pedal .mod-switch-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 62px;
+    margin: 0;
+}
+
+.galaxy-strobe-pedal .mod-knob-title,
+.galaxy-strobe-pedal .mod-switch-title {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #89b4db;
+    letter-spacing: 1px;
+    margin-top: 3px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+}
+
+.galaxy-strobe-pedal .mod-light {
+    position: absolute;
+    bottom: 92px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #021824;
+    border: 2.5px solid #005f73;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.galaxy-strobe-pedal .mod-light.on,
+.galaxy-strobe-pedal.mod-pedal-on .mod-light {
+    background-color: #00e5ff;
+    box-shadow: 0 0 16px #00e5ff, 0 0 28px #0088cc, inset 0 1px 2px #ffffff;
+    border-color: #b3f5ff;
+}
+
+.galaxy-strobe-pedal .mod-footswitch {
+    position: absolute !important;
+    bottom: 15px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 68px !important;
+    height: 68px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 136px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.galaxy-strobe-pedal .mod-footswitch.on {
+    background-position-y: top !important;
+}

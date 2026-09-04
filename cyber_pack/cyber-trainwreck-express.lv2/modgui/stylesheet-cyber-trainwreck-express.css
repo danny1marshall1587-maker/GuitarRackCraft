@@ -1,0 +1,354 @@
+/* ==========================================================================
+   Cyber Trainwreck Express - Cherry Hardwood Boutique Styling
+   ========================================================================== */
+
+.trainwreck-amp-head {
+    width: 960px !important;
+    height: 290px !important;
+    background: #3b1812 !important;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(78, 30, 22, 0.6) 0%, rgba(35, 12, 8, 0.95) 100%),
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0px, rgba(0, 0, 0, 0.08) 4px, transparent 4px, transparent 12px);
+    border: 3px solid #5a271c;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), inset 0 2px 4px rgba(255, 200, 150, 0.3);
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.trainwreck-wood-lip {
+    height: 14px;
+    background: linear-gradient(180deg, #6e3022 0%, #2b0e08 100%);
+    border-bottom: 2px solid #000;
+}
+
+.trainwreck-faceplate {
+    flex: 1;
+    margin: 10px 18px 6px 18px;
+    background: linear-gradient(180deg, #fefae0 0%, #fef3c7 25%, #fde68a 85%, #d97706 100%);
+    border: 2px solid #92400e;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+    position: relative;
+}
+
+.trainwreck-left-flank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 150px;
+}
+
+.trainwreck-jewel-holder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #475569 0%, #0f172a 100%);
+    border: 2px solid #92400e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.trainwreck-jewel.ruby {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fca5a5 0%, #b91c1c 60%, #450a0a 100%);
+    box-shadow: 0 0 12px #b91c1c, 0 0 22px rgba(185, 28, 28, 0.75);
+}
+
+.trainwreck-branding {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.trainwreck-brand-title {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    font-size: 30px;
+    color: #451a03;
+    line-height: 1;
+}
+
+.trainwreck-model-title {
+    font-size: 10.5px;
+    font-weight: 900;
+    color: #78350f;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.trainwreck-separator {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(180deg, transparent 0%, #b45309 20%, #78350f 80%, transparent 100%);
+}
+
+.trainwreck-controls-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.trainwreck-knob-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 52px;
+}
+
+/* Chickenhead Oxblood / Cream Dial */
+.trainwreck-dial.custom-knob-dial {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #450a0a 0%, #2b0808 70%, #1a0505 100%);
+    border: 2px solid #7f1d1d;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 200, 200, 0.3);
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.trainwreck-dial.custom-knob-dial:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.9), 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.trainwreck-dial-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #fef3c7 0%, #d97706 70%, #78350f 100%);
+    border: 1px solid #451a03;
+}
+
+.trainwreck-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3.5px;
+    height: 20px;
+    background: #fef08a;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(254, 240, 138, 0.9);
+}
+
+.trainwreck-lbl {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #451a03;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.trainwreck-switches-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 10px;
+}
+
+.trainwreck-toggle-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.trainwreck-bat-switch {
+    width: 20px;
+    height: 38px;
+    background: #1e1008;
+    border: 2px solid #78350f;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.trainwreck-bat-handle {
+    width: 10px;
+    height: 14px;
+    background: linear-gradient(180deg, #fef08a 0%, #d97706 100%);
+    border-radius: 2px;
+    border: 1px solid #78350f;
+    position: absolute;
+    left: 4px;
+    top: 12px; /* Center */
+    transition: top 0.15s ease;
+}
+
+.trainwreck-bat-switch.pos-0 .trainwreck-bat-handle { top: 22px; }
+.trainwreck-bat-switch.pos-1 .trainwreck-bat-handle { top: 12px; }
+.trainwreck-bat-switch.pos-2 .trainwreck-bat-handle { top: 2px; }
+
+.trainwreck-sw-lbl {
+    font-size: 7.5px;
+    font-weight: 900;
+    color: #78350f;
+    text-transform: uppercase;
+}
+
+.trainwreck-mod-switch-pill {
+    background: #2b110a;
+    border: 1.5px solid #78350f;
+    border-radius: 5px;
+    color: #fef3c7;
+    font-size: 8.5px;
+    font-weight: 900;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.trainwreck-mod-switch-pill:hover {
+    border-color: #f59e0b;
+    color: #ffffff;
+}
+
+.trainwreck-mod-switch-pill.active {
+    background: #b45309;
+    border-color: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* Bottom Deck */
+.trainwreck-bottom-deck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background: #1c0b06;
+    border-top: 1px solid #3d170e;
+}
+
+.trainwreck-deck-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.trainwreck-deck-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #d97706;
+    letter-spacing: 1.2px;
+}
+
+.trainwreck-cab-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.trainwreck-deck-selector {
+    background: #2b110a;
+    border: 1.5px solid #78350f;
+    border-radius: 6px;
+    color: #fef08a;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.trainwreck-deck-selector:hover {
+    background: #451a03;
+    border-color: #f59e0b;
+    color: #ffffff;
+}
+
+.trainwreck-knob-unit.mini {
+    width: 38px !important;
+    gap: 2px !important;
+}
+
+.trainwreck-dial.mini-dial {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.trainwreck-dial-cap.mini-cap {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.trainwreck-dial .knob-rotor.mini-rotor {
+    height: 14px !important;
+    width: 2.5px !important;
+}
+
+.trainwreck-lbl.mini-lbl {
+    font-size: 7.5px !important;
+    color: #fde68a !important;
+}
+
+.trainwreck-amp-head .mod-pedal-input {
+    position: absolute !important;
+    left: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+.trainwreck-amp-head .mod-pedal-output {
+    position: absolute !important;
+    right: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+
+/* Drag Handle */
+.trainwreck-amp-head .mod-drag-handle {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 10 !important;
+    cursor: move !important;
+}
+
+/* Ensure all knobs and controls sit above drag handle and receive all mouse events */
+.trainwreck-amp-head .custom-knob-dial,
+.trainwreck-amp-head button,
+.trainwreck-amp-head select,
+.trainwreck-amp-head input,
+.trainwreck-amp-head [class*="-faceplate"],
+.trainwreck-amp-head [class*="-bottom-deck"],
+.trainwreck-amp-head [class*="-deck-selector"],
+.trainwreck-amp-head [class*="-mod-switch-pill"],
+.trainwreck-amp-head [class*="-ch-btn"],
+.trainwreck-amp-head [class*="-bat-switch"] {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}

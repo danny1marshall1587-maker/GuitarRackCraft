@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Cyber Cloud Bloom — MOD-UI Stylesheet
+   Atmospheric Cyber Cyan / Dark Brushed Titanium Aesthetic
+   ========================================================================== */
+
+.mod-pedal.mod-cyber-cloud-bloom {
+    width: 240px;
+    height: 380px;
+    background: radial-gradient(circle at 50% 20%, #0d222b 0%, #061015 60%, #03080b 100%);
+    border: 2px solid #083344;
+    border-radius: 18px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(6, 182, 212, 0.2);
+    box-sizing: border-box;
+    padding: 16px;
+    color: #e0f2fe;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    user-select: none;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .pedal-top-strip {
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .mod-pedal-brand {
+    font-size: 8.5px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #06b6d4;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .mod-pedal-model {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #67e8f9;
+    opacity: 0.7;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .mod-pedal-name {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 14px rgba(6, 182, 212, 0.4);
+    margin-bottom: 12px;
+}
+
+/* 4x2 Knobs Grid */
+.mod-pedal.mod-cyber-cloud-bloom .cyber-knobs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 6px;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .knob-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .custom-knob-dial {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #164e63 0%, #082f49 60%, #03141f 100%);
+    border: 2px solid #0e7490;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .custom-knob-dial:hover {
+    border-color: #06b6d4;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .knob-rotor {
+    width: 2px;
+    height: 14px;
+    background: #22d3ee;
+    box-shadow: 0 0 6px #22d3ee;
+    position: absolute;
+    top: 4px;
+    left: calc(50% - 1px);
+    transform-origin: bottom center;
+    border-radius: 1px;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .mod-knob-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #a5f3fc;
+    margin-top: 4px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Bottom Section */
+.mod-pedal.mod-cyber-cloud-bloom .pedal-bottom-section {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 6px;
+    border-top: 1px solid rgba(8, 51, 68, 0.8);
+}
+
+/* Freeze Button */
+.mod-pedal.mod-cyber-cloud-bloom .freeze-btn {
+    background: #082f49;
+    border: 1px solid #0e7490;
+    border-radius: 12px;
+    color: #a5f3fc;
+    font-size: 8px;
+    font-weight: 800;
+    padding: 6px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.15s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .freeze-btn:hover {
+    border-color: #22d3ee;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .freeze-btn.active {
+    background: #0284c7;
+    color: #fff;
+    border-color: #38bdf8;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.8);
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .freeze-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #0e7490;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .freeze-btn.active .freeze-dot {
+    background: #ffffff;
+    box-shadow: 0 0 6px #fff;
+}
+
+/* Footswitch */
+.mod-pedal.mod-cyber-cloud-bloom .footswitch-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .mod-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #155e75;
+    border: 1px solid #083344;
+    transition: all 0.15s ease;
+}
+
+.mod-pedal.mod-cyber-cloud-bloom .mod-led.on {
+    background: #06b6d4;
+    box-shadow: 0 0 12px #06b6d4, 0 0 20px #06b6d4;
+}

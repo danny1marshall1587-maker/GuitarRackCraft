@@ -1,0 +1,397 @@
+/* ==========================================================================
+   Cyber Two-Rock Classic Reverb Signature - Silver Anodized Boutique Styling
+   ========================================================================== */
+
+.tworock-amp-head {
+    width: 960px !important;
+    height: 290px !important;
+    background: #111417 !important;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(30, 36, 44, 0.5) 0%, rgba(10, 12, 16, 0.95) 100%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 4px);
+    border: 3px solid #232931;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tworock-lip-top {
+    height: 12px;
+    background: linear-gradient(180deg, #333d47 0%, #1a2026 100%);
+    border-bottom: 2px solid #000;
+}
+
+.tworock-faceplate {
+    flex: 1;
+    margin: 10px 18px 6px 18px;
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 15%, #cbd5e1 85%, #94a3b8 100%);
+    border: 2px solid #64748b;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    position: relative;
+}
+
+.tworock-left-flank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 145px;
+}
+
+.tworock-jewel-holder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #475569 0%, #0f172a 100%);
+    border: 2px solid #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.tworock-jewel.turquoise {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #a5f3fc 0%, #06b6d4 60%, #0e7490 100%);
+    box-shadow: 0 0 12px #06b6d4, 0 0 22px rgba(6, 182, 212, 0.75);
+}
+
+.tworock-branding {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.tworock-brand-title {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.tworock-model-title {
+    font-size: 9.5px;
+    font-weight: 800;
+    color: #475569;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.tworock-separator {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(180deg, transparent 0%, #94a3b8 20%, #64748b 80%, transparent 100%);
+}
+
+.tworock-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.tworock-sec-header {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #334155;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 2px;
+}
+
+.tworock-controls-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.tworock-knob-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 48px;
+}
+
+/* Polished Aluminum Two-Rock Skirted Dial */
+.tworock-dial.custom-knob-dial {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #334155 0%, #1e293b 70%, #0f172a 100%);
+    border: 2px solid #64748b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tworock-dial.custom-knob-dial:hover {
+    border-color: #06b6d4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+.tworock-dial-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #ffffff 0%, #cbd5e1 60%, #94a3b8 100%);
+    border: 1px solid #475569;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tworock-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 19px;
+    background: #06b6d4;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(6, 182, 212, 0.9);
+}
+
+.tworock-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* Gain Structure Button */
+.tworock-struct-btn {
+    background: #0f172a;
+    border: 2px solid #06b6d4;
+    border-radius: 6px;
+    color: #a5f3fc;
+    padding: 7px 10px;
+    font-size: 8.5px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.tworock-struct-btn.pos-0 { border-color: #3b82f6; color: #93c5fd; }
+.tworock-struct-btn.pos-1 { border-color: #06b6d4; color: #a5f3fc; }
+.tworock-struct-btn.pos-2 { border-color: #f59e0b; color: #fef08a; }
+
+/* Switches Cluster */
+.tworock-switches-cluster {
+    display: flex;
+    gap: 8px;
+    padding: 0 4px;
+}
+
+.tworock-toggle-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 42px;
+}
+
+.tworock-bat-switch {
+    width: 18px;
+    height: 36px;
+    background: #0f172a;
+    border: 2px solid #64748b;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.tworock-bat-handle {
+    width: 8px;
+    height: 15px;
+    background: linear-gradient(180deg, #f8fafc 0%, #94a3b8 100%);
+    border-radius: 2px;
+    border: 1px solid #475569;
+    position: absolute;
+    left: 4px;
+    top: 17px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    transition: top 0.15s ease, background 0.15s ease;
+}
+
+.tworock-bat-switch.on .tworock-bat-handle {
+    top: 2px;
+    background: linear-gradient(180deg, #a5f3fc 0%, #06b6d4 100%);
+    box-shadow: 0 0 6px #06b6d4;
+}
+
+.tworock-sw-lbl {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #334155;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Bottom Deck */
+.tworock-bottom-deck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background: #0b0e11;
+    border-top: 1px solid #1c2228;
+}
+
+.tworock-deck-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tworock-deck-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #64748b;
+    letter-spacing: 1.2px;
+}
+
+.tworock-cab-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tworock-deck-selector {
+    background: #1e293b;
+    border: 1.5px solid #475569;
+    border-radius: 6px;
+    color: #06b6d4;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.tworock-deck-selector:hover {
+    background: #334155;
+    border-color: #06b6d4;
+    color: #ffffff;
+}
+
+.tworock-knob-unit.mini {
+    width: 38px !important;
+    gap: 2px !important;
+}
+
+.tworock-dial.mini-dial {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.tworock-dial-cap.mini-cap {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.tworock-dial .knob-rotor.mini-rotor {
+    height: 14px !important;
+    width: 2.5px !important;
+}
+
+.tworock-lbl.mini-lbl {
+    font-size: 7.5px !important;
+    color: #cbd5e1 !important;
+}
+
+.tworock-mod-switch-pill {
+    background: #1e293b;
+    border: 1.5px solid #475569;
+    border-radius: 5px;
+    color: #94a3b8;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.tworock-mod-switch-pill:hover {
+    border-color: #06b6d4;
+    color: #ffffff;
+}
+
+.tworock-mod-switch-pill.active {
+    background: #0e7490;
+    border-color: #06b6d4;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+.tworock-amp-head .mod-pedal-input {
+    position: absolute !important;
+    left: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+.tworock-amp-head .mod-pedal-output {
+    position: absolute !important;
+    right: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+
+/* Drag Handle */
+.tworock-amp-head .mod-drag-handle {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 10 !important;
+    cursor: move !important;
+}
+
+/* Ensure all knobs and controls sit above drag handle and receive all mouse events */
+.tworock-amp-head .custom-knob-dial,
+.tworock-amp-head button,
+.tworock-amp-head select,
+.tworock-amp-head input,
+.tworock-amp-head [class*="-faceplate"],
+.tworock-amp-head [class*="-bottom-deck"],
+.tworock-amp-head [class*="-deck-selector"],
+.tworock-amp-head [class*="-mod-switch-pill"],
+.tworock-amp-head [class*="-ch-btn"],
+.tworock-amp-head [class*="-bat-switch"] {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}

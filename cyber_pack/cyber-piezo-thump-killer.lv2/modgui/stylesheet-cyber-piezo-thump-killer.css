@@ -1,0 +1,274 @@
+/* ==========================================================================
+   Cyber Piezo Thump Killer — Acoustic Mahogany & Brushed Brass Aesthetic
+   ========================================================================== */
+
+.thump-killer-pedal {
+    width: 270px !important;
+    height: 440px !important;
+    background: radial-gradient(circle at 50% 20%, #3a2214 0%, #24140b 60%, #130a05 100%) !important;
+    border: 2px solid #8c5d35 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(220, 165, 100, 0.3) !important;
+    box-sizing: border-box !important;
+    padding: 8px 10px 12px 10px !important;
+    color: #fef3c7 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+    user-select: none !important;
+}
+
+.thump-killer-pedal .mod-drag-handle {
+    position: absolute !important;
+    top: 0; left: 0; right: 0; height: 35px;
+    cursor: move;
+    z-index: 10;
+}
+
+/* Header */
+.thump-killer-pedal .pedal-header {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.thump-killer-pedal .brand-title {
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    color: #d4a373;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+.thump-killer-pedal .pedal-title {
+    font-size: 12.5px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #fff6ed;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+}
+
+.thump-killer-pedal .pedal-subtitle {
+    font-size: 6.5px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #b08968;
+}
+
+/* Master Bypass Jewel Light */
+.thump-killer-pedal .master-bypass-led {
+    position: absolute !important;
+    top: 8px !important;
+    right: 12px !important;
+    width: 13px !important;
+    height: 13px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle at 35% 35%, #ff8888, #cc0000 60%, #440000 100%) !important;
+    box-shadow: 0 0 10px rgba(255, 30, 30, 0.8), inset 0 0 3px rgba(255,255,255,0.8) !important;
+    border: 1px solid #770000 !important;
+}
+
+.thump-killer-pedal .master-bypass-led.off {
+    background: radial-gradient(circle at 35% 35%, #552222, #330000 60%, #110000 100%) !important;
+    box-shadow: none !important;
+}
+
+/* Mode Pills */
+.thump-killer-pedal .mode-bar {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+    margin-bottom: 6px;
+    justify-content: center;
+}
+
+.thump-killer-pedal .mode-pill {
+    background: rgba(20, 10, 5, 0.7);
+    border: 1px solid #7f5539;
+    border-radius: 10px;
+    color: #cca47c;
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.thump-killer-pedal .mode-pill.active {
+    background: #ddb892;
+    color: #1a0e05;
+    border-color: #ede0d4;
+    box-shadow: 0 0 8px rgba(221, 184, 146, 0.5);
+}
+
+/* Section Cards */
+.thump-killer-pedal .section-card {
+    width: 100%;
+    background: rgba(10, 5, 2, 0.45);
+    border: 1px solid rgba(140, 93, 53, 0.35);
+    border-radius: 9px;
+    padding: 4px 6px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+.thump-killer-pedal .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    padding: 0 4px;
+}
+
+.thump-killer-pedal .section-badge {
+    font-size: 7px;
+    font-weight: 900;
+    padding: 1px 4px;
+    border-radius: 4px;
+    background: #6b4021;
+    color: #ffecd1;
+}
+
+.thump-killer-pedal .section-name {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ddb892;
+}
+
+/* Dynamic Activity LEDs */
+.thump-killer-pedal .activity-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #331500;
+    border: 1px solid #662b00;
+    opacity: 0.3;
+    transition: opacity 0.05s ease, box-shadow 0.05s ease;
+}
+
+.thump-killer-pedal .activity-led.active {
+    background: #ff7700;
+    opacity: 1.0;
+    box-shadow: 0 0 8px #ff7700;
+}
+
+/* Knobs Rows */
+.thump-killer-pedal .knob-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.thump-killer-pedal .utility-card {
+    padding: 5px 4px 4px 4px;
+}
+
+.thump-killer-pedal .utility-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.thump-killer-pedal .knob-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.thump-killer-pedal .util-cell {
+    width: 24%;
+}
+
+.thump-killer-pedal .custom-knob-dial {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #3d281a 0%, #1e130a 60%, #0f0904 100%);
+    border: 2px solid #b08968;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.25);
+    position: relative;
+    cursor: pointer;
+}
+
+.thump-killer-pedal .util-dial {
+    width: 33px;
+    height: 33px;
+}
+
+.thump-killer-pedal .clamp-dial {
+    border-color: #e09f3e !important;
+    box-shadow: 0 0 6px rgba(224, 159, 62, 0.4) !important;
+}
+
+.thump-killer-pedal .knob-rotor {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    width: 2.2px;
+    height: 11px;
+    margin-left: -1.1px;
+    background: #ede0d4;
+    border-radius: 2px;
+    transform-origin: 50% 16px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.8);
+}
+
+.thump-killer-pedal .util-dial .knob-rotor {
+    height: 9px;
+    transform-origin: 50% 14px;
+}
+
+.thump-killer-pedal .clamp-rotor {
+    background: #ffb703 !important;
+    box-shadow: 0 0 4px #ffb703 !important;
+}
+
+.thump-killer-pedal .knob-label {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    color: #ede0d4;
+    margin-top: 2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+}
+
+.thump-killer-pedal .highlight-label {
+    color: #ffb703 !important;
+}
+
+.thump-killer-pedal .knob-sublabel {
+    font-size: 6px;
+    font-weight: 600;
+    color: #9c6644;
+}
+
+/* Footswitch */
+.thump-killer-pedal .footswitch-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+}
+
+.thump-killer-pedal .mod-footswitch {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle at 35% 35%, #e6ccb2 0%, #9c6644 60%, #582f0e 100%) !important;
+    border: 2px solid #2a1608 !important;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.8), inset 0 2px 2px rgba(255,255,255,0.5) !important;
+    cursor: pointer !important;
+}
+
+.thump-killer-pedal .footswitch-label {
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #cca47c;
+    margin-top: 2px;
+}
