@@ -68,7 +68,7 @@ fi
 if [ "${BUILD_VST:-$_vst_default}" = "1" ]; then
     git -C "$PROJECT_ROOT" submodule update --init --recursive
 else
-    git -C "$PROJECT_ROOT" submodule update --init
+    git -C "$PROJECT_ROOT" submodule update --init --recursive 3rd_party
 fi
 
 # Apply patches (skip if already applied via dry-run check)

@@ -42,20 +42,9 @@ jobs:
             libxfixes-dev libxcursor-dev libxxf86vm-dev libfreetype-dev \
             fonts-liberation fonts-dejavu
 
-      - name: Init Native Submodules (LV2 / Audio / X11)
+      - name: Init Native 3rd_party Submodules (Recursive)
         run: |
-          git submodule update --init \
-            3rd_party/serd 3rd_party/zix 3rd_party/sord 3rd_party/lv2 3rd_party/sratom 3rd_party/lilv \
-            3rd_party/GxPlugins.lv2.Android 3rd_party/guitarix 3rd_party/oboe 3rd_party/fftw3 \
-            3rd_party/doubletracker.lv2 3rd_party/FatFrog.lv2 3rd_party/CollisionDrive 3rd_party/MetalTone \
-            3rd_party/GxCabSim.lv2 3rd_party/ModularAmpToolKit.lv2 3rd_party/XTinyTerror 3rd_party/XDarkTerror \
-            3rd_party/ImpulseLoader 3rd_party/NeuralRack 3rd_party/AIDA-X 3rd_party/aidadsp-lv2 \
-            3rd_party/neural-amp-modeler-lv2 3rd_party/eigen 3rd_party/expat 3rd_party/libsndfile \
-            3rd_party/x11/xorgproto 3rd_party/x11/xtrans 3rd_party/x11/libXau 3rd_party/x11/xcb-proto \
-            3rd_party/x11/libxcb 3rd_party/x11/libX11 3rd_party/x11/libXext 3rd_party/x11/libXrender \
-            3rd_party/x11/pixman 3rd_party/x11/libpng 3rd_party/x11/cairo 3rd_party/x11/util-macros \
-            3rd_party/x11/libXdmcp 3rd_party/x11/libXi 3rd_party/x11/libXfixes 3rd_party/x11/libXrandr \
-            3rd_party/x11/libXcursor 3rd_party/x11/libXxf86vm
+          git submodule update --init --recursive 3rd_party
 
       - name: Locate Android NDK
         run: |
