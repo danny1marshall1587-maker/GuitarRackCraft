@@ -1023,6 +1023,7 @@ fun RackScreen(
                 }
             }
         }
+        }
         if (showMidiDialog) {
             com.varcain.guitarrackcraft.ui.midi.MidiSettingsDialog(
                 onDismissRequest = { showMidiDialog = false }
