@@ -1,0 +1,118 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} mod-black black cyber-expression-pedal{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
+    <div class="mod-plugin-name"><h1>EXPRESSION CV CONTROLLER</h1></div>
+
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- OLED Live Expression Display -->
+    <div class="expr-display clearfix">
+        <div class="expr-header">
+            <span class="expr-title-badge">MIDI CC TO CV 1</span>
+            <span class="expr-cc-badge" mod-role="cc_badge">CC #07 (EXP/VOL)</span>
+            <span class="expr-ch-badge" mod-role="ch_badge">CH: OMNI</span>
+        </div>
+
+        <div class="expr-visualizer">
+            <div class="expr-meter-track">
+                <div class="expr-meter-fill" mod-role="meter_fill" style="width: 0%;"></div>
+            </div>
+            <div class="expr-value-row">
+                <span class="expr-volt-val" mod-role="volt_display">CV 1: 0.00 V</span>
+                <span class="expr-pct-val" mod-role="pct_display">0%</span>
+                <span class="expr-inv-val" mod-role="inv_display">INV: 10.00 V</span>
+            </div>
+        </div>
+
+        <div class="expr-footer">
+            <span class="expr-tag-curve" mod-role="curve_badge">LINEAR</span>
+            <span class="expr-tag-smooth" mod-role="smooth_badge">SMOOTH: 15ms</span>
+            <span class="expr-tag-ports">4x CV OUT ACTIVE</span>
+        </div>
+    </div>
+
+    <!-- Quick CC Preset Selector Buttons -->
+    <div class="expr-quick-presets clearfix">
+        <button type="button" class="expr-btn-preset active" data-cc="7">CC 07 EXP</button>
+        <button type="button" class="expr-btn-preset" data-cc="11">CC 11 EXPR</button>
+        <button type="button" class="expr-btn-preset" data-cc="1">CC 01 MOD</button>
+        <button type="button" class="expr-btn-preset" data-cc="2">CC 02 BREATH</button>
+    </div>
+
+    <!-- Controls Row 1 -->
+    <div class="mod-control-group row-1 clearfix">
+        <div class="mod-knob" title="MIDI CC Number (Default CC #7)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="cc_number"></div>
+            <span class="mod-knob-title">CC #</span>
+        </div>
+        <div class="mod-knob" title="Smoothing Time in Milliseconds">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="smoothing"></div>
+            <span class="mod-knob-title">SMOOTH</span>
+        </div>
+        <div class="mod-knob" title="Minimum Output Voltage (0-10V)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="min_val"></div>
+            <span class="mod-knob-title">MIN V</span>
+        </div>
+        <div class="mod-knob" title="Maximum Output Voltage (0-10V)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="max_val"></div>
+            <span class="mod-knob-title">MAX V</span>
+        </div>
+    </div>
+
+    <!-- Controls Row 2 -->
+    <div class="mod-control-group row-2 clearfix">
+        <div class="mod-knob" title="MIDI Channel (0 = Omni, 1-16)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="midi_channel"></div>
+            <span class="mod-knob-title">CHANNEL</span>
+        </div>
+        <div class="mod-knob" title="Taper Curve (Linear, Log, Anti-Log, S-Curve)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="curve"></div>
+            <span class="mod-knob-title">CURVE</span>
+        </div>
+        <div class="mod-knob" title="Manual Position Override (0-100%)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="manual_pos"></div>
+            <span class="mod-knob-title">MANUAL</span>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Engage / Bypass)"></div>
+
+    <!-- MOD SDK Standard Input Connectors (Audio / MIDI / CV) -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.cv.input}}
+    </div>
+
+    <!-- MOD SDK Standard Output Connectors (Audio / MIDI / CV) -->
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

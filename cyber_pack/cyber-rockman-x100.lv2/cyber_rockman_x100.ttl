@@ -1,0 +1,123 @@
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod:  <http://moddevices.com/ns/mod#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-rockman-x100>
+    a lv2:Plugin , lv2:SimulatorPlugin ;
+    doap:name "Tom Scholz Rockman X100 (1982)" ;
+    doap:license <http://opensource.org/licenses/isc> ;
+    lv2:minorVersion 1 ;
+    lv2:microVersion 0 ;
+    rdfs:comment "Authentic analog circuit emulation of the 1982 SR&D Rockman X100. 4 Modes (Clean 1, Clean 2, Edge, Dist), Scholz FET compression, 800Hz / 2.1kHz signature mid peaks, analog BBD stereo chorus, studio frequency contouring, and zero-latency smart noise suppressor." ;
+    mod:brand "Cyber Audio" ;
+    mod:label "Rockman X100" ;
+
+    lv2:port [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Input" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out" ;
+        lv2:name "Output" ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 2 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation lv2:enabled ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "mode" ;
+        lv2:name "Rockman Mode" ;
+        lv2:default 2 ;
+        lv2:minimum 0 ;
+        lv2:maximum 3 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "CLEAN 1 (Pristine)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "CLEAN 2 (Warm Semi-Clean)" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "EDGE (Power Chord Crunch)" ; rdf:value 2 ] ;
+        lv2:scalePoint [ rdfs:label "DIST (Singing Boston Lead)" ; rdf:value 3 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "volume" ;
+        lv2:name "Volume Level" ;
+        lv2:default 8.7 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "chorus" ;
+        lv2:name "BBD Stereo Chorus" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "chorus_depth" ;
+        lv2:name "Chorus Depth" ;
+        lv2:default 75.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "bass_boost" ;
+        lv2:name "Bass Boost" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "speaker_cab" ;
+        lv2:name "Speaker Cabinet" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Rockman Studio Direct (Stock)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "4x12 Celestion Greenback" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "Direct Out / Cab Bypass" ; rdf:value 2 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "speaker_drive" ;
+        lv2:name "Cone Stress / Drive" ;
+        lv2:default 4.6 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "noise_gate" ;
+        lv2:name "Zero Noise Suppressor" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ]     , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "output_level" ;
+        lv2:name "Output Level" ;
+        lv2:default 7.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        rdfs:comment "Master Output Volume / Attenuator (-24dB to +6dB). Allows cranking Master for power amp saturation without blasting downstream pedals." ;
+    ] .

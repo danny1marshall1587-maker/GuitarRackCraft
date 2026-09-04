@@ -1,0 +1,36 @@
+<div class="mod-pedal mod-pedal-boxy cv-splitter-v2-pedal">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="mod-pedal-brand">CYBER AUDIO</div>
+    <div class="mod-pedal-name">CV Splitter</div>
+    
+    <div class="mod-control-group top-knob">
+        <div class="mod-knob" title="Expression Pedal Input">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="control_in"></div>
+        </div>
+        <div class="mod-knob-title">CC IN</div>
+    </div>
+    
+    <div class="mod-control-group-row">
+        <div class="mod-control-group">
+            <div class="mod-knob" title="Scaled Min">
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="min_val"></div>
+            </div>
+            <div class="mod-knob-title">MIN</div>
+        </div>
+        
+        <div class="mod-control-group">
+            <div class="mod-knob" title="Scaled Max">
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="max_val"></div>
+            </div>
+            <div class="mod-knob-title">MAX</div>
+        </div>
+    </div>
+    
+    <div class="mod-pedal-output">
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

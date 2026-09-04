@@ -1,0 +1,152 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} jtm45-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="jtm45-gold-lip"></div>
+
+    <div class="jtm45-faceplate">
+        <div class="jtm45-left-flank">
+            <div class="jtm45-jewel-holder" title="Marshall Red Pilot Lamp">
+                <div class="jtm45-jewel red" id="jtm45-jewel"></div>
+            </div>
+            <div class="jtm45-branding">
+                <span class="jtm45-brand-title">Marshall</span>
+                <span class="jtm45-model-title">JTM 45 PLEXI</span>
+            </div>
+        </div>
+
+        <div class="jtm45-separator"></div>
+
+        <!-- Section 1: Preamp Channels -->
+        <div class="jtm45-section">
+            <div class="jtm45-sec-header">PREAMP &bull; HIGH TREBLE / NORMAL</div>
+            <div class="jtm45-controls-row">
+                <div class="jtm45-knob-unit" title="High Treble Volume (0 - 10)">
+                    <div class="jtm45-dial custom-knob-dial" data-symbol="high_treb_vol" data-min="0" data-max="10" data-default="3.59">
+                        <div class="jtm45-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="high_treb_vol" style="display:none;"></div>
+                    <span class="jtm45-lbl">HIGH TREB</span>
+                </div>
+
+                <div class="jtm45-knob-unit" title="Normal Volume (0 - 10)">
+                    <div class="jtm45-dial custom-knob-dial" data-symbol="normal_vol" data-min="0" data-max="10" data-default="3.44">
+                        <div class="jtm45-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="normal_vol" style="display:none;"></div>
+                    <span class="jtm45-lbl">NORMAL</span>
+                </div>
+
+                <!-- Channel Link Jumper Button -->
+                <div class="jtm45-toggle-unit" title="Channel Jumper / Link (Parallel Blend)">
+                    <button type="button" class="jtm45-mod-switch-pill active" id="jtm45-link-btn">JUMPERED</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel_link" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jtm45-separator"></div>
+
+        <!-- Section 2: Equalization & Presence -->
+        <div class="jtm45-section">
+            <div class="jtm45-sec-header">EQUALIZATION &bull; PRESENCE</div>
+            <div class="jtm45-controls-row">
+                <div class="jtm45-knob-unit" title="Bass (0 - 10)">
+                    <div class="jtm45-dial custom-knob-dial" data-symbol="bass" data-min="0" data-max="10" data-default="6.88">
+                        <div class="jtm45-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass" style="display:none;"></div>
+                    <span class="jtm45-lbl">BASS</span>
+                </div>
+
+                <div class="jtm45-knob-unit" title="Middle (0 - 10)">
+                    <div class="jtm45-dial custom-knob-dial" data-symbol="middle" data-min="0" data-max="10" data-default="7.6">
+                        <div class="jtm45-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="middle" style="display:none;"></div>
+                    <span class="jtm45-lbl">MIDDLE</span>
+                </div>
+
+                <div class="jtm45-knob-unit" title="Treble (0 - 10)">
+                    <div class="jtm45-dial custom-knob-dial" data-symbol="treble" data-min="0" data-max="10" data-default="6.1">
+                        <div class="jtm45-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble" style="display:none;"></div>
+                    <span class="jtm45-lbl">TREBLE</span>
+                </div>
+
+                <div class="jtm45-knob-unit" title="Presence in Negative Feedback Loop (0 - 10)">
+                    <div class="jtm45-dial custom-knob-dial" data-symbol="presence" data-min="0" data-max="10" data-default="5.9">
+                        <div class="jtm45-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="presence" style="display:none;"></div>
+                    <span class="jtm45-lbl">PRESENCE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="jtm45-bottom-deck">
+        <div class="jtm45-deck-control">
+            <span class="jtm45-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="jtm45-cab-cluster">
+                <div class="jtm45-deck-selector" id="jtm45-cab-btn" title="Click to change speaker cab (4x12 Greenbacks / 2x12 Bluesbreaker / Bypass)">
+                    <span class="jtm45-selector-val" id="jtm45-cab-txt">4x12" Celestion Greenbacks (Stock)</span>
+                </div>
+
+                <div class="jtm45-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="jtm45-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="3.32">
+                        <div class="jtm45-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="jtm45-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="jtm45-deck-control">
+            <span class="jtm45-deck-lbl">OUTPUT LEVEL</span>
+            <div class="jtm45-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="jtm45-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="4.1">
+                    <div class="jtm45-dial-cap mini-cap"></div>
+                    <div class="jtm45-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="jtm45-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="jtm45-deck-control">
+            <span class="jtm45-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="jtm45-mod-switch-pill active" id="jtm45-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

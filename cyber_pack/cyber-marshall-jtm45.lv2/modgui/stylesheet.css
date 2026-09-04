@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Cyber Marshall JTM45 (1965) - British Gold Plexi & Levant Tolex Styling
+   ========================================================================== */
+
+.jtm45-amp-head {
+    width: 960px !important;
+    height: 290px !important;
+    background: #141416 !important;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(35, 35, 40, 0.6) 0%, rgba(10, 10, 12, 0.95) 100%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 4px);
+    border: 3px solid #27272a;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.jtm45-gold-lip {
+    height: 12px;
+    background: linear-gradient(180deg, #d4af37 0%, #aa8c2c 100%);
+    border-bottom: 2px solid #000;
+}
+
+.jtm45-faceplate {
+    flex: 1;
+    margin: 10px 18px 6px 18px;
+    background: linear-gradient(180deg, #fef08a 0%, #eab308 25%, #ca8a04 85%, #854d0e 100%);
+    border: 2px solid #713f12;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.85), 0 4px 12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 14px;
+    position: relative;
+}
+
+.jtm45-left-flank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 145px;
+}
+
+.jtm45-jewel-holder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #475569 0%, #0f172a 100%);
+    border: 2px solid #713f12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.jtm45-jewel.red {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fca5a5 0%, #dc2626 60%, #7f1d1d 100%);
+    box-shadow: 0 0 12px #dc2626, 0 0 22px rgba(220, 38, 38, 0.8);
+}
+
+.jtm45-branding {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.jtm45-brand-title {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    font-size: 34px;
+    color: #000000;
+    line-height: 1;
+}
+
+.jtm45-model-title {
+    font-size: 9.5px;
+    font-weight: 900;
+    color: #451a03;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.jtm45-separator {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(180deg, transparent 0%, #713f12 20%, #a16207 80%, transparent 100%);
+}
+
+.jtm45-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.jtm45-sec-header {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #451a03;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid rgba(69, 26, 3, 0.25);
+    padding-bottom: 2px;
+}
+
+.jtm45-controls-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.jtm45-knob-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 48px;
+}
+
+/* Classic Marshall Gold-Capped Skirted Dial */
+.jtm45-dial.custom-knob-dial {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #18181b 0%, #09090b 70%, #000000 100%);
+    border: 2px solid #713f12;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.jtm45-dial.custom-knob-dial:hover {
+    border-color: #fef08a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 10px rgba(254, 240, 138, 0.6);
+}
+
+.jtm45-dial-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #fef08a 0%, #eab308 60%, #a16207 100%);
+    border: 1px solid #713f12;
+}
+
+.jtm45-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3.5px;
+    height: 19px;
+    background: #ffffff;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.jtm45-lbl {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.jtm45-toggle-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.jtm45-mod-switch-pill {
+    background: #18181b;
+    border: 1.5px solid #713f12;
+    border-radius: 5px;
+    color: #fef08a;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.jtm45-mod-switch-pill:hover {
+    border-color: #fef08a;
+    color: #ffffff;
+}
+
+.jtm45-mod-switch-pill.active {
+    background: #a16207;
+    border-color: #fef08a;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(254, 240, 138, 0.5);
+}
+
+/* Bottom Deck */
+.jtm45-bottom-deck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background: #09090b;
+    border-top: 1px solid #27272a;
+}
+
+.jtm45-deck-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.jtm45-deck-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #a1a1aa;
+    letter-spacing: 1.2px;
+}
+
+.jtm45-cab-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.jtm45-deck-selector {
+    background: #18181b;
+    border: 1.5px solid #713f12;
+    border-radius: 6px;
+    color: #fef08a;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.jtm45-deck-selector:hover {
+    background: #27272a;
+    border-color: #fef08a;
+    color: #ffffff;
+}
+
+.jtm45-knob-unit.mini {
+    width: 38px !important;
+    gap: 2px !important;
+}
+
+.jtm45-dial.mini-dial {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.jtm45-dial-cap.mini-cap {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.jtm45-dial .knob-rotor.mini-rotor {
+    height: 14px !important;
+    width: 2.5px !important;
+}
+
+.jtm45-lbl.mini-lbl {
+    font-size: 7.5px !important;
+    color: #fde68a !important;
+}
+
+.jtm45-amp-head .mod-pedal-input {
+    position: absolute !important;
+    left: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+.jtm45-amp-head .mod-pedal-output {
+    position: absolute !important;
+    right: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+
+/* Drag Handle */
+.jtm45-amp-head .mod-drag-handle {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 10 !important;
+    cursor: move !important;
+}
+
+/* Ensure all knobs and controls sit above drag handle and receive all mouse events */
+.jtm45-amp-head .custom-knob-dial,
+.jtm45-amp-head button,
+.jtm45-amp-head select,
+.jtm45-amp-head input,
+.jtm45-amp-head [class*="-faceplate"],
+.jtm45-amp-head [class*="-bottom-deck"],
+.jtm45-amp-head [class*="-deck-selector"],
+.jtm45-amp-head [class*="-mod-switch-pill"],
+.jtm45-amp-head [class*="-ch-btn"],
+.jtm45-amp-head [class*="-bat-switch"] {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}

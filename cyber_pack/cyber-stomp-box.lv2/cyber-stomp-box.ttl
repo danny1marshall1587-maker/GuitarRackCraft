@@ -1,0 +1,208 @@
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+
+<http://moddevices.com/plugins/danny/cyber-stomp-box>
+    a lv2:Plugin ,
+      lv2:InstrumentPlugin ;
+    doap:name "Cyber-Stompbox One-Shot Percussion" ;
+    doap:license <http://opensource.org/licenses/mit> ;
+    mod:brand "CyberAudio" ;
+    mod:label "CyberStomp" ;
+    rdfs:comment "Pro low-latency one-shot percussion & kick drum stompbox for solo guitarists. Triggerable via Nektar Pacer / MIDI pedals (Note/CC) or MOD-UI MIDI Learnable footswitch." ;
+
+    lv2:requiredFeature urid:map ;
+
+    lv2:port [
+        a lv2:AudioPort ,
+          lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in_l" ;
+        lv2:name "Guitar In L" ;
+    ] , [
+        a lv2:AudioPort ,
+          lv2:InputPort ;
+        lv2:index 1 ;
+        lv2:symbol "in_r" ;
+        lv2:name "Guitar In R" ;
+    ] , [
+        a lv2:AudioPort ,
+          lv2:OutputPort ;
+        lv2:index 2 ;
+        lv2:symbol "out_l" ;
+        lv2:name "Audio Out L" ;
+    ] , [
+        a lv2:AudioPort ,
+          lv2:OutputPort ;
+        lv2:index 3 ;
+        lv2:symbol "out_r" ;
+        lv2:name "Audio Out R" ;
+    ] , [
+        a atom:AtomPort ,
+          lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "midi_in" ;
+        lv2:name "MIDI In (Pacer / Notes / CC)" ;
+        atom:bufferType atom:Sequence ;
+        atom:supports midi:MidiEvent ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "trigger" ;
+        lv2:name "Foot Stomp (MIDI Learn)" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:trigger , lv2:toggled ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "model" ;
+        lv2:name "Sound Model" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 5 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [
+            rdfs:label "Sub Stomp Box" ;
+            rdf:value 0
+        ] , [
+            rdfs:label "Acoustic Cajon" ;
+            rdf:value 1
+        ] , [
+            rdfs:label "Rock Kick 22\"" ;
+            rdf:value 2
+        ] , [
+            rdfs:label "Vintage 808 Sub" ;
+            rdf:value 3
+        ] , [
+            rdfs:label "Tambourine Stomp" ;
+            rdf:value 4
+        ] , [
+            rdfs:label "Foot Snare" ;
+            rdf:value 5
+        ] ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "pitch" ;
+        lv2:name "Tuning" ;
+        lv2:default 0.0 ;
+        lv2:minimum -12.0 ;
+        lv2:maximum 12.0 ;
+        units:unit units:semitone12TET ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "decay" ;
+        lv2:name "Decay" ;
+        lv2:default 0.35 ;
+        lv2:minimum 0.05 ;
+        lv2:maximum 1.50 ;
+        units:unit units:s ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "punch" ;
+        lv2:name "Beater Punch" ;
+        lv2:default 0.70 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "sub_thump" ;
+        lv2:name "Sub Thump" ;
+        lv2:default 3.0 ;
+        lv2:minimum -12.0 ;
+        lv2:maximum 12.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "tone" ;
+        lv2:name "Tone / Top" ;
+        lv2:default 0.50 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "fixed_vel" ;
+        lv2:name "Fixed Velocity" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "guitar_vol" ;
+        lv2:name "Guitar Level" ;
+        lv2:default 0.0 ;
+        lv2:minimum -60.0 ;
+        lv2:maximum 6.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "stomp_vol" ;
+        lv2:name "Stomp Level" ;
+        lv2:default 0.0 ;
+        lv2:minimum -60.0 ;
+        lv2:maximum 6.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 16 ;
+        lv2:symbol "output_mode" ;
+        lv2:name "Routing Mode" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [
+            rdfs:label "Mix (Guitar + Stomp on L/R)" ;
+            rdf:value 0
+        ] , [
+            rdfs:label "Split (L=Guitar, R=PA Stomp)" ;
+            rdf:value 1
+        ] ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 17 ;
+        lv2:symbol "led_activity" ;
+        lv2:name "Hit Activity" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] .

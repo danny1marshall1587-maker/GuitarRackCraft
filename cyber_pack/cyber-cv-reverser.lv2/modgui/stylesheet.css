@@ -1,0 +1,95 @@
+﻿.cv-reverser-pedal {
+    width: 155px;
+    height: 260px;
+    background: linear-gradient(180deg, #1a1a22 0%, #121216 100%);
+    border: 2px solid #383848;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 2px 6px 14px rgba(0,0,0,0.6);
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #ffcc00;
+}
+
+.cv-reverser-pedal .mod-pedal-brand {
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 14px;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255,204,0,0.4);
+    letter-spacing: 1.5px;
+}
+
+.cv-reverser-pedal .mod-pedal-name {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffcc00;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cv-reverser-pedal .reverser-badge {
+    text-align: center;
+    font-size: 9px;
+    font-weight: bold;
+    color: #888899;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.cv-reverser-pedal .mod-control-group-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.cv-reverser-pedal .mod-control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cv-reverser-pedal .mod-knob-title {
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #ffcc00;
+    text-shadow: 0 0 4px rgba(255,204,0,0.3);
+}
+
+.cv-reverser-pedal .reverser-diagram {
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffd700;
+    margin-top: 30px;
+    padding: 4px 8px;
+    background: rgba(255,204,0,0.08);
+    border-radius: 4px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px dashed rgba(255,204,0,0.3);
+}
+
+.cv-reverser-pedal .mod-pedal-input {
+    position: absolute;
+    top: 90px;
+    left: -87px;
+    width: 87px;
+}
+
+.cv-reverser-pedal .mod-pedal-output {
+    position: absolute;
+    top: 70px;
+    right: -87px;
+    width: 87px;
+}
+
+.cv-reverser-pedal .mod-pedal-output .mod-output {
+    position: relative;
+    margin-bottom: 20px;
+}

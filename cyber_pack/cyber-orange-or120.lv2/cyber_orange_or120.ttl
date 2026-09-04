@@ -1,0 +1,123 @@
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod:  <http://moddevices.com/ns/mod#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-orange-or120>
+    a lv2:Plugin , lv2:SimulatorPlugin ;
+    doap:name "Orange OR120 Pics Only (1972)" ;
+    doap:license <http://opensource.org/licenses/isc> ;
+    lv2:minorVersion 1 ;
+    lv2:microVersion 0 ;
+    rdfs:comment "Authentic analog circuit emulation of the 1972 Orange OR120 Pics Only. 6-position F.A.C. rotary tone selector, Baxandall Bass & Treble, H.F. Drive, 4x EL34 120W power section, Orange 4x12 dynamic speaker stress, and zero-latency smart noise suppressor." ;
+    mod:brand "Cyber Audio" ;
+    mod:label "Orange OR120" ;
+
+    lv2:port [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Input" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out" ;
+        lv2:name "Output" ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 2 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation lv2:enabled ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "gain" ;
+        lv2:name "Volume / Gain" ;
+        lv2:default 3.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "fac" ;
+        lv2:name "F.A.C. Rotary" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 5 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Pos 1: Sub-Bass Doom (20Hz)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "Pos 2: Heavy Bass (45Hz)" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "Pos 3: Classic Rock (90Hz)" ; rdf:value 2 ] ;
+        lv2:scalePoint [ rdfs:label "Pos 4: Tight Low (160Hz)" ; rdf:value 3 ] ;
+        lv2:scalePoint [ rdfs:label "Pos 5: Focus Mid (280Hz)" ; rdf:value 4 ] ;
+        lv2:scalePoint [ rdfs:label "Pos 6: Razor Bite (480Hz)" ; rdf:value 5 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "bass" ;
+        lv2:name "Bass" ;
+        lv2:default 2.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "treble" ;
+        lv2:name "Treble" ;
+        lv2:default 6.9 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "hf_drive" ;
+        lv2:name "H.F. Drive" ;
+        lv2:default 8.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "speaker_cab" ;
+        lv2:name "Speaker Cabinet" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Orange 4x12 Celestion (Stock)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "4x12 Celestion Greenback" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "Direct Out / Cab Bypass" ; rdf:value 2 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "speaker_drive" ;
+        lv2:name "Cone Stress / Drive" ;
+        lv2:default 10.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "noise_gate" ;
+        lv2:name "Zero Noise Suppressor" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ]     , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "output_level" ;
+        lv2:name "Output Level" ;
+        lv2:default 3.7 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        rdfs:comment "Master Output Volume / Attenuator (-24dB to +6dB). Allows cranking Master for power amp saturation without blasting downstream pedals." ;
+    ] .

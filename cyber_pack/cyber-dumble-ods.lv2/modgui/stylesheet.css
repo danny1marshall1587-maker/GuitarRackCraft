@@ -1,0 +1,433 @@
+/* ==========================================================================
+   Cyber Dumble Overdrive Special (ODS) - Boutique Amp Head Styling
+   Black Suede / Silver Brushed Aluminum Faceplate with Amber Pilot Jewel
+   ========================================================================== */
+
+.dumble-ods-amp-head {
+    width: 960px !important;
+    height: 290px !important;
+    background: #14171a !important;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(30, 35, 42, 0.45) 0%, rgba(12, 14, 18, 0.95) 100%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 4px);
+    border: 3px solid #22272e;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dumble-lip-top {
+    height: 12px;
+    background: linear-gradient(180deg, #333d47 0%, #1c2228 100%);
+    border-bottom: 2px solid #000;
+}
+
+.dumble-faceplate {
+    flex: 1;
+    margin: 10px 18px 6px 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 15%, #cbd5e1 85%, #94a3b8 100%);
+    border: 2px solid #475569;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    position: relative;
+}
+
+.dumble-left-flank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 145px;
+}
+
+.dumble-jewel-holder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #475569 0%, #0f172a 100%);
+    border: 2px solid #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.dumble-jewel.amber {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fef08a 0%, #f59e0b 60%, #b45309 100%);
+    box-shadow: 0 0 12px #f59e0b, 0 0 22px rgba(245, 158, 11, 0.7);
+    transition: all 0.3s ease;
+}
+
+.dumble-jewel.od {
+    background: radial-gradient(circle at 35% 35%, #fed7aa 0%, #ea580c 60%, #9a3412 100%) !important;
+    box-shadow: 0 0 16px #ea580c, 0 0 28px rgba(234, 88, 12, 0.85) !important;
+}
+
+.dumble-branding {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.dumble-brand-title {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 26px;
+    font-weight: bold;
+    color: #0f172a;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.dumble-model-title {
+    font-size: 10px;
+    font-weight: 800;
+    color: #475569;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.dumble-separator {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(180deg, transparent 0%, #64748b 20%, #475569 80%, transparent 100%);
+}
+
+.dumble-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.dumble-sec-header {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #334155;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 2px;
+}
+
+.dumble-controls-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+/* 3D Fluted Skirted Knobs */
+.dumble-knob-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 48px;
+}
+
+.dumble-dial.custom-knob-dial {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 70%, #334155 100%);
+    border: 2px solid #475569;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dumble-dial.custom-knob-dial:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.dumble-dial-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #ffffff 0%, #cbd5e1 50%, #64748b 100%);
+    border: 1px solid #334155;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9), 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.dumble-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 19px;
+    background: #ffffff;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.dumble-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* Switches Cluster */
+.dumble-switches-cluster {
+    display: flex;
+    gap: 8px;
+    padding: 0 4px;
+}
+
+.dumble-toggle-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 44px;
+}
+
+.dumble-bat-switch {
+    width: 20px;
+    height: 38px;
+    background: #0f172a;
+    border: 2px solid #64748b;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.dumble-bat-handle {
+    width: 10px;
+    height: 16px;
+    background: linear-gradient(180deg, #f8fafc 0%, #94a3b8 100%);
+    border-radius: 3px;
+    border: 1px solid #475569;
+    position: absolute;
+    left: 4px;
+    top: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    transition: top 0.15s ease, background 0.15s ease;
+}
+
+.dumble-bat-switch.on .dumble-bat-handle {
+    top: 2px;
+    background: linear-gradient(180deg, #fef08a 0%, #f59e0b 100%);
+    box-shadow: 0 0 6px #f59e0b;
+}
+
+.dumble-sw-lbl {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #334155;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Overdrive Channel Button */
+.dumble-channel-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dumble-ch-btn {
+    background: #1e293b;
+    border: 2px solid #475569;
+    border-radius: 6px;
+    color: #f8fafc;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: all 0.15s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.dumble-ch-btn:hover {
+    border-color: #ea580c;
+}
+
+.dumble-ch-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #475569;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+    transition: all 0.2s ease;
+}
+
+.dumble-ch-btn.is-od {
+    border-color: #ea580c;
+    background: #7c2d12;
+}
+
+.dumble-ch-btn.is-od .dumble-ch-led {
+    background: #ffedd5;
+    box-shadow: 0 0 8px #ea580c, 0 0 14px #ea580c;
+}
+
+/* Bottom Deck */
+.dumble-bottom-deck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background: #0d1013;
+    border-top: 1px solid #1e252e;
+}
+
+.dumble-deck-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dumble-deck-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #64748b;
+    letter-spacing: 1.2px;
+}
+
+.dumble-cab-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dumble-deck-selector {
+    background: #1e293b;
+    border: 1.5px solid #475569;
+    border-radius: 6px;
+    color: #f59e0b;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.dumble-deck-selector:hover {
+    background: #334155;
+    border-color: #f59e0b;
+    color: #ffffff;
+}
+
+.dumble-knob-unit.mini {
+    width: 38px !important;
+    gap: 2px !important;
+}
+
+.dumble-dial.mini-dial {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.dumble-dial-cap.mini-cap {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.dumble-dial .knob-rotor.mini-rotor {
+    height: 14px !important;
+    width: 2.5px !important;
+}
+
+.dumble-lbl.mini-lbl {
+    font-size: 7.5px !important;
+    color: #cbd5e1 !important;
+}
+
+.dumble-mod-switch-pill {
+    background: #1e293b;
+    border: 1.5px solid #475569;
+    border-radius: 5px;
+    color: #94a3b8;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.dumble-mod-switch-pill:hover {
+    border-color: #f59e0b;
+    color: #ffffff;
+}
+
+.dumble-mod-switch-pill.active {
+    background: #b45309;
+    border-color: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.dumble-ods-amp-head .mod-pedal-input {
+    position: absolute !important;
+    left: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+.dumble-ods-amp-head .mod-pedal-output {
+    position: absolute !important;
+    right: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+
+/* Drag Handle */
+.dumble-ods-amp-head .mod-drag-handle {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 10 !important;
+    cursor: move !important;
+}
+
+/* Ensure all knobs and controls sit above drag handle and receive all mouse events */
+.dumble-ods-amp-head .custom-knob-dial,
+.dumble-ods-amp-head button,
+.dumble-ods-amp-head select,
+.dumble-ods-amp-head input,
+.dumble-ods-amp-head [class*="-faceplate"],
+.dumble-ods-amp-head [class*="-bottom-deck"],
+.dumble-ods-amp-head [class*="-deck-selector"],
+.dumble-ods-amp-head [class*="-mod-switch-pill"],
+.dumble-ods-amp-head [class*="-ch-btn"],
+.dumble-ods-amp-head [class*="-bat-switch"] {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}

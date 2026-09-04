@@ -1,0 +1,137 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} vibroverb-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="vibroverb-wheat-lip"></div>
+
+    <div class="vibroverb-faceplate">
+        <div class="vibroverb-left-flank">
+            <div class="vibroverb-jewel-holder" title="Fender Amber Jewel">
+                <div class="vibroverb-jewel amber" id="vibroverb-jewel"></div>
+            </div>
+            <div class="vibroverb-branding">
+                <span class="vibroverb-brand-title">Fender</span>
+                <span class="vibroverb-model-title">VIBROVERB-AMP 6G16</span>
+            </div>
+        </div>
+
+        <div class="vibroverb-separator"></div>
+
+        <!-- Section 1: Vibrato Channel (Interactive Tone & Harmonic Vibrato) -->
+        <div class="vibroverb-section">
+            <div class="vibroverb-sec-header">VIBRATO CHANNEL &bull; HARMONIC PITCH-SHIFT</div>
+            <div class="vibroverb-controls-row">
+                <!-- Channel Switch Button -->
+                <div class="vibroverb-channel-unit" title="Toggle Channel (Normal / Vibrato)">
+                    <button type="button" class="vibroverb-ch-btn is-vib" id="vibroverb-ch-btn">
+                        <span class="vibroverb-ch-txt" id="vibroverb-ch-txt">VIBRATO CH</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel" style="display:none;"></div>
+                </div>
+
+                <div class="vibroverb-knob-unit" title="Vibrato Volume (0 - 10)">
+                    <div class="vibroverb-dial custom-knob-dial" data-symbol="vib_vol" data-min="0" data-max="10" data-default="6.3">
+                        <div class="vibroverb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vib_vol" style="display:none;"></div>
+                    <span class="vibroverb-lbl">VOLUME</span>
+                </div>
+
+                <div class="vibroverb-knob-unit" title="Vibrato Treble (0 - 10)">
+                    <div class="vibroverb-dial custom-knob-dial" data-symbol="vib_treble" data-min="0" data-max="10" data-default="6.7">
+                        <div class="vibroverb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vib_treble" style="display:none;"></div>
+                    <span class="vibroverb-lbl">TREBLE</span>
+                </div>
+
+                <div class="vibroverb-knob-unit" title="Vibrato Bass (0 - 10)">
+                    <div class="vibroverb-dial custom-knob-dial" data-symbol="vib_bass" data-min="0" data-max="10" data-default="3.4">
+                        <div class="vibroverb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vib_bass" style="display:none;"></div>
+                    <span class="vibroverb-lbl">BASS</span>
+                </div>
+
+                <div class="vibroverb-knob-unit" title="Harmonic Vibrato Speed (1 - 12 Hz)">
+                    <div class="vibroverb-dial custom-knob-dial vib-knob" data-symbol="trem_speed" data-min="1" data-max="12" data-default="4.5">
+                        <div class="vibroverb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="trem_speed" style="display:none;"></div>
+                    <span class="vibroverb-lbl">SPEED</span>
+                </div>
+
+                <div class="vibroverb-knob-unit" title="Harmonic Vibrato Intensity (0 - 100%)">
+                    <div class="vibroverb-dial custom-knob-dial vib-knob" data-symbol="trem_intensity" data-min="0" data-max="100" data-default="13.0">
+                        <div class="vibroverb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="trem_intensity" style="display:none;"></div>
+                    <span class="vibroverb-lbl">INTENSITY</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="vibroverb-bottom-deck">
+        <div class="vibroverb-deck-control">
+            <span class="vibroverb-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="vibroverb-cab-cluster">
+                <div class="vibroverb-deck-selector" id="vibroverb-cab-btn" title="Click to change speaker cab (2x10 Oxford 10K5 / 1x15 JBL D130F SRV Mod / Bypass)">
+                    <span class="vibroverb-selector-val" id="vibroverb-cab-txt">2x10" Oxford 10K5 Brownface (Stock)</span>
+                </div>
+
+                <div class="vibroverb-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="vibroverb-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="5.0">
+                        <div class="vibroverb-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="vibroverb-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="vibroverb-deck-control">
+            <span class="vibroverb-deck-lbl">OUTPUT LEVEL</span>
+            <div class="vibroverb-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="vibroverb-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="5.3">
+                    <div class="vibroverb-dial-cap mini-cap"></div>
+                    <div class="vibroverb-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="vibroverb-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="vibroverb-deck-control">
+            <span class="vibroverb-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="vibroverb-mod-switch-pill active" id="vibroverb-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

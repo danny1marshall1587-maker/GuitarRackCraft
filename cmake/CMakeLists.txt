@@ -214,6 +214,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/targets/fatfrog.cmake)
 include(${CMAKE_CURRENT_SOURCE_DIR}/targets/doubletracker.cmake)
 
 # ─── Phase 4: Metadata + modgui ──────────────────────────────────────────────
+include(${CMAKE_CURRENT_SOURCE_DIR}/targets/cyber_audio.cmake)
 include(${CMAKE_CURRENT_SOURCE_DIR}/targets/metadata.cmake)
 
 # ─── Top-level targets ───────────────────────────────────────────────────────

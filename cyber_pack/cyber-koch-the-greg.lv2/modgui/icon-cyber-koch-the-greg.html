@@ -1,0 +1,213 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} koch-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="koch-gold-lip"></div>
+
+    <div class="koch-faceplate">
+        <div class="koch-left-flank">
+            <div class="koch-jewels-row">
+                <div class="koch-jewel-holder" title="Main Power Jewel (Sapphire Blue)">
+                    <div class="koch-jewel sapphire" id="koch-jewel-main"></div>
+                </div>
+                <div class="koch-jewel-holder" title="OTS Active Jewel (Amber)">
+                    <div class="koch-jewel amber" id="koch-jewel-ots"></div>
+                </div>
+            </div>
+            <div class="koch-branding">
+                <span class="koch-brand-title">KOCH</span>
+                <span class="koch-model-title">The Greg 50W</span>
+            </div>
+        </div>
+
+        <div class="koch-separator"></div>
+
+        <!-- Section 1: 3-Channel Preamp & Tone Stack -->
+        <div class="koch-section">
+            <div class="koch-sec-header">PREAMP &bull; EQUALIZATION</div>
+            <div class="koch-controls-row">
+                <!-- Channel Selector Button -->
+                <div class="koch-channel-unit" title="Channel Select: Clean / Crunch / Lead">
+                    <button type="button" class="koch-ch-btn ch-0" id="koch-ch-btn">
+                        <span class="koch-ch-txt" id="koch-ch-txt">CLEAN</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel" style="display:none;"></div>
+                </div>
+
+                <div class="koch-knob-unit" title="Drive / Gain (0 - 10)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="gain" data-min="0" data-max="10" data-default="6.0">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="gain" style="display:none;"></div>
+                    <span class="koch-lbl">GAIN</span>
+                </div>
+
+                <div class="koch-knob-unit" title="Channel Volume (0 - 10)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="volume" data-min="0" data-max="10" data-default="5.0">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="volume" style="display:none;"></div>
+                    <span class="koch-lbl">VOLUME</span>
+                </div>
+
+                <div class="koch-knob-unit" title="Bass (0 - 10)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="bass" data-min="0" data-max="10" data-default="5.0">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass" style="display:none;"></div>
+                    <span class="koch-lbl">BASS</span>
+                </div>
+
+                <div class="koch-knob-unit" title="Middle (0 - 10)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="mid" data-min="0" data-max="10" data-default="5.5">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid" style="display:none;"></div>
+                    <span class="koch-lbl">MIDDLE</span>
+                </div>
+
+                <div class="koch-knob-unit" title="Treble (0 - 10)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="treble" data-min="0" data-max="10" data-default="5.5">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble" style="display:none;"></div>
+                    <span class="koch-lbl">TREBLE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="koch-separator"></div>
+
+        <!-- Section 2: Output Tube Saturation (OTS) -->
+        <div class="koch-section ots-zone">
+            <div class="koch-sec-header">OUTPUT TUBE SATURATION</div>
+            <div class="koch-controls-row">
+                <div class="koch-knob-unit" title="OTS Drive (0 - 10)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="ots_drive" data-min="0" data-max="10" data-default="4.0">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ots_drive" style="display:none;"></div>
+                    <span class="koch-lbl">OTS DRIVE</span>
+                </div>
+
+                <div class="koch-knob-unit" title="OTS Level (0 - 10)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="ots_level" data-min="0" data-max="10" data-default="5.0">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ots_level" style="display:none;"></div>
+                    <span class="koch-lbl">OTS LEVEL</span>
+                </div>
+
+                <div class="koch-toggle-unit" title="OTS Circuit Engage">
+                    <button type="button" class="koch-mod-switch-pill active" id="koch-ots-btn">OTS ON</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ots_switch" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="koch-separator"></div>
+
+        <!-- Section 3: Harmonic Tremolo & Master -->
+        <div class="koch-section">
+            <div class="koch-sec-header">TREMOLO &bull; MASTER</div>
+            <div class="koch-controls-row">
+                <div class="koch-knob-unit" title="Tremolo Speed (0.5 - 10 Hz)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="trem_speed" data-min="0.5" data-max="10" data-default="2.7">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="trem_speed" style="display:none;"></div>
+                    <span class="koch-lbl">SPEED</span>
+                </div>
+
+                <div class="koch-knob-unit" title="Tremolo Depth (0 - 100%)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="trem_depth" data-min="0" data-max="100" data-default="39.3">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="trem_depth" style="display:none;"></div>
+                    <span class="koch-lbl">DEPTH</span>
+                </div>
+
+                <div class="koch-knob-unit" title="Master Volume (0 - 10)">
+                    <div class="koch-dial custom-knob-dial" data-symbol="master" data-min="0" data-max="10" data-default="5.0">
+                        <div class="koch-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="master" style="display:none;"></div>
+                    <span class="koch-lbl">MASTER</span>
+                </div>
+
+                <div class="koch-toggle-unit" title="Harmonic Tremolo Phase Mode">
+                    <button type="button" class="koch-mod-switch-pill active" id="koch-trem-mode-btn">HARMONIC</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="trem_mode" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="koch-bottom-deck">
+        <div class="koch-deck-control">
+            <span class="koch-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="koch-cab-cluster">
+                <div class="koch-deck-selector" id="koch-cab-btn" title="Click to change speaker cab (Koch VG12-90 1x12 / 2x12 / Bypass)">
+                    <span class="koch-selector-val" id="koch-cab-txt">Koch VG12-90 1x12 (Stock)</span>
+                </div>
+
+                <div class="koch-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="koch-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="4.5">
+                        <div class="koch-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="koch-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="koch-deck-control">
+            <span class="koch-deck-lbl">OUTPUT LEVEL</span>
+            <div class="koch-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="koch-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="7.0">
+                    <div class="koch-dial-cap mini-cap"></div>
+                    <div class="koch-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="koch-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="koch-deck-control">
+            <span class="koch-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="koch-mod-switch-pill active" id="koch-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

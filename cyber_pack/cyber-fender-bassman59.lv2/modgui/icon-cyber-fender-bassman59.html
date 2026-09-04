@@ -1,0 +1,152 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} bassman-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="bassman-tweed-lip"></div>
+
+    <div class="bassman-faceplate">
+        <div class="bassman-left-flank">
+            <div class="bassman-jewel-holder" title="Fender Red Pilot Jewel">
+                <div class="bassman-jewel red" id="bassman-jewel"></div>
+            </div>
+            <div class="bassman-branding">
+                <span class="bassman-brand-title">Fender</span>
+                <span class="bassman-model-title">BASSMAN-AMP 5F6-A</span>
+            </div>
+        </div>
+
+        <div class="bassman-separator"></div>
+
+        <!-- Section 1: Preamp Channels -->
+        <div class="bassman-section">
+            <div class="bassman-sec-header">PREAMP &bull; NORMAL / BRIGHT</div>
+            <div class="bassman-controls-row">
+                <div class="bassman-knob-unit" title="Normal Volume (0 - 10)">
+                    <div class="bassman-dial custom-knob-dial" data-symbol="normal_vol" data-min="0" data-max="10" data-default="1.6">
+                        <div class="bassman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="normal_vol" style="display:none;"></div>
+                    <span class="bassman-lbl">NORMAL</span>
+                </div>
+
+                <div class="bassman-knob-unit" title="Bright Volume (0 - 10)">
+                    <div class="bassman-dial custom-knob-dial" data-symbol="bright_vol" data-min="0" data-max="10" data-default="1.6">
+                        <div class="bassman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bright_vol" style="display:none;"></div>
+                    <span class="bassman-lbl">BRIGHT</span>
+                </div>
+
+                <!-- Channel Link Jumper Button -->
+                <div class="bassman-toggle-unit" title="Channel Jumper / Link (Parallel Blend)">
+                    <button type="button" class="bassman-mod-switch-pill active" id="bassman-link-btn">JUMPERED</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel_link" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bassman-separator"></div>
+
+        <!-- Section 2: Interactive Tone Stack & Presence -->
+        <div class="bassman-section">
+            <div class="bassman-sec-header">EQUALIZATION &bull; PRESENCE</div>
+            <div class="bassman-controls-row">
+                <div class="bassman-knob-unit" title="Bass (0 - 10)">
+                    <div class="bassman-dial custom-knob-dial" data-symbol="bass" data-min="0" data-max="10" data-default="5.5">
+                        <div class="bassman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass" style="display:none;"></div>
+                    <span class="bassman-lbl">BASS</span>
+                </div>
+
+                <div class="bassman-knob-unit" title="Middle (0 - 10)">
+                    <div class="bassman-dial custom-knob-dial" data-symbol="middle" data-min="0" data-max="10" data-default="7.0">
+                        <div class="bassman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="middle" style="display:none;"></div>
+                    <span class="bassman-lbl">MIDDLE</span>
+                </div>
+
+                <div class="bassman-knob-unit" title="Treble (0 - 10)">
+                    <div class="bassman-dial custom-knob-dial" data-symbol="treble" data-min="0" data-max="10" data-default="7.0">
+                        <div class="bassman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble" style="display:none;"></div>
+                    <span class="bassman-lbl">TREBLE</span>
+                </div>
+
+                <div class="bassman-knob-unit" title="Presence in Negative Feedback Loop (0 - 10)">
+                    <div class="bassman-dial custom-knob-dial" data-symbol="presence" data-min="0" data-max="10" data-default="7.4">
+                        <div class="bassman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="presence" style="display:none;"></div>
+                    <span class="bassman-lbl">PRESENCE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="bassman-bottom-deck">
+        <div class="bassman-deck-control">
+            <span class="bassman-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="bassman-cab-cluster">
+                <div class="bassman-deck-selector" id="bassman-cab-btn" title="Click to change speaker cab (4x10 Jensen P10R Alnico / 2x12 Twin / Bypass)">
+                    <span class="bassman-selector-val" id="bassman-cab-txt">4x10" Jensen P10R Alnico (Stock)</span>
+                </div>
+
+                <div class="bassman-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="bassman-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="6.7">
+                        <div class="bassman-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="bassman-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="bassman-deck-control">
+            <span class="bassman-deck-lbl">OUTPUT LEVEL</span>
+            <div class="bassman-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="bassman-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="4.1">
+                    <div class="bassman-dial-cap mini-cap"></div>
+                    <div class="bassman-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="bassman-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="bassman-deck-control">
+            <span class="bassman-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="bassman-mod-switch-pill active" id="bassman-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

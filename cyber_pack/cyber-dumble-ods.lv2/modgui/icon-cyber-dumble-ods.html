@@ -1,0 +1,223 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} dumble-ods-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <!-- Brushed Aluminum Chassis Lip -->
+    <div class="dumble-lip-top"></div>
+
+    <!-- Main Amp Control Faceplate -->
+    <div class="dumble-faceplate">
+        <!-- Input Section with Authentic Pilot Jewel & Dumble Badge -->
+        <div class="dumble-left-flank">
+            <div class="dumble-jewel-holder" title="Dumble Pilot Light (Amber = Clean, Radiant Gold = Overdrive)">
+                <div class="dumble-jewel amber" id="dumble-jewel"></div>
+            </div>
+            <div class="dumble-branding">
+                <span class="dumble-brand-title">Dumble</span>
+                <span class="dumble-model-title">Overdrive Special</span>
+            </div>
+        </div>
+
+        <div class="dumble-separator"></div>
+
+        <!-- Section 1: Preamp Clean Skyliner EQ -->
+        <div class="dumble-section">
+            <div class="dumble-sec-header">PREAMP &bull; SKYLINER EQ</div>
+            <div class="dumble-controls-row">
+                <!-- Volume -->
+                <div class="dumble-knob-unit" title="Preamp Clean Volume (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial" data-symbol="clean_vol" data-min="0" data-max="10" data-default="5.79">
+                        <div class="dumble-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="clean_vol" style="display:none;"></div>
+                    <span class="dumble-lbl">VOLUME</span>
+                </div>
+
+                <!-- Treble -->
+                <div class="dumble-knob-unit" title="Treble (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial" data-symbol="clean_treble" data-min="0" data-max="10" data-default="7.34">
+                        <div class="dumble-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="clean_treble" style="display:none;"></div>
+                    <span class="dumble-lbl">TREBLE</span>
+                </div>
+
+                <!-- Middle -->
+                <div class="dumble-knob-unit" title="Middle (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial" data-symbol="clean_mid" data-min="0" data-max="10" data-default="4.69">
+                        <div class="dumble-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="clean_mid" style="display:none;"></div>
+                    <span class="dumble-lbl">MIDDLE</span>
+                </div>
+
+                <!-- Bass -->
+                <div class="dumble-knob-unit" title="Bass (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial" data-symbol="clean_bass" data-min="0" data-max="10" data-default="5.0">
+                        <div class="dumble-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="clean_bass" style="display:none;"></div>
+                    <span class="dumble-lbl">BASS</span>
+                </div>
+
+                <!-- Skyliner Mini Toggles -->
+                <div class="dumble-switches-cluster">
+                    <div class="dumble-toggle-unit" title="Bright Switch">
+                        <div class="dumble-bat-switch" id="dumble-sw-bright">
+                            <div class="dumble-bat-handle"></div>
+                        </div>
+                        <span class="dumble-sw-lbl">BRIGHT</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bright" style="display:none;"></div>
+                    </div>
+
+                    <div class="dumble-toggle-unit" title="Mid Boost Switch">
+                        <div class="dumble-bat-switch" id="dumble-sw-mid">
+                            <div class="dumble-bat-handle"></div>
+                        </div>
+                        <span class="dumble-sw-lbl">MID BOOST</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid_boost" style="display:none;"></div>
+                    </div>
+
+                    <div class="dumble-toggle-unit" title="Rock / Jazz Voicing (Down = Rock, Up = Jazz)">
+                        <div class="dumble-bat-switch" id="dumble-sw-rockjazz">
+                            <div class="dumble-bat-handle"></div>
+                        </div>
+                        <span class="dumble-sw-lbl">ROCK/JAZZ</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="rock_jazz" style="display:none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dumble-separator"></div>
+
+        <!-- Section 2: Overdrive Circuit -->
+        <div class="dumble-section od-zone">
+            <div class="dumble-sec-header">OVERDRIVE &bull; VOCAL SUSTAIN</div>
+            <div class="dumble-controls-row">
+                <!-- Overdrive Channel Switch Button -->
+                <div class="dumble-channel-unit" title="Engage Dumble Overdrive Channel">
+                    <button type="button" class="dumble-ch-btn" id="dumble-ch-btn">
+                        <span class="dumble-ch-led" id="dumble-ch-led"></span>
+                        <span class="dumble-ch-txt">OVERDRIVE</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel" style="display:none;"></div>
+                </div>
+
+                <!-- Overdrive Drive / Ratio -->
+                <div class="dumble-knob-unit" title="Overdrive Drive / Saturation Ratio (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial" data-symbol="od_drive" data-min="0" data-max="10" data-default="6.0">
+                        <div class="dumble-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="od_drive" style="display:none;"></div>
+                    <span class="dumble-lbl">RATIO</span>
+                </div>
+
+                <!-- Overdrive Level -->
+                <div class="dumble-knob-unit" title="Overdrive Output Level (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial" data-symbol="od_level" data-min="0" data-max="10" data-default="6.17">
+                        <div class="dumble-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="od_level" style="display:none;"></div>
+                    <span class="dumble-lbl">LEVEL</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dumble-separator"></div>
+
+        <!-- Section 3: Master & Power -->
+        <div class="dumble-section">
+            <div class="dumble-sec-header">MASTER &bull; PRESENCE</div>
+            <div class="dumble-controls-row">
+                <!-- Master Volume -->
+                <div class="dumble-knob-unit" title="Master Volume (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial" data-symbol="master" data-min="0" data-max="10" data-default="4.2">
+                        <div class="dumble-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="master" style="display:none;"></div>
+                    <span class="dumble-lbl">MASTER</span>
+                </div>
+
+                <!-- Presence -->
+                <div class="dumble-knob-unit" title="Presence in Negative Feedback Loop (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial" data-symbol="presence" data-min="0" data-max="10" data-default="6.88">
+                        <div class="dumble-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="presence" style="display:none;"></div>
+                    <span class="dumble-lbl">PRESENCE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="dumble-bottom-deck">
+        <!-- Speaker Cabinet Selector & Dynamic Cone Stress -->
+        <div class="dumble-deck-control">
+            <span class="dumble-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="dumble-cab-cluster">
+                <div class="dumble-deck-selector" id="dumble-cab-btn" title="Click to change speaker cab (1x12 EVM-12L / 2x12 G12-65 / Bypass)">
+                    <span class="dumble-selector-val" id="dumble-cab-txt">1x12" EVM-12L Oval (Stock)</span>
+                </div>
+
+                <!-- Dynamic Speaker Drive Knob -->
+                <div class="dumble-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="dumble-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="5.8">
+                        <div class="dumble-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="dumble-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        <!-- Smart Zero-Floor Noise Suppressor -->
+        <div class="dumble-deck-control">
+            <span class="dumble-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="dumble-mod-switch-pill active" id="dumble-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <!-- Standard Bypass Footswitch & Light -->
+    
+        <!-- Master Output Level Control -->
+        <div class="dumble-ods-deck-control">
+            <span class="dumble-ods-deck-lbl">OUTPUT LEVEL</span>
+            <div class="dumble-ods-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="dumble-ods-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="5.32">
+                    <div class="dumble-ods-dial-cap mini-cap"></div>
+                    <div class="dumble-ods-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="dumble-ods-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+<div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- Audio Jacks -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

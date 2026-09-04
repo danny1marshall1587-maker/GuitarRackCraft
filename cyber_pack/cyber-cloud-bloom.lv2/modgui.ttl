@@ -1,0 +1,53 @@
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-cloud-bloom>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-cloud-bloom.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot-cyber-cloud-bloom.png> ;
+        modgui:thumbnail <modgui/thumbnail-cyber-cloud-bloom.png> ;
+        modgui:brand "CyberAudio" ;
+        modgui:label "Cloud Bloom" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "time" ;
+            lv2:name "Time" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "feedback" ;
+            lv2:name "Repeat" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "bloom" ;
+            lv2:name "Bloom" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "smear" ;
+            lv2:name "Smear" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "warmth" ;
+            lv2:name "Warmth" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "mod" ;
+            lv2:name "Mod" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "shimmer" ;
+            lv2:name "Shimmer" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "mix" ;
+            lv2:name "Mix" ;
+        ] , [
+            lv2:index 8 ;
+            lv2:symbol "hold" ;
+            lv2:name "Freeze" ;
+        ] ;
+    ] .

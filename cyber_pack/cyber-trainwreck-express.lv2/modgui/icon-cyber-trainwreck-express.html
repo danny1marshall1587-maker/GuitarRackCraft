@@ -1,0 +1,146 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} trainwreck-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="trainwreck-wood-lip"></div>
+
+    <div class="trainwreck-faceplate">
+        <div class="trainwreck-left-flank">
+            <div class="trainwreck-jewel-holder" title="Trainwreck Ruby Jewel">
+                <div class="trainwreck-jewel ruby" id="trainwreck-jewel"></div>
+            </div>
+            <div class="trainwreck-branding">
+                <span class="trainwreck-brand-title">Trainwreck</span>
+                <span class="trainwreck-model-title">Express 35W</span>
+            </div>
+        </div>
+
+        <div class="trainwreck-separator"></div>
+
+        <div class="trainwreck-controls-row">
+            <!-- Volume (Drive) -->
+            <div class="trainwreck-knob-unit" title="Preamp Volume / Touch Sensitivity (0 - 10)">
+                <div class="trainwreck-dial custom-knob-dial" data-symbol="volume" data-min="0" data-max="10" data-default="0.7">
+                    <div class="trainwreck-dial-cap"></div>
+                    <div class="knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="volume" style="display:none;"></div>
+                <span class="trainwreck-lbl">VOLUME</span>
+            </div>
+
+            <!-- Treble -->
+            <div class="trainwreck-knob-unit" title="Treble (0 - 10)">
+                <div class="trainwreck-dial custom-knob-dial" data-symbol="treble" data-min="0" data-max="10" data-default="6.8">
+                    <div class="trainwreck-dial-cap"></div>
+                    <div class="knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble" style="display:none;"></div>
+                <span class="trainwreck-lbl">TREBLE</span>
+            </div>
+
+            <!-- Middle -->
+            <div class="trainwreck-knob-unit" title="Middle (0 - 10)">
+                <div class="trainwreck-dial custom-knob-dial" data-symbol="middle" data-min="0" data-max="10" data-default="6.4">
+                    <div class="trainwreck-dial-cap"></div>
+                    <div class="knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="middle" style="display:none;"></div>
+                <span class="trainwreck-lbl">MIDDLE</span>
+            </div>
+
+            <!-- Bass -->
+            <div class="trainwreck-knob-unit" title="Bass (0 - 10)">
+                <div class="trainwreck-dial custom-knob-dial" data-symbol="bass" data-min="0" data-max="10" data-default="3.3">
+                    <div class="trainwreck-dial-cap"></div>
+                    <div class="knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass" style="display:none;"></div>
+                <span class="trainwreck-lbl">BASS</span>
+            </div>
+
+            <!-- Presence -->
+            <div class="trainwreck-knob-unit" title="Presence (0 - 10)">
+                <div class="trainwreck-dial custom-knob-dial" data-symbol="presence" data-min="0" data-max="10" data-default="6.9">
+                    <div class="trainwreck-dial-cap"></div>
+                    <div class="knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="presence" style="display:none;"></div>
+                <span class="trainwreck-lbl">PRESENCE</span>
+            </div>
+
+            <!-- Bright Switch (3-position) & Wild Bloom Pill -->
+            <div class="trainwreck-switches-cluster">
+                <div class="trainwreck-toggle-unit" title="3-Way Bright Switch: Off / Chime / Sparkle">
+                    <div class="trainwreck-bat-switch pos-1" id="tw-sw-bright">
+                        <div class="trainwreck-bat-handle"></div>
+                    </div>
+                    <span class="trainwreck-sw-lbl" id="tw-bright-lbl">CHIME</span>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bright" style="display:none;"></div>
+                </div>
+
+                <div class="trainwreck-toggle-unit" title="Wild Bloom Mod: Opens edge-of-oscillation harmonics">
+                    <button type="button" class="trainwreck-mod-switch-pill" id="tw-edge-btn">WILD BLOOM</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="edge_mod" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="trainwreck-bottom-deck">
+        <div class="trainwreck-deck-control">
+            <span class="trainwreck-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="trainwreck-cab-cluster">
+                <div class="trainwreck-deck-selector" id="tw-cab-btn" title="Click to change speaker cab (4x12 Greenback Pine / 2x12 Alnico Gold / Bypass)">
+                    <span class="trainwreck-selector-val" id="tw-cab-txt">4x12" Greenback Pine (Stock)</span>
+                </div>
+
+                <div class="trainwreck-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="trainwreck-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="8.1">
+                        <div class="trainwreck-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="trainwreck-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="trainwreck-deck-control">
+            <span class="trainwreck-deck-lbl">OUTPUT LEVEL</span>
+            <div class="trainwreck-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="trainwreck-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="4.5">
+                    <div class="trainwreck-dial-cap mini-cap"></div>
+                    <div class="trainwreck-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="trainwreck-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="trainwreck-deck-control">
+            <span class="trainwreck-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="trainwreck-mod-switch-pill active" id="tw-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

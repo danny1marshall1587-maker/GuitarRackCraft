@@ -1,0 +1,276 @@
+/* Cyber Noble Drive — Authentic Nobels ODR-1 Army Olive Green for MODEP / MOD-UI */
+
+.noble-drive-pedal {
+    position: absolute;
+    width: 340px;
+    height: 530px;
+    background: radial-gradient(circle at 50% 20%, #1e331b 0%, #122110 60%, #080f07 100%);
+    border-radius: 24px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.95), 
+                inset 0 1px 3px rgba(106, 171, 99, 0.5), 
+                inset 0 -4px 8px rgba(0, 0, 0, 0.95);
+    border: 3px solid #3b6335;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.noble-drive-pedal .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    cursor: move;
+    z-index: 20;
+}
+
+.noble-drive-pedal .mod-plugin-brand {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.noble-drive-pedal .mod-plugin-brand h1 {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #a8d4a3;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(168, 212, 163, 0.6);
+    margin: 0;
+}
+
+.noble-drive-pedal .mod-plugin-name {
+    text-align: center;
+    border-bottom: 1.5px solid rgba(106, 171, 99, 0.35);
+    padding-bottom: 3px;
+    margin: 1px 24px 6px 24px;
+}
+
+.noble-drive-pedal .mod-plugin-name h1 {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    color: #e5f5e2;
+    text-shadow: 0 0 12px rgba(106, 171, 99, 0.8), 0 0 20px rgba(168, 212, 163, 0.5);
+    margin: 0;
+}
+
+/* ========================================================
+   SECTION HEADERS & ROW WRAPPERS
+======================================================== */
+.noble-drive-pedal .knob-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 18px 2px 18px;
+}
+
+.noble-drive-pedal .knob-section-header .section-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #a8d4a3;
+    text-transform: uppercase;
+    background: rgba(18, 33, 16, 0.85);
+    padding: 1px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(106, 171, 99, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.noble-drive-pedal .mod-control-group {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 10px;
+    margin-bottom: 4px;
+}
+
+.noble-drive-pedal .mod-control-group.row-4 {
+    justify-content: space-around;
+}
+
+.noble-drive-pedal .mod-control-group.row-3 {
+    justify-content: center;
+    gap: 22px;
+}
+
+.noble-drive-pedal .mod-control-group.row-2 {
+    justify-content: center;
+    gap: 40px;
+}
+
+/* ========================================================
+   ROTARY KNOBS & LABELS
+======================================================== */
+.noble-drive-pedal .mod-knob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 66px;
+    margin: 0;
+    position: relative;
+}
+
+.noble-drive-pedal .custom-knob-dial {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #243d20 0%, #132411 70%, #060d05 100%);
+    border: 2px solid #5a9452;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 
+                inset 0 1px 3px rgba(130, 200, 120, 0.4), 
+                inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+}
+
+.noble-drive-pedal .custom-knob-dial:hover {
+    border-color: #82c878;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 
+                0 0 8px rgba(106, 171, 99, 0.6), 
+                inset 0 1px 3px rgba(190, 240, 180, 0.7);
+}
+
+.noble-drive-pedal .custom-knob-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 16px;
+    background: #8ae07e;
+    border-radius: 1.5px;
+    box-shadow: 0 0 6px #55d045;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+}
+
+/* ========================================================
+   CUSTOM TOGGLE SWITCHES
+======================================================== */
+.noble-drive-pedal .custom-toggle-switch {
+    width: 44px;
+    height: 48px;
+    border-radius: 8px;
+    background: radial-gradient(circle at 50% 30%, #1e381b 0%, #0d1a0b 100%);
+    border: 2px solid #43733c;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(106, 171, 99, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease;
+}
+
+.noble-drive-pedal .custom-toggle-switch:hover {
+    border-color: #82c878;
+}
+
+.noble-drive-pedal .custom-toggle-switch .switch-slot {
+    width: 24px;
+    height: 24px;
+    background: #060d05;
+    border-radius: 50%;
+    border: 1.5px solid #2d4f28;
+    position: relative;
+}
+
+.noble-drive-pedal .custom-toggle-switch .switch-lever {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 18px;
+    background: linear-gradient(180deg, #d8d8d8 0%, #707070 100%);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    transform: translate(-50%, -50%) rotate(-25deg);
+    transition: transform 0.15s ease-in-out;
+}
+
+.noble-drive-pedal .custom-toggle-switch.on .switch-lever {
+    transform: translate(-50%, -50%) rotate(25deg);
+    background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
+}
+
+.noble-drive-pedal .custom-toggle-switch .switch-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #172b14;
+    border: 1px solid #32572c;
+    margin-top: 3px;
+    transition: all 0.15s ease;
+}
+
+.noble-drive-pedal .custom-toggle-switch .switch-led.lit {
+    background: #60e050;
+    box-shadow: 0 0 8px #60e050, 0 0 14px #30a020;
+    border-color: #c0f8b0;
+}
+
+.noble-drive-pedal .mod-knob-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #a8d4a3;
+    letter-spacing: 0.8px;
+    margin-top: 3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* ========================================================
+   BYPASS LIGHT & FOOTSWITCH
+======================================================== */
+.noble-drive-pedal .mod-light {
+    position: absolute;
+    bottom: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #122110;
+    border: 2px solid #3b6335;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.noble-drive-pedal .mod-light.on,
+.noble-drive-pedal.mod-pedal-on .mod-light {
+    background-color: #55d045;
+    box-shadow: 0 0 14px #55d045, 0 0 25px #259015, inset 0 1px 2px #ffffff;
+    border-color: #b0f5a5;
+}
+
+.noble-drive-pedal .mod-footswitch {
+    position: absolute !important;
+    bottom: 12px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 66px !important;
+    height: 66px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 132px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.noble-drive-pedal .mod-footswitch.on {
+    background-position-y: top !important;
+}

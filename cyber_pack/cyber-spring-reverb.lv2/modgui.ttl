@@ -1,0 +1,38 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://cyberaudio.com/plugins/cyber-spring-reverb>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-spring-reverb.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "Cyber Audio" ;
+        modgui:label "'63 Spring" ;
+        modgui:model "boxy" ;
+        modgui:panel "5-knobs" ;
+        modgui:color "brown" ;
+        modgui:knob "cream" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "dwell" ;
+            lv2:name "Dwell" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "tone" ;
+            lv2:name "Tone" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "mix" ;
+            lv2:name "Mix" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "drip" ;
+            lv2:name "Drip" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "decay" ;
+            lv2:name "Decay" ;
+        ] ;
+    ] .

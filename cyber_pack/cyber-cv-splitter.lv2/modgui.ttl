@@ -1,0 +1,30 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://cyberaudio.com/plugins/cyber-cv-splitter>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-cv-splitter-v2.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:screenshot <modgui/screenshot-cyber-cv-splitter-v2.png> ;
+        modgui:thumbnail <modgui/thumbnail-cyber-cv-splitter-v2.png> ;
+        modgui:brand "CyberAudio" ;
+        modgui:label "CV Splitter V2" ;
+        modgui:model "boxy" ;
+        modgui:panel "1-knob" ;
+        modgui:color "black" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "control_in" ;
+            lv2:name "CC IN" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "min_val" ;
+            lv2:name "MIN" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "max_val" ;
+            lv2:name "MAX" ;
+        ] ;
+    ] .

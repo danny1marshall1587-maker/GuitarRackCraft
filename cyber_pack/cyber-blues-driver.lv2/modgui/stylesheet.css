@@ -1,0 +1,272 @@
+/* Cyber Blues Driver — Boutique Metallic Blue Pedal for MODEP / MOD-UI */
+
+.blues-driver-pedal {
+    position: absolute;
+    width: 340px;
+    height: 530px;
+    background: radial-gradient(circle at 50% 20%, #0d284f 0%, #081830 60%, #030a14 100%);
+    border-radius: 24px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.95), 
+                inset 0 1px 3px rgba(64, 150, 255, 0.5), 
+                inset 0 -4px 8px rgba(0, 0, 0, 0.95);
+    border: 3px solid #1a5299;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.blues-driver-pedal .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    cursor: move;
+    z-index: 20;
+}
+
+.blues-driver-pedal .mod-plugin-brand {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.blues-driver-pedal .mod-plugin-brand h1 {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #8bbce8;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(139, 188, 232, 0.6);
+    margin: 0;
+}
+
+.blues-driver-pedal .mod-plugin-name {
+    text-align: center;
+    border-bottom: 1.5px solid rgba(64, 150, 255, 0.35);
+    padding-bottom: 3px;
+    margin: 1px 24px 6px 24px;
+}
+
+.blues-driver-pedal .mod-plugin-name h1 {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    color: #e0f0ff;
+    text-shadow: 0 0 12px rgba(64, 150, 255, 0.8), 0 0 20px rgba(0, 195, 255, 0.5);
+    margin: 0;
+}
+
+/* ========================================================
+   SECTION HEADERS & ROW WRAPPERS
+======================================================== */
+.blues-driver-pedal .knob-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 18px 2px 18px;
+}
+
+.blues-driver-pedal .knob-section-header .section-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #8bbce8;
+    text-transform: uppercase;
+    background: rgba(13, 40, 79, 0.85);
+    padding: 1px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(64, 150, 255, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.blues-driver-pedal .mod-control-group {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 10px;
+    margin-bottom: 4px;
+}
+
+.blues-driver-pedal .mod-control-group.row-3 {
+    justify-content: center;
+    gap: 22px;
+}
+
+.blues-driver-pedal .mod-control-group.row-2 {
+    justify-content: center;
+    gap: 40px;
+}
+
+/* ========================================================
+   ROTARY KNOBS & LABELS
+======================================================== */
+.blues-driver-pedal .mod-knob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 66px;
+    margin: 0;
+    position: relative;
+}
+
+.blues-driver-pedal .custom-knob-dial {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #183359 0%, #0c1c33 70%, #050d1a 100%);
+    border: 2px solid #3884d6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 
+                inset 0 1px 3px rgba(100, 180, 255, 0.4), 
+                inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+}
+
+.blues-driver-pedal .custom-knob-dial:hover {
+    border-color: #64b4ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 
+                0 0 8px rgba(64, 150, 255, 0.6), 
+                inset 0 1px 3px rgba(180, 220, 255, 0.7);
+}
+
+.blues-driver-pedal .custom-knob-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 16px;
+    background: #52b8ff;
+    border-radius: 1.5px;
+    box-shadow: 0 0 6px #00aaff;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+}
+
+/* ========================================================
+   CUSTOM TOGGLE SWITCHES
+======================================================== */
+.blues-driver-pedal .custom-toggle-switch {
+    width: 44px;
+    height: 48px;
+    border-radius: 8px;
+    background: radial-gradient(circle at 50% 30%, #132a4a 0%, #081424 100%);
+    border: 2px solid #235c9e;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(64, 150, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease;
+}
+
+.blues-driver-pedal .custom-toggle-switch:hover {
+    border-color: #52b8ff;
+}
+
+.blues-driver-pedal .custom-toggle-switch .switch-slot {
+    width: 24px;
+    height: 24px;
+    background: #040912;
+    border-radius: 50%;
+    border: 1.5px solid #1c3c66;
+    position: relative;
+}
+
+.blues-driver-pedal .custom-toggle-switch .switch-lever {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 18px;
+    background: linear-gradient(180deg, #e0e0e0 0%, #757575 100%);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    transform: translate(-50%, -50%) rotate(-25deg);
+    transition: transform 0.15s ease-in-out;
+}
+
+.blues-driver-pedal .custom-toggle-switch.on .switch-lever {
+    transform: translate(-50%, -50%) rotate(25deg);
+    background: linear-gradient(180deg, #ffffff 0%, #a8cce8 100%);
+}
+
+.blues-driver-pedal .custom-toggle-switch .switch-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #0a1f3b;
+    border: 1px solid #1a457a;
+    margin-top: 3px;
+    transition: all 0.15s ease;
+}
+
+.blues-driver-pedal .custom-toggle-switch .switch-led.lit {
+    background: #00c3ff;
+    box-shadow: 0 0 8px #00c3ff, 0 0 14px #0077ff;
+    border-color: #a8e8ff;
+}
+
+.blues-driver-pedal .mod-knob-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #8bbce8;
+    letter-spacing: 0.8px;
+    margin-top: 3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* ========================================================
+   BYPASS LIGHT & FOOTSWITCH
+======================================================== */
+.blues-driver-pedal .mod-light {
+    position: absolute;
+    bottom: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #081629;
+    border: 2px solid #1a457a;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.blues-driver-pedal .mod-light.on,
+.blues-driver-pedal.mod-pedal-on .mod-light {
+    background-color: #00b0ff;
+    box-shadow: 0 0 14px #00b0ff, 0 0 25px #0055ff, inset 0 1px 2px #ffffff;
+    border-color: #a0e0ff;
+}
+
+.blues-driver-pedal .mod-footswitch {
+    position: absolute !important;
+    bottom: 12px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 66px !important;
+    height: 66px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 132px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.blues-driver-pedal .mod-footswitch.on {
+    background-position-y: top !important;
+}

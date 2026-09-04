@@ -1,0 +1,41 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://moddevices.com/plugins/danny/guitar-midi>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-guitar-midi.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "CyberAudio" ;
+        modgui:label "Chord Engine" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "black" ;
+        modgui:knob "cyan" ;
+        modgui:monitoredOutputs [ lv2:symbol "detected_root" ] ,
+                                [ lv2:symbol "detected_qual" ] ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "chord_extension" ;
+            lv2:name "Extension" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "latch_mode" ;
+            lv2:name "Hold" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "key_root" ;
+            lv2:name "Key" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "scale_mode" ;
+            lv2:name "Scale" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "bass_enable" ;
+            lv2:name "Bass" ;
+        ] ;
+    ] .

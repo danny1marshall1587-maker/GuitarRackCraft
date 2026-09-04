@@ -1,0 +1,108 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} mod-black black cyber-hum-pedal{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    
+    <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
+    <div class="mod-plugin-name"><h1>Cyber Hum Killer PRO</h1></div>
+
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- Live Harmonic Spectrum & 8-Band Faders Canvas -->
+    <div class="humkiller-display-wrap">
+        <canvas class="humkiller-canvas" width="310" height="155"></canvas>
+    </div>
+
+    <!-- Master Controls Row -->
+    <div class="mod-control-group clearfix">
+        <div class="mod-knob" title="Continuous Hum Reduction Depth (0% to 100%)">
+            <div class="custom-knob-dial" data-symbol="reduction" data-min="0" data-max="100" data-default="100">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="reduction" style="display:none;"></div>
+            <span class="mod-knob-title">REDUCE</span>
+        </div>
+        <div class="mod-switch-wrap" title="Mains Grid Frequency (50Hz UK/EU vs 60Hz US)">
+            <div class="custom-switch-toggle" data-symbol="grid_freq">
+                <div class="switch-indicator"></div>
+            </div>
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="grid_freq" mod-widget="switch" style="display:none;"></div>
+            <span class="mod-switch-title" mod-role="grid_title">50 HZ</span>
+        </div>
+        <div class="mod-switch-wrap" title="DC Power Supply Rumble Filter (< 10Hz)">
+            <div class="custom-switch-toggle active" data-symbol="low_cut">
+                <div class="switch-indicator"></div>
+            </div>
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="low_cut" mod-widget="switch" style="display:none;"></div>
+            <span class="mod-switch-title">DC FILTER</span>
+        </div>
+        <div class="mod-switch-wrap" title="Audition Mode: Listen to Removed Hum Only">
+            <div class="custom-switch-toggle" data-symbol="listen_noise">
+                <div class="switch-indicator"></div>
+            </div>
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="listen_noise" mod-widget="switch" style="display:none;"></div>
+            <span class="mod-switch-title">LISTEN</span>
+        </div>
+    </div>
+
+    <!-- Illuminated Arcade LEARN HUM Button -->
+    <div class="learn-button-wrapper">
+        <div class="giant-learn-btn" mod-role="input-control-port" mod-port-symbol="learn" mod-widget="switch" title="Hold guitar quiet and click to learn & lock pickup hum profile">
+            <div class="learn-btn-inner">
+                <span class="learn-btn-icon">&#9679;</span>
+                <span class="learn-btn-text">LEARN HUM</span>
+            </div>
+            <div class="learn-btn-status">CALIBRATE PICKUP HUM</div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+
+    <!-- Hidden standard ports for MOD-UI engine synchronization -->
+    <div style="display:none;">
+        <input type="hidden" mod-role="input-control-port" mod-port-symbol="t1" value="-60.0" />
+        <input type="hidden" mod-role="input-control-port" mod-port-symbol="t2" value="-60.0" />
+        <input type="hidden" mod-role="input-control-port" mod-port-symbol="t3" value="-60.0" />
+        <input type="hidden" mod-role="input-control-port" mod-port-symbol="t4" value="-60.0" />
+        <input type="hidden" mod-role="input-control-port" mod-port-symbol="t5" value="-60.0" />
+        <input type="hidden" mod-role="input-control-port" mod-port-symbol="t6" value="-60.0" />
+        <input type="hidden" mod-role="input-control-port" mod-port-symbol="t7" value="-60.0" />
+        <input type="hidden" mod-role="input-control-port" mod-port-symbol="t8" value="-60.0" />
+    </div>
+
+    <!-- MOD SDK Standard Input Connectors (Audio / MIDI / CV) -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.cv.input}}
+    </div>
+
+    <!-- MOD SDK Standard Output Connectors (Audio / MIDI / CV) -->
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} ac30pa-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="ac30pa-gold-lip"></div>
+
+    <div class="ac30pa-faceplate">
+        <div class="ac30pa-left-flank">
+            <div class="ac30pa-jewel-holder" title="Vox Red Pilot Jewel">
+                <div class="ac30pa-jewel red" id="ac30pa-jewel"></div>
+            </div>
+            <div class="ac30pa-branding">
+                <span class="ac30pa-brand-title">VOX</span>
+                <span class="ac30pa-model-title">AC30 4-CH PA HEAD</span>
+            </div>
+        </div>
+
+        <div class="ac30pa-separator"></div>
+
+        <!-- Section 1: 4 Channels -->
+        <div class="ac30pa-section">
+            <div class="ac30pa-sec-header">4 INDEPENDENT PREAMP CHANNELS</div>
+            <div class="ac30pa-controls-row">
+                <div class="ac30pa-knob-unit" title="Channel 1 (Bright Mic/Guitar) Vol">
+                    <div class="ac30pa-dial custom-knob-dial" data-symbol="ch1_vol" data-min="0" data-max="10" data-default="6.1">
+                        <div class="ac30pa-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch1_vol" style="display:none;"></div>
+                    <span class="ac30pa-lbl">CH 1 (BRIGHT)</span>
+                </div>
+
+                <div class="ac30pa-knob-unit" title="Channel 2 (Normal) Vol">
+                    <div class="ac30pa-dial custom-knob-dial" data-symbol="ch2_vol" data-min="0" data-max="10" data-default="3.6">
+                        <div class="ac30pa-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch2_vol" style="display:none;"></div>
+                    <span class="ac30pa-lbl">CH 2 (NORM)</span>
+                </div>
+
+                <div class="ac30pa-knob-unit" title="Channel 3 (Warm Bass) Vol">
+                    <div class="ac30pa-dial custom-knob-dial" data-symbol="ch3_vol" data-min="0" data-max="10" data-default="3.6">
+                        <div class="ac30pa-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch3_vol" style="display:none;"></div>
+                    <span class="ac30pa-lbl">CH 3 (WARM)</span>
+                </div>
+
+                <div class="ac30pa-knob-unit" title="Channel 4 (Lead Gain) Vol">
+                    <div class="ac30pa-dial custom-knob-dial" data-symbol="ch4_vol" data-min="0" data-max="10" data-default="6.1">
+                        <div class="ac30pa-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch4_vol" style="display:none;"></div>
+                    <span class="ac30pa-lbl">CH 4 (LEAD)</span>
+                </div>
+
+                <!-- Master 4-Ch Jumper Switch -->
+                <div class="ac30pa-toggle-unit" title="Parallel 4-Channel Jumpering">
+                    <button type="button" class="ac30pa-mod-switch-pill active" id="ac30pa-link-btn">4-CH JUMPER</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="master_link" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ac30pa-separator"></div>
+
+        <!-- Section 2: Master Tone & Cut -->
+        <div class="ac30pa-section">
+            <div class="ac30pa-sec-header">MASTER SECTION</div>
+            <div class="ac30pa-controls-row">
+                <div class="ac30pa-knob-unit" title="Master Tilt Tone (0 - 10)">
+                    <div class="ac30pa-dial custom-knob-dial" data-symbol="tone" data-min="0" data-max="10" data-default="10.0">
+                        <div class="ac30pa-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="tone" style="display:none;"></div>
+                    <span class="ac30pa-lbl">TONE</span>
+                </div>
+
+                <div class="ac30pa-knob-unit" title="Cut Control in Phase Inverter (0 - 10)">
+                    <div class="ac30pa-dial custom-knob-dial" data-symbol="cut" data-min="0" data-max="10" data-default="0.0">
+                        <div class="ac30pa-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="cut" style="display:none;"></div>
+                    <span class="ac30pa-lbl">CUT</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="ac30pa-bottom-deck">
+        <div class="ac30pa-deck-control">
+            <span class="ac30pa-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="ac30pa-cab-cluster">
+                <div class="ac30pa-deck-selector" id="ac30pa-cab-btn" title="Click to change speaker cab (2x12 Column Alnico / 4x12 Greenback / Bypass)">
+                    <span class="ac30pa-selector-val" id="ac30pa-cab-txt">2x12" Column Alnico (Stock)</span>
+                </div>
+
+                <div class="ac30pa-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="ac30pa-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="6.9">
+                        <div class="ac30pa-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="ac30pa-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="ac30pa-deck-control">
+            <span class="ac30pa-deck-lbl">OUTPUT LEVEL</span>
+            <div class="ac30pa-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="ac30pa-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="4.8">
+                    <div class="ac30pa-dial-cap mini-cap"></div>
+                    <div class="ac30pa-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="ac30pa-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="ac30pa-deck-control">
+            <span class="ac30pa-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="ac30pa-mod-switch-pill active" id="ac30pa-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

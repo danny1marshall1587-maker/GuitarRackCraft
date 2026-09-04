@@ -1,0 +1,167 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} toneking-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="toneking-cream-lip"></div>
+
+    <div class="toneking-faceplate">
+        <div class="toneking-left-flank">
+            <div class="toneking-jewel-holder" title="Tone King Amber Jewel">
+                <div class="toneking-jewel amber" id="toneking-jewel"></div>
+            </div>
+            <div class="toneking-branding">
+                <span class="toneking-brand-title">TONE KING</span>
+                <span class="toneking-model-title">IMPERIAL 20W</span>
+            </div>
+        </div>
+
+        <div class="toneking-separator"></div>
+
+        <!-- Section 1: Rhythm Channel (Blackface + Mid-Bite) -->
+        <div class="toneking-section">
+            <div class="toneking-sec-header">RHYTHM &bull; BLACKFACE + MID-BITE</div>
+            <div class="toneking-controls-row">
+                <div class="toneking-knob-unit" title="Rhythm Volume (0 - 10)">
+                    <div class="toneking-dial custom-knob-dial" data-symbol="rhythm_vol" data-min="0" data-max="10" data-default="1.6">
+                        <div class="toneking-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="rhythm_vol" style="display:none;"></div>
+                    <span class="toneking-lbl">VOLUME</span>
+                </div>
+
+                <div class="toneking-knob-unit" title="Rhythm Treble (0 - 10)">
+                    <div class="toneking-dial custom-knob-dial" data-symbol="rhythm_treble" data-min="0" data-max="10" data-default="8.3">
+                        <div class="toneking-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="rhythm_treble" style="display:none;"></div>
+                    <span class="toneking-lbl">TREBLE</span>
+                </div>
+
+                <div class="toneking-knob-unit" title="Rhythm Bass (0 - 10)">
+                    <div class="toneking-dial custom-knob-dial" data-symbol="rhythm_bass" data-min="0" data-max="10" data-default="4.8">
+                        <div class="toneking-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="rhythm_bass" style="display:none;"></div>
+                    <span class="toneking-lbl">BASS</span>
+                </div>
+
+                <div class="toneking-knob-unit" title="Mid-Bite Control: Morphs scooped blackface into raw tweed growl (0 - 10)">
+                    <div class="toneking-dial custom-knob-dial bite-knob" data-symbol="mid_bite" data-min="0" data-max="10" data-default="3.3">
+                        <div class="toneking-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid_bite" style="display:none;"></div>
+                    <span class="toneking-lbl">MID-BITE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="toneking-separator"></div>
+
+        <!-- Section 2: Lead Channel (Tweed Deluxe Overdrive) & Channel Switch -->
+        <div class="toneking-section">
+            <div class="toneking-sec-header">LEAD &bull; TWEED OVERDRIVE</div>
+            <div class="toneking-controls-row">
+                <!-- Channel Switch Button -->
+                <div class="toneking-channel-unit" title="Toggle Rhythm (Blackface) / Lead (Tweed)">
+                    <button type="button" class="toneking-ch-btn" id="toneking-ch-btn">
+                        <span class="toneking-ch-txt" id="toneking-ch-txt">RHYTHM</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel" style="display:none;"></div>
+                </div>
+
+                <div class="toneking-knob-unit" title="Lead Volume (0 - 10)">
+                    <div class="toneking-dial custom-knob-dial" data-symbol="lead_vol" data-min="0" data-max="10" data-default="3.8">
+                        <div class="toneking-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="lead_vol" style="display:none;"></div>
+                    <span class="toneking-lbl">VOLUME</span>
+                </div>
+
+                <div class="toneking-knob-unit" title="Lead Tone (0 - 10)">
+                    <div class="toneking-dial custom-knob-dial" data-symbol="lead_tone" data-min="0" data-max="10" data-default="7.1">
+                        <div class="toneking-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="lead_tone" style="display:none;"></div>
+                    <span class="toneking-lbl">TONE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="toneking-separator"></div>
+
+        <!-- Section 3: Ironman II Reactive Power Attenuator -->
+        <div class="toneking-section">
+            <div class="toneking-sec-header">IRONMAN II ATTENUATOR</div>
+            <div class="toneking-controls-row">
+                <div class="toneking-toggle-unit" title="Ironman Reactive Attenuation (Click to rotate 0dB down to -36dB)">
+                    <button type="button" class="toneking-mod-switch-pill" id="toneking-att-btn">0 dB (MAX)</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="attenuator" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="toneking-bottom-deck">
+        <div class="toneking-deck-control">
+            <span class="toneking-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="toneking-cab-cluster">
+                <div class="toneking-deck-selector" id="toneking-cab-btn" title="Click to change speaker cab (Tone King 33 1x12 / Direct Bypass)">
+                    <span class="toneking-selector-val" id="toneking-cab-txt">Tone King 33 1x12 (Stock)</span>
+                </div>
+
+                <div class="toneking-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="toneking-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="6.4">
+                        <div class="toneking-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="toneking-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="toneking-deck-control">
+            <span class="toneking-deck-lbl">OUTPUT LEVEL</span>
+            <div class="toneking-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="toneking-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="6.2">
+                    <div class="toneking-dial-cap mini-cap"></div>
+                    <div class="toneking-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="toneking-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="toneking-deck-control">
+            <span class="toneking-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="toneking-mod-switch-pill active" id="toneking-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

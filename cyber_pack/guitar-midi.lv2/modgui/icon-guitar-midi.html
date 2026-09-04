@@ -1,0 +1,110 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} mod-black black guitar-midi-pedal{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
+    <div class="mod-plugin-name"><h1>MusIQ Chord Engine</h1></div>
+
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- Real-Time MusIQ Chord & Pad Tracker Display -->
+    <div class="guitar-midi-display clearfix">
+        <div class="display-header">
+            <span class="din-icon">DIGITECH MusIQ CHORD ENGINE</span>
+            <span class="active-channel" mod-role="hold_status">HOLD ON</span>
+        </div>
+
+        <div class="midi-note-center">
+            <div class="note-name" mod-role="display_chord">--</div>
+            <div class="midi-number" mod-role="display_notes">PLAY GUITAR TO TRIGGER CHORD</div>
+        </div>
+
+        <!-- Live Polyphonic Piano Roll Preview -->
+        <div class="mini-piano-keyboard">
+            <div class="piano-key white" data-semi="0"></div>
+            <div class="piano-key black" data-semi="1"></div>
+            <div class="piano-key white" data-semi="2"></div>
+            <div class="piano-key black" data-semi="3"></div>
+            <div class="piano-key white" data-semi="4"></div>
+            <div class="piano-key white" data-semi="5"></div>
+            <div class="piano-key black" data-semi="6"></div>
+            <div class="piano-key white" data-semi="7"></div>
+            <div class="piano-key black" data-semi="8"></div>
+            <div class="piano-key white" data-semi="9"></div>
+            <div class="piano-key black" data-semi="10"></div>
+            <div class="piano-key white" data-semi="11"></div>
+        </div>
+
+        <div class="chord-type-indicator">
+            <span class="ext-badge" mod-role="ext_tag">7th EXTENSION</span>
+            <span class="bass-badge" mod-role="bass_tag">+ SUB BASS</span>
+        </div>
+    </div>
+
+    <!-- Controls Row (Extension, Stability, Hold, Key, Scale, Bass) -->
+    <div class="mod-control-group clearfix">
+        <div class="mod-knob" title="Chord Extension (Triad, 7th, 9th, Sus4, Power, Lush Pad)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="chord_extension"></div>
+            <span class="mod-knob-title">EXT</span>
+        </div>
+        <div class="mod-knob" title="Chord Stability / Debouncing (Higher = Rock-Solid Stage Pad Hold)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="stability"></div>
+            <span class="mod-knob-title">STAB</span>
+        </div>
+        <div class="mod-switch-wrap" title="Continuous Latch Hold (Holds chord under guitar until new chord played)">
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="latch_mode" mod-widget="switch"></div>
+            <span class="mod-switch-title">HOLD</span>
+        </div>
+        <div class="mod-knob" title="Diatonic Key Lock (Auto / Chromatic, C, D, G, A, E...)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="key_root"></div>
+            <span class="mod-knob-title">KEY</span>
+        </div>
+        <div class="mod-knob" title="Diatonic Scale Mode (Major, Minor, Dorian, Mixolydian)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="scale_mode"></div>
+            <span class="mod-knob-title">SCALE</span>
+        </div>
+        <div class="mod-switch-wrap" title="Sub-Bass Root Octave Note">
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="bass_enable" mod-widget="switch"></div>
+            <span class="mod-switch-title">BASS</span>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Engage / Bypass)"></div>
+
+    <!-- MOD SDK Standard Input Connectors (Audio / MIDI / CV) -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.cv.input}}
+    </div>
+
+    <!-- MOD SDK Standard Output Connectors (Audio / MIDI / CV) -->
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

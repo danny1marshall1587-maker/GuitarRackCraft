@@ -1,0 +1,123 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} rockman-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="rockman-cyan-lip"></div>
+
+    <div class="rockman-faceplate">
+        <div class="rockman-left-flank">
+            <div class="rockman-jewel-holder" title="Rockman Cyan LED">
+                <div class="rockman-jewel cyan" id="rockman-jewel"></div>
+            </div>
+            <div class="rockman-branding">
+                <span class="rockman-brand-title">ROCKMAN</span>
+                <span class="rockman-model-title">X100 HEADPHONE AMP</span>
+            </div>
+        </div>
+
+        <div class="rockman-separator"></div>
+
+        <!-- Section 1: Modes & Controls -->
+        <div class="rockman-section">
+            <div class="rockman-sec-header">SCHOLZ AOR ENGINE &bull; 4 MODES</div>
+            <div class="rockman-controls-row">
+                <!-- Mode Selector Button -->
+                <div class="rockman-mode-unit" title="Click to cycle Rockman Mode (Clean 1, Clean 2, Edge, Dist)">
+                    <button type="button" class="rockman-mode-btn" id="rockman-mode-btn">
+                        <span class="rockman-mode-txt" id="rockman-mode-txt">DIST (LEAD)</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mode" style="display:none;"></div>
+                    <span class="rockman-lbl">MODE</span>
+                </div>
+
+                <div class="rockman-knob-unit" title="Volume Output Level (0 - 10)">
+                    <div class="rockman-dial custom-knob-dial" data-symbol="volume" data-min="0" data-max="10" data-default="8.7">
+                        <div class="rockman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="volume" style="display:none;"></div>
+                    <span class="rockman-lbl">VOLUME</span>
+                </div>
+
+                <!-- Chorus Toggle Button -->
+                <div class="rockman-toggle-unit" title="BBD Stereo Chorus Toggle">
+                    <button type="button" class="rockman-mod-switch-pill active" id="rockman-chorus-btn">CHORUS</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="chorus" style="display:none;"></div>
+                </div>
+
+                <div class="rockman-knob-unit" title="Chorus Depth (0 - 100%)">
+                    <div class="rockman-dial custom-knob-dial chorus-dial" data-symbol="chorus_depth" data-min="0" data-max="100" data-default="75.3">
+                        <div class="rockman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="chorus_depth" style="display:none;"></div>
+                    <span class="rockman-lbl">DEPTH</span>
+                </div>
+
+                <!-- Bass Boost Toggle Button -->
+                <div class="rockman-toggle-unit" title="Bass Boost Toggle">
+                    <button type="button" class="rockman-mod-switch-pill" id="rockman-bass-btn">BASS BOOST</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass_boost" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="rockman-bottom-deck">
+        <div class="rockman-deck-control">
+            <span class="rockman-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="rockman-cab-cluster">
+                <div class="rockman-deck-selector" id="rockman-cab-btn" title="Click to change speaker cab (Rockman Studio Direct / 4x12 Greenback / Bypass)">
+                    <span class="rockman-selector-val" id="rockman-cab-txt">Rockman Studio Direct (Stock)</span>
+                </div>
+
+                <div class="rockman-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="rockman-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="4.6">
+                        <div class="rockman-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="rockman-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="rockman-deck-control">
+            <span class="rockman-deck-lbl">OUTPUT LEVEL</span>
+            <div class="rockman-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="rockman-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="7.0">
+                    <div class="rockman-dial-cap mini-cap"></div>
+                    <div class="rockman-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="rockman-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="rockman-deck-control">
+            <span class="rockman-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="rockman-mod-switch-pill active" id="rockman-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

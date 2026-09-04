@@ -1,0 +1,71 @@
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+
+<http://cyberaudio.com/plugins/cyber-cv-splitter>
+    a lv2:Plugin , mod:ControlVoltagePlugin ;
+    doap:name "Cyber CV Splitter V2" ;
+    doap:developer [
+        doap:name "CyberAudio" ;
+    ] ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 1 ;
+    mod:brand "CyberAudio" ;
+    mod:label "CV Splitter V2" ;
+    rdfs:comment "Takes a single MIDI CC control input and outputs Normal (0-10V), Reverse (10-0V), and Scaled CV signals to modulate parameters." ;
+
+    lv2:port [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "control_in" ;
+        lv2:name "Control Input (Map CC Here)" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:OutputPort , lv2:CVPort , mod:CVPort ;
+        lv2:index 1 ;
+        lv2:symbol "cv_out_norm" ;
+        lv2:name "CV Normal" ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        units:unit mod:volts ;
+    ] , [
+        a lv2:OutputPort , lv2:CVPort , mod:CVPort ;
+        lv2:index 2 ;
+        lv2:symbol "cv_out_inv" ;
+        lv2:name "CV Reverse" ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        units:unit mod:volts ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "min_val" ;
+        lv2:name "Scaled Min %" ;
+        lv2:default 20.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "max_val" ;
+        lv2:name "Scaled Max %" ;
+        lv2:default 80.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:OutputPort , lv2:CVPort , mod:CVPort ;
+        lv2:index 5 ;
+        lv2:symbol "cv_out_scaled" ;
+        lv2:name "CV Scaled" ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        units:unit mod:volts ;
+    ] .

@@ -1,0 +1,233 @@
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+
+<http://moddevices.com/plugins/danny/guitar-midi>
+    a lv2:Plugin ,
+      lv2:ConverterPlugin ;
+    doap:name "MusIQ Guitar Chord Engine" ;
+    doap:license <http://opensource.org/licenses/mit> ;
+    mod:brand "CyberAudio" ;
+    mod:label "Chord Engine" ;
+    rdfs:comment "DigiTech MusIQ style intelligent real-time guitar chord & synth pad generator with 12-bin Chroma template matching, multi-frame confidence debouncing, and stability hysteresis for rock-solid chords." ;
+
+    lv2:requiredFeature urid:map ;
+    
+    lv2:port [
+        a lv2:AudioPort ,
+          lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Guitar In" ;
+    ] , [
+        a atom:AtomPort ,
+          lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "midi_out" ;
+        lv2:name "MIDI Output" ;
+        atom:bufferType atom:Sequence ;
+        atom:supports midi:MidiEvent ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 2 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "gain" ;
+        lv2:name "Input Gain" ;
+        lv2:default 0.0 ;
+        lv2:minimum -12.0 ;
+        lv2:maximum 24.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "sensitivity" ;
+        lv2:name "Sensitivity" ;
+        lv2:default 0.75 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "stability" ;
+        lv2:name "Chord Stability" ;
+        lv2:default 0.85 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 0.99 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "chord_extension" ;
+        lv2:name "Chord Extension" ;
+        lv2:default 2 ;
+        lv2:minimum 0 ;
+        lv2:maximum 6 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [
+            rdfs:label "Auto (MusIQ Smart)" ;
+            rdf:value 0
+        ] , [
+            rdfs:label "Triad (1 - 3 - 5)" ;
+            rdf:value 1
+        ] , [
+            rdfs:label "7th (Maj7 / Min7 / Dom7)" ;
+            rdf:value 2
+        ] , [
+            rdfs:label "9th / Add9 (Ambient Modern)" ;
+            rdf:value 3
+        ] , [
+            rdfs:label "Sus4 / Sus2 (Cinematic Pad)" ;
+            rdf:value 4
+        ] , [
+            rdfs:label "Power 5th + Octaves" ;
+            rdf:value 5
+        ] , [
+            rdfs:label "Lush Synth Pad (Open Spread)" ;
+            rdf:value 6
+        ] ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "latch_mode" ;
+        lv2:name "Continuous Hold / Latch" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "key_root" ;
+        lv2:name "Diatonic Key Lock" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 12 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [
+            rdfs:label "Auto / Chromatic" ;
+            rdf:value 0
+        ] , [
+            rdfs:label "C" ;
+            rdf:value 1
+        ] , [
+            rdfs:label "C#" ;
+            rdf:value 2
+        ] , [
+            rdfs:label "D" ;
+            rdf:value 3
+        ] , [
+            rdfs:label "D#" ;
+            rdf:value 4
+        ] , [
+            rdfs:label "E" ;
+            rdf:value 5
+        ] , [
+            rdfs:label "F" ;
+            rdf:value 6
+        ] , [
+            rdfs:label "F#" ;
+            rdf:value 7
+        ] , [
+            rdfs:label "G" ;
+            rdf:value 8
+        ] , [
+            rdfs:label "G#" ;
+            rdf:value 9
+        ] , [
+            rdfs:label "A" ;
+            rdf:value 10
+        ] , [
+            rdfs:label "A#" ;
+            rdf:value 11
+        ] , [
+            rdfs:label "B" ;
+            rdf:value 12
+        ] ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "scale_mode" ;
+        lv2:name "Scale Mode" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 4 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [
+            rdfs:label "Auto" ;
+            rdf:value 0
+        ] , [
+            rdfs:label "Major / Ionian" ;
+            rdf:value 1
+        ] , [
+            rdfs:label "Minor / Aeolian" ;
+            rdf:value 2
+        ] , [
+            rdfs:label "Dorian (Jazz/Funk)" ;
+            rdf:value 3
+        ] , [
+            rdfs:label "Mixolydian (Blues/Rock)" ;
+            rdf:value 4
+        ] ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "bass_enable" ;
+        lv2:name "Sub-Bass Note" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "velocity_mode" ;
+        lv2:name "Dynamic Velocity" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 12 ;
+        lv2:symbol "detected_root" ;
+        lv2:name "Detected Root" ;
+        lv2:default -1.0 ;
+        lv2:minimum -1.0 ;
+        lv2:maximum 127.0 ;
+        lv2:portProperty lv2:integer ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 13 ;
+        lv2:symbol "detected_qual" ;
+        lv2:name "Detected Quality" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 4.0 ;
+        lv2:portProperty lv2:integer ;
+    ] .

@@ -1,0 +1,239 @@
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-ycv40>
+    a lv2:Plugin ,
+      lv2:SimulatorPlugin ;
+    doap:name "Traynor YCV40 (2x10 Celestion)" ;
+    doap:license <http://opensource.org/licenses/mit> ;
+    mod:brand "CyberAudio" ;
+    mod:label "YCV40 2x10" ;
+    rdfs:comment "Authentic circuit emulation of the legendary Traynor Custom Valve 40 (YCV40T) 2x10 all-tube combo amplifier. Features 12AX7 preamp triodes, dual Clean & Lead channels, swappable 6L6/EL34/6V6/KT88 power tubes, dynamic power supply sag, popular circuit mods (C10 Bright Mod, Smooth Dumble Mod, NFB Chime Mod), Accutronics spring reverb, and Celestion 2x10 speaker simulation." ;
+
+    lv2:port [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Guitar Input" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out" ;
+        lv2:name "Amp Output" ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 2 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "channel" ;
+        lv2:name "Channel (Clean / Lead)" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "clean_vol" ;
+        lv2:name "Clean Volume" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "clean_treble" ;
+        lv2:name "Clean Treble" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "clean_bass" ;
+        lv2:name "Clean Bass" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "bright" ;
+        lv2:name "Clean Bright" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "lead_gain" ;
+        lv2:name "Lead Gain" ;
+        lv2:default 3.1 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "lead_vol" ;
+        lv2:name "Lead Volume" ;
+        lv2:default 10.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "lead_bass" ;
+        lv2:name "Lead Bass" ;
+        lv2:default 3.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "lead_mid" ;
+        lv2:name "Lead Mid" ;
+        lv2:default 10.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "lead_treble" ;
+        lv2:name "Lead Treble" ;
+        lv2:default 5.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "boost" ;
+        lv2:name "Lead Boost" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "scoop" ;
+        lv2:name "Lead Scoop" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "master" ;
+        lv2:name "Master Volume" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 16 ;
+        lv2:symbol "reverb" ;
+        lv2:name "Spring Reverb" ;
+        lv2:default 2.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 17 ;
+        lv2:symbol "presence" ;
+        lv2:name "Presence" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 18 ;
+        lv2:symbol "power_tubes" ;
+        lv2:name "Power Tubes" ;
+        lv2:default 3 ;
+        lv2:minimum 0 ;
+        lv2:maximum 3 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "6L6GC (Stock American)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "EL34 (British Crunch)" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "6V6GT (Vintage American)" ; rdf:value 2 ] ;
+        lv2:scalePoint [ rdfs:label "KT88 (Modern High Headroom)" ; rdf:value 3 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 19 ;
+        lv2:symbol "mod_c10" ;
+        lv2:name "Mod: C10 Warm Clean" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 20 ;
+        lv2:symbol "mod_smooth" ;
+        lv2:name "Mod: Smooth Dumble Lead" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 21 ;
+        lv2:symbol "mod_chime" ;
+        lv2:name "Mod: Open Raw Chime" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 22 ;
+        lv2:symbol "speaker_cab" ;
+        lv2:name "Speaker Cabinet" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "2x10 Celestion Tube 10 (Stock)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "1x12 Celestion Vintage 30" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "Direct Out / Cab Bypass" ; rdf:value 2 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 23 ;
+        lv2:symbol "speaker_drive" ;
+        lv2:name "Speaker Stress / Drive" ;
+        lv2:default 6.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 24 ;
+        lv2:symbol "noise_gate" ;
+        lv2:name "Smart Noise Suppressor" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ]     , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 25 ;
+        lv2:symbol "output_level" ;
+        lv2:name "Output Level" ;
+        lv2:default 5.1 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        rdfs:comment "Master Output Volume / Attenuator (-24dB to +6dB). Allows cranking Master for power amp saturation without blasting downstream pedals." ;
+    ] .

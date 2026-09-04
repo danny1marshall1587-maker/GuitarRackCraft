@@ -1,0 +1,39 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-fender-deluxe6g3>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-fender-deluxe6g3.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:brand "Cyber Audio" ;
+        modgui:label "Deluxe 6G3" ;
+        modgui:model "boxy" ;
+        modgui:panel "1-select-1-knob" ;
+        modgui:color "brown" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "bright_vol" ;
+            lv2:name "Volume" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "bright_tone" ;
+            lv2:name "Tone" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "trem_speed" ;
+            lv2:name "Speed" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "trem_intensity" ;
+            lv2:name "Trem" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "speaker_drive" ;
+            lv2:name "Cone Drive" ;
+        ]
+    ] .

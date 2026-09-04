@@ -1,0 +1,45 @@
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<http://moddevices.com/plugins/danny/cyber-expression-cv>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-expression-cv.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:brand "CyberAudio" ;
+        modgui:label "Expression CV" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "#1a2a1a" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "cc_number" ;
+            lv2:name "MIDI CC #" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "midi_channel" ;
+            lv2:name "Channel" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "smoothing" ;
+            lv2:name "Smooth" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "min_val" ;
+            lv2:name "Min V" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "max_val" ;
+            lv2:name "Max V" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "curve" ;
+            lv2:name "Curve" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "manual_pos" ;
+            lv2:name "Manual" ;
+        ] ;
+    ] .

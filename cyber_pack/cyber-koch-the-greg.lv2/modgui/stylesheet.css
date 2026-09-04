@@ -1,0 +1,367 @@
+/* ==========================================================================
+   Cyber Koch "The Greg" Signature - Royal Navy Blue & Gold Boutique Styling
+   ========================================================================== */
+
+.koch-amp-head {
+    width: 960px !important;
+    height: 290px !important;
+    background: #0d1b2a !important;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(27, 46, 75, 0.6) 0%, rgba(10, 20, 35, 0.95) 100%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 4px);
+    border: 3px solid #1b3a5b;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(234, 179, 8, 0.4);
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.koch-gold-lip {
+    height: 12px;
+    background: linear-gradient(180deg, #ca8a04 0%, #854d0e 100%);
+    border-bottom: 2px solid #000;
+}
+
+.koch-faceplate {
+    flex: 1;
+    margin: 10px 18px 6px 18px;
+    background: linear-gradient(180deg, #fef9c3 0%, #fef08a 25%, #eab308 85%, #ca8a04 100%);
+    border: 2px solid #a16207;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    position: relative;
+}
+
+.koch-left-flank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 140px;
+}
+
+.koch-jewels-row {
+    display: flex;
+    gap: 8px;
+}
+
+.koch-jewel-holder {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #475569 0%, #0f172a 100%);
+    border: 2px solid #713f12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.koch-jewel.sapphire {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #93c5fd 0%, #2563eb 60%, #1e3a8a 100%);
+    box-shadow: 0 0 10px #2563eb, 0 0 18px rgba(37, 99, 235, 0.75);
+}
+
+.koch-jewel.amber {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fed7aa 0%, #ea580c 60%, #7c2d12 100%);
+    box-shadow: 0 0 10px #ea580c, 0 0 18px rgba(234, 88, 12, 0.75);
+}
+
+.koch-branding {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.koch-brand-title {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.koch-model-title {
+    font-size: 10px;
+    font-weight: 900;
+    color: #1e3a8a;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.koch-separator {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(180deg, transparent 0%, #a16207 20%, #713f12 80%, transparent 100%);
+}
+
+.koch-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.koch-sec-header {
+    font-size: 8.5px;
+    font-weight: 900;
+    color: #451a03;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.25);
+    padding-bottom: 2px;
+}
+
+.koch-controls-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.koch-knob-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 46px;
+}
+
+/* Cream Chickenhead Knobs */
+.koch-dial.custom-knob-dial {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #fef3c7 0%, #fde68a 70%, #d97706 100%);
+    border: 2px solid #78350f;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.koch-dial.custom-knob-dial:hover {
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 10px rgba(30, 58, 138, 0.5);
+}
+
+.koch-dial-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #1e3a8a 0%, #0f172a 70%, #020617 100%);
+    border: 1px solid #78350f;
+}
+
+.koch-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3.5px;
+    height: 18px;
+    background: #78350f;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(120, 53, 15, 0.8);
+}
+
+.koch-lbl {
+    font-size: 8px;
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.koch-channel-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.koch-ch-btn {
+    background: #1e3a8a;
+    border: 2px solid #172554;
+    border-radius: 6px;
+    color: #fef08a;
+    padding: 7px 10px;
+    font-size: 8.5px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+    transition: all 0.15s ease;
+}
+
+.koch-ch-btn.ch-1 { background: #b45309; border-color: #78350f; color: #ffffff; }
+.koch-ch-btn.ch-2 { background: #b91c1c; border-color: #7f1d1d; color: #ffffff; }
+
+.koch-toggle-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.koch-mod-switch-pill {
+    background: #1e3a8a;
+    border: 1.5px solid #172554;
+    border-radius: 5px;
+    color: #fef08a;
+    font-size: 8.5px;
+    font-weight: 900;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.koch-mod-switch-pill:hover {
+    border-color: #f59e0b;
+    color: #ffffff;
+}
+
+.koch-mod-switch-pill.active {
+    background: #ca8a04;
+    border-color: #fef08a;
+    color: #000000;
+    box-shadow: 0 0 10px rgba(254, 240, 138, 0.6);
+}
+
+/* Bottom Deck */
+.koch-bottom-deck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background: #09131e;
+    border-top: 1px solid #172a3d;
+}
+
+.koch-deck-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.koch-deck-lbl {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #93c5fd;
+    letter-spacing: 1.2px;
+}
+
+.koch-cab-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.koch-deck-selector {
+    background: #1e3a8a;
+    border: 1.5px solid #3b82f6;
+    border-radius: 6px;
+    color: #fef08a;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.koch-deck-selector:hover {
+    background: #2563eb;
+    border-color: #fef08a;
+    color: #ffffff;
+}
+
+.koch-knob-unit.mini {
+    width: 38px !important;
+    gap: 2px !important;
+}
+
+.koch-dial.mini-dial {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.koch-dial-cap.mini-cap {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.koch-dial .knob-rotor.mini-rotor {
+    height: 14px !important;
+    width: 2.5px !important;
+}
+
+.koch-lbl.mini-lbl {
+    font-size: 7.5px !important;
+    color: #fde68a !important;
+}
+
+.koch-amp-head .mod-pedal-input {
+    position: absolute !important;
+    left: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+.koch-amp-head .mod-pedal-output {
+    position: absolute !important;
+    right: -18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+
+/* Drag Handle */
+.koch-amp-head .mod-drag-handle {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 10 !important;
+    cursor: move !important;
+}
+
+/* Ensure all knobs and controls sit above drag handle and receive all mouse events */
+.koch-amp-head .custom-knob-dial,
+.koch-amp-head button,
+.koch-amp-head select,
+.koch-amp-head input,
+.koch-amp-head [class*="-faceplate"],
+.koch-amp-head [class*="-bottom-deck"],
+.koch-amp-head [class*="-deck-selector"],
+.koch-amp-head [class*="-mod-switch-pill"],
+.koch-amp-head [class*="-ch-btn"],
+.koch-amp-head [class*="-bat-switch"] {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}

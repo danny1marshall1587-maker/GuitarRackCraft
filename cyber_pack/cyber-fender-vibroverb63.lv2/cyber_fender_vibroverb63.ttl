@@ -1,0 +1,149 @@
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod:  <http://moddevices.com/ns/mod#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-fender-vibroverb63>
+    a lv2:Plugin , lv2:SimulatorPlugin ;
+    doap:name "Fender Brownface Vibroverb 6G16" ;
+    doap:license <http://opensource.org/licenses/isc> ;
+    lv2:minorVersion 1 ;
+    lv2:microVersion 0 ;
+    rdfs:comment "Authentic analog circuit emulation of the legendary 1963 Fender Brownface Vibroverb (6G16). Dual channels, true multi-tube split-frequency Harmonic Vibrato, 2x 6L6GC power section with GZ34 rectifier sag, 2x10 Oxford & 1x15 JBL dynamic speaker stress, and zero-latency smart noise suppressor." ;
+    mod:brand "Cyber Audio" ;
+    mod:label "Vibroverb 6G16" ;
+
+    lv2:port [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Input" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out" ;
+        lv2:name "Output" ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 2 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation lv2:enabled ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "channel" ;
+        lv2:name "Channel (Normal / Vibrato)" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "norm_vol" ;
+        lv2:name "Normal Vol" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "norm_treble" ;
+        lv2:name "Normal Treble" ;
+        lv2:default 5.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "norm_bass" ;
+        lv2:name "Normal Bass" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "vib_vol" ;
+        lv2:name "Vibrato Vol" ;
+        lv2:default 6.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "vib_treble" ;
+        lv2:name "Vibrato Treble" ;
+        lv2:default 6.7 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "vib_bass" ;
+        lv2:name "Vibrato Bass" ;
+        lv2:default 3.4 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "trem_speed" ;
+        lv2:name "Vibrato Speed" ;
+        lv2:default 4.5 ;
+        lv2:minimum 1.0 ;
+        lv2:maximum 12.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "trem_intensity" ;
+        lv2:name "Harmonic Intensity" ;
+        lv2:default 13.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "speaker_cab" ;
+        lv2:name "Speaker Cabinet" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "2x10 Oxford 10K5 Brownface (Stock)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "1x15 JBL D130F (SRV Mod)" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "Direct Out / Cab Bypass" ; rdf:value 2 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "speaker_drive" ;
+        lv2:name "Cone Stress / Drive" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "noise_gate" ;
+        lv2:name "Zero Noise Suppressor" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ]     , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "output_level" ;
+        lv2:name "Output Level" ;
+        lv2:default 5.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        rdfs:comment "Master Output Volume / Attenuator (-24dB to +6dB). Allows cranking Master for power amp saturation without blasting downstream pedals." ;
+    ] .

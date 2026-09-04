@@ -1,0 +1,136 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} deluxe6g3-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="deluxe6g3-wheat-lip"></div>
+
+    <div class="deluxe6g3-faceplate">
+        <div class="deluxe6g3-left-flank">
+            <div class="deluxe6g3-jewel-holder" title="Fender Red Pilot Jewel">
+                <div class="deluxe6g3-jewel red" id="deluxe6g3-jewel"></div>
+            </div>
+            <div class="deluxe6g3-branding">
+                <span class="deluxe6g3-brand-title">Fender</span>
+                <span class="deluxe6g3-model-title">DELUXE-AMP 6G3</span>
+            </div>
+        </div>
+
+        <div class="deluxe6g3-separator"></div>
+
+        <!-- Section 1: Preamp & Channel Select -->
+        <div class="deluxe6g3-section">
+            <div class="deluxe6g3-sec-header">6G3 PREAMP &bull; MINI-MARSHALL CRUNCH</div>
+            <div class="deluxe6g3-controls-row">
+                <!-- Channel Switch Button -->
+                <div class="deluxe6g3-channel-unit" title="Toggle Channel (Normal / Bright)">
+                    <button type="button" class="deluxe6g3-ch-btn is-bright" id="deluxe6g3-ch-btn">
+                        <span class="deluxe6g3-ch-txt" id="deluxe6g3-ch-txt">BRIGHT CH</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel" style="display:none;"></div>
+                </div>
+
+                <div class="deluxe6g3-knob-unit" title="Bright Volume (0 - 10)">
+                    <div class="deluxe6g3-dial custom-knob-dial" data-symbol="bright_vol" data-min="0" data-max="10" data-default="2.0">
+                        <div class="deluxe6g3-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bright_vol" style="display:none;"></div>
+                    <span class="deluxe6g3-lbl">VOLUME</span>
+                </div>
+
+                <div class="deluxe6g3-knob-unit" title="Bright Tone (0 - 10)">
+                    <div class="deluxe6g3-dial custom-knob-dial" data-symbol="bright_tone" data-min="0" data-max="10" data-default="4.8">
+                        <div class="deluxe6g3-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bright_tone" style="display:none;"></div>
+                    <span class="deluxe6g3-lbl">TONE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="deluxe6g3-separator"></div>
+
+        <!-- Section 2: Bias-Wiggle Tremolo -->
+        <div class="deluxe6g3-section">
+            <div class="deluxe6g3-sec-header">BIAS-WIGGLE TREMOLO</div>
+            <div class="deluxe6g3-controls-row">
+                <div class="deluxe6g3-knob-unit" title="Tremolo Speed (1 - 12 Hz)">
+                    <div class="deluxe6g3-dial custom-knob-dial trem-knob" data-symbol="trem_speed" data-min="1" data-max="12" data-default="6.4">
+                        <div class="deluxe6g3-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="trem_speed" style="display:none;"></div>
+                    <span class="deluxe6g3-lbl">SPEED</span>
+                </div>
+
+                <div class="deluxe6g3-knob-unit" title="Tremolo Intensity (0 - 100%)">
+                    <div class="deluxe6g3-dial custom-knob-dial trem-knob" data-symbol="trem_intensity" data-min="0" data-max="100" data-default="35.3">
+                        <div class="deluxe6g3-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="trem_intensity" style="display:none;"></div>
+                    <span class="deluxe6g3-lbl">INTENSITY</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="deluxe6g3-bottom-deck">
+        <div class="deluxe6g3-deck-control">
+            <span class="deluxe6g3-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="deluxe6g3-cab-cluster">
+                <div class="deluxe6g3-deck-selector" id="deluxe6g3-cab-btn" title="Click to change speaker cab (1x12 Jensen P12R / 1x12 Celestion Blue / Bypass)">
+                    <span class="deluxe6g3-selector-val" id="deluxe6g3-cab-txt">1x12" Jensen P12R Brownface (Stock)</span>
+                </div>
+
+                <div class="deluxe6g3-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="deluxe6g3-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="10.0">
+                        <div class="deluxe6g3-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="deluxe6g3-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="deluxe6g3-deck-control">
+            <span class="deluxe6g3-deck-lbl">OUTPUT LEVEL</span>
+            <div class="deluxe6g3-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="deluxe6g3-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="3.6">
+                    <div class="deluxe6g3-dial-cap mini-cap"></div>
+                    <div class="deluxe6g3-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="deluxe6g3-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="deluxe6g3-deck-control">
+            <span class="deluxe6g3-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="deluxe6g3-mod-switch-pill active" id="deluxe6g3-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

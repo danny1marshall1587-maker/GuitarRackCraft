@@ -1,0 +1,198 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} tworock-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="tworock-lip-top"></div>
+
+    <div class="tworock-faceplate">
+        <div class="tworock-left-flank">
+            <div class="tworock-jewel-holder" title="Two-Rock Turquoise Jewel">
+                <div class="tworock-jewel turquoise" id="tworock-jewel"></div>
+            </div>
+            <div class="tworock-branding">
+                <span class="tworock-brand-title">TWO-ROCK</span>
+                <span class="tworock-model-title">Classic Reverb Sig</span>
+            </div>
+        </div>
+
+        <div class="tworock-separator"></div>
+
+        <!-- Section 1: Preamp & Switches -->
+        <div class="tworock-section">
+            <div class="tworock-sec-header">PREAMP &bull; GAIN STRUCTURE</div>
+            <div class="tworock-controls-row">
+                <div class="tworock-knob-unit" title="Preamp Gain (0 - 10)">
+                    <div class="tworock-dial custom-knob-dial" data-symbol="gain" data-min="0" data-max="10" data-default="3.1">
+                        <div class="tworock-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="gain" style="display:none;"></div>
+                    <span class="tworock-lbl">GAIN</span>
+                </div>
+
+                <!-- 3-Way Gain Structure Selector Button -->
+                <div class="tworock-toggle-unit" title="Gain Structure: Traditional / Two-Rock / Schofield">
+                    <button type="button" class="tworock-struct-btn pos-1" id="tr-struct-btn">
+                        <span class="tworock-struct-txt" id="tr-struct-txt">TWO-ROCK</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="gain_structure" style="display:none;"></div>
+                </div>
+
+                <!-- Switches Cluster: Bright, Mid, Deep -->
+                <div class="tworock-switches-cluster">
+                    <div class="tworock-toggle-unit" title="Bright Boost Switch">
+                        <div class="tworock-bat-switch" id="tr-sw-bright">
+                            <div class="tworock-bat-handle"></div>
+                        </div>
+                        <span class="tworock-sw-lbl">BRIGHT</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bright" style="display:none;"></div>
+                    </div>
+
+                    <div class="tworock-toggle-unit" title="Mid Boost Switch">
+                        <div class="tworock-bat-switch" id="tr-sw-mid">
+                            <div class="tworock-bat-handle"></div>
+                        </div>
+                        <span class="tworock-sw-lbl">MID</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid_boost" style="display:none;"></div>
+                    </div>
+
+                    <div class="tworock-toggle-unit" title="Deep Low-End Extension Switch">
+                        <div class="tworock-bat-switch" id="tr-sw-deep">
+                            <div class="tworock-bat-handle"></div>
+                        </div>
+                        <span class="tworock-sw-lbl">DEEP</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="deep" style="display:none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tworock-separator"></div>
+
+        <!-- Section 2: Equalization & Active Contour -->
+        <div class="tworock-section">
+            <div class="tworock-sec-header">EQUALIZATION &bull; CONTOUR</div>
+            <div class="tworock-controls-row">
+                <div class="tworock-knob-unit" title="Treble (0 - 10)">
+                    <div class="tworock-dial custom-knob-dial" data-symbol="treble" data-min="0" data-max="10" data-default="6.8">
+                        <div class="tworock-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble" style="display:none;"></div>
+                    <span class="tworock-lbl">TREBLE</span>
+                </div>
+
+                <div class="tworock-knob-unit" title="Middle (0 - 10)">
+                    <div class="tworock-dial custom-knob-dial" data-symbol="middle" data-min="0" data-max="10" data-default="5.7">
+                        <div class="tworock-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="middle" style="display:none;"></div>
+                    <span class="tworock-lbl">MIDDLE</span>
+                </div>
+
+                <div class="tworock-knob-unit" title="Bass (0 - 10)">
+                    <div class="tworock-dial custom-knob-dial" data-symbol="bass" data-min="0" data-max="10" data-default="6.5">
+                        <div class="tworock-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass" style="display:none;"></div>
+                    <span class="tworock-lbl">BASS</span>
+                </div>
+
+                <div class="tworock-knob-unit" title="Active Contour Balance (0 - 10, 5 is Flat)">
+                    <div class="tworock-dial custom-knob-dial" data-symbol="contour" data-min="0" data-max="10" data-default="7.3">
+                        <div class="tworock-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="contour" style="display:none;"></div>
+                    <span class="tworock-lbl">CONTOUR</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tworock-separator"></div>
+
+        <!-- Section 3: Master & Presence -->
+        <div class="tworock-section">
+            <div class="tworock-sec-header">MASTER &bull; PRESENCE</div>
+            <div class="tworock-controls-row">
+                <div class="tworock-knob-unit" title="Master Volume (0 - 10)">
+                    <div class="tworock-dial custom-knob-dial" data-symbol="master" data-min="0" data-max="10" data-default="6.4">
+                        <div class="tworock-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="master" style="display:none;"></div>
+                    <span class="tworock-lbl">MASTER</span>
+                </div>
+
+                <div class="tworock-knob-unit" title="Presence (0 - 10)">
+                    <div class="tworock-dial custom-knob-dial" data-symbol="presence" data-min="0" data-max="10" data-default="6.7">
+                        <div class="tworock-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="presence" style="display:none;"></div>
+                    <span class="tworock-lbl">PRESENCE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="tworock-bottom-deck">
+        <div class="tworock-deck-control">
+            <span class="tworock-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="tworock-cab-cluster">
+                <div class="tworock-deck-selector" id="tr-cab-btn" title="Click to change speaker cab (Two-Rock 2x12 TR-1265B / 1x12 EVM-12L / Bypass)">
+                    <span class="tworock-selector-val" id="tr-cab-txt">Two-Rock 2x12 TR-1265B Oval (Stock)</span>
+                </div>
+
+                <div class="tworock-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="tworock-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="7.0">
+                        <div class="tworock-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="tworock-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="tworock-deck-control">
+            <span class="tworock-deck-lbl">OUTPUT LEVEL</span>
+            <div class="tworock-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="tworock-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="6.9">
+                    <div class="tworock-dial-cap mini-cap"></div>
+                    <div class="tworock-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="tworock-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="tworock-deck-control">
+            <span class="tworock-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="tworock-mod-switch-pill active" id="tr-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

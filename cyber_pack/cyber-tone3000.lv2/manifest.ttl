@@ -1,0 +1,7 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-tone3000>
+    a lv2:Plugin ;
+    lv2:binary <cyber_tone3000.so> ;
+    rdfs:seeAlso <cyber-tone3000.ttl> , <modgui.ttl> .

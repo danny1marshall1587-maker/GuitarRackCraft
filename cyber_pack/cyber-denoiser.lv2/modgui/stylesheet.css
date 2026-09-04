@@ -1,0 +1,320 @@
+/* Cyber-Denoiser PRO 10-Band Stompbox Stylesheet for MODEP / MOD-UI */
+
+.cyber-denoiser-pedal {
+    position: absolute;
+    width: 340px;
+    height: 480px;
+    background: radial-gradient(circle at 50% 20%, #2b133d 0%, #170924 60%, #0c0414 100%);
+    border-radius: 24px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.95), inset 0 1px 3px rgba(212, 0, 255, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.95);
+    border: 3px solid #5a1e7d;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.cyber-denoiser-pedal .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    cursor: move;
+    z-index: 20;
+}
+
+.cyber-denoiser-pedal .mod-plugin-brand {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.cyber-denoiser-pedal .mod-plugin-brand h1 {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #00e5ff;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.7);
+    margin: 0;
+}
+
+.cyber-denoiser-pedal .mod-plugin-name {
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 0, 255, 0.3);
+    padding-bottom: 4px;
+    margin: 2px 25px 6px 25px;
+}
+
+.cyber-denoiser-pedal .mod-plugin-name h1 {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #d400ff;
+    text-shadow: 0 0 12px rgba(212, 0, 255, 0.9);
+    margin: 0;
+}
+
+/* ========================================================
+   LIQUID SILK & 10-BAND SPECTRAL CANVAS VIEWPORT
+======================================================== */
+.cyber-denoiser-pedal .denoiser-display-wrap {
+    width: 310px;
+    height: 155px;
+    margin: 2px auto 6px auto;
+    background: #090310;
+    border-radius: 14px;
+    border: 2px solid #5a1e7d;
+    box-shadow: inset 0 0 20px rgba(212, 0, 255, 0.3), 0 2px 10px rgba(0,0,0,0.85);
+    overflow: hidden;
+    position: relative;
+}
+
+.cyber-denoiser-pedal .denoiser-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: ns-resize;
+}
+
+/* ========================================================
+   MASTER CONTROLS ROW
+======================================================== */
+.cyber-denoiser-pedal .mod-control-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    margin: 6px 0 4px 0 !important;
+}
+
+.cyber-denoiser-pedal .mod-knob,
+.cyber-denoiser-pedal .mod-switch-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 58px;
+    margin: 0;
+}
+
+/* Custom Interactive Rotary Knobs */
+.cyber-denoiser-pedal .custom-knob-dial {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #2a113a 0%, #12041a 75%, #05000a 100%);
+    border: 2px solid #d400ff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    position: relative;
+    cursor: ns-resize;
+    transition: border-color 0.15s ease;
+}
+
+.cyber-denoiser-pedal .custom-knob-dial:hover {
+    border-color: #00e5ff;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+}
+
+.cyber-denoiser-pedal .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    pointer-events: none;
+}
+
+.cyber-denoiser-pedal .knob-rotor::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 7px;
+    background: #00e5ff;
+    border-radius: 2px;
+    box-shadow: 0 0 6px #00e5ff;
+}
+
+/* Custom Interactive Switches */
+.cyber-denoiser-pedal .custom-switch-toggle {
+    width: 36px;
+    height: 22px;
+    background: #12041a;
+    border-radius: 12px;
+    border: 2px solid #5a1e7d;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.cyber-denoiser-pedal .custom-switch-toggle .switch-indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #4a1966;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: all 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+.cyber-denoiser-pedal .custom-switch-toggle.active {
+    border-color: #00e5ff;
+    background: rgba(0, 229, 255, 0.15);
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+}
+
+.cyber-denoiser-pedal .custom-switch-toggle.active .switch-indicator {
+    left: 16px;
+    background: #00e5ff;
+    box-shadow: 0 0 8px #00e5ff;
+}
+
+.cyber-denoiser-pedal .mod-knob-title,
+.cyber-denoiser-pedal .mod-switch-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #89e4f5;
+    letter-spacing: 0.8px;
+    margin-top: 3px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+}
+
+/* ========================================================
+   ILLUMINATED ARCADE LEARN BUTTON
+======================================================== */
+.cyber-denoiser-pedal .learn-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 6px 0 4px 0;
+}
+
+.cyber-denoiser-pedal .giant-learn-btn {
+    width: 270px;
+    height: 60px;
+    background: radial-gradient(circle at 50% 30%, #4d156b 0%, #200430 70%, #12011c 100%);
+    border: 3px solid #d400ff;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(212, 0, 255, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3), inset 0 -3px 6px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.12s ease-in-out;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 50;
+}
+
+.cyber-denoiser-pedal .giant-learn-btn * {
+    pointer-events: none !important;
+}
+
+.cyber-denoiser-pedal .giant-learn-btn:hover {
+    box-shadow: 0 6px 22px rgba(212, 0, 255, 0.7), inset 0 2px 6px rgba(255, 255, 255, 0.5);
+    border-color: #ff33ff;
+    transform: translateY(-1px);
+}
+
+.cyber-denoiser-pedal .giant-learn-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 8px rgba(212, 0, 255, 0.3), inset 0 3px 6px rgba(0, 0, 0, 0.9);
+}
+
+.cyber-denoiser-pedal .giant-learn-btn.learning-active {
+    background: radial-gradient(circle at 50% 30%, #00b4d8 0%, #0077b6 70%, #03045e 100%) !important;
+    border-color: #00e5ff !important;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.8) !important;
+    animation: learn-pulse 1s infinite alternate;
+}
+
+@keyframes learn-pulse {
+    from { box-shadow: 0 0 15px #00e5ff; }
+    to { box-shadow: 0 0 30px #00e5ff, 0 0 45px #0077b6; }
+}
+
+.cyber-denoiser-pedal .learn-btn-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cyber-denoiser-pedal .learn-btn-icon {
+    font-size: 14px;
+    color: #ff0055;
+    text-shadow: 0 0 8px #ff0055;
+}
+
+.cyber-denoiser-pedal .giant-learn-btn.learning-active .learn-btn-icon {
+    color: #00ff66;
+    text-shadow: 0 0 10px #00ff66;
+}
+
+.cyber-denoiser-pedal .learn-btn-text {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(212, 0, 255, 0.8);
+}
+
+.cyber-denoiser-pedal .learn-btn-status {
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #d1a3eb;
+    margin-top: 2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+}
+
+/* ========================================================
+   FOOTSWITCH & BYPASS LIGHT
+======================================================== */
+.cyber-denoiser-pedal .mod-light {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #190526;
+    border: 2px solid #5a1e7d;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.cyber-denoiser-pedal .mod-light.on,
+.cyber-denoiser-pedal.mod-pedal-on .mod-light {
+    background-color: #d400ff;
+    box-shadow: 0 0 14px #d400ff, 0 0 25px #a000cc, inset 0 1px 2px #ffffff;
+    border-color: #f0a3ff;
+}
+
+.cyber-denoiser-pedal .mod-footswitch {
+    position: absolute !important;
+    bottom: 16px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 66px !important;
+    height: 66px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 132px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.cyber-denoiser-pedal .mod-footswitch.on {
+    background-position-y: top !important;
+}

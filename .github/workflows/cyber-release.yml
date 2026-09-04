@@ -1,0 +1,139 @@
+name: Build & Release Cyber GuitarRackCraft APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'cyber_pack/**'
+      - 'cmake/targets/cyber_audio.cmake'
+      - '.github/workflows/cyber-release.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cyber-release
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Build Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential cmake ninja-build meson patchelf git curl ccache \
+            ocaml ocamlbuild ocaml-findlib libnum-ocaml-dev faust libboost-dev \
+            libx11-dev libxext-dev libxrender-dev libxrandr-dev libxi-dev \
+            libxfixes-dev libxcursor-dev libxxf86vm-dev libfreetype-dev \
+            fonts-liberation fonts-dejavu
+
+      - name: Init Native Submodules (LV2 / Audio / X11)
+        run: |
+          git submodule update --init \
+            3rd_party/serd 3rd_party/zix 3rd_party/sord 3rd_party/lv2 3rd_party/sratom 3rd_party/lilv \
+            3rd_party/GxPlugins.lv2.Android 3rd_party/guitarix 3rd_party/oboe 3rd_party/fftw3 \
+            3rd_party/doubletracker.lv2 3rd_party/FatFrog.lv2 3rd_party/CollisionDrive 3rd_party/MetalTone \
+            3rd_party/GxCabSim.lv2 3rd_party/ModularAmpToolKit.lv2 3rd_party/XTinyTerror 3rd_party/XDarkTerror \
+            3rd_party/ImpulseLoader 3rd_party/NeuralRack 3rd_party/AIDA-X 3rd_party/aidadsp-lv2 \
+            3rd_party/neural-amp-modeler-lv2 3rd_party/eigen 3rd_party/expat 3rd_party/libsndfile \
+            3rd_party/x11/xorgproto 3rd_party/x11/xtrans 3rd_party/x11/libXau 3rd_party/x11/xcb-proto \
+            3rd_party/x11/libxcb 3rd_party/x11/libX11 3rd_party/x11/libXext 3rd_party/x11/libXrender \
+            3rd_party/x11/pixman 3rd_party/x11/libpng 3rd_party/x11/cairo 3rd_party/x11/util-macros \
+            3rd_party/x11/libXdmcp 3rd_party/x11/libXi 3rd_party/x11/libXfixes 3rd_party/x11/libXrandr \
+            3rd_party/x11/libXcursor 3rd_party/x11/libXxf86vm
+
+      - name: Locate Android NDK
+        run: |
+          if [ -d "$ANDROID_SDK_ROOT/ndk/27.2.12479018" ]; then
+            echo "ANDROID_NDK=$ANDROID_SDK_ROOT/ndk/27.2.12479018" >> $GITHUB_ENV
+          else
+            LATEST_NDK=$(ls -d $ANDROID_SDK_ROOT/ndk/* | sort -V | tail -1)
+            echo "ANDROID_NDK=$LATEST_NDK" >> $GITHUB_ENV
+          fi
+
+      - name: Build Native LV2 Plugins & Cyber Audio Suite
+        run: |
+          echo "Using NDK: $ANDROID_NDK"
+          BUILD_VST=0 ./build.sh full
+
+      - name: Generate Self-Signed Keystore
+        run: |
+          keytool -genkey -v \
+            -keystore "$RUNNER_TEMP/cyber.keystore" \
+            -alias cyberaudio \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass cyberaudio \
+            -keypass cyberaudio \
+            -dname "CN=Cyber Audio, OU=Guitar, O=Cyber, L=London, ST=UK, C=GB"
+
+      - name: Build Signed Full Release APK
+        run: |
+          ./gradlew assembleFullRelease \
+            -PRELEASE_STORE_FILE="$RUNNER_TEMP/cyber.keystore" \
+            -PRELEASE_STORE_PASSWORD=cyberaudio \
+            -PRELEASE_KEY_ALIAS=cyberaudio \
+            -PRELEASE_KEY_PASSWORD=cyberaudio
+
+      - name: Locate & Stage APK
+        id: stage-apk
+        run: |
+          APK=$(find app/build/outputs/apk/full/release -name '*.apk' | head -1)
+          if [ -z "$APK" ]; then
+            echo "::error::No release APK found!"
+            exit 1
+          fi
+          mkdir -p dist
+          cp "$APK" dist/CyberRackCraft-Pixel8Pro.apk
+          ls -lh dist/CyberRackCraft-Pixel8Pro.apk
+          echo "apk_path=dist/CyberRackCraft-Pixel8Pro.apk" >> $GITHUB_OUTPUT
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CyberRackCraft-Pixel8Pro-APK
+          path: dist/CyberRackCraft-Pixel8Pro.apk
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0-cyber
+          name: "Cyber GuitarRackCraft v1.0.0 (Google Pixel 8 Pro Edition)"
+          draft: false
+          prerelease: false
+          body: |
+            ## 🎸 Cyber GuitarRackCraft v1.0.0 — Pixel 8 Pro Edition
+
+            Custom release of **GuitarRackCraft** featuring Danny's complete **Cyber Audio Rig**:
+            
+            ### ✨ Included Cyber Audio Gear:
+            - **20 Valve Amps**: Friedman BE-100, Fender Deluxe/Bassman/Vibrolux/Vibroverb, Marshall JTM45, Vox AC30TB/PA, Orange OR120, Dumble ODS, Trainwreck Express, Koch The Greg, Two-Rock CRS, Hiwatt DR504, Matchless DC30, Roland JC-120, Rockman X100, Tone King Imperial, Magnatone 280, Traynor YCV40.
+            - **Galaxy Strobe Tuner**: High-precision 200% square strobe tuner pedal with HeadRush AGC auto-gain staging, sweetened guitar profiles, and live stage signal mute.
+            - **Boutique Pedals**: Smart Fizz Killer, Cyber Denoiser, Harmonic Tremolo, Cyber Screamer, Klon, Blues Driver, Guv'nor, DS-1, Noble Drive, Spring Reverb, Cloud Bloom, Acoustic Feedbacker, Hum Killer, Piezo Thump Killer.
+            - **Touchscreen MOD-GUI Interfaces**: Fully interactive HTML5/CSS pedals with customized neon visualizers and retro dials.
+            
+            ### 📲 How to Install on your Google Pixel 8 Pro:
+            1. Download `CyberRackCraft-Pixel8Pro.apk` directly on your phone.
+            2. Open the downloaded file and tap **Install**.
+            3. Connect your USB-C OTG hub, plug in your guitar audio interface and headphones.
+            4. Launch CyberRackCraft and enjoy ultra-low-latency real-time performance!
+          files: |
+            dist/CyberRackCraft-Pixel8Pro.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

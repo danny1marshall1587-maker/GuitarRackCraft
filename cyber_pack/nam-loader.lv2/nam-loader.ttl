@@ -1,0 +1,210 @@
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix bufs:  <http://lv2plug.in/ns/ext/buf-size#> .
+
+<http://moddevices.com/plugins/danny/nam-loader>
+    a lv2:Plugin ,
+      lv2:SimulatorPlugin ;
+    doap:name "Neural Amp Modeler (NAM Loader)" ;
+    doap:license <http://opensource.org/licenses/mit> ;
+    mod:brand "CyberAudio" ;
+    mod:label "NAM Loader" ;
+    rdfs:comment "Dual-slot NAM loader with Slim/Full quality modes and MIDI CC preset switching between Slot A and Slot B amp models." ;
+    lv2:extensionData state:interface ;
+    lv2:requiredFeature urid:map ;
+    lv2:optionalFeature bufs:boundedBlockLength ;
+
+    lv2:port [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "In" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out" ;
+        lv2:name "Out" ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 2 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "profile_a" ;
+        lv2:name "Slot A Model" ;
+        lv2:default 8 ;
+        lv2:minimum 0 ;
+        lv2:maximum 23 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Fender '65 Deluxe Reverb"       ; rdf:value 0  ] ,
+                        [ rdfs:label "Fender '59 Tweed Bassman"       ; rdf:value 1  ] ,
+                        [ rdfs:label "Dumble ODS Clean Channel"        ; rdf:value 2  ] ,
+                        [ rdfs:label "Matchless DC-30 Clean"           ; rdf:value 3  ] ,
+                        [ rdfs:label "Vox AC30 Top Boost 1964"         ; rdf:value 4  ] ,
+                        [ rdfs:label "Marshall Bluesbreaker 1962"      ; rdf:value 5  ] ,
+                        [ rdfs:label "Marshall JTM45 Plexi"            ; rdf:value 6  ] ,
+                        [ rdfs:label "Orange Rockerverb 50"            ; rdf:value 7  ] ,
+                        [ rdfs:label "Marshall JCM800 2203"            ; rdf:value 8  ] ,
+                        [ rdfs:label "Soldano SLO-100 Super Lead"      ; rdf:value 9  ] ,
+                        [ rdfs:label "Peavey 5150 Block Letter"        ; rdf:value 10 ] ,
+                        [ rdfs:label "Mesa Dual Rectifier Multi-Watt"  ; rdf:value 11 ] ,
+                        [ rdfs:label "Friedman BE-100 Brown Eye"       ; rdf:value 12 ] ,
+                        [ rdfs:label "Bogner Ecstasy 101B Red"         ; rdf:value 13 ] ,
+                        [ rdfs:label "ENGL Powerball II Lead"          ; rdf:value 14 ] ,
+                        [ rdfs:label "Diezel VH4 Channel 3"            ; rdf:value 15 ] ,
+                        [ rdfs:label "Ampeg SVT-CL Classic Stack"      ; rdf:value 16 ] ,
+                        [ rdfs:label "Darkglass Microtubes B7K"        ; rdf:value 17 ] ,
+                        [ rdfs:label "Acoustic Tube DI Preamp"         ; rdf:value 18 ] ,
+                        [ rdfs:label "Klon Centaur Gold Horsie"        ; rdf:value 19 ] ,
+                        [ rdfs:label "Ibanez TS808 Tube Screamer"      ; rdf:value 20 ] ,
+                        [ rdfs:label "ProCo Rat 2 Vintage LM308"       ; rdf:value 21 ] ,
+                        [ rdfs:label "Electro-Harmonix Big Muff Pi"    ; rdf:value 22 ] ,
+                        [ rdfs:label "King of Tone High Gain Side"     ; rdf:value 23 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "drive" ;
+        lv2:name "Gain" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "bass" ;
+        lv2:name "Bass" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "mid" ;
+        lv2:name "Mid" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "treble" ;
+        lv2:name "Treble" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "volume" ;
+        lv2:name "Master" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "gate" ;
+        lv2:name "Noise Gate" ;
+        lv2:default -80.0 ;
+        lv2:minimum -80.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "cab_enable" ;
+        lv2:name "Cab IR" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "quality" ;
+        lv2:name "Quality" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Slim (Fast)" ; rdf:value 0 ] ,
+                        [ rdfs:label "Full"        ; rdf:value 1 ] ;
+    ] , [
+        a lv2:AtomPort , lv2:InputPort ;
+        atom:bufferType atom:Sequence ;
+        atom:supports midi:MidiEvent ;
+        lv2:index 12 ;
+        lv2:symbol "midi_in" ;
+        lv2:name "MIDI In" ;
+        rsz:minimumSize 4096 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "midi_cc" ;
+        lv2:name "MIDI CC# (Slot Switch)" ;
+        lv2:default 20 ;
+        lv2:minimum 0 ;
+        lv2:maximum 127 ;
+        lv2:portProperty lv2:integer ;
+        units:unit units:midiController ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "active_slot" ;
+        lv2:name "Active Slot" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Slot A" ; rdf:value 0 ] ,
+                        [ rdfs:label "Slot B" ; rdf:value 1 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "profile_b" ;
+        lv2:name "Slot B Model" ;
+        lv2:default 9 ;
+        lv2:minimum 0 ;
+        lv2:maximum 23 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Fender '65 Deluxe Reverb"       ; rdf:value 0  ] ,
+                        [ rdfs:label "Fender '59 Tweed Bassman"       ; rdf:value 1  ] ,
+                        [ rdfs:label "Dumble ODS Clean Channel"        ; rdf:value 2  ] ,
+                        [ rdfs:label "Matchless DC-30 Clean"           ; rdf:value 3  ] ,
+                        [ rdfs:label "Vox AC30 Top Boost 1964"         ; rdf:value 4  ] ,
+                        [ rdfs:label "Marshall Bluesbreaker 1962"      ; rdf:value 5  ] ,
+                        [ rdfs:label "Marshall JTM45 Plexi"            ; rdf:value 6  ] ,
+                        [ rdfs:label "Orange Rockerverb 50"            ; rdf:value 7  ] ,
+                        [ rdfs:label "Marshall JCM800 2203"            ; rdf:value 8  ] ,
+                        [ rdfs:label "Soldano SLO-100 Super Lead"      ; rdf:value 9  ] ,
+                        [ rdfs:label "Peavey 5150 Block Letter"        ; rdf:value 10 ] ,
+                        [ rdfs:label "Mesa Dual Rectifier Multi-Watt"  ; rdf:value 11 ] ,
+                        [ rdfs:label "Friedman BE-100 Brown Eye"       ; rdf:value 12 ] ,
+                        [ rdfs:label "Bogner Ecstasy 101B Red"         ; rdf:value 13 ] ,
+                        [ rdfs:label "ENGL Powerball II Lead"          ; rdf:value 14 ] ,
+                        [ rdfs:label "Diezel VH4 Channel 3"            ; rdf:value 15 ] ,
+                        [ rdfs:label "Ampeg SVT-CL Classic Stack"      ; rdf:value 16 ] ,
+                        [ rdfs:label "Darkglass Microtubes B7K"        ; rdf:value 17 ] ,
+                        [ rdfs:label "Acoustic Tube DI Preamp"         ; rdf:value 18 ] ,
+                        [ rdfs:label "Klon Centaur Gold Horsie"        ; rdf:value 19 ] ,
+                        [ rdfs:label "Ibanez TS808 Tube Screamer"      ; rdf:value 20 ] ,
+                        [ rdfs:label "ProCo Rat 2 Vintage LM308"       ; rdf:value 21 ] ,
+                        [ rdfs:label "Electro-Harmonix Big Muff Pi"    ; rdf:value 22 ] ,
+                        [ rdfs:label "King of Tone High Gain Side"     ; rdf:value 23 ] ;
+    ] .

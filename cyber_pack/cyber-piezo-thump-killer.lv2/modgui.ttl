@@ -1,0 +1,63 @@
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<http://cyberaudio.com/plugins/cyber-piezo-thump-killer>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-piezo-thump-killer.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "Cyber Audio" ;
+        modgui:label "Thump Killer" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "#382315" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "hpf_freq" ;
+            lv2:name "Rumble Cut" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "thump_freq" ;
+            lv2:name "Thump Freq" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "thump_sens" ;
+            lv2:name "Thump Sens" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "thump_depth" ;
+            lv2:name "Thump Depth" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "mud_freq" ;
+            lv2:name "Mud Freq" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "mud_sens" ;
+            lv2:name "Mud Sens" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "mud_depth" ;
+            lv2:name "Mud Depth" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "harmonics" ;
+            lv2:name "Harmonics" ;
+        ] , [
+            lv2:index 8 ;
+            lv2:symbol "peak_clamp" ;
+            lv2:name "Spike Clamp" ;
+        ] , [
+            lv2:index 9 ;
+            lv2:symbol "listen" ;
+            lv2:name "Listen Mode" ;
+        ] , [
+            lv2:index 10 ;
+            lv2:symbol "out_gain" ;
+            lv2:name "Output Level" ;
+        ] ;
+    ] .

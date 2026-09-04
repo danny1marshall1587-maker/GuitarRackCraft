@@ -1,0 +1,91 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} mod-black black tone3000-pedal{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <!-- Branding -->
+    <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
+    <div class="mod-plugin-name"><h1>TONE 3000</h1></div>
+
+    <div class="mod-light on" mod-role="bypass-light" title="Bypass LED"></div>
+
+    <!-- OLED Screen & Capture Info -->
+    <div class="t3k-oled-screen">
+        <div class="t3k-oled-top">
+            <span class="t3k-oled-badge">NAM &bull; TONE3000</span>
+            <span class="t3k-oled-cat" id="t3k-screen-cat">ACOUSTIC</span>
+        </div>
+        <div class="t3k-oled-body">
+            <button type="button" class="t3k-oled-arrow" id="t3k-btn-prev" title="Previous Capture">&lsaquo;</button>
+            <div class="t3k-oled-text">
+                <div class="t3k-oled-title" id="t3k-screen-title">Martin D-45 Studio Mic</div>
+                <div class="t3k-oled-sub" id="t3k-screen-sub">Cab: Neumann U87 Condenser</div>
+            </div>
+            <button type="button" class="t3k-oled-arrow" id="t3k-btn-next" title="Next Capture">&rsaquo;</button>
+        </div>
+    </div>
+
+    <!-- Big Glowing Trigger Button for Full-Screen TONE3000 Cloud Overlay -->
+    <div class="t3k-cloud-trigger-wrap">
+        <button type="button" class="t3k-cloud-trigger-btn" id="t3k-cloud-trigger-btn" title="Open Full-Screen TONE3000 Cloud Tone Browser">
+            <span class="t3k-cloud-btn-icon">&#9729;</span> OPEN TONE3000 CLOUD
+        </button>
+    </div>
+
+    <!-- 6 Standard MOD-UI Control Knobs (Native rendering, zero lag) -->
+    <div class="mod-control-group row-1 clearfix">
+        <div class="mod-knob" title="Input Gain / Saturation Drive">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="input_gain"></div>
+            <span class="mod-knob-title">GAIN</span>
+        </div>
+        <div class="mod-knob" title="Noise Gate Threshold (Off / -80 to -20 dB)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="gate"></div>
+            <span class="mod-knob-title">GATE</span>
+        </div>
+        <div class="mod-knob" title="Master Output Level">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level"></div>
+            <span class="mod-knob-title">LEVEL</span>
+        </div>
+    </div>
+
+    <div class="mod-control-group row-2 clearfix">
+        <div class="mod-knob" title="Bass Frequency EQ">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass"></div>
+            <span class="mod-knob-title">BASS</span>
+        </div>
+        <div class="mod-knob" title="Midrange EQ">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid"></div>
+            <span class="mod-knob-title">MID</span>
+        </div>
+        <div class="mod-knob" title="Treble EQ">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble"></div>
+            <span class="mod-knob-title">TREBLE</span>
+        </div>
+    </div>
+
+    <!-- Hidden Control Ports for Model & IR -->
+    <div style="display:none;">
+        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="model" id="t3k-port-model"></div>
+        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ir" id="t3k-port-ir"></div>
+        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ir_blend" id="t3k-port-blend"></div>
+    </div>
+
+    <!-- Footswitch Bypass -->
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Engage / Bypass)"></div>
+
+    <!-- Standard Input Audio Jacks (MOD-UI Native 1/4 inch jacks) -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+
+    <!-- Standard Output Audio Jacks (MOD-UI Native 1/4 inch jacks) -->
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

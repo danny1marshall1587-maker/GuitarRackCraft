@@ -1,0 +1,169 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} matchless-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="matchless-lip-top"></div>
+
+    <div class="matchless-faceplate">
+        <div class="matchless-left-flank">
+            <div class="matchless-jewel-holder" title="Matchless Emerald Jewel">
+                <div class="matchless-jewel emerald" id="matchless-jewel"></div>
+            </div>
+            <div class="matchless-branding">
+                <span class="matchless-brand-title">MATCHLESS</span>
+                <span class="matchless-model-title">DC-30 CLASS A</span>
+            </div>
+        </div>
+
+        <div class="matchless-separator"></div>
+
+        <!-- Section 1: Channel 1 (12AX7) -->
+        <div class="matchless-section">
+            <div class="matchless-sec-header">CH 1 &bull; 12AX7 CHIME</div>
+            <div class="matchless-controls-row">
+                <div class="matchless-knob-unit" title="Ch 1 Volume (0 - 10)">
+                    <div class="matchless-dial custom-knob-dial" data-symbol="ch1_vol" data-min="0" data-max="10" data-default="10.0">
+                        <div class="matchless-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch1_vol" style="display:none;"></div>
+                    <span class="matchless-lbl">VOLUME</span>
+                </div>
+
+                <div class="matchless-knob-unit" title="Ch 1 Bass (0 - 10)">
+                    <div class="matchless-dial custom-knob-dial" data-symbol="ch1_bass" data-min="0" data-max="10" data-default="3.5">
+                        <div class="matchless-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch1_bass" style="display:none;"></div>
+                    <span class="matchless-lbl">BASS</span>
+                </div>
+
+                <div class="matchless-knob-unit" title="Ch 1 Treble (0 - 10)">
+                    <div class="matchless-dial custom-knob-dial" data-symbol="ch1_treble" data-min="0" data-max="10" data-default="10.0">
+                        <div class="matchless-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch1_treble" style="display:none;"></div>
+                    <span class="matchless-lbl">TREBLE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="matchless-separator"></div>
+
+        <!-- Section 2: Channel 2 (EF86 Pentode) & Channel Switch -->
+        <div class="matchless-section">
+            <div class="matchless-sec-header">CH 2 &bull; EF86 PENTODE</div>
+            <div class="matchless-controls-row">
+                <!-- Channel Switch Button -->
+                <div class="matchless-channel-unit" title="Toggle Channel 1 (12AX7) / Channel 2 (EF86 Pentode)">
+                    <button type="button" class="matchless-ch-btn" id="matchless-ch-btn">
+                        <span class="matchless-ch-led" id="matchless-ch-led"></span>
+                        <span class="matchless-ch-txt" id="matchless-ch-txt">CH 1 (12AX7)</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel" style="display:none;"></div>
+                </div>
+
+                <div class="matchless-knob-unit" title="Ch 2 Volume (0 - 10)">
+                    <div class="matchless-dial custom-knob-dial" data-symbol="ch2_vol" data-min="0" data-max="10" data-default="4.7">
+                        <div class="matchless-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch2_vol" style="display:none;"></div>
+                    <span class="matchless-lbl">VOLUME</span>
+                </div>
+
+                <!-- 6-Position EF86 Tone Rotary Switch -->
+                <div class="matchless-toggle-unit" title="6-Position EF86 Tone Switch (Click to rotate positions 1 - 6)">
+                    <button type="button" class="matchless-mod-switch-pill" id="matchless-tone-btn">TONE 3</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ch2_tone" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="matchless-separator"></div>
+
+        <!-- Section 3: Cut & Master -->
+        <div class="matchless-section">
+            <div class="matchless-sec-header">CUT &bull; MASTER</div>
+            <div class="matchless-controls-row">
+                <div class="matchless-knob-unit" title="Cut Control in Phase Inverter (0 - 10)">
+                    <div class="matchless-dial custom-knob-dial" data-symbol="cut" data-min="0" data-max="10" data-default="0.0">
+                        <div class="matchless-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="cut" style="display:none;"></div>
+                    <span class="matchless-lbl">CUT</span>
+                </div>
+
+                <div class="matchless-knob-unit" title="Master Volume (0 - 10)">
+                    <div class="matchless-dial custom-knob-dial" data-symbol="master" data-min="0" data-max="10" data-default="10.0">
+                        <div class="matchless-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="master" style="display:none;"></div>
+                    <span class="matchless-lbl">MASTER</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="matchless-bottom-deck">
+        <div class="matchless-deck-control">
+            <span class="matchless-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="matchless-cab-cluster">
+                <div class="matchless-deck-selector" id="matchless-cab-btn" title="Click to change speaker cab (Matchless 2x12 Mismatched / 2x12 Alnico Silver / Bypass)">
+                    <span class="matchless-selector-val" id="matchless-cab-txt">Matchless 2x12 Mismatched (Stock)</span>
+                </div>
+
+                <div class="matchless-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="matchless-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="10.0">
+                        <div class="matchless-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="matchless-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="matchless-deck-control">
+            <span class="matchless-deck-lbl">OUTPUT LEVEL</span>
+            <div class="matchless-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="matchless-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="3.7">
+                    <div class="matchless-dial-cap mini-cap"></div>
+                    <div class="matchless-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="matchless-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="matchless-deck-control">
+            <span class="matchless-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="matchless-mod-switch-pill active" id="matchless-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

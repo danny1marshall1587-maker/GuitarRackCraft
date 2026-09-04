@@ -1,0 +1,95 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} mod-black black cyber-stomp-pedal{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
+    <div class="mod-plugin-name"><h1>CyberStomp</h1></div>
+
+    <!-- Power / Bypass Light -->
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- Stompbox Display Screen -->
+    <div class="stomp-display clearfix">
+        <div class="display-header">
+            <span class="din-icon">NEKTAR PACER / MIDI STOMP</span>
+            <span class="hit-indicator" mod-role="hit_status">READY</span>
+        </div>
+
+        <div class="sound-model-center">
+            <div class="model-title" mod-role="display_model">SUB STOMP BOX</div>
+            <div class="model-desc" mod-role="display_desc">Deep Stage Foot-Plate Low End</div>
+        </div>
+
+        <div class="sound-badges">
+            <span class="badge" mod-role="vel_badge">FIXED VEL 100%</span>
+            <span class="badge" mod-role="route_badge">MIX OUT L/R</span>
+        </div>
+    </div>
+
+    <!-- Interactive Stomp Pad / Footswitch Trigger -->
+    <div class="stomp-plate-section">
+        <div class="stomp-plate" title="Click to Stomp / Right-click for MIDI Learn (Nektar Pacer)" mod-role="input-control-port" mod-port-symbol="trigger" mod-widget="switch">
+            <div class="stomp-plate-inner">
+                <div class="stomp-hit-led" mod-role="hit_led"></div>
+                <div class="stomp-ribs">
+                    <div class="stomp-rib"></div>
+                    <div class="stomp-rib"></div>
+                    <div class="stomp-rib"></div>
+                    <div class="stomp-rib"></div>
+                </div>
+                <div class="stomp-plate-text">STOMP PAD</div>
+                <div class="stomp-hint">RIGHT-CLICK FOR MIDI LEARN</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls Row 1: Sound Tone & Dynamics -->
+    <div class="mod-control-group clearfix controls-row-1">
+        <div class="mod-knob" title="Select Sound (Sub Stomp, Cajon, Rock Kick, 808 Sub, Tambourine, Snare)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="model"></div>
+            <span class="mod-knob-title">SOUND</span>
+        </div>
+        <div class="mod-knob" title="Tuning (-12 to +12 Semitones - Tune kick to song key)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="pitch"></div>
+            <span class="mod-knob-title">TUNE</span>
+        </div>
+        <div class="mod-knob" title="Decay Time (Tight click to long resonant boom)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="decay"></div>
+            <span class="mod-knob-title">DECAY</span>
+        </div>
+        <div class="mod-knob" title="Beater Punch (Attack transient snap)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="punch"></div>
+            <span class="mod-knob-title">PUNCH</span>
+        </div>
+        <div class="mod-knob" title="Sub Thump (Deep 50Hz chest thump boost)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="sub_thump"></div>
+            <span class="mod-knob-title">SUB</span>
+        </div>
+        <div class="mod-knob" title="Tone / Top (Dark warm wood vs crisp top)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="tone"></div>
+            <span class="mod-knob-title">TONE</span>
+        </div>
+    </div>
+
+    <!-- Controls Row 2: Levels & Switches -->
+    <div class="mod-control-group clearfix controls-row-2">
+        <div class="mod-knob" title="Dry Guitar Pass-Through Volume">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="guitar_vol"></div>
+            <span class="mod-knob-title">GUITAR</span>
+        </div>
+        <div class="mod-knob" title="Stomp Box Volume">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="stomp_vol"></div>
+            <span class="mod-knob-title">STOMP</span>
+        </div>
+        <div class="mod-switch-wrap" title="Fixed Velocity (Full 100% strike on every foot tap)">
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="fixed_vel" mod-widget="switch"></div>
+            <span class="mod-switch-title">FIX VEL</span>
+        </div>
+        <div class="mod-switch-wrap" title="Routing Mode (Mix guitar+stomp vs Split Out L=Guitar, Out R=PA Stomp)">
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="output_mode" mod-widget="switch"></div>
+            <span class="mod-switch-title">ROUTING</span>
+        </div>
+    </div>
+
+    <!-- Master Bypass Footswitch -->
+    <div class="mod-footswitch" mod-role="bypass"></div>
+</div>

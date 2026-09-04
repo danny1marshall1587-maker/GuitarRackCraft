@@ -1,0 +1,303 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+<http://moddevices.com/plugins/danny/cyber-denoiser>
+    a lv2:Plugin ,
+      lv2:ExpanderPlugin ;
+    doap:name "Cyber-Denoiser PRO" ;
+    doap:license <http://opensource.org/licenses/mit> ;
+    mod:brand "CyberAudio" ;
+    mod:label "CyberDenoiser" ;
+    rdfs:comment "Zero-latency 10-band forensic spectral subtraction noise suppressor with liquid silk visualizer, 10-band threshold faders, and one-touch noise learn calibration." ;
+    
+    lv2:port [
+        a lv2:AudioPort ,
+          lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in_l" ;
+        lv2:name "In Left" ;
+    ] , [
+        a lv2:AudioPort ,
+          lv2:InputPort ;
+        lv2:index 1 ;
+        lv2:symbol "in_r" ;
+        lv2:name "In Right" ;
+    ] , [
+        a lv2:AudioPort ,
+          lv2:OutputPort ;
+        lv2:index 2 ;
+        lv2:symbol "out_l" ;
+        lv2:name "Out Left" ;
+    ] , [
+        a lv2:AudioPort ,
+          lv2:OutputPort ;
+        lv2:index 3 ;
+        lv2:symbol "out_r" ;
+        lv2:name "Out Right" ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "t1" ;
+        lv2:name "60 Hz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "t2" ;
+        lv2:name "150 Hz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "t3" ;
+        lv2:name "400 Hz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "t4" ;
+        lv2:name "800 Hz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "t5" ;
+        lv2:name "1.5 kHz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "t6" ;
+        lv2:name "3 kHz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "t7" ;
+        lv2:name "5 kHz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "t8" ;
+        lv2:name "8 kHz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "t9" ;
+        lv2:name "12 kHz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "t10" ;
+        lv2:name "16 kHz" ;
+        lv2:default -60.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "learn" ;
+        lv2:name "Learn Noise" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 16 ;
+        lv2:symbol "reduction" ;
+        lv2:name "Reduction" ;
+        lv2:default 100.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 17 ;
+        lv2:symbol "sensitivity" ;
+        lv2:name "Master Sensitivity" ;
+        lv2:default 0.0 ;
+        lv2:minimum -20.0 ;
+        lv2:maximum 20.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 18 ;
+        lv2:symbol "listen_noise" ;
+        lv2:name "Listen Noise" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 19 ;
+        lv2:symbol "low_cut" ;
+        lv2:name "Low Cut" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 20 ;
+        lv2:symbol "learning_status" ;
+        lv2:name "Learning Status" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 21 ;
+        lv2:symbol "l1" ;
+        lv2:name "Level 60" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 22 ;
+        lv2:symbol "l2" ;
+        lv2:name "Level 150" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 23 ;
+        lv2:symbol "l3" ;
+        lv2:name "Level 400" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 24 ;
+        lv2:symbol "l4" ;
+        lv2:name "Level 800" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 25 ;
+        lv2:symbol "l5" ;
+        lv2:name "Level 1.5k" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 26 ;
+        lv2:symbol "l6" ;
+        lv2:name "Level 3k" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 27 ;
+        lv2:symbol "l7" ;
+        lv2:name "Level 5k" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 28 ;
+        lv2:symbol "l8" ;
+        lv2:name "Level 8k" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 29 ;
+        lv2:symbol "l9" ;
+        lv2:name "Level 12k" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:OutputPort ;
+        lv2:index 30 ;
+        lv2:symbol "l10" ;
+        lv2:name "Level 16k" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] .

@@ -1,0 +1,71 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-ycv40>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-ycv40.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:brand "CyberAudio" ;
+        modgui:label "Traynor YCV40" ;
+        modgui:model "boxy" ;
+        modgui:panel "1-select" ;
+        modgui:color "black" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "clean_vol" ;
+            lv2:name "Vol" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "clean_treble" ;
+            lv2:name "Treble" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "clean_bass" ;
+            lv2:name "Bass" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "lead_gain" ;
+            lv2:name "Gain" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "lead_vol" ;
+            lv2:name "Lead" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "lead_treble" ;
+            lv2:name "Treble" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "lead_mid" ;
+            lv2:name "Mid" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "lead_bass" ;
+            lv2:name "Bass" ;
+        ] , [
+            lv2:index 8 ;
+            lv2:symbol "master" ;
+            lv2:name "Master" ;
+        ] , [
+            lv2:index 9 ;
+            lv2:symbol "reverb" ;
+            lv2:name "Reverb" ;
+        ] , [
+            lv2:index 10 ;
+            lv2:symbol "presence" ;
+            lv2:name "Pres" ;
+        ] , [
+            lv2:index 11 ;
+            lv2:symbol "speaker_drive" ;
+            lv2:name "Spk Drive" ;
+        ] , [
+            lv2:index 12 ;
+            lv2:symbol "noise_gate" ;
+            lv2:name "Zero Noise" ;
+        ]
+    ] .

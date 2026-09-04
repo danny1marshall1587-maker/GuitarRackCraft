@@ -1,0 +1,143 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} ac30tb-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="ac30tb-fawn-lip"></div>
+
+    <div class="ac30tb-faceplate">
+        <div class="ac30tb-left-flank">
+            <div class="ac30tb-jewel-holder" title="Vox Red Pilot Jewel">
+                <div class="ac30tb-jewel red" id="ac30tb-jewel"></div>
+            </div>
+            <div class="ac30tb-branding">
+                <span class="ac30tb-brand-title">VOX</span>
+                <span class="ac30tb-model-title">AC30 TOP BOOST</span>
+            </div>
+        </div>
+
+        <div class="ac30tb-separator"></div>
+
+        <!-- Section 1: Top Boost Channel -->
+        <div class="ac30tb-section">
+            <div class="ac30tb-sec-header">TOP BOOST &bull; BRILLIANT CHIME</div>
+            <div class="ac30tb-controls-row">
+                <div class="ac30tb-knob-unit" title="Top Boost Volume (0 - 10)">
+                    <div class="ac30tb-dial custom-knob-dial" data-symbol="tb_vol" data-min="0" data-max="10" data-default="6.4">
+                        <div class="ac30tb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="tb_vol" style="display:none;"></div>
+                    <span class="ac30tb-lbl">VOLUME</span>
+                </div>
+
+                <div class="ac30tb-knob-unit" title="Treble (0 - 10)">
+                    <div class="ac30tb-dial custom-knob-dial" data-symbol="tb_treble" data-min="0" data-max="10" data-default="6.9">
+                        <div class="ac30tb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="tb_treble" style="display:none;"></div>
+                    <span class="ac30tb-lbl">TREBLE</span>
+                </div>
+
+                <div class="ac30tb-knob-unit" title="Bass (0 - 10)">
+                    <div class="ac30tb-dial custom-knob-dial" data-symbol="tb_bass" data-min="0" data-max="10" data-default="5.0">
+                        <div class="ac30tb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="tb_bass" style="display:none;"></div>
+                    <span class="ac30tb-lbl">BASS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ac30tb-separator"></div>
+
+        <!-- Section 2: Normal Channel & Cut -->
+        <div class="ac30tb-section">
+            <div class="ac30tb-sec-header">NORMAL &bull; CUT CONTROL</div>
+            <div class="ac30tb-controls-row">
+                <div class="ac30tb-knob-unit" title="Normal Volume (0 - 10)">
+                    <div class="ac30tb-dial custom-knob-dial" data-symbol="norm_vol" data-min="0" data-max="10" data-default="6.4">
+                        <div class="ac30tb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="norm_vol" style="display:none;"></div>
+                    <span class="ac30tb-lbl">NORMAL</span>
+                </div>
+
+                <!-- Channel Link Jumper Button -->
+                <div class="ac30tb-toggle-unit" title="Channel Jumper / Link (Parallel Blend)">
+                    <button type="button" class="ac30tb-mod-switch-pill active" id="ac30tb-link-btn">JUMPERED</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel_link" style="display:none;"></div>
+                </div>
+
+                <div class="ac30tb-knob-unit" title="Cut Control in Phase Inverter (0 - 10)">
+                    <div class="ac30tb-dial custom-knob-dial" data-symbol="cut" data-min="0" data-max="10" data-default="0.0">
+                        <div class="ac30tb-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="cut" style="display:none;"></div>
+                    <span class="ac30tb-lbl">CUT</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="ac30tb-bottom-deck">
+        <div class="ac30tb-deck-control">
+            <span class="ac30tb-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="ac30tb-cab-cluster">
+                <div class="ac30tb-deck-selector" id="ac30tb-cab-btn" title="Click to change speaker cab (2x12 Celestion Alnico Blue / 2x12 Greenback / Bypass)">
+                    <span class="ac30tb-selector-val" id="ac30tb-cab-txt">2x12" Celestion Alnico Blue (Stock)</span>
+                </div>
+
+                <div class="ac30tb-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="ac30tb-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="5.0">
+                        <div class="ac30tb-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="ac30tb-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="ac30tb-deck-control">
+            <span class="ac30tb-deck-lbl">OUTPUT LEVEL</span>
+            <div class="ac30tb-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="ac30tb-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="4.7">
+                    <div class="ac30tb-dial-cap mini-cap"></div>
+                    <div class="ac30tb-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="ac30tb-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="ac30tb-deck-control">
+            <span class="ac30tb-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="ac30tb-mod-switch-pill active" id="ac30tb-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

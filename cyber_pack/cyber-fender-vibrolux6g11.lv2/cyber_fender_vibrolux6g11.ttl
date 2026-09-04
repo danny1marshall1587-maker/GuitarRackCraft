@@ -1,0 +1,149 @@
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod:  <http://moddevices.com/ns/mod#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-fender-vibrolux6g11>
+    a lv2:Plugin , lv2:SimulatorPlugin ;
+    doap:name "Fender Brownface Vibrolux 6G11" ;
+    doap:license <http://opensource.org/licenses/isc> ;
+    lv2:minorVersion 1 ;
+    lv2:microVersion 0 ;
+    rdfs:comment "Authentic analog circuit emulation of the 1961 Fender Brownface Vibrolux (6G11). Normal & Bright channels, 30W 2x 6L6GC power stage with GZ34 rectifier sag, bias-wiggle tremolo, 1x12 Oxford 12L6 dynamic speaker stress, and zero-latency smart noise suppressor." ;
+    mod:brand "Cyber Audio" ;
+    mod:label "Vibrolux 6G11" ;
+
+    lv2:port [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Input" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out" ;
+        lv2:name "Output" ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 2 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation lv2:enabled ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "channel" ;
+        lv2:name "Channel (Normal / Bright)" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "norm_vol" ;
+        lv2:name "Normal Vol" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "norm_bass" ;
+        lv2:name "Normal Bass" ;
+        lv2:default 5.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "norm_treble" ;
+        lv2:name "Normal Treble" ;
+        lv2:default 5.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "bright_vol" ;
+        lv2:name "Bright Vol" ;
+        lv2:default 5.1 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "bright_bass" ;
+        lv2:name "Bright Bass" ;
+        lv2:default 6.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "bright_treble" ;
+        lv2:name "Bright Treble" ;
+        lv2:default 7.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "trem_speed" ;
+        lv2:name "Tremolo Speed" ;
+        lv2:default 4.4 ;
+        lv2:minimum 1.0 ;
+        lv2:maximum 12.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "trem_intensity" ;
+        lv2:name "Tremolo Intensity" ;
+        lv2:default 30.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "speaker_cab" ;
+        lv2:name "Speaker Cabinet" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "1x12 Oxford 12L6 Brownface (Stock)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "1x12 Jensen P12Q" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "Direct Out / Cab Bypass" ; rdf:value 2 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "speaker_drive" ;
+        lv2:name "Cone Stress / Drive" ;
+        lv2:default 4.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "noise_gate" ;
+        lv2:name "Zero Noise Suppressor" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ]     , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "output_level" ;
+        lv2:name "Output Level" ;
+        lv2:default 4.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        rdfs:comment "Master Output Volume / Attenuator (-24dB to +6dB). Allows cranking Master for power amp saturation without blasting downstream pedals." ;
+    ] .

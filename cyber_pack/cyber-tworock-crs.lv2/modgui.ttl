@@ -1,0 +1,47 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-tworock-crs>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-tworock-crs.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:brand "Cyber Audio" ;
+        modgui:label "Two-Rock CRS" ;
+        modgui:model "boxy" ;
+        modgui:panel "1-select-1-knob" ;
+        modgui:color "zinc" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "gain" ;
+            lv2:name "Gain" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "treble" ;
+            lv2:name "Treble" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "middle" ;
+            lv2:name "Middle" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "bass" ;
+            lv2:name "Bass" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "contour" ;
+            lv2:name "Contour" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "master" ;
+            lv2:name "Master" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "speaker_drive" ;
+            lv2:name "Cone Drive" ;
+        ]
+    ] .

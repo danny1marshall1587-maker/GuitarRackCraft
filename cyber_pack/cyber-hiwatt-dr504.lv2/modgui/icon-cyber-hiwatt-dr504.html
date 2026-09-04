@@ -1,0 +1,169 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} hiwatt-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="hiwatt-white-piping"></div>
+
+    <div class="hiwatt-faceplate">
+        <div class="hiwatt-left-flank">
+            <div class="hiwatt-jewel-holder" title="Hiwatt Marine Blue Jewel">
+                <div class="hiwatt-jewel blue" id="hiwatt-jewel"></div>
+            </div>
+            <div class="hiwatt-branding">
+                <span class="hiwatt-brand-title">HIWATT</span>
+                <span class="hiwatt-model-title">CUSTOM 50</span>
+            </div>
+        </div>
+
+        <div class="hiwatt-separator"></div>
+
+        <!-- Section 1: Dual Preamp Channels & Jumper Link -->
+        <div class="hiwatt-section">
+            <div class="hiwatt-sec-header">PREAMP &bull; NORMAL / BRILLIANT</div>
+            <div class="hiwatt-controls-row">
+                <div class="hiwatt-knob-unit" title="Normal Channel Volume (0 - 10)">
+                    <div class="hiwatt-dial custom-knob-dial" data-symbol="normal_vol" data-min="0" data-max="10" data-default="5.0">
+                        <div class="hiwatt-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="normal_vol" style="display:none;"></div>
+                    <span class="hiwatt-lbl">NORMAL</span>
+                </div>
+
+                <div class="hiwatt-knob-unit" title="Brilliant Channel Volume (0 - 10)">
+                    <div class="hiwatt-dial custom-knob-dial" data-symbol="brill_vol" data-min="0" data-max="10" data-default="5.0">
+                        <div class="hiwatt-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="brill_vol" style="display:none;"></div>
+                    <span class="hiwatt-lbl">BRILL</span>
+                </div>
+
+                <!-- Input Link / Jumper Patch Button -->
+                <div class="hiwatt-toggle-unit" title="Channel Jumper / Link (Gilmour Parallel Patch)">
+                    <button type="button" class="hiwatt-mod-switch-pill active" id="hiwatt-link-btn">LINKED</button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="input_link" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hiwatt-separator"></div>
+
+        <!-- Section 2: Equalization -->
+        <div class="hiwatt-section">
+            <div class="hiwatt-sec-header">EQUALIZATION</div>
+            <div class="hiwatt-controls-row">
+                <div class="hiwatt-knob-unit" title="Bass (0 - 10)">
+                    <div class="hiwatt-dial custom-knob-dial" data-symbol="bass" data-min="0" data-max="10" data-default="5.0">
+                        <div class="hiwatt-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass" style="display:none;"></div>
+                    <span class="hiwatt-lbl">BASS</span>
+                </div>
+
+                <div class="hiwatt-knob-unit" title="Middle (0 - 10)">
+                    <div class="hiwatt-dial custom-knob-dial" data-symbol="middle" data-min="0" data-max="10" data-default="6.0">
+                        <div class="hiwatt-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="middle" style="display:none;"></div>
+                    <span class="hiwatt-lbl">MIDDLE</span>
+                </div>
+
+                <div class="hiwatt-knob-unit" title="Treble (0 - 10)">
+                    <div class="hiwatt-dial custom-knob-dial" data-symbol="treble" data-min="0" data-max="10" data-default="5.5">
+                        <div class="hiwatt-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble" style="display:none;"></div>
+                    <span class="hiwatt-lbl">TREBLE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hiwatt-separator"></div>
+
+        <!-- Section 3: Master & Presence -->
+        <div class="hiwatt-section">
+            <div class="hiwatt-sec-header">MASTER &bull; PRESENCE</div>
+            <div class="hiwatt-controls-row">
+                <div class="hiwatt-knob-unit" title="Presence (0 - 10)">
+                    <div class="hiwatt-dial custom-knob-dial" data-symbol="presence" data-min="0" data-max="10" data-default="4.5">
+                        <div class="hiwatt-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="presence" style="display:none;"></div>
+                    <span class="hiwatt-lbl">PRESENCE</span>
+                </div>
+
+                <div class="hiwatt-knob-unit" title="Master Volume (0 - 10)">
+                    <div class="hiwatt-dial custom-knob-dial" data-symbol="master" data-min="0" data-max="10" data-default="5.5">
+                        <div class="hiwatt-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="master" style="display:none;"></div>
+                    <span class="hiwatt-lbl">MASTER</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="hiwatt-bottom-deck">
+        <div class="hiwatt-deck-control">
+            <span class="hiwatt-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="hiwatt-cab-cluster">
+                <div class="hiwatt-deck-selector" id="hiwatt-cab-btn" title="Click to change speaker cab (Hiwatt 4x12 Fane Purple-Backs / 2x12 Crescendo / Bypass)">
+                    <span class="hiwatt-selector-val" id="hiwatt-cab-txt">Hiwatt SE4122 Fane Purple-Backs (Stock)</span>
+                </div>
+
+                <div class="hiwatt-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="hiwatt-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="7.7">
+                        <div class="hiwatt-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="hiwatt-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="hiwatt-deck-control">
+            <span class="hiwatt-deck-lbl">OUTPUT LEVEL</span>
+            <div class="hiwatt-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="hiwatt-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="3.1">
+                    <div class="hiwatt-dial-cap mini-cap"></div>
+                    <div class="hiwatt-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="hiwatt-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="hiwatt-deck-control">
+            <span class="hiwatt-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="hiwatt-mod-switch-pill active" id="hiwatt-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

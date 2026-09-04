@@ -1,0 +1,137 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} magnatone-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="magnatone-gold-lip"></div>
+
+    <div class="magnatone-faceplate">
+        <div class="magnatone-left-flank">
+            <div class="magnatone-jewel-holder" title="Magnatone Golden Jewel">
+                <div class="magnatone-jewel amber" id="magnatone-jewel"></div>
+            </div>
+            <div class="magnatone-branding">
+                <span class="magnatone-brand-title">MAGNATONE</span>
+                <span class="magnatone-model-title">MODEL 280 VIBRATO</span>
+            </div>
+        </div>
+
+        <div class="magnatone-separator"></div>
+
+        <!-- Section 1: Vibrato Channel & True Pitch Shift -->
+        <div class="magnatone-section">
+            <div class="magnatone-sec-header">TRUE VARISTOR PITCH-SHIFTING VIBRATO</div>
+            <div class="magnatone-controls-row">
+                <!-- Channel Switch Button -->
+                <div class="magnatone-channel-unit" title="Toggle Channel (Normal / Vibrato)">
+                    <button type="button" class="magnatone-ch-btn is-vib" id="magnatone-ch-btn">
+                        <span class="magnatone-ch-txt" id="magnatone-ch-txt">VIBRATO CH</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel" style="display:none;"></div>
+                </div>
+
+                <div class="magnatone-knob-unit" title="Vibrato Volume (0 - 10)">
+                    <div class="magnatone-dial custom-knob-dial" data-symbol="vib_vol" data-min="0" data-max="10" data-default="5.6">
+                        <div class="magnatone-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vib_vol" style="display:none;"></div>
+                    <span class="magnatone-lbl">VOLUME</span>
+                </div>
+
+                <div class="magnatone-knob-unit" title="Vibrato Treble (0 - 10)">
+                    <div class="magnatone-dial custom-knob-dial" data-symbol="vib_treble" data-min="0" data-max="10" data-default="5.8">
+                        <div class="magnatone-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vib_treble" style="display:none;"></div>
+                    <span class="magnatone-lbl">TREBLE</span>
+                </div>
+
+                <div class="magnatone-knob-unit" title="Vibrato Bass (0 - 10)">
+                    <div class="magnatone-dial custom-knob-dial" data-symbol="vib_bass" data-min="0" data-max="10" data-default="5.0">
+                        <div class="magnatone-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vib_bass" style="display:none;"></div>
+                    <span class="magnatone-lbl">BASS</span>
+                </div>
+
+                <div class="magnatone-knob-unit" title="Varistor Vibrato Speed (1 - 10 Hz)">
+                    <div class="magnatone-dial custom-knob-dial pitch-knob" data-symbol="vib_speed" data-min="1" data-max="10" data-default="6.12">
+                        <div class="magnatone-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vib_speed" style="display:none;"></div>
+                    <span class="magnatone-lbl">SPEED</span>
+                </div>
+
+                <div class="magnatone-knob-unit" title="True Varistor Pitch Depth (0 - 100%)">
+                    <div class="magnatone-dial custom-knob-dial pitch-knob" data-symbol="vib_depth" data-min="0" data-max="100" data-default="33.0">
+                        <div class="magnatone-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vib_depth" style="display:none;"></div>
+                    <span class="magnatone-lbl">PITCH DEPTH</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="magnatone-bottom-deck">
+        <div class="magnatone-deck-control">
+            <span class="magnatone-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="magnatone-cab-cluster">
+                <div class="magnatone-deck-selector" id="magnatone-cab-btn" title="Click to change speaker cab (Magnatone 2x12 Oxford / Direct Bypass)">
+                    <span class="magnatone-selector-val" id="magnatone-cab-txt">Magnatone 2x12" Oxford (Stock)</span>
+                </div>
+
+                <div class="magnatone-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="magnatone-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="10.0">
+                        <div class="magnatone-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="magnatone-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="magnatone-deck-control">
+            <span class="magnatone-deck-lbl">OUTPUT LEVEL</span>
+            <div class="magnatone-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="magnatone-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="5.2">
+                    <div class="magnatone-dial-cap mini-cap"></div>
+                    <div class="magnatone-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="magnatone-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="magnatone-deck-control">
+            <span class="magnatone-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="magnatone-mod-switch-pill active" id="magnatone-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

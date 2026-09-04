@@ -1,0 +1,134 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} orange-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="orange-black-lip"></div>
+
+    <div class="orange-faceplate">
+        <div class="orange-left-flank">
+            <div class="orange-jewel-holder" title="Orange Neon Pilot Lamp">
+                <div class="orange-jewel amber" id="orange-jewel"></div>
+            </div>
+            <div class="orange-branding">
+                <span class="orange-brand-title">ORANGE</span>
+                <span class="orange-model-title">OR 120 GRAPHIC</span>
+            </div>
+        </div>
+
+        <div class="orange-separator"></div>
+
+        <!-- Section 1: "Pics Only" Graphic Controls -->
+        <div class="orange-section">
+            <div class="orange-sec-header">GRAPHIC "PICS ONLY" CIRCUIT</div>
+            <div class="orange-controls-row">
+                <!-- F.A.C. 6-Position Rotary Selector -->
+                <div class="orange-fac-unit" title="Click to cycle F.A.C. 6-position bass coupling capacitor selector">
+                    <span class="orange-glyph" title="F.A.C. Glyph">&#9881;</span>
+                    <button type="button" class="orange-fac-btn" id="orange-fac-btn">
+                        <span class="orange-fac-txt" id="orange-fac-txt">F.A.C. [3/6]</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="fac" style="display:none;"></div>
+                    <span class="orange-lbl">F.A.C.</span>
+                </div>
+
+                <div class="orange-knob-unit" title="Gain / Volume (0 - 10)">
+                    <span class="orange-glyph">&#128266;</span>
+                    <div class="orange-dial custom-knob-dial" data-symbol="gain" data-min="0" data-max="10" data-default="3.3">
+                        <div class="orange-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="gain" style="display:none;"></div>
+                    <span class="orange-lbl">GAIN</span>
+                </div>
+
+                <div class="orange-knob-unit" title="Bass Baxandall (0 - 10)">
+                    <span class="orange-glyph">&#9660;</span>
+                    <div class="orange-dial custom-knob-dial" data-symbol="bass" data-min="0" data-max="10" data-default="2.0">
+                        <div class="orange-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass" style="display:none;"></div>
+                    <span class="orange-lbl">BASS</span>
+                </div>
+
+                <div class="orange-knob-unit" title="Treble Baxandall (0 - 10)">
+                    <span class="orange-glyph">&#9650;</span>
+                    <div class="orange-dial custom-knob-dial" data-symbol="treble" data-min="0" data-max="10" data-default="6.9">
+                        <div class="orange-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble" style="display:none;"></div>
+                    <span class="orange-lbl">TREBLE</span>
+                </div>
+
+                <div class="orange-knob-unit" title="H.F. Drive / Presence (0 - 10)">
+                    <span class="orange-glyph">&#9889;</span>
+                    <div class="orange-dial custom-knob-dial" data-symbol="hf_drive" data-min="0" data-max="10" data-default="8.0">
+                        <div class="orange-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="hf_drive" style="display:none;"></div>
+                    <span class="orange-lbl">H.F. DRIVE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="orange-bottom-deck">
+        <div class="orange-deck-control">
+            <span class="orange-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="orange-cab-cluster">
+                <div class="orange-deck-selector" id="orange-cab-btn" title="Click to change speaker cab (Orange 4x12 / 4x12 Greenbacks / Bypass)">
+                    <span class="orange-selector-val" id="orange-cab-txt">Orange 4x12" Celestion (Stock)</span>
+                </div>
+
+                <div class="orange-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="orange-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="10.0">
+                        <div class="orange-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="orange-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="orange-deck-control">
+            <span class="orange-deck-lbl">OUTPUT LEVEL</span>
+            <div class="orange-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="orange-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="3.7">
+                    <div class="orange-dial-cap mini-cap"></div>
+                    <div class="orange-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="orange-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="orange-deck-control">
+            <span class="orange-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="orange-mod-switch-pill active" id="orange-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

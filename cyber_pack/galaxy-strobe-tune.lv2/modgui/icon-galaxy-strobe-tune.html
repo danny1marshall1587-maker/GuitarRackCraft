@@ -1,0 +1,111 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} mod-black black galaxy-strobe-pedal{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
+    <div class="mod-plugin-name"><h1>Galaxy Strobe PRO</h1></div>
+
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- Massive 200% Square Strobe Display Window with AGC Signal Presence Meter -->
+    <div class="mod-tuner-display clearfix" mod-role="tuner-display">
+        <!-- Live Signal Presence & AGC Staging Bar -->
+        <div class="signal-meter-container">
+            <span class="signal-meter-label">AGC SIGNAL</span>
+            <div class="signal-meter-track">
+                <div class="signal-meter-fill" mod-role="signal_meter"></div>
+            </div>
+            <span class="signal-status-tag" mod-role="signal_status">READY</span>
+        </div>
+
+        <!-- High-Visibility 12-Segment Strobe Laser Canvas & Note Overlay -->
+        <div class="strobe-canvas-wrap">
+            <canvas class="strobe-laser-canvas" width="240" height="240"></canvas>
+            <div class="note-display-overlay">
+                <h1 class="note-letter" mod-role="detected_note">--</h1>
+                <h3 class="cents-text" mod-role="cents_offset">--</h3>
+            </div>
+        </div>
+
+        <!-- Cents Deviation Scale Bar -->
+        <div class="cents-scale-bar">
+            <span class="scale-mark flat">♭ -50</span>
+            <div class="scale-center-indicator">
+                <div class="scale-needle" mod-role="scale_needle"></div>
+            </div>
+            <span class="scale-mark sharp">+50 ♯</span>
+        </div>
+
+        <div class="lock-indicator" mod-role="in_tune">
+            <span class="lock-dot"></span>
+            <span class="lock-text">IN TUNE</span>
+        </div>
+    </div>
+
+    <!-- Controls Area with Input Gain Multiplier, Stage Stability & Mute Mode -->
+    <div class="mod-control-group clearfix">
+        <div class="mod-knob" title="Input Gain Multiplier (0.1x to 10.0x Pre-Amp Boost)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="input_gain"></div>
+            <span class="mod-knob-title">GAIN</span>
+        </div>
+        <div class="mod-knob" title="Stage Stability (0.50 to 0.99) - Filters out hand vibrato & pick attack">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="stability"></div>
+            <span class="mod-knob-title">STABILITY</span>
+        </div>
+        <div class="mod-switch-wrap" title="Mute audio output while tuning">
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="mute_mode" mod-widget="switch"></div>
+            <span class="mod-switch-title">MUTE</span>
+        </div>
+        <div class="mod-knob" title="Reference Pitch (400Hz to 480Hz, Default 440Hz)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="ref_a"></div>
+            <span class="mod-knob-title">REF A</span>
+        </div>
+        <div class="mod-knob" title="Tuning Profile (Standard, Drop D, DADGAD, Open G)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="profile"></div>
+            <span class="mod-knob-title">PROFILE</span>
+        </div>
+        <div class="mod-knob" title="Capo Transpose Offset (0 to 12 Semitones)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="capo"></div>
+            <span class="mod-knob-title">CAPO</span>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Tap to Tune & Mute / Bypass)"></div>
+
+    <!-- MOD SDK Standard Input Connectors (Audio / MIDI / CV) -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.cv.input}}
+    </div>
+
+    <!-- MOD SDK Standard Output Connectors (Audio / MIDI / CV) -->
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

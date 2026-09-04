@@ -1,0 +1,212 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} friedman-amp-head{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="friedman-lip-top"></div>
+
+    <!-- Gold Anodized Plexi Faceplate -->
+    <div class="friedman-faceplate">
+        <div class="friedman-left-flank">
+            <div class="friedman-jewel-holder" title="Friedman Red Pilot Jewel">
+                <div class="friedman-jewel red" id="friedman-jewel"></div>
+            </div>
+            <div class="friedman-branding">
+                <span class="friedman-brand-title">FRIEDMAN</span>
+                <span class="friedman-model-title">BE-100</span>
+            </div>
+        </div>
+
+        <div class="friedman-separator"></div>
+
+        <!-- Section 1: Clean & Gain Stages -->
+        <div class="friedman-section">
+            <div class="friedman-sec-header">PREAMP &bull; BE / HBE GAIN</div>
+            <div class="friedman-controls-row">
+                <!-- Clean Volume -->
+                <div class="friedman-knob-unit" title="Clean Channel Volume (0 - 10)">
+                    <div class="friedman-dial custom-knob-dial" data-symbol="clean_vol" data-min="0" data-max="10" data-default="6.7">
+                        <div class="friedman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="clean_vol" style="display:none;"></div>
+                    <span class="friedman-lbl">CLEAN</span>
+                </div>
+
+                <!-- BE / HBE Lead Gain -->
+                <div class="friedman-knob-unit" title="BE / HBE Lead Gain (0 - 10)">
+                    <div class="friedman-dial custom-knob-dial" data-symbol="be_gain" data-min="0" data-max="10" data-default="6.4">
+                        <div class="friedman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="be_gain" style="display:none;"></div>
+                    <span class="friedman-lbl">GAIN</span>
+                </div>
+
+                <!-- Channel & Mode Buttons -->
+                <div class="friedman-btn-cluster">
+                    <button type="button" class="friedman-mode-btn active" id="friedman-ch-btn" title="Toggle Clean / BE Lead Channel">
+                        <span class="friedman-led red" id="friedman-ch-led"></span>
+                        <span class="friedman-btn-txt">BE LEAD</span>
+                    </button>
+                    <button type="button" class="friedman-mode-btn" id="friedman-hbe-btn" title="Toggle HBE Ultra High-Gain Mode">
+                        <span class="friedman-led amber" id="friedman-hbe-led"></span>
+                        <span class="friedman-btn-txt">HBE MODE</span>
+                    </button>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="channel" style="display:none;"></div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="hbe_mode" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="friedman-separator"></div>
+
+        <!-- Section 2: 3-Band Tone Stack -->
+        <div class="friedman-section">
+            <div class="friedman-sec-header">EQUALIZATION</div>
+            <div class="friedman-controls-row">
+                <!-- Bass -->
+                <div class="friedman-knob-unit" title="Bass (0 - 10)">
+                    <div class="friedman-dial custom-knob-dial" data-symbol="bass" data-min="0" data-max="10" data-default="6.7">
+                        <div class="friedman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass" style="display:none;"></div>
+                    <span class="friedman-lbl">BASS</span>
+                </div>
+
+                <!-- Middle -->
+                <div class="friedman-knob-unit" title="Middle (0 - 10)">
+                    <div class="friedman-dial custom-knob-dial" data-symbol="mid" data-min="0" data-max="10" data-default="6.2">
+                        <div class="friedman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid" style="display:none;"></div>
+                    <span class="friedman-lbl">MIDDLE</span>
+                </div>
+
+                <!-- Treble -->
+                <div class="friedman-knob-unit" title="Treble (0 - 10)">
+                    <div class="friedman-dial custom-knob-dial" data-symbol="treble" data-min="0" data-max="10" data-default="6.0">
+                        <div class="friedman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble" style="display:none;"></div>
+                    <span class="friedman-lbl">TREBLE</span>
+                </div>
+
+                <!-- Voicing Mini Toggles (C45, FAT, SAT) -->
+                <div class="friedman-switches-cluster">
+                    <div class="friedman-toggle-unit" title="C45 Custom Voicing Switch">
+                        <div class="friedman-bat-switch" id="friedman-sw-c45">
+                            <div class="friedman-bat-handle"></div>
+                        </div>
+                        <span class="friedman-sw-lbl">C45</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="c45" style="display:none;"></div>
+                    </div>
+
+                    <div class="friedman-toggle-unit" title="FAT Low-End Resonance Switch">
+                        <div class="friedman-bat-switch" id="friedman-sw-fat">
+                            <div class="friedman-bat-handle"></div>
+                        </div>
+                        <span class="friedman-sw-lbl">FAT</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="fat" style="display:none;"></div>
+                    </div>
+
+                    <div class="friedman-toggle-unit" title="SAT Diode Soft-Clipping Saturation">
+                        <div class="friedman-bat-switch" id="friedman-sw-sat">
+                            <div class="friedman-bat-handle"></div>
+                        </div>
+                        <span class="friedman-sw-lbl">SAT</span>
+                        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="sat" style="display:none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="friedman-separator"></div>
+
+        <!-- Section 3: Master & Presence -->
+        <div class="friedman-section">
+            <div class="friedman-sec-header">MASTER &bull; PRESENCE</div>
+            <div class="friedman-controls-row">
+                <!-- Master Volume -->
+                <div class="friedman-knob-unit" title="Master Volume (0 - 10)">
+                    <div class="friedman-dial custom-knob-dial" data-symbol="master" data-min="0" data-max="10" data-default="2.5">
+                        <div class="friedman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="master" style="display:none;"></div>
+                    <span class="friedman-lbl">MASTER</span>
+                </div>
+
+                <!-- Presence -->
+                <div class="friedman-knob-unit" title="Presence (0 - 10)">
+                    <div class="friedman-dial custom-knob-dial" data-symbol="presence" data-min="0" data-max="10" data-default="5.0">
+                        <div class="friedman-dial-cap"></div>
+                        <div class="knob-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="presence" style="display:none;"></div>
+                    <span class="friedman-lbl">PRESENCE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Amp Bar: Cabinet & Smart Zero-Floor Noise Suppressor -->
+    <div class="friedman-bottom-deck">
+        <div class="friedman-deck-control">
+            <span class="friedman-deck-lbl">SPEAKER CABINET &bull; DYNAMIC STRESS</span>
+            <div class="friedman-cab-cluster">
+                <div class="friedman-deck-selector" id="friedman-cab-btn" title="Click to change speaker cab (Friedman 4x12 Mixed / 4x12 Greenbacks / Bypass)">
+                    <span class="friedman-selector-val" id="friedman-cab-txt">Friedman 4x12 Mixed V30/GB (Stock)</span>
+                </div>
+
+                <div class="friedman-knob-unit mini" title="Speaker Stress / Voice Coil Drive (0 - 10)">
+                    <div class="friedman-dial custom-knob-dial mini-dial" data-symbol="speaker_drive" data-min="0" data-max="10" data-default="10.0">
+                        <div class="friedman-dial-cap mini-cap"></div>
+                        <div class="knob-rotor mini-rotor"></div>
+                    </div>
+                    <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_drive" style="display:none;"></div>
+                    <span class="friedman-lbl mini-lbl">CONE DRIVE</span>
+                </div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="speaker_cab" style="display:none;"></div>
+        </div>
+
+        
+        <!-- Master Output Level Control -->
+        <div class="friedman-deck-control">
+            <span class="friedman-deck-lbl">OUTPUT LEVEL</span>
+            <div class="friedman-knob-unit mini" title="Master Output Volume / Attenuator (0 - 10, default 7.0)">
+                <div class="friedman-dial custom-knob-dial mini-dial" data-symbol="output_level" data-min="0" data-max="10" data-default="2.8">
+                    <div class="friedman-dial-cap mini-cap"></div>
+                    <div class="friedman-rotor mini-rotor knob-rotor"></div>
+                </div>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output_level" style="display:none;"></div>
+                <span class="friedman-lbl mini-lbl">LEVEL</span>
+            </div>
+        </div>
+
+        <div class="friedman-deck-control">
+            <span class="friedman-deck-lbl">NOISE FLOOR</span>
+            <button type="button" class="friedman-mod-switch-pill active" id="friedman-gate-btn" title="Smart Zero-Floor Suppressor: Clean input tracking with zero latency and natural sustain">ZERO NOISE</button>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="noise_gate" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

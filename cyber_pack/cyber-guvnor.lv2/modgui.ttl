@@ -1,0 +1,59 @@
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-guvnor>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-guvnor.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "Cyber Audio" ;
+        modgui:label "Guv'nor" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "#201a12" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "gain" ;
+            lv2:name "Gain" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "bass" ;
+            lv2:name "Bass" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "middle" ;
+            lv2:name "Middle" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "treble" ;
+            lv2:name "Treble" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "level" ;
+            lv2:name "Level" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "bias" ;
+            lv2:name "Bias" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "sens" ;
+            lv2:name "Sens" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "sparkle" ;
+            lv2:name "Sparkle" ;
+        ] , [
+            lv2:index 8 ;
+            lv2:symbol "hot_rod" ;
+            lv2:name "Hot Rod" ;
+        ] , [
+            lv2:index 9 ;
+            lv2:symbol "mix" ;
+            lv2:name "Mix" ;
+        ] ;
+    ] .

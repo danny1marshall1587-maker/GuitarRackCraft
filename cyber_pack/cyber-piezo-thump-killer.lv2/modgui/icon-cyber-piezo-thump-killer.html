@@ -1,0 +1,176 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} thump-killer-pedal{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <!-- Top Branding -->
+    <div class="pedal-header">
+        <div class="brand-title">CYBER AUDIO</div>
+        <div class="pedal-title">PIEZO THUMP KILLER</div>
+        <div class="pedal-subtitle">ACOUSTIC DYNAMIC NOTCH & SPIKE CLAMP</div>
+    </div>
+
+    <!-- Bypass Jewel LED -->
+    <div class="mod-light on master-bypass-led" mod-role="bypass-light" title="Bypass LED"></div>
+
+    <!-- Mode Selector Bar -->
+    <div class="mode-bar">
+        <button type="button" class="mode-pill active" data-mode="0">NORMAL</button>
+        <button type="button" class="mode-pill" data-mode="1">AUDITION THUMP</button>
+        <button type="button" class="mode-pill" data-mode="2">AUDITION MUD</button>
+        <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="listen" style="display:none;"></div>
+    </div>
+
+    <!-- Band 1: Thump Notch (60-180 Hz) -->
+    <div class="section-card thump-card">
+        <div class="section-header">
+            <span class="section-badge badge-thump">BAND 1</span>
+            <span class="section-name">SUB THUMP NOTCH</span>
+            <div class="activity-led" id="thump-act-led" title="Thump Reduction Activity"></div>
+        </div>
+        <div class="knob-row">
+            <div class="knob-cell">
+                <div class="custom-knob-dial" data-symbol="thump_freq" data-min="60" data-max="180" data-default="95">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">FREQ</span>
+                <span class="knob-sublabel">95 Hz</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="thump_freq" style="display:none;"></div>
+            </div>
+            <div class="knob-cell">
+                <div class="custom-knob-dial" data-symbol="thump_sens" data-min="0" data-max="100" data-default="50">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">SENS</span>
+                <span class="knob-sublabel">THRESH</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="thump_sens" style="display:none;"></div>
+            </div>
+            <div class="knob-cell">
+                <div class="custom-knob-dial" data-symbol="thump_depth" data-min="0" data-max="24" data-default="14">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">DEPTH</span>
+                <span class="knob-sublabel">MAX CUT</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="thump_depth" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Band 2: Mud Notch (150-400 Hz) -->
+    <div class="section-card mud-card">
+        <div class="section-header">
+            <span class="section-badge badge-mud">BAND 2</span>
+            <span class="section-name">BODY MUD NOTCH</span>
+            <div class="activity-led" id="mud-act-led" title="Mud Reduction Activity"></div>
+        </div>
+        <div class="knob-row">
+            <div class="knob-cell">
+                <div class="custom-knob-dial" data-symbol="mud_freq" data-min="150" data-max="400" data-default="220">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">FREQ</span>
+                <span class="knob-sublabel">220 Hz</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mud_freq" style="display:none;"></div>
+            </div>
+            <div class="knob-cell">
+                <div class="custom-knob-dial" data-symbol="mud_sens" data-min="0" data-max="100" data-default="50">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">SENS</span>
+                <span class="knob-sublabel">THRESH</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mud_sens" style="display:none;"></div>
+            </div>
+            <div class="knob-cell">
+                <div class="custom-knob-dial" data-symbol="mud_depth" data-min="0" data-max="18" data-default="10">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">DEPTH</span>
+                <span class="knob-sublabel">MAX CUT</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mud_depth" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Utility Section: HPF, Harmonics, Spike Clamp, Output Level -->
+    <div class="section-card utility-card">
+        <div class="utility-row">
+            <div class="knob-cell util-cell">
+                <div class="custom-knob-dial util-dial" data-symbol="hpf_freq" data-min="20" data-max="100" data-default="40">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">RUMBLE</span>
+                <span class="knob-sublabel">HPF</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="hpf_freq" style="display:none;"></div>
+            </div>
+
+            <div class="knob-cell util-cell">
+                <div class="custom-knob-dial util-dial" data-symbol="harmonics" data-min="0" data-max="100" data-default="100">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">HARMONICS</span>
+                <span class="knob-sublabel">75%/25%</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="harmonics" style="display:none;"></div>
+            </div>
+
+            <div class="knob-cell util-cell">
+                <div class="custom-knob-dial util-dial clamp-dial" data-symbol="peak_clamp" data-min="-12" data-max="0" data-default="-4">
+                    <div class="knob-rotor clamp-rotor"></div>
+                </div>
+                <span class="knob-label highlight-label">SPIKE CLAMP</span>
+                <span class="knob-sublabel">CEILING</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="peak_clamp" style="display:none;"></div>
+            </div>
+
+            <div class="knob-cell util-cell">
+                <div class="custom-knob-dial util-dial" data-symbol="out_gain" data-min="-12" data-max="6" data-default="0">
+                    <div class="knob-rotor"></div>
+                </div>
+                <span class="knob-label">LEVEL</span>
+                <span class="knob-sublabel">TRIM</span>
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="out_gain" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stomp Footswitch -->
+    <div class="footswitch-area">
+        <div class="mod-footswitch" mod-role="bypass" title="Bypass / Engage"></div>
+        <div class="footswitch-label">BYPASS</div>
+    </div>
+
+    <!-- Standard Input Connectors -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.cv.input}}
+    </div>
+
+    <!-- Standard Output Connectors -->
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

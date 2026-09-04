@@ -1,0 +1,8 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-ds1>
+    a lv2:Plugin ;
+    lv2:binary <cyber_ds1.so> ;
+    rdfs:seeAlso <cyber-ds1.ttl> ,
+                 <modgui.ttl> .

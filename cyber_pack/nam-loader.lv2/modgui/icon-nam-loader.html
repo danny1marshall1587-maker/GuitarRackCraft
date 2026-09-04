@@ -1,0 +1,140 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} mod-black black nam-loader-pedal{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
+    <div class="mod-plugin-name"><h1>NEURAL AMP MODELER</h1></div>
+
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- OLED Display -->
+    <div class="nam-display clearfix">
+        <div class="nam-display-header">
+            <span class="nam-title-badge">TONE 3000 / NAM</span>
+            <span class="nam-folder-crumb" id="nam-folder-crumb">📁 03 - High Gain</span>
+        </div>
+        <div class="nam-center-info">
+            <div class="nam-nav-arrow nam-prev-btn" id="nam-prev-btn" title="Previous NAM Model">◀</div>
+            <div class="nam-text-block">
+                <div class="nam-model-name" id="nam-model-name">Marshall JCM800 2203</div>
+                <div class="nam-model-desc" id="nam-model-desc">Tight punchy 80s British rock rhythm</div>
+            </div>
+            <div class="nam-nav-arrow nam-next-btn" id="nam-next-btn" title="Next NAM Model">▶</div>
+        </div>
+        <div class="nam-display-footer">
+            <span class="nam-neural-tag">NEURAL WAVENET / LSTM</span>
+            <span class="nam-cat-badge" id="nam-cat-badge">Classic 80s Rock</span>
+            <span class="nam-cab-tag" id="nam-cab-tag">4x12 CAB IR: ON</span>
+        </div>
+    </div>
+
+    <!-- ── SLOT A / B selector row ────────────────────────────────────── -->
+    <div class="nam-slot-bar">
+        <div class="nam-slot-group">
+            <span class="nam-slot-label">SLOT A</span>
+            <div class="mod-knob nam-slot-knob" title="Slot A — NAM Model">
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="profile_a"></div>
+                <span class="mod-knob-title">MODEL A</span>
+            </div>
+        </div>
+
+        <!-- Active slot toggle button (A / B) -->
+        <div class="nam-slot-toggle-wrap">
+            <button type="button" class="nam-slot-toggle-btn" id="nam-slot-toggle-btn">◀ A</button>
+            <div style="display:none;">
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="active_slot" id="nam-active-slot-hidden"></div>
+            </div>
+            <div class="nam-slot-led-row">
+                <div class="nam-slot-led nam-slot-led-a active" id="nam-led-a"></div>
+                <div class="nam-slot-led nam-slot-led-b" id="nam-led-b"></div>
+            </div>
+        </div>
+
+        <div class="nam-slot-group">
+            <span class="nam-slot-label">SLOT B</span>
+            <div class="mod-knob nam-slot-knob" title="Slot B — NAM Model">
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="profile_b"></div>
+                <span class="mod-knob-title">MODEL B</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── MIDI CC row ─────────────────────────────────────────────────── -->
+    <div class="nam-midi-bar">
+        <span class="nam-midi-label">MIDI CC SLOT SWITCH</span>
+        <div class="mod-knob nam-midi-knob" title="MIDI CC number (0-127) that switches between Slot A and Slot B. CC value 0-63=A, 64-127=B.">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="midi_cc"></div>
+            <span class="mod-knob-title">CC #</span>
+        </div>
+        <div class="nam-midi-note">CC val 0–63 = A<br>64–127 = B</div>
+    </div>
+
+    <!-- ── Main Amp Controls Row 1 ─────────────────────────────────────── -->
+    <div class="mod-control-group row-1 clearfix">
+        <div class="mod-knob" title="Preamp Gain / Drive">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="drive"></div>
+            <span class="mod-knob-title">GAIN</span>
+        </div>
+        <div class="mod-knob" title="Bass EQ">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="bass"></div>
+            <span class="mod-knob-title">BASS</span>
+        </div>
+        <div class="mod-knob" title="Middle EQ">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid"></div>
+            <span class="mod-knob-title">MID</span>
+        </div>
+        <div class="mod-knob" title="Treble EQ">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="treble"></div>
+            <span class="mod-knob-title">TREBLE</span>
+        </div>
+    </div>
+
+    <!-- ── Amp Controls Row 2 ──────────────────────────────────────────── -->
+    <div class="mod-control-group row-2 clearfix">
+        <div class="mod-knob" title="Master Volume">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="volume"></div>
+            <span class="mod-knob-title">MASTER</span>
+        </div>
+        <div class="mod-knob" title="Noise Gate Threshold (dB)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="gate"></div>
+            <span class="mod-knob-title">GATE</span>
+        </div>
+        <div class="mod-switch-wrap" title="Speaker Cabinet IR Emulation">
+            <div class="mod-switch-image" mod-role="input-control-port" mod-port-symbol="cab_enable" mod-widget="switch"></div>
+            <span class="mod-switch-title">CAB IR</span>
+        </div>
+        <!-- Quality toggle -->
+        <div class="nam-quality-wrap" title="Quality: Slim=lower CPU, Full=rich tube saturation">
+            <button type="button" class="nam-quality-btn" id="nam-quality-btn">FULL</button>
+            <div style="display:none;">
+                <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="quality" id="nam-quality-hidden"></div>
+            </div>
+            <span class="mod-switch-title">QUALITY</span>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Engage / Bypass)"></div>
+
+    <!-- Standard I/O connectors -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}"
+             mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}"
+             mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}"
+             mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

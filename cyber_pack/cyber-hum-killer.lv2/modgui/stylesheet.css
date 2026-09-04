@@ -1,0 +1,289 @@
+/* Cyber Hum Killer PRO Stylesheet for MODEP / MOD-UI */
+
+.cyber-hum-pedal {
+    position: absolute;
+    width: 330px;
+    height: 480px;
+    background: radial-gradient(circle at 50% 25%, #221403 0%, #120a02 60%, #060301 100%);
+    border-radius: 24px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.95), inset 0 1px 3px rgba(255, 170, 0, 0.5), inset 0 -4px 8px rgba(0, 0, 0, 0.95);
+    border: 3px solid #d48817;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.cyber-hum-pedal .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    cursor: move;
+    z-index: 20;
+}
+
+.cyber-hum-pedal .mod-plugin-brand {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.cyber-hum-pedal .mod-plugin-brand h1 {
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    color: #ffaa00;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(255, 170, 0, 0.8);
+    margin: 0;
+}
+
+.cyber-hum-pedal .mod-plugin-name {
+    text-align: center;
+    border-bottom: 1.5px solid rgba(255, 170, 0, 0.3);
+    padding-bottom: 3px;
+    margin: 1px 20px 6px 20px;
+}
+
+.cyber-hum-pedal .mod-plugin-name h1 {
+    font-size: 14.5px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 170, 0, 0.9);
+    margin: 0;
+}
+
+/* ========================================================
+   CANVAS SPECTRAL VISUALIZER & FADERS
+======================================================== */
+.cyber-hum-pedal .humkiller-display-wrap {
+    width: 310px;
+    height: 155px;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 2px solid #805010;
+    box-shadow: inset 0 0 20px rgba(255, 170, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    background: #080502;
+}
+
+.cyber-hum-pedal .humkiller-canvas {
+    display: block;
+    cursor: pointer;
+}
+
+/* ========================================================
+   MASTER ROTARY KNOBS & TOGGLES
+======================================================== */
+.cyber-hum-pedal .mod-control-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    margin-top: 10px;
+}
+
+.cyber-hum-pedal .mod-knob,
+.cyber-hum-pedal .mod-switch-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    margin: 0;
+}
+
+.cyber-hum-pedal .custom-knob-dial {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #2a1b07 0%, #0d0702 100%);
+    border: 2px solid #ffaa00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    position: relative;
+    cursor: pointer;
+}
+
+.cyber-hum-pedal .custom-knob-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 14px;
+    background: #ffaa00;
+    border-radius: 1.5px;
+    box-shadow: 0 0 6px #ffaa00;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.cyber-hum-pedal .mod-knob-title,
+.cyber-hum-pedal .mod-switch-title {
+    font-size: 8px;
+    font-weight: 800;
+    color: #ffc266;
+    letter-spacing: 0.8px;
+    margin-top: 4px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.cyber-hum-pedal .custom-switch-toggle {
+    width: 38px;
+    height: 20px;
+    border-radius: 10px;
+    background: #1a0e02;
+    border: 1.5px solid #805010;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+    transition: all 0.15s ease;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.cyber-hum-pedal .custom-switch-toggle.active {
+    background: #ffaa00;
+    border-color: #ffe6b3;
+    box-shadow: 0 0 10px rgba(255, 170, 0, 0.8), inset 0 1px 2px #ffffff;
+}
+
+.cyber-hum-pedal .custom-switch-toggle .switch-indicator {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #553300;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cyber-hum-pedal .custom-switch-toggle.active .switch-indicator {
+    left: 20px;
+    background: #000000;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ========================================================
+   ILLUMINATED ARCADE LEARN HUM BUTTON
+======================================================== */
+.cyber-hum-pedal .learn-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cyber-hum-pedal .giant-learn-btn {
+    width: 220px;
+    height: 38px;
+    border-radius: 19px;
+    background: linear-gradient(180deg, #ffaa00 0%, #cc7700 100%);
+    border: 2px solid #ffe099;
+    box-shadow: 0 0 14px rgba(255, 170, 0, 0.6), inset 0 1px 2px #ffffff, 0 4px 8px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.cyber-hum-pedal .giant-learn-btn:hover {
+    background: linear-gradient(180deg, #ffc24d 0%, #e68a00 100%);
+    box-shadow: 0 0 20px rgba(255, 170, 0, 0.9);
+}
+
+.cyber-hum-pedal .giant-learn-btn.learning-active {
+    background: linear-gradient(180deg, #ff3300 0%, #b30000 100%) !important;
+    border-color: #ff9980 !important;
+    box-shadow: 0 0 25px #ff3300 !important;
+    animation: learnPulse 0.5s infinite alternate;
+}
+
+@keyframes learnPulse {
+    0% { transform: scale(0.98); }
+    100% { transform: scale(1.02); }
+}
+
+.cyber-hum-pedal .learn-btn-inner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cyber-hum-pedal .learn-btn-icon {
+    font-size: 10px;
+    color: #000000;
+}
+
+.cyber-hum-pedal .learn-btn-text {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #000000;
+}
+
+.cyber-hum-pedal .giant-learn-btn.learning-active .learn-btn-icon,
+.cyber-hum-pedal .giant-learn-btn.learning-active .learn-btn-text {
+    color: #ffffff;
+}
+
+.cyber-hum-pedal .learn-btn-status {
+    font-size: 6.5px;
+    font-weight: 800;
+    color: #402000;
+    letter-spacing: 0.5px;
+    margin-top: 1px;
+}
+
+.cyber-hum-pedal .giant-learn-btn.learning-active .learn-btn-status {
+    color: #ffe6b3;
+}
+
+/* ========================================================
+   BYPASS LIGHT & FOOTSWITCH
+======================================================== */
+.cyber-hum-pedal .mod-light {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #241402;
+    border: 2px solid #805010;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.cyber-hum-pedal .mod-light.on,
+.cyber-hum-pedal.mod-pedal-on .mod-light {
+    background-color: #ffaa00;
+    box-shadow: 0 0 14px #ffaa00, 0 0 25px #ff6600, inset 0 1px 2px #ffffff;
+    border-color: #ffe6b3;
+}
+
+.cyber-hum-pedal .mod-footswitch {
+    position: absolute !important;
+    bottom: 12px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 66px !important;
+    height: 66px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 132px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.cyber-hum-pedal .mod-footswitch.on {
+    background-position-y: top !important;
+}

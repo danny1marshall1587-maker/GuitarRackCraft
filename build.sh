@@ -65,7 +65,11 @@ if [ "$FLAVOR" = "clean" ]; then
 fi
 
 # Initialize submodules (no-op if already inited)
-git -C "$PROJECT_ROOT" submodule update --init --recursive
+if [ "${BUILD_VST:-$_vst_default}" = "1" ]; then
+    git -C "$PROJECT_ROOT" submodule update --init --recursive
+else
+    git -C "$PROJECT_ROOT" submodule update --init
+fi
 
 # Apply patches (skip if already applied via dry-run check)
 PATCHES_DIR="$PROJECT_ROOT/3rd_party/patches"

@@ -1,0 +1,82 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://moddevices.com/plugins/danny/cyber-denoiser>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-cyber-denoiser.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "CyberAudio" ;
+        modgui:label "CyberDenoiser" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "purple" ;
+        modgui:knob "cyan" ;
+        modgui:monitoredOutputs [ lv2:symbol "learning_status" ] ,
+                                [ lv2:symbol "l1" ] , [ lv2:symbol "l2" ] , [ lv2:symbol "l3" ] , [ lv2:symbol "l4" ] , [ lv2:symbol "l5" ] ,
+                                [ lv2:symbol "l6" ] , [ lv2:symbol "l7" ] , [ lv2:symbol "l8" ] , [ lv2:symbol "l9" ] , [ lv2:symbol "l10" ] ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "t1" ;
+            lv2:name "60" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "t2" ;
+            lv2:name "150" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "t3" ;
+            lv2:name "400" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "t4" ;
+            lv2:name "800" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "t5" ;
+            lv2:name "1.5k" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "t6" ;
+            lv2:name "3k" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "t7" ;
+            lv2:name "5k" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "t8" ;
+            lv2:name "8k" ;
+        ] , [
+            lv2:index 8 ;
+            lv2:symbol "t9" ;
+            lv2:name "12k" ;
+        ] , [
+            lv2:index 9 ;
+            lv2:symbol "t10" ;
+            lv2:name "16k" ;
+        ] , [
+            lv2:index 10 ;
+            lv2:symbol "sensitivity" ;
+            lv2:name "Master" ;
+        ] , [
+            lv2:index 11 ;
+            lv2:symbol "reduction" ;
+            lv2:name "Reduction" ;
+        ] , [
+            lv2:index 12 ;
+            lv2:symbol "low_cut" ;
+            lv2:name "Low Cut" ;
+        ] , [
+            lv2:index 13 ;
+            lv2:symbol "listen_noise" ;
+            lv2:name "Listen" ;
+        ] , [
+            lv2:index 14 ;
+            lv2:symbol "learn" ;
+            lv2:name "Learn" ;
+        ] ;
+    ] .

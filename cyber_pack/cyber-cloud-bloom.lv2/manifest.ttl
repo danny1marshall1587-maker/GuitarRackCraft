@@ -1,0 +1,10 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-cloud-bloom>
+    a lv2:Plugin ;
+    lv2:binary <cyber_cloud_bloom.so> ;
+    lv2:binary <cyber_cloud_bloom_linux_x86_64.so> ;
+    lv2:binary <cyber_cloud_bloom_armv7.so> ;
+    lv2:binary <cyber_cloud_bloom_arm64.so> ;
+    rdfs:seeAlso <cyber-cloud-bloom.ttl> , <modgui.ttl> .

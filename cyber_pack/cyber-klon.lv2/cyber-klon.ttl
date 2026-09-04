@@ -1,0 +1,119 @@
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-klon>
+    a lv2:Plugin ,
+      lv2:DistortionPlugin ;
+
+    doap:name "Cyber Klon" ;
+    doap:license <http://opensource.org/licenses/mit> ;
+    doap:developer [
+        foaf:name "Cyber Audio" ;
+    ] ;
+
+    mod:brand "Cyber Audio" ;
+    mod:label "Cyber Klon" ;
+
+    rdfs:comment "Klon Centaur transparent overdrive with dual clean blend & 18V headroom dynamically morphed with Fuzz Face Glassy Cleanup on guitar volume roll-off." ;
+
+    lv2:minorVersion 1 ;
+    lv2:microVersion 1 ;
+
+    lv2:port [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Audio In" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out" ;
+        lv2:name "Audio Out" ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 2 ;
+        lv2:symbol "bypass" ;
+        lv2:name "Bypass" ;
+        lv2:default 1.0000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "gain" ;
+        lv2:name "Gain" ;
+        lv2:minimum 0 ;
+        lv2:maximum 100 ;
+        lv2:default 81.1384 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "treble" ;
+        lv2:name "Treble" ;
+        lv2:minimum 0 ;
+        lv2:maximum 100 ;
+        lv2:default 65.2902 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "output" ;
+        lv2:name "Output" ;
+        lv2:minimum 0 ;
+        lv2:maximum 100 ;
+        lv2:default 70.0000 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "bias" ;
+        lv2:name "Morph Bias" ;
+        lv2:minimum 0 ;
+        lv2:maximum 100 ;
+        lv2:default 0.0000 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "sens" ;
+        lv2:name "Sensitivity" ;
+        lv2:minimum 0 ;
+        lv2:maximum 100 ;
+        lv2:default 0.0000 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "sparkle" ;
+        lv2:name "Glassy Sparkle" ;
+        lv2:minimum 0 ;
+        lv2:maximum 100 ;
+        lv2:default 65.5692 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "magic_mod" ;
+        lv2:name "Magic Diode Mod" ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:default 1.0000 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "mix" ;
+        lv2:name "Mix" ;
+        lv2:minimum 0 ;
+        lv2:maximum 100 ;
+        lv2:default 100.0000 ;
+        units:unit units:pc ;
+    ] .

@@ -1,0 +1,43 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://moddevices.com/plugins/danny/mains-hum-killer>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mains-hum-killer.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "CyberAudio" ;
+        modgui:label "Hum Killer" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "black" ;
+        modgui:knob "cyan" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "grid_freq" ;
+            lv2:name "Grid" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "depth" ;
+            lv2:name "Depth" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "harmonics" ;
+            lv2:name "Harmonics" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "buzz_kill" ;
+            lv2:name "Buzz" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "q_width" ;
+            lv2:name "Q" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "listen_mode" ;
+            lv2:name "Listen" ;
+        ] ;
+    ] .
