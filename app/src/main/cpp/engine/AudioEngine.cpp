@@ -300,6 +300,9 @@ oboe::DataCallbackResult AudioEngine::onAudioReady(
     oboe::AudioStream* audioStream,
     void* audioData,
     int32_t numFrames) {
+    // Record audio callback thread ID for ADPF PerformanceHintManager
+    audioThreadTid_.store(getTid(), std::memory_order_relaxed);
+
     // Debug: log callback thread still active (rate-limited) to correlate with closeStreams() tid
     {
         static std::atomic<int> enterCount{0};

@@ -42,6 +42,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import com.varcain.guitarrackcraft.engine.AudioEngine
 import com.varcain.guitarrackcraft.engine.EngineInitHelper
+import com.varcain.guitarrackcraft.engine.PerformanceManager
+import com.varcain.guitarrackcraft.midi.MidiControllerManager
 import com.varcain.guitarrackcraft.ui.loading.PluginExtractScreen
 import com.varcain.guitarrackcraft.ui.navigation.AppNavigation
 import com.varcain.guitarrackcraft.ui.theme.GuitarRackCraftTheme
@@ -97,6 +99,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+
+        PerformanceManager.attachActivity(this)
+        MidiControllerManager.initialize(this)
 
         // Handle auth callback if activity started via deep link
         handleAuthIntent(intent)
@@ -339,12 +344,15 @@ class MainActivity : ComponentActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        PerformanceManager.detachActivity()
+        MidiControllerManager.disconnectDevice()
         // Only stop the engine when the activity is really finishing (user left the app).
         // When isFinishing() is false, the activity is being recreated (e.g. config change);
         // don't stop the engine so the new instance keeps the same running stream.
         android.util.Log.i("AudioLifecycle", "MainActivity.onDestroy (isFinishing=$isFinishing)")
         if (isFinishing()) {
             android.util.Log.i("AudioLifecycle", "MainActivity.onDestroy (finishing) -> stopEngine()")
+            PerformanceManager.onAudioStreamStopped()
             AudioEngine.stop()
         }
     }

@@ -423,10 +423,16 @@ class NativeEngine private constructor() {
     external fun nativeIsWavLoaded(): Boolean
     external fun nativeSetChainBypass(bypass: Boolean)
     external fun nativeSetWavBypassChain(bypass: Boolean)
+    external fun nativeSetPluginBypass(pluginIndex: Int, bypass: Boolean)
+    external fun nativeIsPluginBypassed(pluginIndex: Int): Boolean
+    external fun nativeGetAudioThreadTid(): Int
 
     // Kotlin-friendly wrapper methods
     fun setChainBypass(bypass: Boolean) = nativeSetChainBypass(bypass)
     fun setWavBypassChain(bypass: Boolean) = nativeSetWavBypassChain(bypass)
+    fun setPluginBypass(pluginIndex: Int, bypass: Boolean) = nativeSetPluginBypass(pluginIndex, bypass)
+    fun isPluginBypassed(pluginIndex: Int): Boolean = nativeIsPluginBypassed(pluginIndex)
+    fun getAudioThreadTid(): Int = nativeGetAudioThreadTid()
 
     fun startEngine(sampleRate: Float = 48000f, inputDeviceId: Int = 0, outputDeviceId: Int = 0, bufferFrames: Int = 0): Boolean {
         return nativeStartEngine(sampleRate, inputDeviceId, outputDeviceId, bufferFrames)

@@ -69,4 +69,16 @@ object RackManager {
 
     fun processFile(inputFile: File, outputFile: File): Boolean =
         native.processFile(inputFile, outputFile)
+
+    fun setPluginBypass(pluginIndex: Int, bypass: Boolean) =
+        native.setPluginBypass(pluginIndex, bypass)
+
+    fun isPluginBypassed(pluginIndex: Int): Boolean =
+        native.isPluginBypassed(pluginIndex)
+
+    fun togglePluginBypass(pluginIndex: Int): Boolean {
+        val next = !isPluginBypassed(pluginIndex)
+        setPluginBypass(pluginIndex, next)
+        return next
+    }
 }

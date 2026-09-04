@@ -196,6 +196,12 @@ class RackViewModel(application: Application) : AndroidViewModel(application) {
                 _isEngineRunning.value = started
                 if (started) {
                     _errorMessage.value = null
+                    val ctx = getApplication<Application>()
+                    com.varcain.guitarrackcraft.engine.PerformanceManager.onAudioStreamStarted(
+                        context = ctx,
+                        sampleRate = AudioEngine.getSampleRate(),
+                        bufferFrames = AudioEngine.getBufferFrameCount()
+                    )
                 }
             } catch (e: Exception) {
                 _errorMessage.value = "Failed to start engine: ${e.message}"
@@ -224,8 +230,21 @@ class RackViewModel(application: Application) : AndroidViewModel(application) {
         _outputClipping.value = false
     }
 
+    fun togglePluginBypass(pluginIndex: Int): Boolean {
+        return RackManager.togglePluginBypass(pluginIndex)
+    }
+
+    fun isPluginBypassed(pluginIndex: Int): Boolean {
+        return RackManager.isPluginBypassed(pluginIndex)
+    }
+
+    fun setPluginBypass(pluginIndex: Int, bypass: Boolean) {
+        RackManager.setPluginBypass(pluginIndex, bypass)
+    }
+
     fun stopEngine() {
         android.util.Log.i("AudioLifecycle", "RackViewModel.stopEngine() -> native (thread=${Thread.currentThread().name})")
+        com.varcain.guitarrackcraft.engine.PerformanceManager.onAudioStreamStopped()
         stopRecording()
         AudioEngine.stop()
         _isEngineRunning.value = false

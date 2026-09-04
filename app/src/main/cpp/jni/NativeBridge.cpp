@@ -1344,4 +1344,27 @@ Java_com_varcain_guitarrackcraft_engine_NativeEngine_nativeSetWavBypassChain(JNI
     }
 }
 
+JNIEXPORT void JNICALL
+Java_com_varcain_guitarrackcraft_engine_NativeEngine_nativeSetPluginBypass(JNIEnv* /*env*/, jobject /*thiz*/, jint pluginIndex, jboolean bypass) {
+    if (g_ctx && g_ctx->audioEngine) {
+        g_ctx->audioEngine->getChain().setPluginBypass(pluginIndex, bypass == JNI_TRUE);
+    }
+}
+
+JNIEXPORT jboolean JNICALL
+Java_com_varcain_guitarrackcraft_engine_NativeEngine_nativeIsPluginBypassed(JNIEnv* /*env*/, jobject /*thiz*/, jint pluginIndex) {
+    if (g_ctx && g_ctx->audioEngine) {
+        return g_ctx->audioEngine->getChain().isPluginBypassed(pluginIndex) ? JNI_TRUE : JNI_FALSE;
+    }
+    return JNI_FALSE;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_varcain_guitarrackcraft_engine_NativeEngine_nativeGetAudioThreadTid(JNIEnv* /*env*/, jobject /*thiz*/) {
+    if (g_ctx && g_ctx->audioEngine) {
+        return static_cast<jint>(g_ctx->audioEngine->getAudioThreadTid());
+    }
+    return 0;
+}
+
 } // extern "C"

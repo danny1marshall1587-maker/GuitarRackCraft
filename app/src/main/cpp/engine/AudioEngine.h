@@ -116,6 +116,12 @@ public:
     int32_t getXRunCount() const;
 
     /**
+     * Get the OS thread ID of the active audio callback thread.
+     * Used for ADPF PerformanceHintManager session setup.
+     */
+    pid_t getAudioThreadTid() const { return audioThreadTid_.load(); }
+
+    /**
      * True if input has clipped (peak >= 0.99).
      */
     bool isInputClipping() const;
@@ -203,6 +209,7 @@ private:
     std::atomic<bool> outputClipping_{false};
     float inputPeakHold_{0.0f};
     float outputPeakHold_{0.0f};
+    std::atomic<pid_t> audioThreadTid_{0};
 
     // Aggregated subprocess (wine VST) load + xruns. Sampled periodically
     // from the audio callback (every ~1s) so the UI's getCpuLoad / xrun

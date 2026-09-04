@@ -354,6 +354,7 @@ fun RackScreen(
     }
 
     var showPresetSheet by rememberSaveable { mutableStateOf(false) }
+    var showMidiDialog by rememberSaveable { mutableStateOf(false) }
     val snackbarHostState = remember { SnackbarHostState() }
 
     LaunchedEffect(presetMessage) {
@@ -519,6 +520,38 @@ fun RackScreen(
                                 }
                             }
                         }
+
+                        // MIDI Status & Controller Button
+                        val midiDeviceName by com.varcain.guitarrackcraft.midi.MidiControllerManager.connectedDeviceName.collectAsState()
+                        val midiTimestamp by com.varcain.guitarrackcraft.midi.MidiControllerManager.midiActivityTimestamp.collectAsState()
+                        val isMidiActive = System.currentTimeMillis() - midiTimestamp < 1200
+                        Surface(
+                            shape = RoundedCornerShape(4.dp),
+                            color = if (isMidiActive) Color(0xFF2E7D32) else if (midiDeviceName != null) MaterialTheme.colorScheme.primary.copy(alpha = 0.15f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f),
+                            modifier = Modifier
+                                .clickable { showMidiDialog = true }
+                                .padding(horizontal = 4.dp, vertical = 2.dp)
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp)
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(6.dp)
+                                        .clip(CircleShape)
+                                        .background(if (midiDeviceName != null) Color(0xFF4CAF50) else Color.Gray)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(
+                                    text = if (midiDeviceName != null) "MIDI: ${midiDeviceName?.take(6)}…" else "MIDI",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = if (isMidiActive) Color.White else if (midiDeviceName != null) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+
                         Box {
                             var showOverflowMenu by remember { mutableStateOf(false) }
                             var showAboutDialog by remember { mutableStateOf(false) }
@@ -536,6 +569,20 @@ fun RackScreen(
                                 expanded = showOverflowMenu,
                                 onDismissRequest = { showOverflowMenu = false }
                             ) {
+                                DropdownMenuItem(
+                                    text = { Text("MIDI Setup (Pacer)") },
+                                    onClick = {
+                                        showOverflowMenu = false
+                                        showMidiDialog = true
+                                    },
+                                    leadingIcon = {
+                                        Icon(
+                                            Icons.Default.Keyboard,
+                                            contentDescription = null,
+                                            modifier = Modifier.size(20.dp)
+                                        )
+                                    }
+                                )
                                 DropdownMenuItem(
                                     text = { Text("Settings") },
                                     onClick = {
@@ -976,6 +1023,10 @@ fun RackScreen(
                 }
             }
         }
+        if (showMidiDialog) {
+            com.varcain.guitarrackcraft.ui.midi.MidiSettingsDialog(
+                onDismissRequest = { showMidiDialog = false }
+            )
         }
         blockingOperation?.let { label ->
             BlockingOperationOverlay(label = label)

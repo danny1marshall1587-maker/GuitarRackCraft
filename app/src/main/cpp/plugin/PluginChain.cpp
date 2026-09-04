@@ -85,9 +85,11 @@ int PluginChain::addPlugin(std::unique_ptr<IPlugin> plugin, int position) {
         int index;
         if (position < 0 || position >= static_cast<int>(plugins_.size())) {
             plugins_.push_back(std::move(plugin));
+            slotBypassed_.push_back(false);
             index = static_cast<int>(plugins_.size() - 1);
         } else {
             plugins_.insert(plugins_.begin() + position, std::move(plugin));
+            slotBypassed_.insert(slotBypassed_.begin() + position, false);
             index = position;
         }
 
@@ -107,6 +109,9 @@ bool PluginChain::removePlugin(int index) {
 
         removedPlugin = std::move(plugins_[index]);
         plugins_.erase(plugins_.begin() + index);
+        if (index < static_cast<int>(slotBypassed_.size())) {
+            slotBypassed_.erase(slotBypassed_.begin() + index);
+        }
     }
 
     // Wine VST teardown can block while the helper process exits. Detach first
@@ -175,8 +180,17 @@ bool PluginChain::reorderPlugins(int fromIndex, int toIndex) {
 
     auto plugin = std::move(plugins_[fromIndex]);
     plugins_.erase(plugins_.begin() + fromIndex);
-    
     plugins_.insert(plugins_.begin() + toIndex, std::move(plugin));
+
+    bool wasBypassed = (fromIndex < static_cast<int>(slotBypassed_.size())) ? slotBypassed_[fromIndex] : false;
+    if (fromIndex < static_cast<int>(slotBypassed_.size())) {
+        slotBypassed_.erase(slotBypassed_.begin() + fromIndex);
+    }
+    if (toIndex <= static_cast<int>(slotBypassed_.size())) {
+        slotBypassed_.insert(slotBypassed_.begin() + toIndex, wasBypassed);
+    } else {
+        slotBypassed_.push_back(wasBypassed);
+    }
     
     return true;
 }
@@ -248,9 +262,18 @@ void PluginChain::process(const float* const* inputs, float* const* outputs, uin
             currentOutputs[1] = intermediateBuffers_[1].data();
         }
 
-        // Process
-        const float* const inputPtrs[2] = {currentInputs[0], currentInputs[1]};
-        plugin->process(inputPtrs, currentOutputs, numFrames);
+        // Process or passthrough if slot is bypassed
+        if (i < slotBypassed_.size() && slotBypassed_[i]) {
+            if (currentOutputs[0] != currentInputs[0]) {
+                std::memcpy(currentOutputs[0], currentInputs[0], numFrames * sizeof(float));
+            }
+            if (currentOutputs[1] != currentInputs[1]) {
+                std::memcpy(currentOutputs[1], currentInputs[1], numFrames * sizeof(float));
+            }
+        } else {
+            const float* const inputPtrs[2] = {currentInputs[0], currentInputs[1]};
+            plugin->process(inputPtrs, currentOutputs, numFrames);
+        }
 
         // Next plugin's input is this plugin's output
         if (i < plugins_.size() - 1) {
@@ -258,6 +281,22 @@ void PluginChain::process(const float* const* inputs, float* const* outputs, uin
             currentInputs[1] = intermediateBuffers_[1].data();
         }
     }
+}
+
+void PluginChain::setPluginBypass(int index, bool bypassed) {
+    std::unique_lock lock(chainMutex_);
+    if (index >= 0 && index < static_cast<int>(slotBypassed_.size())) {
+        slotBypassed_[index] = bypassed;
+        LOGI("setPluginBypass: index=%d bypassed=%d", index, bypassed ? 1 : 0);
+    }
+}
+
+bool PluginChain::isPluginBypassed(int index) const {
+    std::shared_lock lock(chainMutex_);
+    if (index >= 0 && index < static_cast<int>(slotBypassed_.size())) {
+        return slotBypassed_[index];
+    }
+    return false;
 }
 
 void PluginChain::setSampleRate(float sampleRate, uint32_t bufferSize) {

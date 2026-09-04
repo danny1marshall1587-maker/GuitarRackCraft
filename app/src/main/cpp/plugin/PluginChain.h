@@ -54,6 +54,10 @@ public:
 
     void setPluginFilePath(int pluginIndex, const std::string& propertyUri, const std::string& path);
 
+    /** Bypass an individual plugin slot (thread-safe). */
+    void setPluginBypass(int index, bool bypassed);
+    bool isPluginBypassed(int index) const;
+
     /** Inject an atom message into a plugin (thread-safe, holds shared_lock). */
     void injectAtom(int pluginIndex, const void* data, uint32_t size);
 
@@ -69,6 +73,7 @@ public:
 
 private:
     std::vector<std::unique_ptr<IPlugin>> plugins_;
+    std::vector<bool> slotBypassed_;
     mutable std::shared_mutex chainMutex_;
 
     float sampleRate_ = 0.0f;
