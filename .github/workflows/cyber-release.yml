@@ -8,6 +8,7 @@ on:
       - 'cyber_pack/**'
       - 'cmake/targets/cyber_audio.cmake'
       - '.github/workflows/cyber-release.yml'
+      - 'vsthost_lib/build.gradle.kts'
 
 permissions:
   contents: write
@@ -19,7 +20,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -34,13 +35,16 @@ jobs:
 
       - name: Install Build Dependencies
         run: |
-          sudo apt-get update
+          sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends \
-            build-essential cmake ninja-build meson patchelf git curl ccache \
+            build-essential autoconf automake libtool bison flex gettext gperf \
+            pkg-config cmake ninja-build meson patchelf patch python3 python3-pip \
+            python3-mako python3-yaml git xz-utils ca-certificates curl ccache \
             ocaml ocamlbuild ocaml-findlib libnum-ocaml-dev faust libboost-dev \
             libx11-dev libxext-dev libxrender-dev libxrandr-dev libxi-dev \
             libxfixes-dev libxcursor-dev libxxf86vm-dev libfreetype-dev \
             fonts-liberation fonts-dejavu
+          python3 -m pip install --break-system-packages mako pyyaml meson ninja || true
 
       - name: Init Native 3rd_party Submodules (Recursive)
         run: |
@@ -51,7 +55,7 @@ jobs:
           if [ -d "$ANDROID_SDK_ROOT/ndk/27.2.12479018" ]; then
             echo "ANDROID_NDK=$ANDROID_SDK_ROOT/ndk/27.2.12479018" >> $GITHUB_ENV
           else
-            LATEST_NDK=$(ls -d $ANDROID_SDK_ROOT/ndk/* | sort -V | tail -1)
+            LATEST_NDK=$(ls -d $ANDROID_SDK_ROOT/ndk/* 2>/dev/null | sort -V | tail -1)
             echo "ANDROID_NDK=$LATEST_NDK" >> $GITHUB_ENV
           fi
 
@@ -59,6 +63,15 @@ jobs:
         run: |
           echo "Using NDK: $ANDROID_NDK"
           BUILD_VST=0 ./build.sh full
+
+      - name: Dump ExternalProject logs on failure
+        if: failure()
+        run: |
+          echo "=== Dumping configure/build failure logs ==="
+          for f in $(find build -name "*-*.log" 2>/dev/null); do
+            echo "================ $f ================"
+            cat "$f"
+          done
 
       - name: Generate Self-Signed Keystore
         run: |

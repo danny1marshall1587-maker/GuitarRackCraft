@@ -25,7 +25,7 @@ plugins {
 android {
     namespace = "com.varcain.vsthost"
     compileSdk = 35
-    ndkVersion = "26.1.10909125"
+    ndkVersion = "27.2.12479018"
 
     defaultConfig {
         // Matches GuitarRackCraft :app minSdk. vstpoc historically used 27;
