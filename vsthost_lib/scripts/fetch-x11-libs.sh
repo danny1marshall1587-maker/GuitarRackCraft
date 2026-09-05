@@ -74,6 +74,9 @@ echo
 echo "NOTE: libfreetype + libpng + libz are built from upstream source"
 echo "      against the NDK — run scripts/build-android-libs.sh after this."
 
-echo "[+] staged $(ls toolchain/x11-libs/*.so 2>/dev/null | wc -l) X11 libs in toolchain/x11-libs/"
+shopt -s nullglob
+x11_libs=(toolchain/x11-libs/*.so)
+shopt -u nullglob
+echo "[+] staged ${#x11_libs[@]} X11 libs in toolchain/x11-libs/"
 echo
 echo "next: scripts/build-wine-android.sh   (configure detects X11 from these)"
