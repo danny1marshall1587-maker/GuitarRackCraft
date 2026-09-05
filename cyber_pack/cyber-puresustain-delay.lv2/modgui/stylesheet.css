@@ -1,308 +1,177 @@
-/* ==========================================================================
-   Cyber PureSustain Delay — Boutique Anodized Purple Metallic Pedal
-   100% Solid/Opaque Background, Outer Jack Placement, Custom Dials & Toggle
-   ========================================================================== */
+/* STYLES FOR THE BOXY PEDAL -- REPURPOSED MODULAY ARCHITECTURE FOR PURESUSTAIN */
 
 @import url(/fonts/nexa/stylesheet.css);
 @import url(/fonts/questrial/stylesheet.css);
 
-.puresustain-pedal {
+/* = CONTAINER
+================================================ */
+.mod-pedal-boxy{{{cns}}} {
+    background-color: #1a082b !important; /* Solid fallback guarantees ZERO transparency */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 364px 431px;
+    height: 431px;
     position: absolute;
-    width: 350px;
-    height: 520px;
-    background-color: #120320 !important; /* Solid fallback guarantees zero transparency */
-    background: radial-gradient(circle at 50% 12%, #2c0b48 0%, #170428 55%, #0b0114 100%) !important;
-    border: 2.5px solid #7c2d12;
-    border-color: #9333ea #581c87 #3b0764 #9333ea;
-    border-radius: 22px;
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.95), 
-                inset 0 1px 2px rgba(233, 213, 255, 0.4), 
-                inset 0 -4px 10px rgba(0, 0, 0, 0.95);
-    box-sizing: border-box;
-    font-family: 'Segoe UI', -apple-system, sans-serif;
-    user-select: none;
-    overflow: visible;
-    z-index: 10;
+    width: 364px;
+    border-radius: 21px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.95);
 }
 
-.puresustain-pedal .mod-drag-handle {
-    position: absolute;
-    top: 0;
+.mod-pedal-boxy{{{cns}}}.mod-boxy85 {
+    background-size: 364px 431px;
+    width: 364px;
+    height: 431px;
+}
+
+/* = BACKGROUND IMAGES
+================================================ */
+.mod-pedal-boxy{{{cns}}}.mod-purple,
+.mod-pedal-boxy{{{cns}}}.mod-boxy85.mod-purple,
+.mod-pedal-boxy{{{cns}}}.mod-boxy85 {
+    background-image: url(/resources/pedals/boxy85/purple.png{{{ns}}});
+}
+
+.mod-pedal-boxy{{{cns}}}.mod-racing {
+    background-image: url(/resources/pedals/boxy85/purple.png{{{ns}}});
+}
+
+/* = PLUGIN'S AUTHOR / BRAND
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-plugin-brand {
     left: 0;
-    width: 100%;
-    height: 28px;
-    cursor: move;
-    z-index: 20;
-}
-
-/* ==========================================================================
-   TOP BRANDING STRIP
-   ========================================================================== */
-.puresustain-pedal .puresustain-top-strip {
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 2px;
-}
-
-.puresustain-pedal .mod-plugin-brand h1 {
-    display: inline-block;
-    font-family: 'Nexa', sans-serif;
-    font-size: 10px;
-    letter-spacing: 2.5px;
-    font-weight: 800;
-    color: #e9d5ff;
-    text-transform: uppercase;
-    text-shadow: 0 0 8px rgba(216, 180, 254, 0.6);
-    margin: 0;
-    border: 1px solid rgba(168, 85, 247, 0.4);
-    padding: 1px 10px;
-    border-radius: 6px;
-    background: rgba(46, 16, 77, 0.6);
-}
-
-.puresustain-pedal .mod-plugin-name h1 {
-    font-family: 'Questrial', 'Arial Black', sans-serif;
-    font-size: 17px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(192, 132, 252, 0.8);
-    margin: 3px 0 0 0;
-}
-
-.puresustain-pedal .puresustain-tagline {
-    font-size: 7px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #c084fc;
-    opacity: 0.85;
-    text-transform: uppercase;
-}
-
-/* ==========================================================================
-   SECTION HEADERS
-   ========================================================================== */
-.puresustain-pedal .knob-section-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 4px 18px 2px 18px;
-}
-
-.puresustain-pedal .knob-section-header .section-title {
-    font-size: 7px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #d8b4fe;
-    text-transform: uppercase;
-    background: rgba(35, 10, 60, 0.85);
-    padding: 1px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(168, 85, 247, 0.35);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
-}
-
-/* ==========================================================================
-   KNOB GROUPS & ROWS
-   ========================================================================== */
-.puresustain-pedal .mod-control-group {
-    display: flex;
-    align-items: flex-start;
-    padding: 0 12px;
-    margin-bottom: 2px;
-}
-
-.puresustain-pedal .mod-control-group.row-4 {
-    justify-content: space-between;
-}
-
-.puresustain-pedal .mod-knob {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 74px;
-    margin: 0;
-    position: relative;
-}
-
-.puresustain-pedal .custom-knob-dial {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #3b0764 0%, #1e0533 70%, #0c0214 100%);
-    border: 2px solid #9333ea;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 
-                inset 0 1px 3px rgba(233, 213, 255, 0.45), 
-                inset 0 -2px 4px rgba(0, 0, 0, 0.85);
-    position: relative;
-    cursor: pointer;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    box-sizing: border-box;
-}
-
-.puresustain-pedal .custom-knob-dial:hover {
-    border-color: #c084fc;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 
-                0 0 10px rgba(192, 132, 252, 0.6), 
-                inset 0 1px 3px rgba(243, 232, 255, 0.7);
-}
-
-.puresustain-pedal .custom-knob-dial .knob-rotor {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2.5px;
-    height: 15px;
-    background: #e879f9;
-    border-radius: 1.5px;
-    box-shadow: 0 0 6px #d946ef;
-    transform-origin: bottom center;
-    transform: translate(-50%, -100%) rotate(0deg);
-    pointer-events: none;
-}
-
-.puresustain-pedal .mod-knob-title {
-    font-size: 7.5px;
-    font-weight: 800;
-    color: #e9d5ff;
-    letter-spacing: 0.8px;
-    margin-top: 3px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
-    text-transform: uppercase;
+    right: 0;
     text-align: center;
-    line-height: 1.1;
-    white-space: nowrap;
+    text-transform: uppercase;
+    top: 15px;
 }
 
-/* ==========================================================================
-   CUSTOM TOGGLE SWITCH (MOD ON)
-   ========================================================================== */
-.puresustain-pedal .custom-toggle-switch {
-    width: 42px;
-    height: 44px;
+.mod-pedal-boxy{{{cns}}} .mod-plugin-brand h1 {
+    border-color: #e9d5ff;
     border-radius: 8px;
-    background: radial-gradient(circle at 50% 30%, #2e0854 0%, #150326 100%);
-    border: 2px solid #7e22ce;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(216, 180, 254, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-    box-sizing: border-box;
-    transition: border-color 0.15s ease;
+    border-style: solid;
+    border-width: 2px;
+    display: inline-block;
+    font-family: "Nexa", sans-serif;
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    padding: 2px 12px 1px;
+    color: #e9d5ff;
+    text-shadow: 0 0 6px rgba(168, 85, 247, 0.6);
+    background: rgba(30, 10, 50, 0.4);
+    margin: 0;
 }
 
-.puresustain-pedal .custom-toggle-switch:hover {
-    border-color: #c084fc;
-}
-
-.puresustain-pedal .custom-toggle-switch .switch-housing {
-    width: 14px;
-    height: 20px;
-    background: #0f031b;
-    border-radius: 7px;
-    border: 1px solid #4a044e;
-    position: relative;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.9);
-}
-
-.puresustain-pedal .custom-toggle-switch .switch-lever {
-    width: 7px;
-    height: 13px;
-    background: linear-gradient(to right, #7e22ce, #e879f9 50%, #581c87);
-    border-radius: 3.5px;
+/* = PLUGIN'S NAME
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-plugin-name {
+    left: 20px;
+    overflow: hidden;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-25deg);
-    transition: transform 0.12s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    right: 20px;
+    text-align: center;
+    top: 394px;
 }
 
-.puresustain-pedal .custom-toggle-switch.on .switch-lever {
-    transform: translate(-50%, -50%) rotate(25deg);
-    background: linear-gradient(to right, #a855f7, #f0abfc 50%, #7e22ce);
+.mod-pedal-boxy{{{cns}}} .mod-plugin-name h1 {
+    font-family: "Questrial", sans-serif;
+    font-size: 21px;
+    line-height: 1;
+    color: #e9d5ff;
+    letter-spacing: 3px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 10px rgba(168, 85, 247, 0.5);
+    margin: 0;
 }
 
-.puresustain-pedal .custom-toggle-switch .switch-led {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #170428;
-    border: 1px solid #3b0764;
-    margin-top: 3px;
-    transition: all 0.15s ease;
-}
-
-.puresustain-pedal .custom-toggle-switch .switch-led.lit {
-    background: #d946ef;
-    box-shadow: 0 0 8px #d946ef, 0 0 14px #a855f7;
-    border-color: #f5d0fe;
-}
-
-/* ==========================================================================
-   BYPASS LIGHT & FOOTSWITCH
-   ========================================================================== */
-.puresustain-pedal .mod-light {
+/* = LIGHT ON/OFF
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-light {
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 28px;
+    left: 0;
+    right: 0;
     position: absolute;
-    bottom: 84px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: #170428;
-    border: 2px solid #581c87;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
-    transition: all 0.15s ease-in-out;
+    top: 288px;
+    margin: auto;
+}
+
+/* = FOOTSWITCH
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-footswitch {
+    background-image: url(/resources/pedals/footswitch.png{{{ns}}});
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: auto 132px;
     cursor: pointer;
-    z-index: 50;
-}
-
-.puresustain-pedal .mod-light.on,
-.puresustain-pedal.mod-pedal-on .mod-light {
-    background-color: #d946ef;
-    box-shadow: 0 0 14px #d946ef, 0 0 25px #a855f7, inset 0 1px 2px #ffffff;
-    border-color: #f0abfc;
-}
-
-.puresustain-pedal .mod-footswitch {
+    height: 66px;
+    width: 66px;
+    left: 0;
+    right: 0;
+    margin: auto;
     position: absolute !important;
-    bottom: 12px;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 66px !important;
-    height: 66px !important;
-    background-image: url(/resources/pedals/footswitch.png) !important;
-    background-position: bottom center !important;
-    background-repeat: no-repeat !important;
-    background-size: auto 132px !important;
-    cursor: pointer !important;
-    z-index: 60 !important;
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.85));
+    top: 318px;
 }
 
-.puresustain-pedal .mod-footswitch.on {
+.mod-pedal-boxy{{{cns}}} .mod-footswitch.on {
     background-position-y: top !important;
 }
 
-/* ==========================================================================
-   AUDIO JACKS (FULL-WIDTH OUTER PLACEMENT)
-   ========================================================================== */
-.puresustain-pedal .mod-pedal-input {
-    position: absolute !important;
-    left: -88px !important;
-    width: 88px !important;
-    top: 150px !important;
-    z-index: 30 !important;
+/* = KNOBS & CONTROL GROUP
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-control-group {
+    margin: 0 auto !important;
+    position: absolute;
+    top: 48px;
+    left: 12px;
+    right: 12px;
+    width: 340px;
+    text-align: center;
+    z-index: 30;
 }
 
-.puresustain-pedal .mod-pedal-output {
-    position: absolute !important;
-    right: -87px !important;
-    width: 87px !important;
-    top: 150px !important;
-    z-index: 30 !important;
+.mod-pedal-boxy{{{cns}}} .mod-control-group .mod-knob {
+    display: inline-block;
+    float: left;
+    width: 85px;
+    height: 75px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2px;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-control-group .mod-knob .mod-knob-image {
+    background-image: url(/resources/knobs/boxy/black.png{{{ns}}});
+    background-repeat: no-repeat;
+    background-size: auto 54px;
+    height: 54px;
+    width: 54px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-control-group .mod-knob > span.mod-knob-title {
+    bottom: 2px;
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    height: 12px;
+    line-height: 12px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    text-transform: uppercase;
+    color: #f3e8ff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    font-family: "Questrial", sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* = KNOB COLOR MAPPINGS
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-control-group.mod-black .mod-knob .mod-knob-image {
+    background-image: url(/resources/knobs/boxy/black.png{{{ns}}});
 }
