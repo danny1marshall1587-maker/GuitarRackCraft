@@ -36,22 +36,35 @@ install_root="$repo_root/toolchain/android-libs"
 mkdir -p "$install_root" "$cache"
 
 fetch_tarball() {
-    local name="$1" url="$2"
+    local name="$1"
+    shift
     if [ ! -f "$cache/$name" ]; then
         echo "[+] fetch $name"
-        # Temp file + atomic rename so an interrupted transfer (curl 18) never
-        # leaves a corrupt cached tarball; --retry-all-errors retries partial
-        # transfers that plain --retry ignores.
-        curl -fSL --retry 5 --retry-delay 2 --retry-all-errors \
-             --connect-timeout 30 -o "$cache/$name.part" "$url"
-        mv -f "$cache/$name.part" "$cache/$name"
+        local success=0
+        for url in "$@"; do
+            echo "    trying: $url"
+            rm -f "$cache/$name.part"
+            # Temp file + atomic rename so an interrupted transfer (curl 18) never
+            # leaves a corrupt cached tarball; --retry-all-errors retries partial
+            # transfers that plain --retry ignores.
+            if curl -fSL --retry 3 --retry-delay 2 --retry-all-errors                  --connect-timeout 20 -o "$cache/$name.part" "$url"; then
+                mv -f "$cache/$name.part" "$cache/$name"
+                success=1
+                break
+            else
+                echo "    [!] download from $url failed, trying fallback mirror..."
+            fi
+        done
+        if [ "$success" -ne 1 ]; then
+            echo "error: failed to fetch $name from all configured mirrors"
+            exit 1
+        fi
     fi
 }
 
 # --- libpng ----------------------------------------------------------------
 png_ver=1.6.43
-fetch_tarball "libpng-${png_ver}.tar.xz" \
-    "https://download.sourceforge.net/libpng/libpng-${png_ver}.tar.xz"
+fetch_tarball "libpng-${png_ver}.tar.xz"     "https://downloads.sourceforge.net/project/libpng/libpng16/${png_ver}/libpng-${png_ver}.tar.xz"     "https://download.sourceforge.net/libpng/libpng-${png_ver}.tar.xz"
 png_src="$cache/libpng-${png_ver}"
 if [ ! -d "$png_src" ]; then
     tar xJf "$cache/libpng-${png_ver}.tar.xz" -C "$cache"
@@ -59,19 +72,13 @@ fi
 echo "=== build libpng-${png_ver} ==="
 pushd "$png_src" >/dev/null
 make clean 2>/dev/null || true
-./configure --host="$TARGET" \
-    --prefix="$install_root" \
-    --disable-static \
-    --without-libpng-compat \
-    CFLAGS="-O2 -fPIC" \
-    LDFLAGS="-Wl,--no-undefined" >/dev/null
+./configure --host="$TARGET"     --prefix="$install_root"     --disable-static     --without-libpng-compat     CFLAGS="-O2 -fPIC"     LDFLAGS="-Wl,--no-undefined" >/dev/null
 make -j"$(nproc)" install >/dev/null
 popd >/dev/null
 
 # --- freetype --------------------------------------------------------------
 ft_ver=2.13.3
-fetch_tarball "freetype-${ft_ver}.tar.xz" \
-    "https://download.savannah.gnu.org/releases/freetype/freetype-${ft_ver}.tar.xz"
+fetch_tarball "freetype-${ft_ver}.tar.xz"     "https://downloads.sourceforge.net/project/freetype/freetype2/${ft_ver}/freetype-${ft_ver}.tar.xz"     "https://mirror.csclub.uwaterloo.ca/nongnu/freetype/freetype-${ft_ver}.tar.xz"     "https://download.savannah.gnu.org/releases/freetype/freetype-${ft_ver}.tar.xz"
 ft_src="$cache/freetype-${ft_ver}"
 if [ ! -d "$ft_src" ]; then
     tar xJf "$cache/freetype-${ft_ver}.tar.xz" -C "$cache"
@@ -79,23 +86,7 @@ fi
 echo "=== build freetype-${ft_ver} ==="
 pushd "$ft_src" >/dev/null
 make clean 2>/dev/null || true
-PKG_CONFIG_LIBDIR="$install_root/lib/pkgconfig" \
-LIBPNG_CFLAGS="-I$install_root/include/libpng16" \
-LIBPNG_LIBS="-L$install_root/lib -lpng16" \
-ZLIB_CFLAGS="" \
-ZLIB_LIBS="-lz" \
-./configure --host="$TARGET" \
-    --prefix="$install_root" \
-    --disable-static \
-    --without-bzip2 \
-    --without-brotli \
-    --without-harfbuzz \
-    --without-fsref \
-    --without-quickdraw-toolbox \
-    --without-quickdraw-carbon \
-    --without-ats \
-    CFLAGS="-O2 -fPIC" \
-    LDFLAGS="-Wl,--no-undefined -L$install_root/lib" >/dev/null
+PKG_CONFIG_LIBDIR="$install_root/lib/pkgconfig" LIBPNG_CFLAGS="-I$install_root/include/libpng16" LIBPNG_LIBS="-L$install_root/lib -lpng16" ZLIB_CFLAGS="" ZLIB_LIBS="-lz" ./configure --host="$TARGET"     --prefix="$install_root"     --disable-static     --without-bzip2     --without-brotli     --without-harfbuzz     --without-fsref     --without-quickdraw-toolbox     --without-quickdraw-carbon     --without-ats     CFLAGS="-O2 -fPIC"     LDFLAGS="-Wl,--no-undefined -L$install_root/lib" >/dev/null
 make -j"$(nproc)" install >/dev/null
 popd >/dev/null
 
@@ -112,10 +103,7 @@ mkdir -p "$repo_root/toolchain/x11-headers/libpng16"
 cp -f "$install_root/include/libpng16"/*.h "$repo_root/toolchain/x11-headers/libpng16/" 2>/dev/null || true
 
 # Drop libs we no longer need (Termux freetype chain).
-rm -f "$repo_root/toolchain/x11-libs"/libbz2.so \
-       "$repo_root/toolchain/x11-libs"/libbrotlidec.so \
-       "$repo_root/toolchain/x11-libs"/libbrotlicommon.so \
-       "$repo_root/toolchain/x11-libs"/libz.so
+rm -f "$repo_root/toolchain/x11-libs"/libbz2.so        "$repo_root/toolchain/x11-libs"/libbrotlidec.so        "$repo_root/toolchain/x11-libs"/libbrotlicommon.so        "$repo_root/toolchain/x11-libs"/libz.so
 
 echo
 echo "next:"
