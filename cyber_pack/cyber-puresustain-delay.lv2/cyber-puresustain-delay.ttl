@@ -16,11 +16,11 @@
         foaf:name "Cyber Audio" ;
         foaf:homepage <http://cyber-audio.co.uk> ;
     ] ;
-    lv2:minorVersion 1 ;
+    lv2:minorVersion 2 ;
     lv2:microVersion 0 ;
-    mod:brand "CyberAudio" ;
+    mod:brand "Cyber Audio" ;
     mod:label "PureSustain" ;
-    rdfs:comment "Seamless Crossfade Pad Delay with phase-pure Hermite interpolation, continuous loop-melting record engine, non-dispersive tape damping, and dynamic lead ducker." ;
+    rdfs:comment "Boutique Seamless Crossfade Pad Delay with quadrature stereo modulation, Cytomic SVF tail filtering, Hermite interpolation, and dynamic picking ducker." ;
 
     lv2:port [
         a lv2:AudioPort ,
@@ -97,7 +97,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        rdfs:comment "Non-dispersive 1-pole gentle analog tape lowpass damping." ;
+        rdfs:comment "Non-dispersive 1-pole gentle analog tape high-frequency damping." ;
     ] , [
         a lv2:ControlPort ,
           lv2:InputPort ;
@@ -119,4 +119,71 @@
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "mod_on" ;
+        lv2:name "Mod On" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled ;
+        rdfs:comment "Engage quadrature stereo LFO delay modulation." ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "mod_depth" ;
+        lv2:name "Mod Depth" ;
+        lv2:default 25.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        rdfs:comment "Modulation depth / width." ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "mod_rate" ;
+        lv2:name "Mod Rate" ;
+        lv2:default 0.8 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 5.0 ;
+        units:unit units:hz ;
+        rdfs:comment "Modulation LFO rate / frequency." ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "hp_freq" ;
+        lv2:name "Low Cut" ;
+        lv2:default 80.0 ;
+        lv2:minimum 20.0 ;
+        lv2:maximum 2000.0 ;
+        units:unit units:hz ;
+        lv2:portProperty epp:logarithmic ;
+        rdfs:comment "High-pass filter cutoff in delay feedback tail (Low Cut)." ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "lp_freq" ;
+        lv2:name "High Cut" ;
+        lv2:default 6500.0 ;
+        lv2:minimum 1000.0 ;
+        lv2:maximum 20000.0 ;
+        units:unit units:hz ;
+        lv2:portProperty epp:logarithmic ;
+        rdfs:comment "Low-pass filter cutoff in delay feedback tail (High Cut)." ;
+    ] , [
+        a lv2:ControlPort ,
+          lv2:InputPort ;
+        lv2:index 16 ;
+        lv2:symbol "filter_q" ;
+        lv2:name "Filter Shape" ;
+        lv2:default 0.707 ;
+        lv2:minimum 0.5 ;
+        lv2:maximum 4.0 ;
+        rdfs:comment "Resonance / Q shape for tail high-pass and low-pass filters." ;
     ] .

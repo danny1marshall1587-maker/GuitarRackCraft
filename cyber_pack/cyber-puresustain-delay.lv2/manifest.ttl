@@ -3,9 +3,5 @@
 
 <http://cyber-audio.co.uk/plugins/cyber-puresustain-delay>
     a lv2:Plugin ;
-    lv2:binary <cyber_puresustain_delay.so> ;
-    lv2:binary <cyber_puresustain_delay.dll> ;
-    lv2:binary <cyber_puresustain_delay_linux_x86_64.so> ;
-    lv2:binary <cyber_puresustain_delay_armv7.so> ;
-    lv2:binary <cyber_puresustain_delay_arm64.so> ;
+    lv2:binary <cyber_puresustain_delay.dll> , <cyber_puresustain_delay.so> ;
     rdfs:seeAlso <cyber-puresustain-delay.ttl> , <modgui.ttl> .

@@ -1,29 +1,171 @@
-<div class="mod-pedal mod-pedal-boxy{{{cns}}} mod-six-knobs mod-purple purple">
+<div class="mod-pedal puresustain-pedal{{{cns}}}">
     <div mod-role="drag-handle" class="mod-drag-handle"></div>
-    <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
-    <div class="mod-plugin-name"><h1>PURESUSTAIN</h1></div>
-    <div class="mod-light on" mod-role="bypass-light"></div>
-    <div class="mod-control-group mod-black clearfix">
-        {{#controls}}
-        <div class="mod-knob">
-            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="{{symbol}}"></div>
-            <span class="mod-knob-title">{{name}}</span>
-        </div>
-        {{/controls}}
+
+    <!-- Top Branding Strip -->
+    <div class="puresustain-top-strip">
+        <div class="mod-plugin-brand"><h1>CYBER AUDIO</h1></div>
+        <div class="mod-plugin-name"><h1>PURESUSTAIN</h1></div>
+        <div class="puresustain-tagline">SEAMLESS PAD DELAY</div>
     </div>
-    <div class="mod-footswitch" mod-role="bypass"></div>
+
+    <!-- ROW 1: ECHO CORE (TIME, REPEAT, MELT, MIX) -->
+    <div class="knob-section-header">
+        <span class="section-title">ECHO CORE</span>
+    </div>
+    <div class="mod-control-group row-4">
+        <div class="mod-knob" title="Delay Time (20 - 2000 ms)">
+            <div class="custom-knob-dial" data-symbol="time" data-min="20" data-max="2000" data-default="400.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="time" style="display:none;"></div>
+            <span class="mod-knob-title">TIME</span>
+        </div>
+
+        <div class="mod-knob" title="Repeat / Feedback (0 - 110 %)">
+            <div class="custom-knob-dial" data-symbol="feedback" data-min="0" data-max="110" data-default="45.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="feedback" style="display:none;"></div>
+            <span class="mod-knob-title">REPEAT</span>
+        </div>
+
+        <div class="mod-knob" title="Melt Crossfade Pad Width (0 - 100 %)">
+            <div class="custom-knob-dial" data-symbol="melt" data-min="0" data-max="100" data-default="50.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="melt" style="display:none;"></div>
+            <span class="mod-knob-title">MELT</span>
+        </div>
+
+        <div class="mod-knob" title="Dry / Wet Mix (0 - 100 %)">
+            <div class="custom-knob-dial" data-symbol="mix" data-min="0" data-max="100" data-default="40.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mix" style="display:none;"></div>
+            <span class="mod-knob-title">MIX</span>
+        </div>
+    </div>
+
+    <!-- ROW 2: TAIL FILTERS & DAMPING (LOW CUT, HIGH CUT, SHAPE, TONE) -->
+    <div class="knob-section-header">
+        <span class="section-title">TAIL FILTERS & TONE</span>
+    </div>
+    <div class="mod-control-group row-4">
+        <div class="mod-knob" title="Tail High-Pass Cutoff (20 - 2000 Hz)">
+            <div class="custom-knob-dial" data-symbol="hp_freq" data-min="20" data-max="2000" data-default="80.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="hp_freq" style="display:none;"></div>
+            <span class="mod-knob-title">LOW CUT</span>
+        </div>
+
+        <div class="mod-knob" title="Tail Low-Pass Cutoff (1000 - 20000 Hz)">
+            <div class="custom-knob-dial" data-symbol="lp_freq" data-min="1000" data-max="20000" data-default="6500.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="lp_freq" style="display:none;"></div>
+            <span class="mod-knob-title">HIGH CUT</span>
+        </div>
+
+        <div class="mod-knob" title="Filter Resonance / Q Shape (0.5 - 4.0)">
+            <div class="custom-knob-dial" data-symbol="filter_q" data-min="0.5" data-max="4.0" data-default="0.707">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="filter_q" style="display:none;"></div>
+            <span class="mod-knob-title">SHAPE</span>
+        </div>
+
+        <div class="mod-knob" title="Analog Warmth / Damping (0 - 100 %)">
+            <div class="custom-knob-dial" data-symbol="tone" data-min="0" data-max="100" data-default="70.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="tone" style="display:none;"></div>
+            <span class="mod-knob-title">TONE</span>
+        </div>
+    </div>
+
+    <!-- ROW 3: MODULATION & DYNAMICS (MOD ON, MOD DEPTH, MOD RATE, DUCK) -->
+    <div class="knob-section-header">
+        <span class="section-title">MODULATION & DYNAMICS</span>
+    </div>
+    <div class="mod-control-group row-4">
+        <!-- MOD ON TOGGLE SWITCH -->
+        <div class="mod-knob toggle-col" title="Modulation On / Off">
+            <div class="custom-toggle-switch off" data-symbol="mod_on" data-default="0">
+                <div class="switch-housing">
+                    <div class="switch-lever"></div>
+                </div>
+                <div class="switch-led"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mod_on" style="display:none;"></div>
+            <span class="mod-knob-title">MOD ON</span>
+        </div>
+
+        <div class="mod-knob" title="Modulation Depth (0 - 100 %)">
+            <div class="custom-knob-dial" data-symbol="mod_depth" data-min="0" data-max="100" data-default="25.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mod_depth" style="display:none;"></div>
+            <span class="mod-knob-title">DEPTH</span>
+        </div>
+
+        <div class="mod-knob" title="Modulation Rate (0.1 - 5.0 Hz)">
+            <div class="custom-knob-dial" data-symbol="mod_rate" data-min="0.1" data-max="5.0" data-default="0.80">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mod_rate" style="display:none;"></div>
+            <span class="mod-knob-title">RATE</span>
+        </div>
+
+        <div class="mod-knob" title="Dynamic Picking Ducker (0 - 100 %)">
+            <div class="custom-knob-dial" data-symbol="duck" data-min="0" data-max="100" data-default="0.00">
+                <div class="knob-rotor"></div>
+            </div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="duck" style="display:none;"></div>
+            <span class="mod-knob-title">DUCK</span>
+        </div>
+    </div>
+
+    <!-- Status Jewel LED -->
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- Bypass Footswitch -->
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Engage / Bypass)"></div>
+
+    <!-- Standard Outer Jacks (Audio / MIDI / CV) -->
     <div class="mod-pedal-input">
         {{#effect.ports.audio.input}}
         <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
             <div class="mod-pedal-input-image"></div>
         </div>
         {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.cv.input}}
     </div>
+
     <div class="mod-pedal-output">
         {{#effect.ports.audio.output}}
         <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
             <div class="mod-pedal-output-image"></div>
         </div>
         {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
     </div>
 </div>

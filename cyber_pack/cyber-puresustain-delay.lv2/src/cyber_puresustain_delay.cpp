@@ -7,9 +7,14 @@
  *  2. Dual-Head Equal-Power Crossfade Record Engine ("Melt"):
  *     Dissolves loop seams and transient beating into an unbroken sustained pad
  *     at high feedback without any allpass diffusion / phase-smearing mud.
- *  3. Non-Dispersive 1-Pole Analog Tone Damping (2 kHz to 18 kHz) + DC blocker.
- *  4. Dynamic Sidechain Ducker: Keeps picking attack and lead solos clear over the pad.
- *  5. Soft-Knee Hyperbolic Tangent Tape Saturation in feedback loop.
+ *  3. Stereo Quadrature LFO Modulation Engine (Sine L / Cosine R) with On/Off toggle.
+ *  4. Resonant Cytomic 2-Pole Zero-Delay State Variable Filters (SVF) in Tail:
+ *     - High-Pass Filter (Low Cut: 20 Hz to 2000 Hz)
+ *     - Low-Pass Filter (High Cut: 1000 Hz to 20000 Hz)
+ *     - Shape / Resonance Q Control (0.5 to 4.0)
+ *  5. Non-Dispersive 1-Pole Analog Tone Damping (2 kHz to 18 kHz) + DC blocker.
+ *  6. Dynamic Sidechain Ducker: Keeps picking attack and lead solos clear over the pad.
+ *  7. Soft-Knee Hyperbolic Tangent Tape Saturation in feedback loop.
  */
 
 #include "lv2.h"
@@ -37,7 +42,13 @@ enum PortIndex {
     PORT_MELT          = 7,
     PORT_TONE          = 8,
     PORT_DUCK          = 9,
-    PORT_MIX           = 10
+    PORT_MIX           = 10,
+    PORT_MOD_ON        = 11,
+    PORT_MOD_DEPTH     = 12,
+    PORT_MOD_RATE      = 13,
+    PORT_HP_FREQ       = 14,
+    PORT_LP_FREQ       = 15,
+    PORT_FILTER_Q      = 16
 };
 
 class CyberPureSustainDelay {
@@ -50,11 +61,20 @@ private:
     int max_delay_samples;
     int write_pos;
 
-    // Filter States
-    float lp_state_l;
-    float lp_state_r;
-    float hp_state_l;
-    float hp_state_r;
+    // Filter States (1-pole tone & DC block)
+    float lp_tone_l;
+    float lp_tone_r;
+    float dc_block_l;
+    float dc_block_r;
+
+    // Resonant SVF Filter States (High-Pass & Low-Pass in tail)
+    float svf_hp_s1_l, svf_hp_s2_l;
+    float svf_hp_s1_r, svf_hp_s2_r;
+    float svf_lp_s1_l, svf_lp_s2_l;
+    float svf_lp_s1_r, svf_lp_s2_r;
+
+    // Modulation LFO
+    float lfo_phase;
 
     // Dynamic Sidechain Ducker
     float env_follower;
@@ -74,6 +94,12 @@ private:
     const float* p_tone;
     const float* p_duck;
     const float* p_mix;
+    const float* p_mod_on;
+    const float* p_mod_depth;
+    const float* p_mod_rate;
+    const float* p_hp_freq;
+    const float* p_lp_freq;
+    const float* p_filter_q;
 
     // 4-Point Hermite Interpolation
     inline float read_hermite(const float* buffer, float pos) {
@@ -109,15 +135,26 @@ private:
         return ((c3 * frac + c2) * frac + c1) * frac + c0;
     }
 
+    inline float sanitize(float v) {
+        return (fabsf(v) < 1e-15f) ? 0.0f : v;
+    }
+
 public:
     CyberPureSustainDelay(double sr) : sample_rate(sr) {
-        max_delay_samples = (int)(sample_rate * MAX_DELAY_SEC) + 2048;
+        max_delay_samples = (int)(sample_rate * MAX_DELAY_SEC) + 4096;
         delay_buf_l = (float*)calloc(max_delay_samples, sizeof(float));
         delay_buf_r = (float*)calloc(max_delay_samples, sizeof(float));
         write_pos = 0;
 
-        lp_state_l = lp_state_r = 0.0f;
-        hp_state_l = hp_state_r = 0.0f;
+        lp_tone_l = lp_tone_r = 0.0f;
+        dc_block_l = dc_block_r = 0.0f;
+
+        svf_hp_s1_l = svf_hp_s2_l = 0.0f;
+        svf_hp_s1_r = svf_hp_s2_r = 0.0f;
+        svf_lp_s1_l = svf_lp_s2_l = 0.0f;
+        svf_lp_s1_r = svf_lp_s2_r = 0.0f;
+
+        lfo_phase = 0.0f;
         env_follower = 0.0f;
         current_delay_samples = (float)(sample_rate * 0.4);
     }
@@ -140,6 +177,12 @@ public:
             case PORT_TONE:        p_tone = (const float*)data; break;
             case PORT_DUCK:        p_duck = (const float*)data; break;
             case PORT_MIX:         p_mix = (const float*)data; break;
+            case PORT_MOD_ON:      p_mod_on = (const float*)data; break;
+            case PORT_MOD_DEPTH:   p_mod_depth = (const float*)data; break;
+            case PORT_MOD_RATE:    p_mod_rate = (const float*)data; break;
+            case PORT_HP_FREQ:     p_hp_freq = (const float*)data; break;
+            case PORT_LP_FREQ:     p_lp_freq = (const float*)data; break;
+            case PORT_FILTER_Q:    p_filter_q = (const float*)data; break;
         }
     }
 
@@ -158,25 +201,52 @@ public:
         float duck_amt = std::max(0.0f, std::min(100.0f, *p_duck)) * 0.01f;
         float mix = std::max(0.0f, std::min(100.0f, *p_mix)) * 0.01f;
 
-        float target_delay_samples = (time_ms * 0.001f) * (float)sample_rate;
-        target_delay_samples = std::max(64.0f, std::min((float)(max_delay_samples - 1024), target_delay_samples));
+        // Modulation Controls
+        bool mod_enabled = (p_mod_on && *p_mod_on > 0.5f);
+        float mod_depth_val = p_mod_depth ? std::max(0.0f, std::min(100.0f, *p_mod_depth)) : 0.0f;
+        float mod_rate_val = p_mod_rate ? std::max(0.05f, std::min(5.0f, *p_mod_rate)) : 0.8f;
 
-        // Time parameter slew (smooth transitions)
+        // Tail Filter Controls (High-Pass, Low-Pass, Q Shape)
+        float hp_freq = p_hp_freq ? std::max(20.0f, std::min(2000.0f, *p_hp_freq)) : 80.0f;
+        float lp_freq = p_lp_freq ? std::max(1000.0f, std::min(20000.0f, *p_lp_freq)) : 6500.0f;
+        float q_val = p_filter_q ? std::max(0.5f, std::min(4.0f, *p_filter_q)) : 0.707f;
+
+        float target_delay_samples = (time_ms * 0.001f) * (float)sample_rate;
+        target_delay_samples = std::max(64.0f, std::min((float)(max_delay_samples - 2048), target_delay_samples));
+
+        // Time parameter slew
         float time_slew = 1.0f - expf(-1.0f / (0.05f * (float)sample_rate));
 
-        // Feedback calculation: 100% is unity, >100% enters saturated sustain
+        // Feedback calculation
         float fb_gain = feedback_pct * 0.01f;
 
         // Tone Damping: 1-pole non-dispersive lowpass filter (2 kHz to 18 kHz)
-        float lp_cutoff = 2000.0f + (tone_pct * tone_pct) * 16000.0f;
-        float lp_coeff = 1.0f - expf(-2.0f * (float)M_PI * lp_cutoff / (float)sample_rate);
+        float tone_cutoff = 2000.0f + (tone_pct * tone_pct) * 16000.0f;
+        float lp_tone_coeff = 1.0f - expf(-2.0f * (float)M_PI * tone_cutoff / (float)sample_rate);
 
-        // Subsonic DC blocker filter (35 Hz)
-        float hp_coeff = 1.0f - expf(-2.0f * (float)M_PI * 35.0f / (float)sample_rate);
+        // Subsonic DC blocker filter (30 Hz)
+        float dc_block_coeff = 1.0f - expf(-2.0f * (float)M_PI * 30.0f / (float)sample_rate);
 
-        // Sidechain Ducker Coefficients (5ms attack, 180ms release)
+        // Sidechain Ducker Coefficients
         float duck_att = 1.0f - expf(-1.0f / (0.005f * (float)sample_rate));
         float duck_rel = 1.0f - expf(-1.0f / (0.180f * (float)sample_rate));
+
+        // Modulation parameters
+        float max_mod_excursion = (mod_enabled) ? (mod_depth_val * 0.01f) * (0.004f * (float)sample_rate) : 0.0f;
+        float lfo_phase_inc = (float)(2.0 * M_PI * mod_rate_val / sample_rate);
+
+        // Cytomic Trapezoidal SVF Filter Coefficients for Delay Tail
+        float g_hp = tanf((float)M_PI * hp_freq / (float)sample_rate);
+        float k_hp = 1.0f / q_val;
+        float a1_hp = 1.0f / (1.0f + g_hp * (g_hp + k_hp));
+        float a2_hp = g_hp * a1_hp;
+        float a3_hp = g_hp * a2_hp;
+
+        float g_lp = tanf((float)M_PI * lp_freq / (float)sample_rate);
+        float k_lp = 1.0f / q_val;
+        float a1_lp = 1.0f / (1.0f + g_lp * (g_lp + k_lp));
+        float a2_lp = g_lp * a1_lp;
+        float a3_lp = g_lp * a2_lp;
 
         for (uint32_t i = 0; i < sample_count; ++i) {
             float in_l = p_in_l[i];
@@ -184,22 +254,28 @@ public:
             float in_mono = 0.5f * (in_l + in_r);
             float in_abs = fabsf(in_mono);
 
-            // Smooth delay time interpolation
             current_delay_samples += (target_delay_samples - current_delay_samples) * time_slew;
 
-            // Envelope detection for dynamic ducking
             if (in_abs > env_follower) {
                 env_follower += (in_abs - env_follower) * duck_att;
             } else {
                 env_follower += (in_abs - env_follower) * duck_rel;
             }
 
-            // Calculate ducking multiplier: reduces wet pad level while actively picking
             float duck_reduction = std::max(0.12f, 1.0f - (env_follower * 2.8f * duck_amt));
 
-            // Primary Read Head Position
-            float read_pos_l = (float)write_pos - current_delay_samples;
-            float read_pos_r = (float)write_pos - (current_delay_samples * 1.04f); // Subtle stereo spread
+            float lfo_sin = sinf(lfo_phase);
+            float lfo_cos = cosf(lfo_phase);
+            float mod_offset_l = lfo_sin * max_mod_excursion;
+            float mod_offset_r = lfo_cos * max_mod_excursion;
+
+            lfo_phase += lfo_phase_inc;
+            if (lfo_phase >= 2.0f * (float)M_PI) {
+                lfo_phase -= 2.0f * (float)M_PI;
+            }
+
+            float read_pos_l = (float)write_pos - current_delay_samples + mod_offset_l;
+            float read_pos_r = (float)write_pos - (current_delay_samples * 1.035f) + mod_offset_r;
 
             while (read_pos_l < 0.0f) read_pos_l += (float)max_delay_samples;
             while (read_pos_r < 0.0f) read_pos_r += (float)max_delay_samples;
@@ -209,8 +285,6 @@ public:
             float delayed_primary_l = read_hermite(delay_buf_l, read_pos_l);
             float delayed_primary_r = read_hermite(delay_buf_r, read_pos_r);
 
-            // Continuous Crossfade Engine ("Melt"):
-            // Second read head offset by half the delay period with equal-power raised-cosine windowing
             float delayed_l = delayed_primary_l;
             float delayed_r = delayed_primary_r;
 
@@ -227,15 +301,13 @@ public:
                 float delayed_sec_l = read_hermite(delay_buf_l, read_sec_l);
                 float delayed_sec_r = read_hermite(delay_buf_r, read_sec_r);
 
-                // Phase of loop cycle for continuous crossfade
                 float cycle_phase = fmodf((float)write_pos, current_delay_samples) / current_delay_samples;
-                float angle = cycle_phase * (float)M_PI; // 0 to pi
+                float angle = cycle_phase * (float)M_PI;
                 float cos_val = cosf(angle);
                 float sin_val = sinf(angle);
-                float w0 = cos_val * cos_val; // Equal power: w0 + w1 = cos^2 + sin^2 = 1
+                float w0 = cos_val * cos_val;
                 float w1 = sin_val * sin_val;
 
-                // Blend melted crossfade with primary signal based on melt parameter
                 float melted_l = delayed_primary_l * w0 + delayed_sec_l * w1;
                 float melted_r = delayed_primary_r * w0 + delayed_sec_r * w1;
 
@@ -243,16 +315,46 @@ public:
                 delayed_r = delayed_primary_r * (1.0f - melt_amt) + melted_r * melt_amt;
             }
 
-            // Non-Dispersive 1-Pole Tone Damping
-            lp_state_l += lp_coeff * (delayed_l - lp_state_l);
-            lp_state_r += lp_coeff * (delayed_r - lp_state_r);
+            // High-Pass SVF in tail
+            float v3_hp_l = delayed_l - svf_hp_s2_l;
+            float v1_hp_l = a1_hp * svf_hp_s1_l + a2_hp * v3_hp_l;
+            float v2_hp_l = svf_hp_s2_l + a2_hp * svf_hp_s1_l + a3_hp * v3_hp_l;
+            svf_hp_s1_l = sanitize(2.0f * v1_hp_l - svf_hp_s1_l);
+            svf_hp_s2_l = sanitize(2.0f * v2_hp_l - svf_hp_s2_l);
+            float hp_out_l = delayed_l - k_hp * v1_hp_l - v2_hp_l;
 
-            // DC Blocking
-            hp_state_l += hp_coeff * (lp_state_l - hp_state_l);
-            hp_state_r += hp_coeff * (lp_state_r - hp_state_r);
+            float v3_hp_r = delayed_r - svf_hp_s2_r;
+            float v1_hp_r = a1_hp * svf_hp_s1_r + a2_hp * v3_hp_r;
+            float v2_hp_r = svf_hp_s2_r + a2_hp * svf_hp_s1_r + a3_hp * v3_hp_r;
+            svf_hp_s1_r = sanitize(2.0f * v1_hp_r - svf_hp_s1_r);
+            svf_hp_s2_r = sanitize(2.0f * v2_hp_r - svf_hp_s2_r);
+            float hp_out_r = delayed_r - k_hp * v1_hp_r - v2_hp_r;
 
-            float wet_clean_l = lp_state_l - hp_state_l;
-            float wet_clean_r = lp_state_r - hp_state_r;
+            // Low-Pass SVF in tail
+            float v3_lp_l = hp_out_l - svf_lp_s2_l;
+            float v1_lp_l = a1_lp * svf_lp_s1_l + a2_lp * v3_lp_l;
+            float v2_lp_l = svf_lp_s2_l + a2_lp * svf_lp_s1_l + a3_lp * v3_lp_l;
+            svf_lp_s1_l = sanitize(2.0f * v1_lp_l - svf_lp_s1_l);
+            svf_lp_s2_l = sanitize(2.0f * v2_lp_l - svf_lp_s2_l);
+            float lp_out_l = v2_lp_l;
+
+            float v3_lp_r = hp_out_r - svf_lp_s2_r;
+            float v1_lp_r = a1_lp * svf_lp_s1_r + a2_lp * v3_lp_r;
+            float v2_lp_r = svf_lp_s2_r + a2_lp * svf_lp_s1_r + a3_lp * v3_lp_r;
+            svf_lp_s1_r = sanitize(2.0f * v1_lp_r - svf_lp_s1_r);
+            svf_lp_s2_r = sanitize(2.0f * v2_lp_r - svf_lp_s2_r);
+            float lp_out_r = v2_lp_r;
+
+            // 1-Pole Tone Damping Filter
+            lp_tone_l += lp_tone_coeff * (lp_out_l - lp_tone_l);
+            lp_tone_r += lp_tone_coeff * (lp_out_r - lp_tone_r);
+
+            // Subsonic DC Block
+            dc_block_l += dc_block_coeff * (lp_tone_l - dc_block_l);
+            dc_block_r += dc_block_coeff * (lp_tone_r - dc_block_r);
+
+            float wet_clean_l = lp_tone_l - dc_block_l;
+            float wet_clean_r = lp_tone_r - dc_block_r;
 
             // Soft-Knee Saturation in feedback loop
             float sat_l = tanhf(wet_clean_l * fb_gain);
@@ -264,11 +366,9 @@ public:
 
             if (++write_pos >= max_delay_samples) write_pos = 0;
 
-            // Apply dynamic sidechain ducking to wet output
             float ducked_wet_l = wet_clean_l * duck_reduction;
             float ducked_wet_r = wet_clean_r * duck_reduction;
 
-            // Master Output Mix
             p_out_l[i] = in_l * (1.0f - mix) + ducked_wet_l * mix;
             if (p_out_r) {
                 p_out_r[i] = in_r * (1.0f - mix) + ducked_wet_r * mix;
