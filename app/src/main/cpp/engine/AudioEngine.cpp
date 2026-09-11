@@ -303,6 +303,17 @@ oboe::DataCallbackResult AudioEngine::onAudioReady(
     // Record audio callback thread ID for ADPF PerformanceHintManager
     audioThreadTid_.store(getTid(), std::memory_order_relaxed);
 
+    // Enforce real-time audio thread priority (-19) for Google Pixel / Tensor anti-throttling
+    {
+        static thread_local bool prioritySet = false;
+        if (!prioritySet) {
+#if defined(__ANDROID__) && defined(__linux__)
+            setpriority(PRIO_PROCESS, 0, -19);
+#endif
+            prioritySet = true;
+        }
+    }
+
     // Debug: log callback thread still active (rate-limited) to correlate with closeStreams() tid
     {
         static std::atomic<int> enterCount{0};
@@ -311,7 +322,7 @@ oboe::DataCallbackResult AudioEngine::onAudioReady(
         auto now = std::chrono::steady_clock::now();
         if (c < 3 || std::chrono::duration<double>(now - lastEnterLog).count() >= 5.0) {
             if (c >= 3) lastEnterLog = now;
-            LOGI("onAudioReady ENTER tid=%ld (callback thread, count=%d)", getTid(), c);
+            LOGI("onAudioReady ENTER tid=%ld (callback thread, count=%d, prio=-19)", getTid(), c);
         }
     }
     // Debug: log when callback bails due to shutdown (rate-limited)

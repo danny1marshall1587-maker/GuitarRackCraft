@@ -174,6 +174,23 @@ object MidiMappingManager {
         saveToFile(context)
     }
 
+    fun getMappingForSlotAndPort(slotIndex: Int, portIndex: Int): MidiMapping? {
+        return _mappings.value.firstOrNull {
+            it.actionType == MidiActionType.PARAMETER_CONTROL &&
+            it.targetSlotIndex == slotIndex &&
+            it.targetPortIndex == portIndex
+        }
+    }
+
+    fun getAllMappingsForSlotAndPort(slotIndex: Int, portIndex: Int): List<MidiMapping> {
+        return _mappings.value.filter {
+            it.actionType == MidiActionType.PARAMETER_CONTROL &&
+            it.targetSlotIndex == slotIndex &&
+            it.targetPortIndex == portIndex
+        }
+    }
+
+
     /**
      * Start MIDI Learn mode targeting a specific action/slot/port.
      */

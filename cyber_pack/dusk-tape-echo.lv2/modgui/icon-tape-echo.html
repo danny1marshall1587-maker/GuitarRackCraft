@@ -1,0 +1,64 @@
+<div class="mod-pedal mod-pedal-tape-echo">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    
+    <div class="space-echo-top">
+        <div class="tape-brand">DUSK AUDIO &bull; SPACE ECHO</div>
+        <div class="tape-title">TAPE ECHO 2</div>
+        <div class="tape-transport-badge">
+            <span class="transport-light"></span> 3-HEAD ANALOG TAPE TRANSPORT
+        </div>
+    </div>
+
+    <div class="space-echo-body">
+        <div class="echo-row">
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="mode"></div>
+                <span class="mod-knob-title">HEAD SELECT</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="rate"></div>
+                <span class="mod-knob-title">REPEAT RATE</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="intensity"></div>
+                <span class="mod-knob-title">INTENSITY</span>
+            </div>
+        </div>
+
+        <div class="echo-row">
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="age"></div>
+                <span class="mod-knob-title">TAPE AGE</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="spring"></div>
+                <span class="mod-knob-title">SPRING REVERB</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="echo_vol"></div>
+                <span class="mod-knob-title">ECHO VOLUME</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-control-group mod-input-group">
+            <div class="mod-port mod-input" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+                <div class="mod-port-name">{{name}}</div>
+            </div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-control-group mod-output-group">
+            <div class="mod-port mod-output" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+                <div class="mod-port-name">{{name}}</div>
+            </div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

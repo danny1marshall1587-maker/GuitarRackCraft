@@ -22,6 +22,7 @@ package com.varcain.guitarrackcraft.ui.rack
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -119,6 +120,7 @@ import com.varcain.guitarrackcraft.engine.X11Bridge
 import com.varcain.guitarrackcraft.engine.PluginInfo
 import com.varcain.guitarrackcraft.engine.UiType
 import com.varcain.guitarrackcraft.ui.modgui.InlineModguiView
+import com.varcain.guitarrackcraft.ui.midi.SliderMidiLearnDialog
 import com.varcain.guitarrackcraft.ui.x11.PluginX11UiView
 import com.varcain.guitarrackcraft.ui.x11.X11DisplayManager
 import android.net.Uri
@@ -2206,20 +2208,42 @@ fun ParameterControl(
                 }
             }
         } else {
-            // Continuous port: slider
-            Slider(
-                value = currentValue.value,
-                onValueChange = { newValue ->
-                    isUserInteracting = true
-                    currentValue.value = newValue
-                    viewModel.setParameter(pluginIndex, port.index, newValue)
-                },
-                onValueChangeFinished = {
-                    isUserInteracting = false
-                },
-                valueRange = port.minValue..port.maxValue,
-                modifier = Modifier.fillMaxWidth()
-            )
+            // Continuous port: slider with double-tap MIDI Learn
+            var showMidiLearnDialog by remember { mutableStateOf(false) }
+
+            if (showMidiLearnDialog) {
+                SliderMidiLearnDialog(
+                    slotIndex = pluginIndex,
+                    port = port,
+                    onDismissRequest = { showMidiLearnDialog = false }
+                )
+            }
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .pointerInput(pluginIndex, port.index) {
+                        detectTapGestures(
+                            onDoubleTap = {
+                                showMidiLearnDialog = true
+                            }
+                        )
+                    }
+            ) {
+                Slider(
+                    value = currentValue.value,
+                    onValueChange = { newValue ->
+                        isUserInteracting = true
+                        currentValue.value = newValue
+                        viewModel.setParameter(pluginIndex, port.index, newValue)
+                    },
+                    onValueChangeFinished = {
+                        isUserInteracting = false
+                    },
+                    valueRange = port.minValue..port.maxValue,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
         }
     }
 }

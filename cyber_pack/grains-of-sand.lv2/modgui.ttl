@@ -1,0 +1,79 @@
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<http://stefan.local/plugins/grainsofsand>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "Stefan Audio" ;
+        modgui:label "Grains of Sand" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "#261e11" ;
+        modgui:port 
+        [
+            lv2:index 0 ;
+            lv2:symbol "delay" ;
+            lv2:name "DELAY" ;
+        ] ,
+        [
+            lv2:index 1 ;
+            lv2:symbol "size" ;
+            lv2:name "GRAIN SIZE" ;
+        ] ,
+        [
+            lv2:index 2 ;
+            lv2:symbol "density" ;
+            lv2:name "DENSITY" ;
+        ] ,
+        [
+            lv2:index 3 ;
+            lv2:symbol "spray" ;
+            lv2:name "SPRAY" ;
+        ] ,
+        [
+            lv2:index 4 ;
+            lv2:symbol "pitch" ;
+            lv2:name "PITCH" ;
+        ] ,
+        [
+            lv2:index 5 ;
+            lv2:symbol "detune" ;
+            lv2:name "DETUNE" ;
+        ] ,
+        [
+            lv2:index 6 ;
+            lv2:symbol "jitter" ;
+            lv2:name "JITTER" ;
+        ] ,
+        [
+            lv2:index 7 ;
+            lv2:symbol "reverse" ;
+            lv2:name "REVERSE" ;
+        ] ,
+        [
+            lv2:index 8 ;
+            lv2:symbol "feedback" ;
+            lv2:name "FEEDBACK" ;
+        ] ,
+        [
+            lv2:index 9 ;
+            lv2:symbol "tone" ;
+            lv2:name "TONE" ;
+        ] ,
+        [
+            lv2:index 10 ;
+            lv2:symbol "mix" ;
+            lv2:name "MIX" ;
+        ] ,
+        [
+            lv2:index 11 ;
+            lv2:symbol "level" ;
+            lv2:name "LEVEL" ;
+        ]
+    ] .

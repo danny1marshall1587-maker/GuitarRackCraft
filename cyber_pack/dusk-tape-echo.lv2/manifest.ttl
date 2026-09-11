@@ -1,0 +1,7 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://dusk-audio.com/plugins/tape-echo-2>
+    a lv2:Plugin ;
+    lv2:binary <dusk_tape_echo.so> , <dusk-tape-echo.dll> ;
+    rdfs:seeAlso <dusk-tape-echo.ttl> , <modgui.ttl> .

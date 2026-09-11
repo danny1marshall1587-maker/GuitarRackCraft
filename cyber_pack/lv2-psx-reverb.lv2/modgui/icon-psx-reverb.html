@@ -1,0 +1,72 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} psx-pedal">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <div class="psx-brand">
+        <span class="ps-logo">PS</span>
+        <span class="ps-text">PlayStation SPU</span>
+    </div>
+    <div class="psx-model-title">REVERB PROCESSOR 32.768kHz</div>
+
+    <div class="mod-light on" mod-role="bypass-light"></div>
+
+    <!-- 90s Console Disc Lid Graphics -->
+    <div class="psx-cd-lid">
+        <div class="psx-disc-circle">
+            <div class="psx-disc-hub"></div>
+        </div>
+        <div class="psx-open-btn">OPEN</div>
+        <div class="psx-power-btn">POWER</div>
+    </div>
+
+    <!-- D-Pad Style Controls Display -->
+    <div class="mod-control-group clearfix psx-controls-wrap">
+        <div class="mod-knob" title="Hardware SPU Preset Selection (0-9)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="preset"></div>
+            <span class="mod-knob-title">PRESET</span>
+        </div>
+        <div class="mod-knob" title="Reverb Wet Level (dB)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="wet"></div>
+            <span class="mod-knob-title">WET</span>
+        </div>
+        <div class="mod-knob" title="Dry Signal Level (dB)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="dry"></div>
+            <span class="mod-knob-title">DRY</span>
+        </div>
+        <div class="mod-knob" title="Master Output Trim (dB)">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="master"></div>
+            <span class="mod-knob-title">MASTER</span>
+        </div>
+    </div>
+
+    <div class="psx-footer-tag">16-BIT RETRO HARDWARE DSP</div>
+
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Engage / Bypass)"></div>
+
+    <!-- Input connectors -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+    </div>
+
+    <!-- Output connectors -->
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.midi.output}}
+    </div>
+</div>

@@ -1,0 +1,635 @@
+/* ==========================================================================
+   CYBER ORGAN 9 — Authentic Hammond B3 & Leslie 122 Rotary Pad
+   ========================================================================== */
+
+.bas9-panel {
+    width: 980px !important;
+    min-height: 410px !important;
+    background: linear-gradient(180deg, #181c14 0%, #22291d 100%) !important;
+    border: 3px solid #2d2219 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    user-select: none;
+    overflow: visible !important;
+    padding-bottom: 12px;
+}
+
+/* ── Top Drag Handle Bar ───────────────────────────────────────────────── */
+/* Dedicated 28px bar along top for dragging the pedal window */
+.bas9-panel .bas9-top-drag-bar {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 38px !important;
+    z-index: 5 !important;
+    cursor: move !important;
+}
+
+/* Ensure all interactive controls receive clicks above everything else */
+.bas9-panel .bas9-main-body,
+.bas9-panel .bas9-perf-bar,
+.bas9-panel .bas9-section,
+.bas9-panel .bas9-vtrack,
+.bas9-panel .bas9-thumb,
+.bas9-panel .bas9-dial,
+.bas9-panel .bas9-pill,
+.bas9-panel .bas9-rotary-btn,
+.bas9-panel button {
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.bas9-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 18px 6px;
+    background: #080605;
+    border-bottom: 2px solid #241a12;
+    border-radius: 10px 10px 0 0;
+    pointer-events: none; /* Let drag handle underneath catch drags on header */
+}
+
+.bas9-logo-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.bas9-brand {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #aacc00;
+    text-transform: uppercase;
+}
+
+.bas9-model {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #f7e7ce;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(196,138,55,0.4);
+}
+
+.bas9-subtitle-col {
+    font-size: 8.5px;
+    color: #7d7060;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    flex: 1;
+    padding: 0 12px;
+}
+
+.bas9-bypass-col {
+    display: flex;
+    align-items: center;
+    pointer-events: auto;
+}
+
+/* ── Main Body: Split sections ─────────────────────────────────────────── */
+.bas9-main-body {
+    display: flex;
+    gap: 12px;
+    padding: 10px 16px;
+}
+
+.bas9-section {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #2d2219;
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.bas9-note-section {
+    flex: 1.15;
+}
+
+.bas9-db-section {
+    flex: 1.0;
+}
+
+.bas9-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.bas9-section-title {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #d49b45;
+    text-transform: uppercase;
+}
+
+.bas9-section-sub {
+    font-size: 7.5px;
+    color: #8c7c6a;
+    font-weight: normal;
+    text-transform: none;
+/* ── Key & Scale Lock ─────────────────────────────────────────────────── */
+.bas9-key-lock-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bas9-key-lbl {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #fca311;
+    letter-spacing: 0.8px;
+}
+
+.bas9-select {
+    background: #15110d;
+    color: #e5d7c3;
+    border: 1px solid #4a3418;
+    border-radius: 4px;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.bas9-select:focus, .bas9-select:hover {
+    border-color: #fca311;
+    color: #fff;
+}
+
+/* ── Third quality row ─────────────────────────────────────────────────── */
+.bas9-third-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bas9-third-lbl {
+    font-size: 7.5px;
+    font-weight: 700;
+    color: #a89680;
+    letter-spacing: 0.8px;
+}
+
+.bas9-pill {
+    background: #1a1510;
+    border: 1px solid #3d2e20;
+    border-radius: 4px;
+    color: #7d6e5c;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 7px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.bas9-pill:hover {
+    color: #e0ab5b;
+    border-color: #aacc00;
+}
+
+.bas9-pill.active {
+    background: #38220a;
+    border-color: #e0ab5b;
+    color: #ffd899;
+    box-shadow: 0 0 8px rgba(224,171,91,0.35);
+}
+
+/* ── Slider Rows ───────────────────────────────────────────────────────── */
+.bas9-slider-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.bas9-ns-unit, .bas9-db-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    flex: 1;
+}
+
+.bas9-ns-label, .bas9-db-label {
+    font-size: 8px;
+    font-weight: 800;
+    color: #bfad99;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.bas9-root-lbl, .bas9-db-root-lbl {
+    color: #e0ab5b !important;
+}
+
+.bas9-ns-note {
+    font-size: 7px;
+    color: #695b4c;
+}
+
+.bas9-ns-divider {
+    width: 1px;
+    height: 120px;
+    background: #332417;
+    margin: 0 2px;
+}
+
+/* ── Vertical slider tracks ────────────────────────────────────────────── */
+.bas9-vtrack {
+    width: 16px;
+    height: 100px;
+    background: #0a0705;
+    border: 1.5px solid #2e2319;
+    border-radius: 8px;
+    position: relative !important;
+    cursor: ns-resize;
+    overflow: hidden;
+}
+
+.bas9-vfill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    border-radius: 0 0 6px 6px;
+    pointer-events: none;
+    transition: height 0.04s linear;
+}
+
+/* Note selector fill colors */
+.bas9-fill-sub   { background: linear-gradient(0deg, #1f354d 0%, #356799 100%); }
+.bas9-fill-root  { background: linear-gradient(0deg, #614013 0%, #aacc00 100%); }
+.bas9-fill-up    { background: linear-gradient(0deg, #1b4731 0%, #328f61 100%); }
+.bas9-fill-hi    { background: linear-gradient(0deg, #441f4d 0%, #873b99 100%); }
+
+/* Drawbar fill colors */
+.bas9-fill-db-brown { background: linear-gradient(0deg, #2b1307 0%, #692c0c 100%); }
+.bas9-fill-db-white { background: linear-gradient(0deg, #42403d 0%, #b8b3a9 100%); }
+.bas9-fill-db-black { background: linear-gradient(0deg, #141414 0%, #383838 100%); }
+
+/* Slider thumbs */
+.bas9-thumb {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    height: 18px;
+    background: linear-gradient(180deg, #dcd5ca 0%, #998f82 100%);
+    border: 1px solid #786f63;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    bottom: 0px;
+    cursor: ns-resize;
+    z-index: 50;
+}
+
+.bas9-thumb-root {
+    background: linear-gradient(180deg, #fce0aa 0%, #aacc00 100%) !important;
+    border-color: #ffd899 !important;
+}
+
+.bas9-db-brown-thumb {
+    background: linear-gradient(180deg, #873e16 0%, #471d07 100%) !important;
+    border-color: #9e4b1c !important;
+}
+.bas9-db-white-thumb {
+    background: linear-gradient(180deg, #f2ece4 0%, #bbb1a2 100%) !important;
+    border-color: #ded5c8 !important;
+}
+.bas9-db-black-thumb {
+    background: linear-gradient(180deg, #3d3934 0%, #1a1714 100%) !important;
+    border-color: #595147 !important;
+}
+
+.bas9-ns-val, .bas9-db-val {
+    font-size: 8px;
+    font-weight: 700;
+    color: #a39380;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ── Performance Bar (Bottom) ──────────────────────────────────────────── */
+.bas9-perf-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 18px 0;
+    background: #0a0807;
+    border-top: 1px solid #241a12;
+    margin-top: 6px;
+}
+
+.bas9-perf-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.bas9-perf-lbl {
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #8c7c6a;
+    text-transform: uppercase;
+}
+
+/* Rotary button */
+.bas9-rotary-btn {
+    width: 62px;
+    height: 44px;
+    background: #14100d;
+    border: 1.5px solid #332417;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.bas9-rotary-btn:hover {
+    border-color: #aacc00;
+}
+
+.bas9-rotary-icon {
+    font-size: 16px;
+    color: #594635;
+    line-height: 1;
+}
+.bas9-rotary-icon.slow { color: #8cb844; }
+.bas9-rotary-icon.fast {
+    color: #a8e048;
+    text-shadow: 0 0 10px rgba(168,224,72,0.6);
+    animation: bas9-spin 0.15s linear infinite;
+}
+
+@keyframes bas9-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.bas9-rotary-txt {
+    font-size: 8px;
+    font-weight: 800;
+    color: #d49b45;
+    letter-spacing: 1px;
+}
+
+/* ── Performance Rotary Knobs ──────────────────────────────────────────── */
+.bas9-dial {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #42382f 0%, #1c1612 60%, #0d0a08 100%);
+    border: 1.5px solid #382b1f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    position: relative !important;
+    cursor: ns-resize;
+}
+
+.bas9-dial .bas9-dial-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.5px;
+    height: 18px;
+    background: linear-gradient(180deg, #e0ab5b 0%, #aacc00 100%);
+    border-radius: 2px;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(-140deg);
+    box-shadow: 0 0 4px rgba(224,171,91,0.5);
+}
+
+.bas9-dial-highlight .bas9-dial-rotor {
+    background: linear-gradient(180deg, #6fd485 0%, #2ea048 100%);
+    box-shadow: 0 0 6px rgba(111,212,133,0.6);
+}
+
+.bas9-dial-gate .bas9-dial-rotor {
+    background: linear-gradient(180deg, #60b4ff 0%, #1e6bc4 100%);
+    box-shadow: 0 0 6px rgba(96,180,255,0.6);
+}
+
+.bas9-dial-out .bas9-dial-rotor {
+    background: linear-gradient(180deg, #ffc97a 0%, #e68020 100%);
+}
+
+/* ── Dev Calibration Rack ──────────────────────────────────────────────── */
+.bas9-dev-rack {
+    margin: 4px 16px;
+    padding: 6px 10px 8px;
+    background: linear-gradient(180deg, #18110b 0%, #0d0a08 100%);
+    border: 1px dashed #61441b;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.7);
+}
+
+.bas9-dev-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #fca311;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.bas9-dev-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff5400;
+    box-shadow: 0 0 6px #ff5400;
+    animation: bas9-dev-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes bas9-dev-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(0.9); }
+    50% { opacity: 1.0; transform: scale(1.15); }
+}
+
+.bas9-dev-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+}
+
+.bas9-dev-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.bas9-dial-dev {
+    width: 38px !important;
+    height: 38px !important;
+    background: #110e0c !important;
+    border: 1.5px solid #4a3418 !important;
+}
+
+.bas9-dial-dev .bas9-dial-rotor {
+    height: 15px !important;
+    background: linear-gradient(180deg, #ffd166 0%, #f77f00 100%) !important;
+    box-shadow: 0 0 5px rgba(247,127,0,0.7) !important;
+}
+
+.bas9-dev-lbl {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #b0997e;
+    text-transform: uppercase;
+}
+
+.bas9-dev-val {
+    font-size: 7px;
+    font-weight: 700;
+    color: #ffaa40;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ── Auto Lowest-Note Rhythm Bass Player Bar ──────────────────────────── */
+.bas9-bass-bar {
+    margin: 6px 16px 4px;
+    padding: 6px 12px 8px;
+    background: linear-gradient(180deg, #16110a 0%, #0d0a06 100%);
+    border: 1.5px solid #6b4d1b;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.bas9-bass-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    color: #e0ab5b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.bas9-bass-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00f0ff;
+    box-shadow: 0 0 6px #00f0ff;
+}
+
+.bas9-bass-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 12px;
+}
+
+.bas9-bass-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.bas9-bass-lbl {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #b0997e;
+    text-transform: uppercase;
+}
+
+.bas9-bass-val {
+    font-size: 7.5px;
+    font-weight: 700;
+    color: #00f0ff;
+    font-variant-numeric: tabular-nums;
+}
+
+.bas9-dial-bass {
+    width: 42px !important;
+    height: 42px !important;
+    background: #111417 !important;
+    border: 1.5px solid #23485c !important;
+}
+
+.bas9-dial-bass .bas9-dial-rotor {
+    height: 16px !important;
+    background: linear-gradient(180deg, #00f0ff 0%, #0088cc 100%) !important;
+    box-shadow: 0 0 6px rgba(0,240,255,0.7) !important;
+}
+
+.bas9-bass-select {
+    padding: 3px 8px !important;
+    background: #181c20 !important;
+    color: #c9e4f5 !important;
+    border: 1px solid #315870 !important;
+    border-radius: 4px !important;
+    font-size: 8.5px !important;
+    font-weight: 700 !important;
+}
+
+.bas9-tap-btn {
+    width: 46px;
+    height: 34px;
+    background: linear-gradient(180deg, #2b3945 0%, #151e26 100%);
+    border: 1.5px solid #00f0ff;
+    border-radius: 6px;
+    color: #00f0ff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6), 0 0 6px rgba(0,240,255,0.2);
+    transition: all 0.08s ease;
+}
+
+.bas9-tap-btn:active {
+    background: #00f0ff;
+    color: #0d1217;
+    box-shadow: 0 0 12px #00f0ff;
+    transform: scale(0.95);
+}
+
+/* ── Audio Jacks Position (pushed outside cleanly so they don't cover controls) ── */
+.bas9-panel .mod-pedal-input {
+    position: absolute !important;
+    left: -32px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+.bas9-panel .mod-pedal-output {
+    position: absolute !important;
+    right: -32px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+}
+
+
+.bas9-inst-section { width: 260px; display: flex; flex-direction: column; }
+.bas9-inst-box { display: flex; flex-direction: column; gap: 8px; padding: 16px 8px; align-items: center; justify-content: center; flex: 1; }
+.bas9-inst-select { width: 90%; padding: 8px; font-size: 11px; border: 1px solid #aacc0088; background: #181411; }
+.bas9-inst-display { font-size: 12px; font-weight: 800; color: #aacc00; letter-spacing: 1px; text-align: center; }

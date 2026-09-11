@@ -1,0 +1,230 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+
+<http://stefan.local/plugins/grainsofsand>
+    a lv2:Plugin, lv2:DelayPlugin ;
+    doap:name "Grains of Sand" ;
+    doap:license <http://opensource.org/licenses/gpl-3.0> ;
+    lv2:minorVersion 1 ;
+    lv2:microVersion 0 ;
+    rdfs:comment "Glitchy, shimmering granular delay machine that buffers incoming audio and scatters it into 16 pitch-shifted, reversed, or time-frozen grains." ;
+    mod:brand "Stefan" ;
+    mod:label "Grains of Sand" ;
+
+    lv2:port [
+        a lv2:AudioPort, lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Audio In" ;
+    ] , [
+        a lv2:AudioPort, lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out_l" ;
+        lv2:name "Audio Out L" ;
+    ] , [
+        a lv2:AudioPort, lv2:OutputPort ;
+        lv2:index 2 ;
+        lv2:symbol "out_r" ;
+        lv2:name "Audio Out R" ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "delay" ;
+        lv2:name "Delay" ;
+        lv2:default 400.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 2500.0 ;
+        units:unit units:ms ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "spray" ;
+        lv2:name "Spray" ;
+        lv2:default 20.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 500.0 ;
+        units:unit units:ms ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "stretch" ;
+        lv2:name "Stretch" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0625 ;
+        lv2:maximum 16.0 ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "size" ;
+        lv2:name "Size" ;
+        lv2:default 150.0 ;
+        lv2:minimum 10.0 ;
+        lv2:maximum 500.0 ;
+        units:unit units:ms ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "density" ;
+        lv2:name "Density" ;
+        lv2:default 8.0 ;
+        lv2:minimum 0.5 ;
+        lv2:maximum 40.0 ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "jitter" ;
+        lv2:name "Jitter" ;
+        lv2:default 25.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "shape" ;
+        lv2:name "Shape" ;
+        lv2:default 70.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "reverse" ;
+        lv2:name "Reverse" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "pitch" ;
+        lv2:name "Pitch" ;
+        lv2:default 0.0 ;
+        lv2:minimum -12.0 ;
+        lv2:maximum 12.0 ;
+        units:unit units:semitone12TET ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "quantize" ;
+        lv2:name "Quantize" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 4 ;
+        lv2:portProperty lv2:enumeration, lv2:integer ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "detune" ;
+        lv2:name "Detune" ;
+        lv2:default 8.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:cent ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "pitch_rnd" ;
+        lv2:name "Interval Chance" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "feedback" ;
+        lv2:name "Feedback" ;
+        lv2:default 30.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 110.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 16 ;
+        lv2:symbol "fb_mode" ;
+        lv2:name "FB Mode" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 4 ;
+        lv2:portProperty lv2:enumeration, lv2:integer ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 17 ;
+        lv2:symbol "tone" ;
+        lv2:name "Tone" ;
+        lv2:default 6000.0 ;
+        lv2:minimum 500.0 ;
+        lv2:maximum 12000.0 ;
+        units:unit units:hz ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 18 ;
+        lv2:symbol "repeat_dice" ;
+        lv2:name "Dice" ;
+        lv2:default 100.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 19 ;
+        lv2:symbol "freeze" ;
+        lv2:name "Freeze" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled, lv2:integer ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 20 ;
+        lv2:symbol "thresh" ;
+        lv2:name "Freeze Threshold" ;
+        lv2:default -70.0 ;
+        lv2:minimum -70.0 ;
+        lv2:maximum -30.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 21 ;
+        lv2:symbol "spread" ;
+        lv2:name "Spread" ;
+        lv2:default 60.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 22 ;
+        lv2:symbol "mix" ;
+        lv2:name "Mix" ;
+        lv2:default 50.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 23 ;
+        lv2:symbol "level" ;
+        lv2:name "Level" ;
+        lv2:default 0.0 ;
+        lv2:minimum -12.0 ;
+        lv2:maximum 12.0 ;
+        units:unit units:db ;
+    ] , [
+        a lv2:ControlPort, lv2:OutputPort ;
+        lv2:index 24 ;
+        lv2:symbol "freeze_state" ;
+        lv2:name "Freeze State" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled, lv2:integer ;
+    ] .

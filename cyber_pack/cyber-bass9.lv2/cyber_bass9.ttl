@@ -1,0 +1,252 @@
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix mod:   <http://moddevices.com/ns#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-bass9>
+    a lv2:Plugin , lv2:InstrumentPlugin ;
+    doap:name "Evans Bass" ;
+    doap:license <http://opensource.org/licenses/mit> ;
+    mod:brand "CyberAudio" ;
+    mod:label "Evans Bass" ;
+    rdfs:comment "Dedicated to Tony Evans: the legendary bass player that just won't quit. Vintage Bass Machine with 9 iconic bass emulations (Evans Precision, Longhorn, Fretless, Synth, Virtual, Bowed, Split Bass, 3:03, Flip-Flop), Note Selector chord harmony, and rhythm bass player." ;
+
+    lv2:port [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 0 ; lv2:symbol "in_l" ; lv2:name "Guitar In L/Mono" ;
+    ] , [
+        a lv2:AudioPort , lv2:InputPort ;
+        lv2:index 1 ; lv2:symbol "in_r" ; lv2:name "Guitar In R" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 2 ; lv2:symbol "out_l" ; lv2:name "Out L" ;
+    ] , [
+        a lv2:AudioPort , lv2:OutputPort ;
+        lv2:index 3 ; lv2:symbol "out_r" ; lv2:name "Out R" ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 4 ; lv2:symbol "bypass" ; lv2:name "Bypass" ;
+        lv2:default 1.0 ; lv2:minimum 0.0 ; lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 5 ; lv2:symbol "third_mode" ; lv2:name "3rd Quality" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 2.0 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Auto (from Input)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "Force Minor 3rd" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "Force Major 3rd" ; rdf:value 2 ] ;
+    ] ,
+
+    # ── NOTE SELECTOR HARMONIC VOICING (10 SLIDERS) ──────────────────────
+
+    [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 6 ; lv2:symbol "ns_sub_oct" ; lv2:name "-Oct (-12st)" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 7 ; lv2:symbol "ns_sub_fifth" ; lv2:name "-5th (-7st)" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 8 ; lv2:symbol "ns_sub_third" ; lv2:name "-3rd (auto M/m)" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 9 ; lv2:symbol "ns_root" ; lv2:name "Root (1st)" ;
+        lv2:default 10.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 10 ; lv2:symbol "ns_third" ; lv2:name "+3rd (auto M/m)" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 11 ; lv2:symbol "ns_fifth" ; lv2:name "+5th (+7st)" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 12 ; lv2:symbol "ns_oct" ; lv2:name "+Oct (+12st)" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 13 ; lv2:symbol "ns_oct_third" ; lv2:name "+Oct+3rd" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 14 ; lv2:symbol "ns_oct_fifth" ; lv2:name "+Oct+5th" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 15 ; lv2:symbol "ns_dbl_oct" ; lv2:name "+2 Oct" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] ,
+
+    # ── BASS 9 CIRCUIT & EMULATION PARAMS ─────────────────────────────────
+
+    [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 16 ; lv2:symbol "preset" ; lv2:name "Bass Preset" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 8.0 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "1: Evans Precision" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "2: Longhorn" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "3: Fretless" ; rdf:value 2 ] ;
+        lv2:scalePoint [ rdfs:label "4: Synth (Taurus)" ; rdf:value 3 ] ;
+        lv2:scalePoint [ rdfs:label "5: Virtual" ; rdf:value 4 ] ;
+        lv2:scalePoint [ rdfs:label "6: Bowed" ; rdf:value 5 ] ;
+        lv2:scalePoint [ rdfs:label "7: Split Bass" ; rdf:value 6 ] ;
+        lv2:scalePoint [ rdfs:label "8: 3:03" ; rdf:value 7 ] ;
+        lv2:scalePoint [ rdfs:label "9: Flip-Flop" ; rdf:value 8 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 17 ; lv2:symbol "ctrl1" ; lv2:name "Tone / Attack / Param 1" ;
+        lv2:default 5.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 18 ; lv2:symbol "ctrl2" ; lv2:name "Filter / Sub / Param 2" ;
+        lv2:default 5.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 19 ; lv2:symbol "attack" ; lv2:name "Attack Time" ;
+        lv2:default 2.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 20 ; lv2:symbol "sustain" ; lv2:name "Sustain" ;
+        lv2:default 5.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 21 ; lv2:symbol "release" ; lv2:name "Release Slope" ;
+        lv2:default 5.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 22 ; lv2:symbol "gate_sens" ; lv2:name "Gate Sens" ;
+        lv2:default 5.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 23 ; lv2:symbol "dry" ; lv2:name "Dry Level" ;
+        lv2:default 5.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 24 ; lv2:symbol "wet" ; lv2:name "Bass Vol" ;
+        lv2:default 8.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 25 ; lv2:symbol "output" ; lv2:name "Output Level" ;
+        lv2:default 7.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] ,
+
+    # ── KEY & SCALE DIATONIC LOCK ────────────────────────────────────────
+
+    [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 26 ; lv2:symbol "key_root" ; lv2:name "Diatonic Key Lock" ;
+        lv2:default 0 ; lv2:minimum 0 ; lv2:maximum 12 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Auto (Full Chromatic)" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "C" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "C#" ; rdf:value 2 ] ;
+        lv2:scalePoint [ rdfs:label "D" ; rdf:value 3 ] ;
+        lv2:scalePoint [ rdfs:label "D#" ; rdf:value 4 ] ;
+        lv2:scalePoint [ rdfs:label "E" ; rdf:value 5 ] ;
+        lv2:scalePoint [ rdfs:label "F" ; rdf:value 6 ] ;
+        lv2:scalePoint [ rdfs:label "F#" ; rdf:value 7 ] ;
+        lv2:scalePoint [ rdfs:label "G" ; rdf:value 8 ] ;
+        lv2:scalePoint [ rdfs:label "G#" ; rdf:value 9 ] ;
+        lv2:scalePoint [ rdfs:label "A" ; rdf:value 10 ] ;
+        lv2:scalePoint [ rdfs:label "A#" ; rdf:value 11 ] ;
+        lv2:scalePoint [ rdfs:label "B" ; rdf:value 12 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 27 ; lv2:symbol "scale_mode" ; lv2:name "Scale Mode" ;
+        lv2:default 0 ; lv2:minimum 0 ; lv2:maximum 2 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "Auto" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "Major / Ionian" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "Minor / Aeolian" ; rdf:value 2 ] ;
+    ] ,
+
+    # ── DUAL PITCH DETECTOR CALIBRATION ──────────────────────────────────
+
+    [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 28 ; lv2:symbol "track_sens" ; lv2:name "Detector Sensitivity" ;
+        lv2:default 8.0 ; lv2:minimum 0.1 ; lv2:maximum 20.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 29 ; lv2:symbol "track_stab" ; lv2:name "Chord Stability / Hysteresis" ;
+        lv2:default 6.0 ; lv2:minimum 0.1 ; lv2:maximum 20.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 30 ; lv2:symbol "debounce_speed" ; lv2:name "Debounce / Confirmation" ;
+        lv2:default 2.0 ; lv2:minimum 1.0 ; lv2:maximum 16.0 ;
+        lv2:portProperty lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 31 ; lv2:symbol "filter_q" ; lv2:name "Resonator Bandpass Q" ;
+        lv2:default 7.0 ; lv2:minimum 1.5 ; lv2:maximum 30.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 32 ; lv2:symbol "bass_boost" ; lv2:name "Bass Weighting" ;
+        lv2:default 6.0 ; lv2:minimum 0.0 ; lv2:maximum 20.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 33 ; lv2:symbol "agc_speed" ; lv2:name "Auto Gain Speed" ;
+        lv2:default 6.0 ; lv2:minimum 0.0 ; lv2:maximum 20.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 34 ; lv2:symbol "ac_weight" ; lv2:name "Autocorrelation 2nd-Detector Mix" ;
+        lv2:default 8.0 ; lv2:minimum 0.0 ; lv2:maximum 20.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 35 ; lv2:symbol "ac_clip" ; lv2:name "Time-Domain Center Clip" ;
+        lv2:default 4.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] ,
+
+    # ── AUTO LOWEST-NOTE RHYTHM BASS PLAYER ──────────────────────────────
+
+    [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 36 ; lv2:symbol "bass_level" ; lv2:name "Bass Level" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 37 ; lv2:symbol "bass_pattern" ; lv2:name "Bass Pattern" ;
+        lv2:default 1.0 ; lv2:minimum 0.0 ; lv2:maximum 7.0 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [ rdfs:label "0: Off" ; rdf:value 0 ] ;
+        lv2:scalePoint [ rdfs:label "1: Drone / Pedal Sustain" ; rdf:value 1 ] ;
+        lv2:scalePoint [ rdfs:label "2: 8th Note Rock Pulse" ; rdf:value 2 ] ;
+        lv2:scalePoint [ rdfs:label "3: Root-Octave Groove" ; rdf:value 3 ] ;
+        lv2:scalePoint [ rdfs:label "4: Root-5th Country / Blues" ; rdf:value 4 ] ;
+        lv2:scalePoint [ rdfs:label "5: Walking Bass" ; rdf:value 5 ] ;
+        lv2:scalePoint [ rdfs:label "6: Dub / Reggae Drop" ; rdf:value 6 ] ;
+        lv2:scalePoint [ rdfs:label "7: Diatonic 1-5-6 Walk" ; rdf:value 7 ] ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 38 ; lv2:symbol "bass_bpm" ; lv2:name "Bass Sequencer BPM" ;
+        lv2:default 120.0 ; lv2:minimum 40.0 ; lv2:maximum 240.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 39 ; lv2:symbol "bass_tap" ; lv2:name "Tap Tempo Trigger" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 40 ; lv2:symbol "bass_tone" ; lv2:name "Bass Tone" ;
+        lv2:default 5.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 41 ; lv2:symbol "walk_groove" ; lv2:name "Walk / Groove" ;
+        lv2:default 0.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 42 ; lv2:symbol "logic_strict" ; lv2:name "Logic Strictness" ;
+        lv2:default 6.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] , [
+        a lv2:ControlPort , lv2:InputPort ;
+        lv2:index 43 ; lv2:symbol "chord_hold" ; lv2:name "Chord-Tone Root Lock" ;
+        lv2:default 7.0 ; lv2:minimum 0.0 ; lv2:maximum 10.0 ;
+    ] .

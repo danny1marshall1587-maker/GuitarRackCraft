@@ -1,0 +1,136 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://cyber-audio.co.uk/plugins/cyber-bass9>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate        <modgui/icon-cyber-bass9.html> ;
+        modgui:stylesheet          <modgui/stylesheet.css> ;
+        modgui:javascript          <modgui/script.js> ;
+        modgui:screenshot          <modgui/screenshot.png> ;
+        modgui:thumbnail           <modgui/thumbnail.png> ;
+        modgui:brand "CyberAudio" ;
+        modgui:label "Evans Bass" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "black" ;
+        modgui:knob "black" ;
+
+        modgui:port [
+            lv2:index  0 ; lv2:symbol "third_mode" ;
+        ] , 
+        [
+            lv2:index  1 ; lv2:symbol "ns_sub_oct" ;
+        ] , 
+        [
+            lv2:index  2 ; lv2:symbol "ns_sub_fifth" ;
+        ] , 
+        [
+            lv2:index  3 ; lv2:symbol "ns_sub_third" ;
+        ] , 
+        [
+            lv2:index  4 ; lv2:symbol "ns_root" ;
+        ] , 
+        [
+            lv2:index  5 ; lv2:symbol "ns_third" ;
+        ] , 
+        [
+            lv2:index  6 ; lv2:symbol "ns_fifth" ;
+        ] , 
+        [
+            lv2:index  7 ; lv2:symbol "ns_oct" ;
+        ] , 
+        [
+            lv2:index  8 ; lv2:symbol "ns_oct_third" ;
+        ] , 
+        [
+            lv2:index  9 ; lv2:symbol "ns_oct_fifth" ;
+        ] , 
+        [
+            lv2:index 10 ; lv2:symbol "ns_dbl_oct" ;
+        ] , 
+        [
+            lv2:index 11 ; lv2:symbol "preset" ;
+        ] , 
+        [
+            lv2:index 12 ; lv2:symbol "ctrl1" ;
+        ] , 
+        [
+            lv2:index 13 ; lv2:symbol "ctrl2" ;
+        ] , 
+        [
+            lv2:index 14 ; lv2:symbol "attack" ;
+        ] , 
+        [
+            lv2:index 15 ; lv2:symbol "sustain" ;
+        ] , 
+        [
+            lv2:index 16 ; lv2:symbol "release" ;
+        ] , 
+        [
+            lv2:index 17 ; lv2:symbol "gate_sens" ;
+        ] , 
+        [
+            lv2:index 18 ; lv2:symbol "dry" ;
+        ] , 
+        [
+            lv2:index 19 ; lv2:symbol "wet" ;
+        ] , 
+        [
+            lv2:index 20 ; lv2:symbol "output" ;
+        ] , 
+        [
+            lv2:index 21 ; lv2:symbol "key_root" ;
+        ] , 
+        [
+            lv2:index 22 ; lv2:symbol "scale_mode" ;
+        ] , 
+        [
+            lv2:index 23 ; lv2:symbol "track_sens" ;
+        ] , 
+        [
+            lv2:index 24 ; lv2:symbol "track_stab" ;
+        ] , 
+        [
+            lv2:index 25 ; lv2:symbol "debounce_speed" ;
+        ] , 
+        [
+            lv2:index 26 ; lv2:symbol "filter_q" ;
+        ] , 
+        [
+            lv2:index 27 ; lv2:symbol "bass_boost" ;
+        ] , 
+        [
+            lv2:index 28 ; lv2:symbol "agc_speed" ;
+        ] , 
+        [
+            lv2:index 29 ; lv2:symbol "ac_weight" ;
+        ] , 
+        [
+            lv2:index 30 ; lv2:symbol "ac_clip" ;
+        ] , 
+        [
+            lv2:index 31 ; lv2:symbol "bass_level" ;
+        ] , 
+        [
+            lv2:index 32 ; lv2:symbol "bass_pattern" ;
+        ] , 
+        [
+            lv2:index 33 ; lv2:symbol "bass_bpm" ;
+        ] , 
+        [
+            lv2:index 34 ; lv2:symbol "bass_tap" ;
+        ] , 
+        [
+            lv2:index 35 ; lv2:symbol "bass_tone" ;
+        ] , 
+        [
+            lv2:index 36 ; lv2:symbol "walk_groove" ;
+        ] , 
+        [
+            lv2:index 37 ; lv2:symbol "logic_strict" ;
+        ] , 
+        [
+            lv2:index 38 ; lv2:symbol "chord_hold" ;
+        ]
+    ] .

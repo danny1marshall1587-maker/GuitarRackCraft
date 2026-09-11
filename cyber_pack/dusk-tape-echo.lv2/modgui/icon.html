@@ -1,0 +1,80 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} custom-boxy-dusk-tape-echo{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="mod-plugin-brand"><h1>Dusk Audio</h1></div>
+    <div class="mod-plugin-name"><h1>Tape Echo 2</h1></div>
+    <div class="pedal-subtitle">VINTAGE 3-HEAD SPACE ECHO</div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+    <div class="knob-section-header">
+        <span class="section-title">TAPE TRANSPORT & REPEATS</span>
+    </div>
+    <div class="mod-control-group clearfix row-3">
+        <div class="mod-knob" title="HEAD MODE">
+            <div class="custom-knob-dial" data-symbol="mode" data-min="0.0" data-max="5.0" data-default="1.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mode" style="display:none;"></div>
+            <span class="mod-knob-title">HEAD MODE</span>
+        </div>
+        <div class="mod-knob" title="RATE (ms)">
+            <div class="custom-knob-dial" data-symbol="rate" data-min="50.0" data-max="800.0" data-default="300.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="rate" style="display:none;"></div>
+            <span class="mod-knob-title">RATE (ms)</span>
+        </div>
+        <div class="mod-knob" title="INTENSITY">
+            <div class="custom-knob-dial" data-symbol="intensity" data-min="0.0" data-max="1.2" data-default="0.6"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="intensity" style="display:none;"></div>
+            <span class="mod-knob-title">INTENSITY</span>
+        </div>
+    </div>
+    <div class="knob-section-header">
+        <span class="section-title">CHARACTER & REVERB TANK</span>
+    </div>
+    <div class="mod-control-group clearfix row-2">
+        <div class="mod-knob" title="TAPE AGE">
+            <div class="custom-knob-dial" data-symbol="age" data-min="0.0" data-max="1.0" data-default="0.3"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="age" style="display:none;"></div>
+            <span class="mod-knob-title">TAPE AGE</span>
+        </div>
+        <div class="mod-knob" title="SPRING">
+            <div class="custom-knob-dial" data-symbol="spring" data-min="0.0" data-max="1.0" data-default="0.3"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="spring" style="display:none;"></div>
+            <span class="mod-knob-title">SPRING</span>
+        </div>
+    </div>
+    <div class="knob-section-header">
+        <span class="section-title">OUTPUT MIX</span>
+    </div>
+    <div class="mod-control-group clearfix row-2">
+        <div class="mod-knob" title="ECHO LEVEL">
+            <div class="custom-knob-dial" data-symbol="echo_vol" data-min="0.0" data-max="1.0" data-default="0.8"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="echo_vol" style="display:none;"></div>
+            <span class="mod-knob-title">ECHO LEVEL</span>
+        </div>
+        <div class="mod-knob" title="DRY LEVEL">
+            <div class="custom-knob-dial" data-symbol="dry_vol" data-min="0.0" data-max="1.0" data-default="1.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="dry_vol" style="display:none;"></div>
+            <span class="mod-knob-title">DRY LEVEL</span>
+        </div>
+    </div>
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Bypass / Engage)"></div>
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.cv.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

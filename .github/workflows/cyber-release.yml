@@ -116,42 +116,42 @@ jobs:
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.1.0-cyber
-          name: "Cyber GuitarRackCraft v1.1.0 (Pacer MIDI + PureSustain Delay Edition)"
+          tag_name: v1.2.0-cyber
+          name: "Cyber GuitarRackCraft v1.2.0 (Evans Bass, Boutique Delays/Reverbs & Double-Tap MIDI Learn)"
           draft: false
           prerelease: false
           body: |
-            ## 🎸 Cyber GuitarRackCraft v1.1.0 — Pacer MIDI & PureSustain Delay Edition
+            ## 🎸 Cyber GuitarRackCraft v1.2.0 — Evans Bass, Studio FX Suite & Double-Tap MIDI Learn
 
-            ### 🚀 What's New in v1.1.0:
-            - **🎹 Full Nektar Pacer USB MIDI Integration**:
-              - Direct USB MIDI plug-and-play with Nektar Pacer and MIDI foot controllers.
-              - Stomps 1–6 toggle individual pedal bypass in real time.
-              - Preset Up / Down footswitches for instantaneous patch switching.
-              - Two-way MIDI LED status feedback and interactive **MIDI Learn** configuration dialog.
-            - **⚡ Google Pixel 8 Pro Anti-Throttling & Sustained Performance Engine**:
-              - Integrated Android ADPF (`PerformanceHintManager`) for zero-jitter 64-sample audio callbacks.
-              - Sustained Performance Mode, real-time CPU priority, and `PARTIAL_WAKE_LOCK` preventing screen-off audio dropouts.
-              - Declared Game Mode optimization in manifest.
-            - **✨ NEW PLUGIN: Cyber PureSustain Delay**:
-              - Seamless crossfade pad delay with continuous equal-power loop-melting record engine (`MELT`).
-              - No metallic allpass smear or phase cancellation.
-              - Non-dispersive 1-pole tape tone damping and dynamic lead ducker (`DUCK`).
-              - Custom royal purple metallic touch MOD-GUI with knurled black dials and violet jewel LED.
+            ### 🚀 What's New in v1.2.0:
+            - **🎸 Evans Bass (`cyber-bass9.lv2`) Dedicated to Tony Evans**:
+              - Complete 9-pedal virtual bass player engine dedicated to our hero **Tony Evans**.
+              - Features **Diatonic Strictness** (`logic_strict`), **Chord-Tone Root Lock** (`chord_hold`), and **Walk/Groove Pattern Engine** (`walk_groove`).
+              - Responsive drive-style touch GUI with interactive chicken-head dials and status indicators.
+            - **🎛️ Double-Tap Slider MIDI Learn & Multi-Assignment**:
+              - **Double-tap any parameter slider** on the Rack page to open the MOD-style MIDI Learn dialog.
+              - **Live Expression/Footswitch Detection**: move an expression pedal or stomp a footswitch to instantly bind the CC.
+              - **Reverse / Inverted Range Control**: swap Min and Max numbers or tap **Invert** to reverse parameter sweep (e.g. Min 100%, Max 0% for reverse expression).
+              - **Multi-Assignment**: map the same MIDI CC (e.g. CC 11) to multiple parameters across plugins simultaneously (e.g. Reverb Mix + Delay Feedback + Delay Mix on one expression pedal).
+            - **🌌 4 Boutique Delays & 3 Algorithmic Reverbs**:
+              - **Delays**: `grains-of-sand` (Granular), `dusk-tape-echo` (Vintage Tape Echo), `invada-delay-munge` (Tube Delay Munge), `infamous-stuck` (Spectral Freeze).
+              - **Reverbs**: `duskverb` (Ambient Shimmer), `dfjpverb` (Plate/Room algorithmic reverb), `lv2-psx-reverb` (PlayStation 1 SPX reverb).
+              - All equipped with native MOD-UI touchscreen designs and interactive controls.
+            - **⚡ Pixel 8 Pro / Tensor G3 Audio Anti-Throttling Hardening**:
+              - Native C++ audio thread priority forced to `-19` (`PRIO_PROCESS`) on startup.
+              - Battery optimization exemption declared in manifest.
+              - Full sustained performance mode and ADPF hint session active.
 
-            Custom release of **GuitarRackCraft** featuring Danny's complete **Cyber Audio Rig**:
-            
-            ### ✨ Included Cyber Audio Gear:
+            ### ✨ Complete Cyber Audio Rig (52+ Modules):
             - **20 Valve Amps**: Friedman BE-100, Fender Deluxe/Bassman/Vibrolux/Vibroverb, Marshall JTM45, Vox AC30TB/PA, Orange OR120, Dumble ODS, Trainwreck Express, Koch The Greg, Two-Rock CRS, Hiwatt DR504, Matchless DC30, Roland JC-120, Rockman X100, Tone King Imperial, Magnatone 280, Traynor YCV40.
-            - **Galaxy Strobe Tuner**: High-precision 200% square strobe tuner pedal with HeadRush AGC auto-gain staging, sweetened guitar profiles, and live stage signal mute.
-            - **Boutique Pedals**: Smart Fizz Killer, Cyber Denoiser, Harmonic Tremolo, Cyber Screamer, Klon, Blues Driver, Guv'nor, DS-1, Noble Drive, Spring Reverb, Cloud Bloom, Acoustic Feedbacker, Hum Killer, Piezo Thump Killer.
-            - **Touchscreen MOD-GUI Interfaces**: Fully interactive HTML5/CSS pedals with customized neon visualizers and retro dials.
-            
+            - **Galaxy Strobe Tuner**: High-precision 200% square strobe tuner pedal with HeadRush AGC auto-gain staging and live stage signal mute.
+            - **Full Stomp Collection**: Evans Bass, PureSustain Delay, Smart Fizz Killer, Cyber Denoiser, Harmonic Tremolo, Cyber Screamer, Klon, Blues Driver, Guv'nor, DS-1, Noble Drive, Spring Reverb, Cloud Bloom, Acoustic Feedbacker, Hum Killer, Piezo Thump Killer, plus all 7 new Delays & Reverbs.
+
             ### 📲 How to Install on your Google Pixel 8 Pro:
             1. Download `CyberRackCraft-Pixel8Pro.apk` directly on your phone.
             2. Open the downloaded file and tap **Install**.
-            3. Connect your USB-C OTG hub, plug in your guitar audio interface and headphones.
-            4. Launch CyberRackCraft and enjoy ultra-low-latency real-time performance!
+            3. Connect your USB-C OTG hub, plug in your guitar audio interface and MIDI foot controller.
+            4. Launch CyberRackCraft and rock out!
           files: |
             dist/CyberRackCraft-Pixel8Pro.apk
         env:

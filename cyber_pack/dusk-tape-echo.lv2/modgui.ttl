@@ -1,0 +1,54 @@
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<http://dusk-audio.com/plugins/tape-echo-2>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "Dusk Audio" ;
+        modgui:label "Tape Echo 2" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "#111e12" ;
+        modgui:port 
+        [
+            lv2:index 0 ;
+            lv2:symbol "mode" ;
+            lv2:name "HEAD MODE" ;
+        ] ,
+        [
+            lv2:index 1 ;
+            lv2:symbol "rate" ;
+            lv2:name "RATE (ms)" ;
+        ] ,
+        [
+            lv2:index 2 ;
+            lv2:symbol "intensity" ;
+            lv2:name "INTENSITY" ;
+        ] ,
+        [
+            lv2:index 3 ;
+            lv2:symbol "age" ;
+            lv2:name "TAPE AGE" ;
+        ] ,
+        [
+            lv2:index 4 ;
+            lv2:symbol "spring" ;
+            lv2:name "SPRING" ;
+        ] ,
+        [
+            lv2:index 5 ;
+            lv2:symbol "echo_vol" ;
+            lv2:name "ECHO LEVEL" ;
+        ] ,
+        [
+            lv2:index 6 ;
+            lv2:symbol "dry_vol" ;
+            lv2:name "DRY LEVEL" ;
+        ]
+    ] .

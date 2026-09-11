@@ -1,0 +1,90 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} custom-boxy-invada-delay-munge{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="mod-plugin-brand"><h1>Invada Studio</h1></div>
+    <div class="mod-plugin-name"><h1>Delay Munge</h1></div>
+    <div class="pedal-subtitle">DUAL TAPE MUNGE WITH LFO SWEEP</div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+    <div class="knob-section-header">
+        <span class="section-title">DELAY LINE 1 (LEFT/PAN)</span>
+    </div>
+    <div class="mod-control-group clearfix row-3">
+        <div class="mod-knob" title="TIME 1">
+            <div class="custom-knob-dial" data-symbol="delay1" data-min="0.02" data-max="2.0" data-default="0.3"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="delay1" style="display:none;"></div>
+            <span class="mod-knob-title">TIME 1</span>
+        </div>
+        <div class="mod-knob" title="FEEDBK 1">
+            <div class="custom-knob-dial" data-symbol="fb1" data-min="0.0" data-max="133.3" data-default="50.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="fb1" style="display:none;"></div>
+            <span class="mod-knob-title">FEEDBK 1</span>
+        </div>
+        <div class="mod-knob" title="LEVEL 1">
+            <div class="custom-knob-dial" data-symbol="vol1" data-min="0.0" data-max="100.0" data-default="100.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vol1" style="display:none;"></div>
+            <span class="mod-knob-title">LEVEL 1</span>
+        </div>
+    </div>
+    <div class="knob-section-header">
+        <span class="section-title">DELAY LINE 2 (RIGHT/PAN)</span>
+    </div>
+    <div class="mod-control-group clearfix row-3">
+        <div class="mod-knob" title="TIME 2">
+            <div class="custom-knob-dial" data-symbol="delay2" data-min="0.02" data-max="2.0" data-default="0.2"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="delay2" style="display:none;"></div>
+            <span class="mod-knob-title">TIME 2</span>
+        </div>
+        <div class="mod-knob" title="FEEDBK 2">
+            <div class="custom-knob-dial" data-symbol="fb2" data-min="0.0" data-max="133.3" data-default="50.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="fb2" style="display:none;"></div>
+            <span class="mod-knob-title">FEEDBK 2</span>
+        </div>
+        <div class="mod-knob" title="LEVEL 2">
+            <div class="custom-knob-dial" data-symbol="vol2" data-min="0.0" data-max="100.0" data-default="100.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="vol2" style="display:none;"></div>
+            <span class="mod-knob-title">LEVEL 2</span>
+        </div>
+    </div>
+    <div class="knob-section-header">
+        <span class="section-title">MUNGE & LFO MODULATION</span>
+    </div>
+    <div class="mod-control-group clearfix row-3">
+        <div class="mod-knob" title="MUNGE">
+            <div class="custom-knob-dial" data-symbol="munge" data-min="0.0" data-max="100.0" data-default="50.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="munge" style="display:none;"></div>
+            <span class="mod-knob-title">MUNGE</span>
+        </div>
+        <div class="mod-knob" title="LFO RATE">
+            <div class="custom-knob-dial" data-symbol="LFOcycle" data-min="2.0" data-max="200.0" data-default="20.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="LFOcycle" style="display:none;"></div>
+            <span class="mod-knob-title">LFO RATE</span>
+        </div>
+        <div class="mod-knob" title="DEPTH">
+            <div class="custom-knob-dial" data-symbol="LFOdepth" data-min="0.0" data-max="100.0" data-default="0.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="LFOdepth" style="display:none;"></div>
+            <span class="mod-knob-title">DEPTH</span>
+        </div>
+    </div>
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Bypass / Engage)"></div>
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.cv.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

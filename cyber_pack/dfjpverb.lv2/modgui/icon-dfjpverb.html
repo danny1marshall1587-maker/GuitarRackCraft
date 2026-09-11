@@ -1,0 +1,76 @@
+<div class="mod-pedal mod-pedal-dfjpverb">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="jpverb-header">
+        <span class="jpverb-brand">SYNTHWAVE DIFFUSION REVERB</span>
+        <span class="jpverb-title">DF JPVERB</span>
+        <div class="jpverb-neon-line"></div>
+    </div>
+
+    <div class="jpverb-body">
+        <div class="jpverb-row top-row">
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="t60"></div>
+                <span class="mod-knob-title">DECAY</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="size"></div>
+                <span class="mod-knob-title">SIZE</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="damp"></div>
+                <span class="mod-knob-title">DAMP</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="early_diff"></div>
+                <span class="mod-knob-title">DIFF</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="mod_depth"></div>
+                <span class="mod-knob-title">CHORUS</span>
+            </div>
+        </div>
+
+        <div class="jpverb-row bottom-row">
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="low"></div>
+                <span class="mod-knob-title">BASS</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="mid"></div>
+                <span class="mod-knob-title">MID</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="high"></div>
+                <span class="mod-knob-title">TREBLE</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="dry"></div>
+                <span class="mod-knob-title">DRY</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="wet"></div>
+                <span class="mod-knob-title">WET</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-control-group mod-input-group">
+            <div class="mod-port mod-input" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+                <div class="mod-port-name">{{name}}</div>
+            </div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-control-group mod-output-group">
+            <div class="mod-port mod-output" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+                <div class="mod-port-name">{{name}}</div>
+            </div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

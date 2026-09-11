@@ -401,3 +401,293 @@ private fun AddMappingDialog(
         }
     )
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SliderMidiLearnDialog(
+    slotIndex: Int,
+    port: com.varcain.guitarrackcraft.engine.PortInfo,
+    onDismissRequest: () -> Unit
+) {
+    val context = LocalContext.current
+    val allMappings by MidiMappingManager.mappings.collectAsState()
+    val isLearning by MidiMappingManager.isLearning.collectAsState()
+
+    val paramMappings = remember(allMappings, slotIndex, port.index) {
+        allMappings.filter {
+            it.actionType == MidiActionType.PARAMETER_CONTROL &&
+            it.targetSlotIndex == slotIndex &&
+            it.targetPortIndex == port.index
+        }
+    }
+
+    var editingMappingId by remember { mutableStateOf<String?>(null) }
+    var ccNumber by remember { mutableIntStateOf(11) }
+    var minValStr by remember { mutableStateOf("%.2f".format(port.minValue)) }
+    var maxValStr by remember { mutableStateOf("%.2f".format(port.maxValue)) }
+
+    LaunchedEffect(paramMappings) {
+        if (paramMappings.isNotEmpty() && editingMappingId == null) {
+            val first = paramMappings.first()
+            editingMappingId = first.id
+            ccNumber = first.controlNumber
+            minValStr = "%.2f".format(first.minVal)
+            maxValStr = "%.2f".format(first.maxVal)
+        }
+    }
+
+    Dialog(
+        onDismissRequest = {
+            if (isLearning) MidiMappingManager.cancelLearn()
+            onDismissRequest()
+        },
+        properties = DialogProperties(usePlatformDefaultWidth = false)
+    ) {
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth(0.92f)
+                .wrapContentHeight(),
+            shape = RoundedCornerShape(20.dp),
+            color = MaterialTheme.colorScheme.surface,
+            tonalElevation = 10.dp
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp)
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column {
+                        Text(
+                            text = "MIDI Learn: " + (if (port.name.isNotEmpty()) port.name else port.symbol),
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                        Text(
+                            text = "Slot " + (slotIndex + 1) + " • Range: " + "%.2f".format(port.minValue) + " to " + "%.2f".format(port.maxValue),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                    IconButton(onClick = {
+                        if (isLearning) MidiMappingManager.cancelLearn()
+                        onDismissRequest()
+                    }) {
+                        Icon(Icons.Default.Close, contentDescription = "Close")
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(14.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = if (isLearning)
+                            MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.6f)
+                        else
+                            MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+                    ),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column {
+                            Text(
+                                text = if (isLearning) "WAITING FOR MIDI..." else "MIDI CC ASSIGNMENT",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (isLearning) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
+                            )
+                            Text(
+                                text = if (isLearning)
+                                    "Move expression pedal or footswitch now"
+                                else
+                                    "Assigned to CC #" + ccNumber + " (Channel: Omni)",
+                                fontSize = 12.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+
+                        Button(
+                            onClick = {
+                                val minF = minValStr.toFloatOrNull() ?: port.minValue
+                                val maxF = maxValStr.toFloatOrNull() ?: port.maxValue
+                                val target = MidiMapping(
+                                    id = editingMappingId ?: java.util.UUID.randomUUID().toString(),
+                                    name = "Slot " + (slotIndex + 1) + " " + port.name,
+                                    messageType = MidiMessageType.CC,
+                                    controlNumber = ccNumber,
+                                    actionType = MidiActionType.PARAMETER_CONTROL,
+                                    targetSlotIndex = slotIndex,
+                                    targetPortIndex = port.index,
+                                    minVal = minF,
+                                    maxVal = maxF
+                                )
+                                if (isLearning) {
+                                    MidiMappingManager.cancelLearn()
+                                } else {
+                                    MidiMappingManager.startLearn(target)
+                                }
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = if (isLearning) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
+                            )
+                        ) {
+                            Text(if (isLearning) "Cancel" else "MIDI Learn")
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(14.dp))
+
+                Text(
+                    text = "Control Value Range (Supports Inversion)",
+                    style = MaterialTheme.typography.labelMedium,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Text(
+                    text = "Set Min higher than Max to reverse controller direction (Heel = High, Toe = Low).",
+                    fontSize = 11.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    OutlinedTextField(
+                        value = minValStr,
+                        onValueChange = { minValStr = it },
+                        label = { Text("Min (CC 0)") },
+                        singleLine = true,
+                        modifier = Modifier.weight(1f)
+                    )
+
+                    OutlinedButton(
+                        onClick = {
+                            val temp = minValStr
+                            minValStr = maxValStr
+                            maxValStr = temp
+                        },
+                        contentPadding = PaddingValues(horizontal = 8.dp)
+                    ) {
+                        Text("⇄ Invert", fontSize = 12.sp)
+                    }
+
+                    OutlinedTextField(
+                        value = maxValStr,
+                        onValueChange = { maxValStr = it },
+                        label = { Text("Max (CC 127)") },
+                        singleLine = true,
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                OutlinedTextField(
+                    value = ccNumber.toString(),
+                    onValueChange = { ccNumber = it.toIntOrNull()?.coerceIn(0, 127) ?: ccNumber },
+                    label = { Text("MIDI CC Number (0-127)") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    if (editingMappingId != null) {
+                        OutlinedButton(
+                            onClick = {
+                                editingMappingId?.let { id ->
+                                    MidiMappingManager.removeMapping(context, id)
+                                    editingMappingId = null
+                                }
+                            },
+                            colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.error)
+                        ) {
+                            Icon(Icons.Default.Delete, contentDescription = "Delete", modifier = Modifier.size(16.dp))
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text("Unbind")
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.weight(1f))
+
+                    Button(
+                        onClick = {
+                            val minF = minValStr.toFloatOrNull() ?: port.minValue
+                            val maxF = maxValStr.toFloatOrNull() ?: port.maxValue
+                            val mapping = MidiMapping(
+                                id = editingMappingId ?: java.util.UUID.randomUUID().toString(),
+                                name = "Slot " + (slotIndex + 1) + " " + port.name,
+                                messageType = MidiMessageType.CC,
+                                controlNumber = ccNumber,
+                                actionType = MidiActionType.PARAMETER_CONTROL,
+                                targetSlotIndex = slotIndex,
+                                targetPortIndex = port.index,
+                                minVal = minF,
+                                maxVal = maxF
+                            )
+                            MidiMappingManager.addOrUpdateMapping(context, mapping)
+                            if (isLearning) MidiMappingManager.cancelLearn()
+                            onDismissRequest()
+                        }
+                    ) {
+                        Text(if (editingMappingId != null) "Save" else "Assign CC")
+                    }
+                }
+
+                if (paramMappings.size > 1) {
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Divider()
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "Active Assignments for this parameter:",
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    paramMappings.forEach { m ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 4.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "• CC #" + m.controlNumber + ": Range [" + "%.2f".format(m.minVal) + " -> " + "%.2f".format(m.maxVal) + "]",
+                                fontSize = 11.sp,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            IconButton(
+                                onClick = { MidiMappingManager.removeMapping(context, m.id) },
+                                modifier = Modifier.size(24.dp)
+                            ) {
+                                Icon(Icons.Default.Delete, contentDescription = "Remove", tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(14.dp))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

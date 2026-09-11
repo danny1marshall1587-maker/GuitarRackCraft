@@ -1,0 +1,95 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} custom-boxy-dfjpverb{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="mod-plugin-brand"><h1>Parker / DPF</h1></div>
+    <div class="mod-plugin-name"><h1>DF JPverb</h1></div>
+    <div class="pedal-subtitle">SYNTHWAVE DIFFUSION REVERB</div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+    <div class="knob-section-header">
+        <span class="section-title">TIME & DIFFUSION SPACE</span>
+    </div>
+    <div class="mod-control-group clearfix row-4">
+        <div class="mod-knob" title="DECAY">
+            <div class="custom-knob-dial" data-symbol="t60" data-min="0.1" data-max="60.0" data-default="2.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="t60" style="display:none;"></div>
+            <span class="mod-knob-title">DECAY</span>
+        </div>
+        <div class="mod-knob" title="SIZE">
+            <div class="custom-knob-dial" data-symbol="size" data-min="0.5" data-max="5.0" data-default="1.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="size" style="display:none;"></div>
+            <span class="mod-knob-title">SIZE</span>
+        </div>
+        <div class="mod-knob" title="DAMP">
+            <div class="custom-knob-dial" data-symbol="damp" data-min="0.0" data-max="1.0" data-default="0.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="damp" style="display:none;"></div>
+            <span class="mod-knob-title">DAMP</span>
+        </div>
+        <div class="mod-knob" title="DIFFUSE">
+            <div class="custom-knob-dial" data-symbol="early_diff" data-min="0.0" data-max="1.0" data-default="0.707"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="early_diff" style="display:none;"></div>
+            <span class="mod-knob-title">DIFFUSE</span>
+        </div>
+    </div>
+    <div class="knob-section-header">
+        <span class="section-title">TONAL CONTOUR & MODULATION</span>
+    </div>
+    <div class="mod-control-group clearfix row-4">
+        <div class="mod-knob" title="LOW EQ">
+            <div class="custom-knob-dial" data-symbol="low" data-min="-24.0" data-max="24.0" data-default="0.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="low" style="display:none;"></div>
+            <span class="mod-knob-title">LOW EQ</span>
+        </div>
+        <div class="mod-knob" title="MID EQ">
+            <div class="custom-knob-dial" data-symbol="mid" data-min="-24.0" data-max="24.0" data-default="0.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid" style="display:none;"></div>
+            <span class="mod-knob-title">MID EQ</span>
+        </div>
+        <div class="mod-knob" title="HIGH EQ">
+            <div class="custom-knob-dial" data-symbol="high" data-min="-24.0" data-max="24.0" data-default="0.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="high" style="display:none;"></div>
+            <span class="mod-knob-title">HIGH EQ</span>
+        </div>
+        <div class="mod-knob" title="CHORUS">
+            <div class="custom-knob-dial" data-symbol="mod_depth" data-min="0.0" data-max="1.0" data-default="0.1"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mod_depth" style="display:none;"></div>
+            <span class="mod-knob-title">CHORUS</span>
+        </div>
+    </div>
+    <div class="knob-section-header">
+        <span class="section-title">OUTPUT BLEND</span>
+    </div>
+    <div class="mod-control-group clearfix row-2">
+        <div class="mod-knob" title="DRY LEVEL">
+            <div class="custom-knob-dial" data-symbol="dry" data-min="0.0" data-max="1.0" data-default="1.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="dry" style="display:none;"></div>
+            <span class="mod-knob-title">DRY LEVEL</span>
+        </div>
+        <div class="mod-knob" title="WET LEVEL">
+            <div class="custom-knob-dial" data-symbol="wet" data-min="0.0" data-max="1.0" data-default="0.5"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="wet" style="display:none;"></div>
+            <span class="mod-knob-title">WET LEVEL</span>
+        </div>
+    </div>
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Bypass / Engage)"></div>
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.cv.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="mod-pedal mod-pedal-invada-delay">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    
+    <div class="invada-header">
+        <div class="invada-brand">INVADA STUDIO</div>
+        <div class="invada-title">DELAY MUNGE</div>
+        <div class="invada-sub">NON-LINEAR TUBE SATURATION DUB ECHO</div>
+    </div>
+
+    <div class="invada-body">
+        <div class="invada-center-munge">
+            <div class="mod-control-group munge-main">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="munge"></div>
+                <span class="mod-knob-title munge-title">MUNGE DRIVE</span>
+            </div>
+        </div>
+
+        <div class="invada-knobs-grid">
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="delay1"></div>
+                <span class="mod-knob-title">TIME 1</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="fb1"></div>
+                <span class="mod-knob-title">FEEDBACK 1</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="delay2"></div>
+                <span class="mod-knob-title">TIME 2</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="fb2"></div>
+                <span class="mod-knob-title">FEEDBACK 2</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="LFOdepth"></div>
+                <span class="mod-knob-title">WARBLE</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-control-group mod-input-group">
+            <div class="mod-port mod-input" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+                <div class="mod-port-name">{{name}}</div>
+            </div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-control-group mod-output-group">
+            <div class="mod-port mod-output" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+                <div class="mod-port-name">{{name}}</div>
+            </div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

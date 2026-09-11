@@ -1,0 +1,132 @@
+<!--
+  Grains of Sand — MOD pedalboard icon.
+  Custom "Phosphor Bench" pedal. Knobs auto-bind via mod-role="input-control-port";
+  the two enums are <select>s and freeze is a button, all wired in
+  script-grainsofsand.js. freeze_state (monitored output) drives the LED.
+-->
+<div class="mod-pedal grainsofsand-pedal mod-pedal-grainsofsand">
+
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <div class="mod-plugin-brand"><h1>{{brand}}</h1></div>
+    <div class="mod-plugin-name"><h1>{{label}}</h1></div>
+
+    <!-- Randomize + Freeze button + LED (top right) -->
+    <div class="gos-freeze">
+        <button class="gos-freeze-btn" mod-role="gos-random-btn">RANDOM</button>
+        <div class="gos-freeze-led" mod-role="gos-freeze-led"></div>
+        <button class="gos-freeze-btn" mod-role="gos-freeze-btn">FREEZE</button>
+    </div>
+
+    <!-- Row 1: TIME + GRAINS -->
+    <div class="gos-row gos-row1">
+        <div class="gos-group">
+            <span class="gos-group-title">TIME</span>
+            <div class="gos-knobs">
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="delay"></div><span class="mod-knob-title">DELAY</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="spray"></div><span class="mod-knob-title">SPRAY</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="stretch"></div><span class="mod-knob-title">STRETCH</span></div>
+            </div>
+        </div>
+        <div class="gos-group">
+            <span class="gos-group-title">GRAINS</span>
+            <div class="gos-knobs">
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="size"></div><span class="mod-knob-title">SIZE</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="density"></div><span class="mod-knob-title">DENSITY</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="jitter"></div><span class="mod-knob-title">JITTER</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="shape"></div><span class="mod-knob-title">SHAPE</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="reverse"></div><span class="mod-knob-title">REVERSE</span></div>
+            </div>
+        </div>
+        <!-- THRESH sits directly under the FREEZE button + LED it belongs to -->
+        <div class="gos-group">
+            <span class="gos-group-title">FREEZE</span>
+            <div class="gos-knobs">
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="thresh"></div><span class="mod-knob-title">THRESH</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2: PITCH + FEEDBACK -->
+    <div class="gos-row gos-row2">
+        <div class="gos-group">
+            <span class="gos-group-title">PITCH</span>
+            <div class="gos-knobs">
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="pitch"></div><span class="mod-knob-title">PITCH</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="detune"></div><span class="mod-knob-title">DETUNE</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="pitch_rnd"></div><span class="mod-knob-title">CHANCE</span></div>
+                <div class="gos-select-box">
+                    <span class="mod-knob-title">QUANTIZE</span>
+                    <select mod-role="gos-quantize">
+                        <option value="Free">Free</option>
+                        <option value="Semitones">Semitones</option>
+                        <option value="Octaves">Octaves</option>
+                        <option value="5ths+Octaves">5ths+Octaves</option>
+                        <option value="Intervals">Intervals</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="gos-group">
+            <span class="gos-group-title">FEEDBACK</span>
+            <div class="gos-knobs">
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="feedback"></div><span class="mod-knob-title">FEEDBACK</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="tone"></div><span class="mod-knob-title">TONE</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="repeat_dice"></div><span class="mod-knob-title">DICE</span></div>
+                <div class="gos-select-box">
+                    <span class="mod-knob-title">FB MODE</span>
+                    <select mod-role="gos-fbmode">
+                        <option value="Recycle">Recycle</option>
+                        <option value="Post-delay">Post-delay</option>
+                        <option value="Repeat">Repeat</option>
+                        <option value="PP Delay">PP Delay</option>
+                        <option value="Repeat #">Repeat #</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 3: OUTPUT — the utility band it shares with the legend, the
+         bypass light and the footswitch -->
+    <div class="gos-row gos-row3">
+        <div class="gos-group">
+            <span class="gos-group-title">OUTPUT</span>
+            <div class="gos-knobs">
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="spread"></div><span class="mod-knob-title">SPREAD</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mix"></div><span class="mod-knob-title">MIX</span></div>
+                <div class="mod-knob"><div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="level"></div><span class="mod-knob-title">LEVEL</span></div>
+            </div>
+        </div>
+        <div class="mod-light on" mod-role="bypass-light"></div>
+        <div class="mod-footswitch" mod-role="bypass"></div>
+    </div>
+
+    <!-- Engraved legend: static panel artwork for the two ranges you set by
+         ear most often. Deliberately NOT a meter — mod-ui can only animate
+         declared output ports, and freeze_state is the only one we have. -->
+    <div class="gos-legend">
+        <span>GRAIN 10&ndash;500 ms</span>
+        <span class="gos-legend-scale"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span>DENSITY 0.5&ndash;40 /s</span>
+    </div>
+
+    <!-- Audio I/O — required structure for pedalboard connections -->
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}"
+             mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}"
+             mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+
+</div>

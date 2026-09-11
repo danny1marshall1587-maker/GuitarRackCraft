@@ -1,0 +1,7 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://github.com/ipatix/lv2-psx-reverb>
+    a lv2:Plugin ;
+    lv2:binary <psx_reverb.so> , <psx_reverb.dll> ;
+    rdfs:seeAlso <psx-reverb.ttl> , <modgui.ttl> .

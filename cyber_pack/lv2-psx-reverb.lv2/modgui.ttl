@@ -1,0 +1,39 @@
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<http://github.com/ipatix/lv2-psx-reverb>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon.html> ;
+        modgui:stylesheet <modgui/stylesheet.css> ;
+        modgui:javascript <modgui/script.js> ;
+        modgui:screenshot <modgui/screenshot.png> ;
+        modgui:thumbnail <modgui/thumbnail.png> ;
+        modgui:brand "SONY SPU" ;
+        modgui:label "PSX Reverb" ;
+        modgui:model "boxy" ;
+        modgui:panel "custom" ;
+        modgui:color "#9b9ba2" ;
+        modgui:port 
+        [
+            lv2:index 0 ;
+            lv2:symbol "preset" ;
+            lv2:name "PRESET (0-9)" ;
+        ] ,
+        [
+            lv2:index 1 ;
+            lv2:symbol "wet" ;
+            lv2:name "WET" ;
+        ] ,
+        [
+            lv2:index 2 ;
+            lv2:symbol "dry" ;
+            lv2:name "DRY" ;
+        ] ,
+        [
+            lv2:index 3 ;
+            lv2:symbol "master" ;
+            lv2:name "MASTER" ;
+        ]
+    ] .

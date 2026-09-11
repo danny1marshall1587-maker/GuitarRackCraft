@@ -1,0 +1,194 @@
+/* DF JPverb - Authentic MOD Boxy Pedal Styling */
+
+.custom-boxy-dfjpverb {
+    position: absolute;
+    width: 350px;
+    height: 520px;
+    background: radial-gradient(circle at 50% 18%, rgb(42,18,54) 0%, rgb(25,10,34) 60%, rgb(12,5,18) 100%);
+    border-radius: 22px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.9), inset 0 1px 3px rgba(220,100,255, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.9);
+    border: 3px solid rgb(140,50,175);
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.custom-boxy-dfjpverb .mod-drag-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    cursor: move;
+    z-index: 20;
+}
+
+.custom-boxy-dfjpverb .mod-plugin-brand {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.custom-boxy-dfjpverb .mod-plugin-brand h1 {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgb(220,140,255);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.custom-boxy-dfjpverb .mod-plugin-name {
+    text-align: center;
+    margin: 1px 20px 2px 20px;
+}
+
+.custom-boxy-dfjpverb .mod-plugin-name h1 {
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: rgb(255,235,255);
+    text-shadow: 0 0 10px rgba(220,100,255, 0.6);
+    margin: 0;
+}
+
+.custom-boxy-dfjpverb .pedal-subtitle {
+    text-align: center;
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: rgb(220,140,255);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(140,50,175, 0.4);
+    padding-bottom: 4px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.custom-boxy-dfjpverb .knob-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px 15px 2px 15px;
+}
+
+.custom-boxy-dfjpverb .knob-section-header .section-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: rgb(235,160,255);
+    text-transform: uppercase;
+    background: rgba(35,14,48, 0.85);
+    padding: 1px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(140,50,175, 0.35);
+}
+
+.custom-boxy-dfjpverb .mod-control-group {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 8px;
+    margin-bottom: 4px;
+}
+
+.custom-boxy-dfjpverb .mod-control-group.row-1 { justify-content: center; }
+.custom-boxy-dfjpverb .mod-control-group.row-2 { justify-content: center; gap: 36px; }
+.custom-boxy-dfjpverb .mod-control-group.row-3 { justify-content: space-around; }
+.custom-boxy-dfjpverb .mod-control-group.row-4 { justify-content: space-around; }
+
+.custom-boxy-dfjpverb .mod-knob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 66px;
+    margin: 0;
+    position: relative;
+}
+
+.custom-boxy-dfjpverb .custom-knob-dial {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgb(49,35,57) 0%, rgb(24,10,32) 70%, #000000 100%);
+    border: 2px solid rgb(180,70,220);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(220,100,255, 0.4);
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.custom-boxy-dfjpverb .custom-knob-dial:hover {
+    border-color: rgb(255,60,200);
+    box-shadow: 0 0 10px rgba(255,60,200, 0.7);
+}
+
+.custom-boxy-dfjpverb .custom-knob-dial .knob-rotor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 15px;
+    background: rgb(255,60,200);
+    border-radius: 1.5px;
+    box-shadow: 0 0 6px rgb(255,60,200);
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+    pointer-events: none;
+}
+
+.custom-boxy-dfjpverb .mod-knob-title {
+    font-size: 7.5px;
+    font-weight: 800;
+    color: rgb(240,215,255);
+    letter-spacing: 0.6px;
+    margin-top: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.custom-boxy-dfjpverb .mod-light {
+    position: absolute;
+    bottom: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #101010;
+    border: 2px solid rgb(140,50,175);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.custom-boxy-dfjpverb .mod-light.on,
+.custom-boxy-dfjpverb.mod-pedal-on .mod-light {
+    background-color: rgb(255,50,220);
+    box-shadow: 0 0 14px rgb(255,50,220), 0 0 24px rgb(255,50,220), inset 0 1px 2px #ffffff;
+    border-color: #ffffff;
+}
+
+.custom-boxy-dfjpverb .mod-footswitch {
+    position: absolute !important;
+    bottom: 12px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 66px !important;
+    height: 66px !important;
+    background-image: url(/resources/pedals/footswitch.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 132px !important;
+    cursor: pointer !important;
+    z-index: 60 !important;
+}
+
+.custom-boxy-dfjpverb .mod-footswitch.on {
+    background-position-y: top !important;
+}

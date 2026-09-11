@@ -1,0 +1,63 @@
+<div class="mod-pedal mod-pedal-duskverb">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="dusk-top-bar">
+        <div class="dusk-brand">DUSK AUDIO</div>
+        <div class="dusk-title">DUSKVERB</div>
+        <div class="dusk-oled-display">
+            <span class="oled-mode">16-CH FDN ENGINE</span>
+            <span class="oled-status">HIGH-DEF ALGORITHMIC</span>
+        </div>
+    </div>
+
+    <div class="dusk-controls">
+        <div class="dusk-row">
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="algorithm"></div>
+                <span class="mod-knob-title">TYPE</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="decay"></div>
+                <span class="mod-knob-title">DECAY</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="predelay"></div>
+                <span class="mod-knob-title">PRE-DLY</span>
+            </div>
+        </div>
+
+        <div class="dusk-row">
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="damping"></div>
+                <span class="mod-knob-title">DAMP</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="width"></div>
+                <span class="mod-knob-title">WIDTH</span>
+            </div>
+            <div class="mod-control-group">
+                <div class="mod-knob" mod-role="input-control-port" mod-port-symbol="mix"></div>
+                <span class="mod-knob-title">MIX</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-control-group mod-input-group">
+            <div class="mod-port mod-input" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+                <div class="mod-port-name">{{name}}</div>
+            </div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-control-group mod-output-group">
+            <div class="mod-port mod-output" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+                <div class="mod-port-name">{{name}}</div>
+            </div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>

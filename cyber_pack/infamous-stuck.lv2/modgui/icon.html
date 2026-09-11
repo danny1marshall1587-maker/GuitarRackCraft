@@ -1,0 +1,55 @@
+<div class="mod-pedal mod-pedal-boxy{{{cns}}} custom-boxy-infamous-stuck{{{c_extra}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="mod-plugin-brand"><h1>Infamous Audio</h1></div>
+    <div class="mod-plugin-name"><h1>The Stuck</h1></div>
+    <div class="pedal-subtitle">AUDIO DRONE HOLD & SUSTAIN FREEZE</div>
+    <div class="mod-light on" mod-role="bypass-light"></div>
+    <div class="knob-section-header">
+        <span class="section-title">DRONE SUSTAIN CONTROLS</span>
+    </div>
+    <div class="mod-control-group clearfix row-2">
+        <div class="mod-knob" title="DRONE GAIN">
+            <div class="custom-knob-dial" data-symbol="DRONE_GAIN" data-min="0.0" data-max="2.0" data-default="0.5"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="DRONE_GAIN" style="display:none;"></div>
+            <span class="mod-knob-title">DRONE GAIN</span>
+        </div>
+        <div class="mod-knob" title="RELEASE (s)">
+            <div class="custom-knob-dial" data-symbol="RELEASE" data-min="0.01" data-max="3.0" data-default="0.5"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="RELEASE" style="display:none;"></div>
+            <span class="mod-knob-title">RELEASE (s)</span>
+        </div>
+    </div>
+    <div class="knob-section-header">
+        <span class="section-title">FREEZE TRIGGER</span>
+    </div>
+    <div class="mod-control-group clearfix row-1">
+        <div class="mod-knob" title="STICK IT!">
+            <div class="custom-knob-dial" data-symbol="STICK_IT" data-min="0.0" data-max="1.0" data-default="0.0"><div class="knob-rotor"></div></div>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="STICK_IT" style="display:none;"></div>
+            <span class="mod-knob-title">STICK IT!</span>
+        </div>
+    </div>
+    <div class="mod-footswitch" mod-role="bypass" title="Footswitch (Bypass / Engage)"></div>
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-input-image"></div></div>
+        {{/effect.ports.cv.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}"><div class="mod-pedal-output-image"></div></div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

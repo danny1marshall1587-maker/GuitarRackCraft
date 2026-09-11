@@ -21,6 +21,9 @@
 
 #include <unistd.h>
 #include <sys/syscall.h>
+#if defined(__ANDROID__) && defined(__linux__)
+#include <sys/resource.h>
+#endif
 
 namespace guitarrackcraft {
 
