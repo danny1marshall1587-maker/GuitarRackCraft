@@ -3,5 +3,5 @@
 
 <http://cyber-audio.co.uk/plugins/cyber-bass9>
     a lv2:Plugin ;
-    lv2:binary <cyber_bass9.dll> , <cyber_bass9.so> ;
+    lv2:binary <cyber_bass9.so> , <cyber_bass9.dll> ;
     rdfs:seeAlso <cyber_bass9.ttl> , <modgui.ttl> .

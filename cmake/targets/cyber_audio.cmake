@@ -14,12 +14,16 @@ if(EXISTS "${CYBER_SRC}")
             
             if(EXISTS "${_plugin_dir}/manifest.ttl")
                 file(READ "${_plugin_dir}/manifest.ttl" _manifest_content)
-                string(REGEX MATCH "lv2:binary[ 	
-]+<([^>]+)>" _match "${_manifest_content}")
+                string(REGEX MATCH "<([^>]+\\.so)>" _match "${_manifest_content}")
                 set(_so_name "${CMAKE_MATCH_1}")
+                if(NOT _so_name)
+                    string(REGEX MATCH "lv2:binary[ 	
+]+<([^>]+)>" _match "${_manifest_content}")
+                    set(_so_name "${CMAKE_MATCH_1}")
+                endif()
                 
                 if(_so_name)
-                    string(REGEX REPLACE "\\.so$" "" _lib_stem "${_so_name}")
+                    string(REGEX REPLACE "\\.(so|dll)$" "" _lib_stem "${_so_name}")
                     string(REPLACE "-" "_" _target_safe "${_lib_stem}")
                     set(_target_name "target_${_target_safe}")
                     
@@ -50,9 +54,11 @@ if(EXISTS "${CYBER_SRC}")
                         )
                         
                         target_compile_options(${_target_name} PRIVATE
-                            -fPIC -O3 -std=c++17 -fvisibility=hidden
+                            -fPIC -O3 -fvisibility=hidden
                             -Wno-unused-parameter -Wno-unused-result
                             -ffast-math
+                            $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
+                            $<$<COMPILE_LANGUAGE:C>:-std=c11>
                         )
                         
                         set_target_properties(${_target_name} PROPERTIES
